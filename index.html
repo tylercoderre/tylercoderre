@@ -82,6 +82,12 @@
     <div id="top"></div>
     <div id="maincontent"></div>
 
+    <div class="blob-cont">
+        <div class="yellow blob"></div>
+        <div class="red blob"></div>
+        <div class="green blob"></div>
+    </div>
+
     <section id="about">
         <div class="hello">
             <div class="hello--left-accent"></div>
@@ -208,6 +214,11 @@
             <h3>macOS Dock Organisation</h3>
             <p>Looking for the ultimate organized macOS dock? With a simple copy-pastable terminal snippet. Get started and you can start to reign in the chaos.</p>
             <a href="./writing/add-spacers-to-the-macOS-dock.html" tabindex="-1"><button class="button--wipe">Get Started</button></a>
+        </article>
+        <article>
+            <h3>Indespensible macOS Shortcuts</h3>
+            <p>Boost your spped, productivity, and macOS experience with a somprehensive list of shortcuts to add to your workflow..</p>
+            <a href="./writing/macOS-shortcuts.html" tabindex="-1"><button class="button--wipe">Get Started</button></a>
         </article>
     </section>
 
@@ -568,6 +579,18 @@
             </div>
         </form>
     </dialog>
+
+    <svg>
+        <filter id='noiseFilter'>
+          <feTurbulence 
+            type='fractalNoise' 
+            baseFrequency='0.6' 
+            stitchTiles='stitch'/>
+           <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+              <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
+              <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+        </filter>
+      </svg>
 
     <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
     <script src="script.js"></script>
