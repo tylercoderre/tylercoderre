@@ -326,7 +326,59 @@
         <h2>Talk.</h2>
         <h3><small>I'd love to chat about potential partnerships, chicken wings, or a dog pic exchange.</small></h3>
         <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="blank" class="link link--inline">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> as well.</p>
-        <div class="gap"></div>
+
+        <div class="location--container">
+            <div id="location" class="location">Based in Buffalo, NY</div>
+            <div id="clock" class="time">Loading time...</div>
+            <div id="temp" class="temp">Loading temperature...</div>
+          </div>
+        
+          <script>
+            // Live Clock for Buffalo (Eastern Time)
+            function updateClock() {
+              const now = new Date();
+              const options = {
+                timeZone: 'America/New_York',
+                hour: 'numeric',
+                minute: 'numeric',
+                // second: 'numeric',
+                // weekday: 'long',
+                // year: 'numeric',
+                // month: 'long',
+                // day: 'numeric',
+                hour12: true,
+              };
+              const formatter = new Intl.DateTimeFormat('en-US', options);
+              document.getElementById('clock').textContent = formatter.format(now);
+            }
+        
+            // Get Current Temperature via OpenWeatherMap
+            async function updateTemperature() {
+              const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
+              const city = 'Buffalo';
+              const units = 'imperial'; // or 'metric' for Celsius
+              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+        
+              try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const temp = Math.round(data.main.temp);
+                const unit = units === 'imperial' ? '°F' : '°C';
+                document.getElementById('temp').textContent = ` // ${temp}${unit}`;
+              } catch (err) {
+                document.getElementById('temp').textContent = 'Unable to load temperature';
+                console.error(err);
+              }
+            }
+        
+            // ⏱Run updates
+            updateClock();
+            setInterval(updateClock, 1000);
+        
+            updateTemperature();
+            setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
+          </script>
+
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
             <input type="text" name="name" autocomplete="name" required aria-required="true" placeholder="Hello" required>

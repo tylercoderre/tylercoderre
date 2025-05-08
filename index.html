@@ -427,7 +427,59 @@
         <h2>Talk.</h2>
         <h3><small>I'd love to chat about potential partnerships, chicken wings, or a dog pic exchange.</small></h3>
         <p>You can contact and connect with me through <a href="mailto:tyler@coderre.design" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="blank" class="link link--inline">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> as well.</p>
-        <div class="gap"></div>
+
+        <div class="location--container">
+            <div id="location" class="location">Based in Buffalo, NY</div>
+            <div id="clock" class="time">Loading time...</div>
+            <div id="temp" class="temp">Loading temperature...</div>
+          </div>
+        
+          <script>
+            // Live Clock for Buffalo (Eastern Time)
+            function updateClock() {
+              const now = new Date();
+              const options = {
+                timeZone: 'America/New_York',
+                hour: 'numeric',
+                minute: 'numeric',
+                // second: 'numeric',
+                // weekday: 'long',
+                // year: 'numeric',
+                // month: 'long',
+                // day: 'numeric',
+                hour12: true,
+              };
+              const formatter = new Intl.DateTimeFormat('en-US', options);
+              document.getElementById('clock').textContent = formatter.format(now);
+            }
+        
+            // Get Current Temperature via OpenWeatherMap
+            async function updateTemperature() {
+              const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
+              const city = 'Buffalo';
+              const units = 'imperial'; // or 'metric' for Celsius
+              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+        
+              try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const temp = Math.round(data.main.temp);
+                const unit = units === 'imperial' ? '°F' : '°C';
+                document.getElementById('temp').textContent = ` // ${temp}${unit}`;
+              } catch (err) {
+                document.getElementById('temp').textContent = 'Unable to load temperature';
+                console.error(err);
+              }
+            }
+        
+            // ⏱Run updates
+            updateClock();
+            setInterval(updateClock, 1000);
+        
+            updateTemperature();
+            setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
+          </script>
+
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
             <input type="text" name="name" autocomplete="name" required aria-required="true" placeholder="Hello" required>
@@ -448,12 +500,12 @@
         <p class="top"><a href="#top" tabindex="0" class="link link--inline">Back to the top</a></p>
         <p class="copyright">&#169; Tyler Coderre, all rights reserved <a href="accessibility.html" tabindex="0" class="link link--inline">Accessibility</a> + <a href="privacy.html" tabindex="0" class="link link--inline">Privacy</a></p>
     </footer>
-
+    
     <dialog>
         <form method="dialog" class="m0">
             <div class="dialog--header">
                 <div class="dialog--title">
-                    <h2 class="case-study--dialog">Case Studies<span>19</span></h2>
+                    <h2 class="case-study--dialog">Case Studies</h2>
                 </div>
                 <div class="dialog--close">
                     <button class="close-modal m0" value="cancel" tabindex="0">Close</button>
@@ -461,134 +513,174 @@
             </div>
             <div class="dialog--content">
                 <p><small>Featured (3)</small></p>
-                <h3 class="case-study--dialog"><a href="index.html#contact" tabindex="1" class="link link--inline">Saas Experience and Enterprise Design System</a><span class="case-study--label">Contact Only</span></h3>
-                <ul class="tags">
-                    <li>Graphic Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/itx.html" tabindex="1" class="link link--inline">ITX</a></h3>
-                <ul class="tags">
-                    <li>Graphic Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/paychex.html" tabindex="1" class="link link--inline">Paychex</a> <span class="case-study--label">Limited</span></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <div class="gap"></div>
-                <p><small>Case Studies (13)</small></p>
-                <h3 class="case-study--dialog"><a href="./work/19-ideas.html" tabindex="1" class="link link--inline">19 IDEAS</a></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/kore-marketing-agency.html" target="blank" tabindex="1" class="link link--inline">Kore Marketing</a></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/buffalo-niagara-medical-campus.html" tabindex="1" class="link link--inline">BNMC</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/roar-logistics.html" target="blank" class="link link--inline">ROAR Logistics</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/hodgson-russ.html" target="blank" class="link link--inline">Hodgson Russ</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/labatt-blue-and-zubaz.html" tabindex="1" class="link link--inline">Labatt + Zubaz</a></h3>
-                <ul class="tags">
-                    <li>Graphic Design</li>
-                    <li>Packaging Design</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/mike-cardus.html" tabindex="1" class="link link--inline">Mike Cardus</a></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>Packaging Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/person-centered-services.html" tabindex="1" class="link link--inline">Person Centered Services</a></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/savarino-companies.html" tabindex="1" class="link link--inline">Savarino Companies</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/storillo.html" tabindex="1" class="link link--inline">Storillo</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/trocaire-college.html" tabindex="1" class="link link--inline">Trocaire College</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/university-at-buffalo.html" tabindex="1" class="link link--inline">University at Buffalo</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                </ul>
-                <h3 class="case-study--dialog"><a href="./work/walsh-duffield.html" tabindex="1" class="link link--inline">Walsh Duffield</a></h3>
-                <ul class="tags">
-                    <li>Design</li>
-                    <li>UI + UX</li>
+                <ul class="case-study--list">
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog"><a href="../index.html#contact" tabindex="1" class="link link--inline">Saas Experience and Enterprise Design System</a> <span class="case-study--label">Contact Only</span></h3>
+                        <ul class="tags">
+                            <li>Graphic Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog"><a href="../work/itx.html" tabindex="1" class="link link--inline">ITX</a></h3>
+                        <ul class="tags">
+                            <li>Graphic Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog"><a href="../work/paychex.html" tabindex="1" class="link link--inline">Paychex</a> <span class="case-study--label">Limited</span></h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="gap"></div>
-                <p><small>The Phantom Zone (3)</small></p>
-                <h3 class="case-study--dialog">A Jaunt with Joy <span class="case-study--label">Archived</span></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog">Hearst <span class="case-study--label">Archived</span></h3>
-                <ul class="tags">
-                    <li>Branding</li>
-                    <li>Graphic Design</li>
-                    <li>UI + UX</li>
-                    <li>Development</li>
-                </ul>
-                <h3 class="case-study--dialog">Independent Health <span class="case-study--label">Archived</span></h3>
-                <ul class="tags">
-                    <li>Graphic Design</li>
-                    <li>UI + UX</li>
+                <p class="m0"><small>The Phantom Zone (15)</small></p>
+                <p><small><em>Reach out for to chat about archived studies.</em></small></p>
+                <ul class="case-study--list">
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">A Jaunt with Joy</h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Buffalo Niagara Medical Campus</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Hearst</h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Graphic Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Hodgson Russ</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Independent Health</h3>
+                        <ul class="tags">
+                            <li>Graphic Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Kore Marketing</h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Design</li>
+                            <li>Marketing</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Labatt + Zubaz</h3>
+                        <ul class="tags">
+                            <li>Graphic Design</li>
+                            <li>Packaging Design</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Organization Development by Mike Cardus</h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Design</li>
+                            <li>Packaging Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Person Centered Services</h3>
+                        <ul class="tags">
+                            <li>Branding</li>
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">ROAR Logistics</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Savarino Companies</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Storillo</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                            <li>Development</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list">
+                        <h3 class="case-study--dialog">Trocaire College</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>Marketing</li>
+                            <li>UI + UX</li>
+                        </ul>
+                    </li>
+                    <li class="case-study--list"><h3 class="case-study--dialog">University at Buffalo</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>Marketing</li>
+                            <li>UI + UX</li>
+                        </ul></li>
+                    <li class="case-study--list"><h3 class="case-study--dialog">Walsh Duffield</h3>
+                        <ul class="tags">
+                            <li>Design</li>
+                            <li>UI + UX</li>
+                        </ul></li>
                 </ul>
             </div>
         </form>
-    </dialog>
+    </dialog> 
 
-    <svg>
-        <filter id='noiseFilter'>
+    <svg width="0" height="0" style="position: absolute;">
+        <filter id="noiseFilter">
           <feTurbulence 
-            type='fractalNoise' 
-            baseFrequency='0.6' 
-            stitchTiles='stitch'/>
-           <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-              <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
-              <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+            type="fractalNoise" 
+            baseFrequency="0.6" 
+            stitchTiles="stitch" />
+          <feColorMatrix 
+            in="colorNoise" 
+            type="matrix" 
+            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+          <feComposite 
+            operator="in" 
+            in2="SourceGraphic" 
+            result="monoNoise" />
+          <feBlend 
+            in="SourceGraphic" 
+            in2="monoNoise" 
+            mode="screen" />
         </filter>
       </svg>
 
