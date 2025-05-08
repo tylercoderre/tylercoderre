@@ -36,29 +36,77 @@
     --tc-yellow: #EDB74D;
     --tc-red: #EB6666;
     --tc-green: #6FB18A;
+    /* Solid Colors */
+    --tc-solid-000: hsl(0, 0%, 0%);
+    --tc-solid-008: hsl(0, 0%, 8%);
+    --tc-solid-016: hsl(0, 0%, 16%);
+    --tc-solid-024: hsl(0, 0%, 24%);
+    --tc-solid-032: hsl(0, 0%, 32%);
+    --tc-solid-040: hsl(0, 0%, 40%);
+    --tc-solid-048: hsl(0, 0%, 48%);
+    --tc-solid-056: hsl(0, 0%, 56%);
+    --tc-solid-064: hsl(0, 0%, 64%);
+    --tc-solid-072: hsl(0, 0%, 72%);
+    --tc-solid-080: hsl(0, 0%, 80%);
+    --tc-solid-088: hsl(0, 0%, 88%);
+    --tc-solid-096: hsl(0, 0%, 96%);
+    --tc-solid-100: hsl(0, 0%, 100%);
 }
 
 html[data-theme='light'] {
-    --tc-background-primary: hsl(0, 0%, 95%);
-    --tc-background-alpha: hsla(0, 0%, 95%, 0.95);
-    --tc-background-secondary: hsl(0, 0%, 100%);
-    --tc-background-tertiary: hsl(0, 0%, 90%);
-    --tc-text: hsl(0, 0%, 2%);
-    --tc-text-secondary: hsl(0, 0%, 40%);
-    --tc-text-copyright: hsl(0, 0%, 35%);
-    --tc-shadow: hsl(0, 0%, 2%, 0.48);
+    --tc-background-primary: var(--tc-solid-096);
+    --tc-background-alpha: hsla(0, 0%, 96%, 0.96);
+    --tc-background-secondary: var(--tc-solid-100);
+    --tc-background-tertiary: var(--tc-solid-088);
+    --tc-text: var(--tc-solid-008);
+    --tc-text-secondary: var(--tc-solid-24);
+    --tc-text-copyright: var(--tc-solid-40);
+    --tc-shadow: hsla(0, 0%, 8%, 0.48);
+
+    --tc-action-primary-default: var(--tc-solid-016);
+    --tc-action-primary-hover: var(--tc-solid-032);
+    --tc-action-primary-focus: var(--tc-solid-024);
+    --tc-action-primary-active: var(--tc-solid-008);
+    --tc-action-primary-disabled: var(--tc-solid-056);
+
+    --tc-action-primary-inverse-default: var(--tc-solid-088);
+    --tc-action-primary-inverse-hover: var(--tc-solid-072);
+    --tc-action-primary-inverse-focus: var(--tc-solid-080);
+    --tc-action-primary-inverse-active: var(--tc-solid-064);
+    --tc-action-primary-inverse-disabled: var(--tc-solid-056);
 }
 
 html[data-theme='dark'] {
-    --tc-background-primary: hsl(0, 0%, 10%);
-    --tc-background-alpha: hsla(0, 0%, 10%, 0.95);
-    --tc-background-secondary: hsl(0, 0%, 15%);
-    --tc-background-tertiary: hsl(0, 0%, 20%);
-    --tc-text: hsl(0, 0%, 98%);
-    --tc-text-secondary: hsl(0, 0%, 65%);
-    --tc-text-copyright: hsl(0, 0%, 55%);
-    --tc-shadow: hsl(0, 0%, 2%, 0.72);
+    --tc-background-primary: var(--tc-solid-008);
+    --tc-background-alpha: hsla(0, 0%, 8%, 0.96);
+    --tc-background-secondary: var(--tc-solid-016);
+    --tc-background-tertiary: var(--tc-solid-024);
+    --tc-text: var(--tc-solid-096);
+    --tc-text-secondary: var(--tc-solid-080);
+    --tc-text-copyright: var(--tc-solid-064);
+    --tc-shadow: hsl(0, 0%, 8%, 0.72);
+
+    --tc-action-primary-default: var(--tc-solid-088);
+    --tc-action-primary-hover: var(--tc-solid-072);
+    --tc-action-primary-focus: var(--tc-solid-080);
+    --tc-action-primary-active: var(--tc-solid-064);
+    --tc-action-primary-disabled: var(--tc-solid-056);
+
+    --tc-action-primary-inverse-default: var(--tc-solid-016);
+    --tc-action-primary-inverse-hover: var(--tc-solid-032);
+    --tc-action-primary-inverse-focus: var(--tc-solid-024);
+    --tc-action-primary-inverse-inverse-active: var(--tc-solid-008);
+    --tc-action-primary-inverse-disabled: var(--tc-solid-056);
 }
+
+
+
+
+
+
+
+
+
 
 html[data-theme='light'] .icon-accent::before,
 html[data-theme='light'] .hello--left-accent::after,
@@ -1120,10 +1168,8 @@ input[type="button"][disabled] {
   font-size: 1rem;
   border-radius: 2rem;
   cursor: pointer;
-  background-color: var(--tc-background-tertiary);
   color: var(--tc-text);
   border: var(--tc-border-standard) var(--tc-text);
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
   transition: all 0.25s ease-in-out;
   line-height: 1;
 }
@@ -1837,57 +1883,120 @@ input[type]:focus,
     box-sizing: border-box;
 }
 
+/* ==== CHECKBOX STATES ==== */
+
 input[type="checkbox"] {
-    box-sizing: border-box;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: inline-block;
-    margin: 0 1rem 0 0;
-    padding: 0;
-    flex: none;
-    border: 1px solid var(--tc-text);
-    appearance: none;
-    background-color: var(--tc-background-tertiary);
-    outline: none;
-    transition: outline 0.1s;
-  }
+  font-family: 'Material Symbols Outlined';
+  font-size: var(--tc-icon-size);
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 1rem 0 0;
+  padding: 0;
+  flex: none;
+  border: 1px solid;
+  border-radius: 0rem;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+  background-color: var(--tc-action-primary-inverse-default);
+  border-color: var(--tc-action-primary-default);
+  color: var(--tc-action-primary-default);
+  position: relative;
+  text-align: center;
+  caret-color: transparent;
+  cursor: pointer;
+}
 
-  input[type="checkbox"]:checked {
-    background-size: cover;
-  }
-  
-  input[type="checkbox"]:not(:disabled):checked {
-    border: 2px solid var(--tc-text);
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: %23274c77" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
-    background-color: var(--tc-text);
-  }
+/* === UNCHECKED STATES === */
 
-  input[type="checkbox"]:disabled {
+input[type="checkbox"]:hover:not(:checked):not(:disabled) {
+    background-color: var(--tc-action-primary-inverse-default);
+    border-color: var(--tc-action-primary-default);
+    color: var(--tc-action-primary-default);
+}
+
+input[type="checkbox"]:focus-visible:not(:checked):not(:disabled) {
+    background-color: var(--tc-action-primary-inverse-focus);
+    border-color: var(--tc-action-primary-focus);
+    color: var(--tc-action-primary-focus);
+    outline: 3px solid var(--tc-text);
+}
+
+input[type="checkbox"]:active:not(:checked):not(:disabled) {
+    background-color: var(--tc-action-primary-inverse-active);
+    border-color: var(--tc-action-primary-active);
+    color: var(--tc-action-primary-active);
+}
+
+input[type="checkbox"]:disabled:not(:checked) {
     background-color: var(--tc-background-secondary);
-  }
-  
-  input[type="checkbox"]:disabled:checked {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 32 32" xml:space="preserve"><path style="fill: %238b8c89" d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818"/></svg>');
-    background-color: var(--tc-text);
-  }
+    border-color: var(--tc-action-primary-disabled);
+    color: var(--tc-action-primary-disabled);
+    cursor: not-allowed;
+}
 
-  @media (hover: hover) {
-    input[type="checkbox"]:not(:disabled):hover {
-      background-color: var(--tc-background-primary);
-      outline: 4px solid var(--tc-text-secondary);
-      transform: scale(1.05);
-    }
-  }
+/* === CHECKED STATES === */
 
-  input[type="checkbox"]:focus-visible {
-    outline: 4px solid var(--tc-text);
-    transform: scale(1.05);
-  }
-  
-  
-  
-  
-  
+input[type="checkbox"]:checked {
+    background-color: var(--tc-action-primary-default);
+    border-color: var(--tc-action-primary-inverse-default);
+    color: var(--tc-action-primary-inverse-default);
+}
+
+input[type="checkbox"]:hover:checked:not(:disabled) {
+    background-color: var(--tc-action-primary-hover);
+    border-color: var(--tc-action-primary-inverse-hover);
+    color: var(--tc-action-primary-inverse-hover);
+}
+
+input[type="checkbox"]:focus-visible:checked:not(:disabled) {
+    background-color: var(--tc-action-primary-focus);
+    border-color: var(--tc-action-primary-inverse-focus);
+    color: var(--tc-action-primary-inverse-focus);
+    outline: 3px solid var(--tc-text);
+}
+
+input[type="checkbox"]:active:checked:not(:disabled) {
+    background-color: var(--tc-action-primary-active);
+    border-color: var(--tc-action-primary-inverse-active);
+    color: var(--tc-action-primary-inverse-active);
+}
+
+input[type="checkbox"]:disabled:checked {
+    background-color: var(--tc-action-primary-disabled);
+    border-color: var(--tc-action-primary-disabled);
+    color: var(--tc-action-primary-inverse-disabled);
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]::after {
+  content: '';
+  font-family: 'Material Symbols Outlined';
+  font-size: 1.25rem;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--tc-background-primary);
+  pointer-events: none;
+  opacity: 0;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  text-align: center;
+}
+
+input[type="checkbox"]:checked::after {
+  content: 'check';
+  opacity: 1;
+}
+
+input[type="checkbox"]:disabled:checked::after {
+  color: var(--tc-text-secondary);
+}
 
 .required-field::after {
     /* Custom icon */
@@ -2439,27 +2548,36 @@ html[data-theme='dark'] .link--private-case-study-image:hover {
 
 
 
+
 /* ==== PROGRESS ==== */
-
 progress[value] {
-    /* Reset the default appearance */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: var(--tc-background-tertiary);
-    width: 100%;
-    height: 0.25rem;
-    border-radius: var(--tc-border-radius-sm);
-    border: none;
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+  margin: 0 0 var(--tc-space-sm) 0;
+  background-color: var(--tc-background-tertiary);
+  border-radius: var(--tc-border-radius-sm);
+  overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-progress[value]::-webkit-progress-bar,
-progress[value]::-moz-progress-bar {
-    background-color: var(--tc-text);
-    border-radius: var(--tc-border-radius-sm);
+progress::-webkit-progress-bar {
+  background-color: var(--tc-background-tertiary);
+  border-radius: var(--tc-border-radius-sm);
 }
 
+progress::-webkit-progress-value {
+  background-color: var(--tc-text);
+  border-radius: var(--tc-border-radius-sm);
+  transition: width 0.3s ease;
+}
 
+progress::-moz-progress-bar {
+  background-color: var(--tc-text);
+  border-radius: var(--tc-border-radius-sm);
+}
 
 
 

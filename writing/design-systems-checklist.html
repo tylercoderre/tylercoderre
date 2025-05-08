@@ -12,7 +12,6 @@
     <meta property="og:description" content="The online profile of Tyler Coderre">
     <meta property="og:type" content="website">
     <meta property="og:image" content="../images/og-image.jpg">
-    <link rel="stylesheet" href="../style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -20,6 +19,7 @@
     <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#888888">
     <meta name="msapplication-TileColor" content="#111111">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../style.css">
 </head>
     
 <body>
@@ -100,7 +100,8 @@
 
     <section>
         <h2 class="p0">Design Language</h2>
-        <progress max="100" value="80"></progress>
+        <progress max="100" value="0"></progress>
+        
         <p>This is how your product “talks” to people. It’s the look, feel, and flow that makes everything feel connected. When it all works together, users don’t have to think too hard.</p>
         
         <div class="checklist-item--header">
@@ -330,17 +331,24 @@
 
       function restoreFromUrl() {
         const hash = window.location.hash;
+        const checkboxes = document.querySelectorAll('.checklist-item--input');
+
+        // Clear all checkboxes first
+        checkboxes.forEach(cb => cb.checked = false);
+
+        // Check specified boxes from URL hash
         if (hash.startsWith('#checked=')) {
           const idList = hash.replace('#checked=', '').split(',');
           idList.forEach(id => {
             const checkbox = document.getElementById(id);
-            if (checkbox) {
-              checkbox.checked = true;
-              checkbox.dispatchEvent(new Event('change'));
-            }
+            if (checkbox) checkbox.checked = true;
           });
         }
-        updateProgress();
+
+        // Then trigger progress recalculation
+        if (typeof updateProgress === "function") updateProgress();
+        if (typeof updateSectionProgress === "function") updateSectionProgress();
+        if (typeof updateGroupSummaries === "function") updateGroupSummaries();
       }
 
       document.addEventListener('DOMContentLoaded', () => {
@@ -4110,6 +4118,8 @@ if (copyBtn) {
 }
 });
     </script>
+
+    
     
 </body>
 </html>
