@@ -340,11 +340,11 @@
             }
           });
         }
+        updateProgress();
       }
 
       document.addEventListener('DOMContentLoaded', () => {
         restoreFromUrl();
-        updateProgress();
         updateSectionProgress?.();
         updateGroupSummaries?.();
       });
