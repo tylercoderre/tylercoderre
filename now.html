@@ -1,201 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyler Coderre / Now</title>
-    <meta name="description" content="The online profile of Tyler Coderre">
-    <meta name="keywords" content="Tyler, Coderre, Design, Developer, UX, UI, UX Designer, UI Designer, Product Designer">
-    <meta property="og:title" content="Tyler Coderre">
-    <meta property="og:url" content="https://tylercoderre.com">
-    <meta property="og:description" content="The online profile of Tyler Coderre">
+    <title>Now - Tyler Coderre</title>
+    <meta name="description" content="What I am up to now.">
+    <meta property="og:title" content="Now - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/now.html">
+    <meta property="og:description" content="What I am up to now.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/og-image.jpg">
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/now.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Now - Tyler Coderre">
+    <meta name="twitter:description" content="What I am up to now.">
+    <meta name="twitter:image" content="assets/images/og-image.jpg">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
     <meta name="msapplication-TileColor" content="#111111">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+    <script src="assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
-
 <body>
+    <header id="Top">
+    <a href="index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
 
-    <a id='skip' class='screen-reader-text' href='#maincontent'>
-        Skip to Content
-    </a>
-
-    <header class="desktopheader">
-        <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-        <nav class="desktop--nav">
-            <ul id="menubar" role="menubar" aria-label="Navigation Menu">
-                <li role="none">
-                    <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                </li>
-            </ul>
-        </nav>
-        <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Toggle</label>
-    </header>
-
-    <header class="mobileheader">
-        <div class="header-flex-container">
-            <div class="header-flex-child">
-                <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-            </div>
-            <div class="header-flex-child">
-                <details class="mobilenav" aria-label="menu">
-                    <summary class="mobilenav"><label>Menu</label></summary>
-                    <nav class="desktop--nav">
-                        <ul id="menulist" role="menulist" aria-label="Navigation Menu">
-                            <li role="none">
-                                <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </details>
-                <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Theme Toggle</label>
-            </div>
-        </div>
-    </header>
-
-    <div id="top"></div>
-    <div id="maincontent"></div>
-
+    <!-- NOW -->
     <section>
-            <h1>Now.</h1>
-            <p>What am I up to now? This page was inspired by the <a href="https://nownownow.com/" target="blank" class="link link--inline">now pages</a> kicked off by <a href="https://sive.rs/now" target="blank" class="link link--inline">Derek Sivers</a> after thinking it was a nifty premise.</p>
-            
-            <div class="location--container">
-                <div id="location" class="location">Currently based in Buffalo, NY</div>
-                <div id="clock" class="time">Loading time...</div>
-                <div id="temp" class="temp">Loading temperature...</div>
-              </div>
-            
-              <script>
-                // Live Clock for Buffalo (Eastern Time)
-                function updateClock() {
-                  const now = new Date();
-                  const options = {
-                    timeZone: 'America/New_York',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    // second: 'numeric',
-                    // weekday: 'long',
-                    // year: 'numeric',
-                    // month: 'long',
-                    // day: 'numeric',
-                    hour12: true,
-                  };
-                  const formatter = new Intl.DateTimeFormat('en-US', options);
-                  document.getElementById('clock').textContent = formatter.format(now);
-                }
-            
-                // Get Current Temperature via OpenWeatherMap
-                async function updateTemperature() {
-                  const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
-                  const city = 'Buffalo';
-                  const units = 'imperial'; // or 'metric' for Celsius
-                  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-            
-                  try {
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    const temp = Math.round(data.main.temp);
-                    const unit = units === 'imperial' ? '°F' : '°C';
-                    document.getElementById('temp').textContent = ` // ${temp}${unit}`;
-                  } catch (err) {
-                    document.getElementById('temp').textContent = 'Unable to load temperature';
-                    console.error(err);
-                  }
-                }
-            
-                // ⏱Run updates
-                updateClock();
-                setInterval(updateClock, 1000);
-            
-                updateTemperature();
-                setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
-              </script>
+        <h1>Now.</h1>
+        <p>What am I up to now? This page was inspired by the <a href="https://nownownow.com/" target="_blank" rel="noopener noreferrer">now pages</a> kicked off by <a href="https://sive.rs/now" target="_blank" rel="noopener noreferrer">Derek Sivers</a> after thinking it was a nifty premise.</p>
 
-            <h2>Build.</h2>
-            <ol>
-                <li>Interfaces and flows at <a href="https://itx.com/" target="blank" class="link link--inline">ITX</a></li>
-                <li>Design and development as <a href="coderredesign.html" target="blank" class="link link--inline">Coderre.Design</a></li>
-                <li>Developing a checklist system for design libraries</li>
-                <li>Developing a checklist system for accessibility focused interfaces</li>
-                <li>Continuing to add to and refine this site</li>
-                <li><a href="index.html/about.html" target="blank" class="link link--inline">Past work and resume</a></li>
-            </ol>
-            <div class="gap"></div>
-            <h2>Life.</h2>
-            <ol>
-                <li>Playing "<a href="https://www.blueprincegame.com/" target="blank" class="link link--inline">Blue Prince</a>" on Xbox</li>
-                <li>Playing "<a href="https://www.alanwake.com/" target="blank" class="link link--inline">Alan Wake 2</a>" on Xbox</li>
-                <li>Reading the "<a href="https://www.goodreads.com/series/70647-silo" target="blank" class="link link--inline">Wool</a>" series</li>
-                <li>Watching "<a href="https://www.imdb.com/title/tt9253284/" target="blank" class="link link--inline">Andor</a>" season two</li>
-                <li>Listening to past nostalgic soundtracks</li>
-                <li>Planning a wedding</li>
-            </ol>
+        <div class="location--container">
+            <p class="location">Currently based in Buffalo, NY</p>
+            <span class="time" id="clock" data-timezone="America/New_York">Loading time...</span>
+            <span class="temp" id="temp">Loading temperature...</span>
+            <noscript>
+                <style>
+                    #clock,
+                    #temp {
+                        display: none;
+                    }
+                </style>
+                <p>Local time and temperature are available when JavaScript is enabled.</p>
+            </noscript>
+        </div>
+
+        <h2>Build.</h2>
+        <ol>
+            <li>Interfaces and flows at <a href="https://itx.com/" target="_blank" rel="noopener noreferrer">ITX</a></li>
+            <li>Design and development as <a href="work/coderredesign.html">Coderre.Design</a></li>
+            <li>Developing a checklist system for design libraries</li>
+            <li>Developing a checklist system for accessibility focused interfaces</li>
+            <li>Continuing to add to and refine this site</li>
+            <li><a href="about.html">Past work and resume</a></li>
+        </ol>
+
+        <h2>Life.</h2>
+        <ol>
+            <li>Playing "<a href="https://www.blueprincegame.com/" target="_blank" rel="noopener noreferrer">Blue Prince</a>" on Xbox</li>
+            <li>Playing "<a href="https://www.alanwake.com/" target="_blank" rel="noopener noreferrer">Alan Wake 2</a>" on Xbox</li>
+            <li>Reading the "<a href="https://www.goodreads.com/series/70647-silo" target="_blank" rel="noopener noreferrer">Wool</a>" series</li>
+            <li>Watching "<a href="https://www.imdb.com/title/tt12637874/" target="_blank" rel="noopener noreferrer">Fallout</a>" season two</li>
+            <li>Listening to past nostalgic soundtracks</li>
+        </ol>
     </section>
+
+    <!-- WORKSPACE -->
     <section id="workspace">
         <h2>Workspace.</h2>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="./images/now/workspace-2024.JPG" alt="An image displaying my workspace setup, with a list of some of the gear and software used in it below.">
-        </div>
-        <p class="copyright"><small>Updated List 05.2025 / Pic 11.2024</small></p>
-        <div class="gap"></div>
+        <figure>
+            <img src="assets/images/now/workspace-2024.JPG" alt="An image displaying my workspace setup, with a list of some of the gear and software used in it below.">
+        </figure>
+        <cite>Updated List 05.2025 / Pic 11.2024</cite>
         <ol>
             <li>
-                <p><strong>Brains</strong><br><a href="https://amzn.to/4iVbL6o" target="blank" class="link link--inline">M4 Pro Black MacBook Pro</a> (Personal)<br><a href="https://amzn.to/4iVbL6o" target="blank" class="link link--inline">M3 Silver MacBook Air</a> (ITX)<br><a href="https://amzn.to/3SD6upb" target="blank" class="link link--inline">iPad Mini</a> with <a href="https://amzn.to/3Fcy9Ky" target="blank" class="link link--inline">Apple Pencil</a></p>
+                <p><strong>Brains</strong><br><a href="https://amzn.to/4iVbL6o" target="_blank" rel="noopener noreferrer">M4 Pro Black MacBook Pro</a> (Personal)<br><a href="https://amzn.to/4iVbL6o" target="_blank" rel="noopener noreferrer">M3 Silver MacBook Air</a> (ITX)<br><a href="https://amzn.to/3SD6upb" target="_blank" rel="noopener noreferrer">iPad Mini</a> with <a href="https://amzn.to/3Fcy9Ky" target="_blank" rel="noopener noreferrer">Apple Pencil</a></p>
             </li>
             <li>
-                <p><strong>Visual</strong><br><a href="https://amzn.to/42R684l" target="blank" class="link link--inline">LG 32UL950-W</a> 32in 4K Ultrafine LED Monitor with Thunderbolt 3<br><a href="https://amzn.to/3RYytzC" target="blank" class="link link--inline">Logitech Brio 4k Webcam</a><br><a href="https://amzn.to/4j7vv72" target="blank" class="link link--inline">iPhone 15 Pro</a> Coherence Cam</p>
+                <p><strong>Visual</strong><br><a href="https://amzn.to/42R684l" target="_blank" rel="noopener noreferrer">LG 32UL950-W</a> 32in 4K Ultrafine LED Monitor with Thunderbolt 3<br><a href="https://amzn.to/3RYytzC" target="_blank" rel="noopener noreferrer">Logitech Brio 4k Webcam</a><br><a href="https://amzn.to/4j7vv72" target="_blank" rel="noopener noreferrer">iPhone 15 Pro</a> Coherence Cam</p>
             </li>
             <li>
-                <p><strong>Input</strong><br><a href="https://olkb.com/collections/planck" target="blank" class="link link--inline">Planck</a> with Backlit Linears<br><a href="https://amzn.to/42T954v" target="blank" class="link link--inline">Logitech Craft Keyboard</a><br><a href="https://worklouder.cc/nomad-e" target="blank" class="link link--inline">Work Louder Nomad [E]</a><br><a href="https://amzn.to/3H41DuA" target="blank" class="link link--inline">Logitech MX Master 3s</a><br><a href="https://amzn.to/4iXvFh4" target="blank" class="link link--inline">CalDigit TS3 Plus Thunderbolt 3 Dock</a><br><a href="https://amzn.to/4dtPHP5" target="blank" class="link link--inline">Elgato Stream Deck +</a></p>
+                <p><strong>Input</strong><br><a href="https://olkb.com/collections/planck" target="_blank" rel="noopener noreferrer">Planck</a> with Backlit Linears<br><a href="https://amzn.to/42T954v" target="_blank" rel="noopener noreferrer">Logitech Craft Keyboard</a><br><a href="https://worklouder.cc/nomad-e" target="_blank" rel="noopener noreferrer">Work Louder Nomad [E]</a><br><a href="https://amzn.to/3H41DuA" target="_blank" rel="noopener noreferrer">Logitech MX Master 3s</a><br><a href="https://amzn.to/4iXvFh4" target="_blank" rel="noopener noreferrer">CalDigit TS3 Plus Thunderbolt 3 Dock</a><br><a href="https://amzn.to/4dtPHP5" target="_blank" rel="noopener noreferrer">Elgato Stream Deck +</a></p>
             </li>
             <li>
-                <p><strong>Audio</strong><br><a href="https://amzn.to/438und3" target="blank" class="link link--inline">2x Sonos Era 100s</a><br><a href="https://amzn.to/4dfuiZS" target="blank" class="link link--inline">Apple Airpods Pro 2</a></p>
+                <p><strong>Audio</strong><br><a href="https://amzn.to/438und3" target="_blank" rel="noopener noreferrer">2x Sonos Era 100s</a><br><a href="https://amzn.to/4dfuiZS" target="_blank" rel="noopener noreferrer">Apple Airpods Pro 2</a></p>
             </li>
             <li>
-                <p><strong>Networking</strong><br><a href="https://amzn.to/42VSU6A" target="blank" class="link link--inline">Synology DS920+</a> with <a href="https://amzn.to/434bc49" target="blank" class="link link--inline">Ironwolf Pros</a><br><a href="https://amzn.to/3GWXUiI" target="blank" class="link link--inline">Netgear Orbi Mesh Router</a> with 1x Satellite<br><a href="https://www.plex.tv/" target="blank" class="link link--inline">Plex Media Server</a></p>
+                <p><strong>Networking</strong><br><a href="https://amzn.to/42VSU6A" target="_blank" rel="noopener noreferrer">Synology DS920+</a> with <a href="https://amzn.to/434bc49" target="_blank" rel="noopener noreferrer">Ironwolf Pros</a><br><a href="https://amzn.to/3GWXUiI" target="_blank" rel="noopener noreferrer">Netgear Orbi Mesh Router</a> with 1x Satellite<br><a href="https://www.plex.tv/" target="_blank" rel="noopener noreferrer">Plex Media Server</a></p>
             </li>
             <li>
-                <p><strong>Environment</strong><br><a href="https://www.autonomous.ai/office-chairs/ergonomic-chair" target="blank" class="link link--inline">Autonomous Ergo Chair 2</a><br><a href="https://secretlab.co/products/magnus-pro?sku=4MPB2-B15B-BLACK" target="blank" class="link link--inline">Secret Labs Magnus Pro XL</a> Sit & Stand Desk<br><a href="https://www.peakdesign.com/products/everyday-backpack?variant=29743300935724&gclid=EAIaIQobChMI5Mvc7veK-AIV9IJbCh0brwBcEAQYASABEgJL2fD_BwE" target="blank" class="link link--inline">Peak Design Everyday Backpack 30L</a><br><a href="https://amzn.to/4mAABf1" target="blank" class="link link--inline">SkyPAD 3.0 XL</a> Glass Mouse Mat<br><a href="https://amzn.to/3SAKQ50" target="blank" class="link link--inline">Dreo 16in Desk Fan</a><br><a href="https://amzn.to/3GJRP91" target="blank" class="link link--inline">4x Hue 100W A21s</a></p>
+                <p><strong>Environment</strong><br><a href="https://www.autonomous.ai/office-chairs/ergonomic-chair" target="_blank" rel="noopener noreferrer">Autonomous Ergo Chair 2</a><br><a href="https://secretlab.co/products/magnus-pro?sku=4MPB2-B15B-BLACK" target="_blank" rel="noopener noreferrer">Secret Labs Magnus Pro XL</a> Sit &amp; Stand Desk<br><a href="https://www.peakdesign.com/products/everyday-backpack?variant=29743300935724&gclid=EAIaIQobChMI5Mvc7veK-AIV9IJbCh0brwBcEAQYASABEgJL2fD_BwE" target="_blank" rel="noopener noreferrer">Peak Design Everyday Backpack 30L</a><br><a href="https://amzn.to/4mAABf1" target="_blank" rel="noopener noreferrer">SkyPAD 3.0 XL</a> Glass Mouse Mat<br><a href="https://amzn.to/3SAKQ50" target="_blank" rel="noopener noreferrer">Dreo 16in Desk Fan</a><br><a href="https://amzn.to/3GJRP91" target="_blank" rel="noopener noreferrer">4x Hue 100W A21s</a></p>
             </li>
         </ol>
     </section>
 
     <footer>
-        <div class="footer--right-accent"></div>
-        <p class="top"><a href="#top" tabindex="0" class="link link--inline">Back to the top</a></p>
-        <p class="copyright">&#169; Tyler Coderre, all rights reserved <a href="./accessibility.html" tabindex="0" class="link link--inline">Accessibility</a> + <a href="./privacy.html" tabindex="0" class="link link--inline">Privacy</a></p>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="accessibility.html">Accessibility</a> + <a href="privacy.html">Privacy</a></cite>
     </footer>
-
-<script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>    <script src="script.js"></script>
-
 </body>
-
 </html>

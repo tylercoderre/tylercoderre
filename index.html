@@ -1,772 +1,572 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyler Coderre</title>
-    <meta name="description" content="The online profile of Tyler Coderre">
-    <meta name="keywords" content="Tyler, Coderre, Design, Developer, UX, UI, UX Designer, UI Designer, Product Designer">
+    <meta name="description" content="The online home and portfolio of Tyler Coderre">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
     <meta property="og:title" content="Tyler Coderre">
     <meta property="og:url" content="https://tylercoderre.com">
-    <meta property="og:description" content="The online profile of Tyler Coderre">
+    <meta property="og:description" content="The online home and portfolio of Tyler Coderre">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/og-image.jpg">
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tyler Coderre">
+    <meta name="twitter:description" content="The online home and portfolio of Tyler Coderre">
+    <meta name="twitter:image" content="assets/images/og-image.jpg">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
     <meta name="msapplication-TileColor" content="#111111">
     <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+
+        <script src="assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
-
 <body>
+    <header id="Top">
+    <a href="index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
 
-    <a id='skip' class='screen-reader-text' href='#maincontent'>
-        Skip to Content
-    </a>
 
-    <header class="desktopheader">
-        <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-        <nav class="desktop--nav">
-            <ul id="menubar" role="menubar" aria-label="Navigation Menu">
-                <li role="none">
-                    <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                </li>
-            </ul>
-        </nav>
-        <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Toggle</label>
-    </header>
-
-    <header class="mobileheader">
-        <div class="header-flex-container">
-            <div class="header-flex-child">
-                <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-            </div>
-            <div class="header-flex-child">
-                <details class="mobilenav" aria-label="menu">
-                    <summary class="mobilenav"><label>Menu</label></summary>
-                    <nav class="desktop--nav">
-                        <ul id="menulist" role="menulist" aria-label="Navigation Menu">
-                            <li role="none">
-                                <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </details>
-                <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Theme Toggle</label>
-            </div>
+    <!-- HERO AND INTRODUCTION -->
+    <section id="hero">
+        <div class="orbit">
+            <img src="assets/images/headshot.jpg" alt="Headshot of Tyler Coderre in black and white giving a goofy look in front of a banner that says Give a Damn"></img>
+            <span aria-hidden="true"><span><span>Tyler</span></span></span>
         </div>
-    </header>
+        <h1>Hello, I'm Tyler</h1>
+        <h2>I turn messy problems into simple, inclusive solutions — and I can do the same for you.</h2>
+        <div class="actions">
+            <a href="#contact" tabindex="-1"><button>Let's Talk</button></a>
+            <a class="link--actions" href="#contact">Open for Work</a>
+        </div>
+    </section>
 
-    <div id="top"></div>
-    <div id="maincontent"></div>
-
-    <div class="blob-cont">
-        <div class="yellow blob"></div>
-        <div class="red blob"></div>
-        <div class="green blob"></div>
-    </div>
-
+    <!-- ABOUT ME & WHAT I DO -->
     <section id="about">
-        <div class="hello">
-            <div class="hello--left-accent"></div>
-            <div class="hello--name-plate-container">
-              <div class="hello--name-plate">
-                <div class="hello--name-content">Tyler</div>
-              </div>
-            </div>
-            <img class="avatar" src="images/avatar.png" alt="Tyler Coderre Avatar">
-            <div class="hello--right-accent"></div>            
-        </div>
-        <h1>Hello.</h1>
-        <h2>I'm Tyler, I craft identities &&nbsp;experiences.</h2>
-        <p>I am a designer specializing in product design (UI+UX), accessibility, and branding based in Buffalo, NY. I build out of <a href="coderredesign.html" class="link link--inline">Coderre.Design</a> and work with <a href="https://itx.com" target="blank" class="link link--inline">ITX</a> solving problems for people and organizations of many shapes and sizes.</p>
-        <p>Through the years I have had the opportunity to work with some great <a href="#feedback" class="link link--inline">people</a> and <a href="#clients" class="link link--inline">organizations</a> by delivering award winning designs that produce results.</p>
-        <p class="resume"><a href="about.html" class="link link--inline">Resume and experience</a>.</p>
+
+        <header>
+            <h2>About.</h2>
+            <p>I am a designer specializing in product design (UI+UX), accessibility (CPACC Certified), and branding based in Buffalo, NY. I build out of <a href="work/coderredesign.html">Coderre.Design</a> and work with <a href="https://itx.com" target="_blank" rel="noopener noreferrer">ITX</a> solving problems and delivering results for <a href="#testimonials">people</a> and <a href="#clients">organizations</a> of many shapes and sizes. For more on my experience and a copy of my resume, head to <a href="about.html">About</a>.</p>
+        </header>
+
     </section>
 
-    <span class="material-symbols-outlined">&#xe5db;</span>
-
-    <section id="capabilities">
-        <h2 class="p0">What.</h2>
-        <p>While I specialize in design, I do enjoy bringing designs to life through rapid prototyping and development.</p>
-        <div class="flex--container">
-            <div class="flex--left">
-                <h3><small>Design.</small></h3>
-                <ul class="bulletless">
-                    <li>Branding</li>
-                    <li>Product Design</li>
-                    <li>User Experience</li>
-                    <li>User Interface</li>
-                    <li>Accessibility</li>
-                </ul>
-            </div>
-            <div class="flex--right">
-                <h3><small>Build.</small></h3>
-                <ul class="bulletless">
-                    <li>Wordpress</li>
-                    <li>Design Systems</li>
-                    <li>Static Websites</li>
-                    <li>Responsive Design</li>
-                    <li>Documentation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
+    <!-- WORK & CASE STUDIES -->
     <section id="work">
-        <h2>Work.</h2>
-        <div class="gap"></div>
-
+        <header>
+            <h2>Work.</h2>
+            <p>A tiny selection of not-so-top-secret projects I have worked on.</p>
+        </header>
+    <!--    
         <article>
-            <aside>
-                <a href="index.html#contact" tabindex="-1" class="link--private-case-study-image"><img src="images/work/coderre/coderre-design-saas-experience-and-enterprise-design-system.jpg" alt="Enterprise Design Systems Case Study"></a>
-            </aside>
-            <h3 class="m0">Saas Experience and Enterprise Design System</h3>
-            <ul class="tags">
-                <li>Branding</li>
-                <li>Design</li>
-                <li>UI + UX</li>
-            </ul>
-            <a href="index.html#contact" tabindex="-1"><button class="button--wipe">Contact to Discuss</button></a>
+            <header>
+                <figure>
+                    <a href="./work/coderredesign.html" tabindex="-1"><img src="assets/images/work/coderre/coderre-design-shop-logo-shirt-and-website-device-gradient.jpg" alt="Coderre Design case study featured image showing the Coderre Design Logo, website mockup, and t-shirt design."></img></a>
+                </figure>   
+                <h3>Coderre Design</h3>
+                <ol>
+                    <li>Branding</li>
+                    <li>Development</li>
+                    <li>Graphic Design</li>
+                    <li>UI + UX</li>
+                </ol>
+            </header>
+            <footer>
+                <a href="./work/coderredesign.html" tabindex="-1"><button>View Case Study</button></a>
+            </footer>
+        </article>
+    --> 
+        <article>
+            <header>
+                <figure class="striped">
+                    <i class="fa-sharp fa-regular fa-lock-keyhole" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>   
+                <h3>Healthcare Search Platform</h3>
+                <ol>
+                    <li>Accessibility</li>
+                    <li>Development</li>
+                    <li>UI + UX</li>
+                </ol>
+            </header>
+            <footer>
+                <a href="#contact" tabindex="-1"><button>Contact to Discuss</button></a>
+            </footer>
         </article>
 
         <article>
-            <aside>
-                <a href="./work/itx.html" tabindex="-1" class="link--case-study-image"><img src="images/work/itx/itx-homepage-logo-gradient.jpg" alt="ITX Website Case Study"></a>
-            </aside>
-            <h3 class="m0">ITX</h3>
-            <ul class="tags">
-                <li>Design</li>
-                <li>UI + UX</li>
-                <li>Accessibility</li>
-            </ul>
-            <a href="./work/itx.html" tabindex="-1"><button class="button--wipe">View Case Study</button></a>
+            <header>
+                <figure>
+                    <a href="work/design-systems.html" tabindex="-1"><img src="assets/images/work/coderre/coderre-design-saas-experience-and-enterprise-design-system.jpg" alt="Enterprise design systems and process management case study featured image featuring the Coderre Design logo and device mockups."></img></a>
+                </figure>   
+                <h3>Saas Experience, Enterprise Design Systems, & Process Management</h3>
+                <ol>
+                    <li>Accessibility</li>
+                    <li>Branding</li>
+                    <li>Development</li>
+                    <li>Graphic Design</li>
+                    <li>UI + UX</li>
+                </ol>
+            </header>
+            <footer>
+                <a href="./work/design-systems.html" tabindex="-1"><button>View Case Study</button></a>
+            </footer>
         </article>
 
         <article>
-            <aside><a href="./work/paychex.html" tabindex="-1" class="link--case-study-image"><img src="images/work/paychex/paychex-logo-and-app-device-gradient.jpg" alt="Paychex UX and Product Design Case Study"></a></aside>
-            <h3 class="m0">Paychex</h3>
-            <ul class="tags">
-                <li>UI + UX</li>
-                <li>UX Research</li>
-                <li>Graphic Design</li>
-            </ul>
-            <a href="./work/paychex.html" tabindex="-1"><button class="button--wipe">View Case Study</button></a>
+            <header>
+                <figure>
+                    <a href="./work/itx.html" tabindex="-1"><img src="assets/images/work/itx/itx-homepage-logo-gradient.jpg" alt="ITX case study featuring the ITX logo and homepage device mockup."></img></a>
+                </figure>   
+                <h3>ITX</h3>
+                <ol>
+                    <li>Accessibility</li>
+                    <li>Graphic Design</li>
+                    <li>UI + UX</li>
+                </ol>
+            </header>
+            <footer>
+                <a href="./work/itx.html" tabindex="-1"><button>View Case Study</button></a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <figure>
+                    <a href="./work/paychex.html" tabindex="-1"><img src="assets/images/work/paychex/paychex-logo-and-app-device-gradient.jpg" alt="Paychex case study featuring the Paychex logo and app device mockup."></img></a>
+                </figure>   
+                <h3>Paychex</h3>
+                <ol>
+                    <li>Accessibility</li>
+                    <li>Graphic Design</li>
+                    <li>UI + UX</li>
+                    <li>UX Research</li>
+                </ol>
+            </header>
+            <footer>
+                <a href="./work/paychex.html" tabindex="-1"><button>View Case Study</button></a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <h3>Looking for more?</h3> 
+                <p>View a list of past and present projects and case studies.</p>
+            </header>
+            <footer>
+                <a href="#all-work-dialog" data-dialog-open="all-work-dialog"><button type="button">View All Work</button></a>
+            </footer>
         </article>
         
+    </section>
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies</h2>
+                <a href="#" data-dialog-close>Close</a>
+            </header>
+            <!-- SECTION -->
+            <section>
+                <p><strong>Featured</strong><sup>4</sup></p>
+                <ul>
+                    <li>
+                        <p><a href="work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Graphic Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="work/itx.html">ITX</a></p>
+                        <cite>Graphic Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="work/paychex.html">Paychex</a><sup>Limited</sup></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>The Phantom Zone</strong><sup>15</sup></p>
+                <cite>Reach out for to chat about archived studies.</cite>
+                <ul>
+                    <li>
+                        <p>A Jaunt with Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Buffalo Niagara Medical Campus</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Hearst</p>
+                        <cite>Branding · Graphic Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Hodgson Russ</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Independent Health</p>
+                        <cite>Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Kore Marketing</p>
+                        <cite>Branding · Design · Marketing · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Labatt + Zubaz</p>
+                        <cite>Graphic Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p>Organization Development by Mike Cardus</p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Person Centered Services</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>ROAR Logistics</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Savarino Companies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Storillo</p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Trocaire College</p>
+                        <cite>Design · Marketing · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>University at Buffalo</p>
+                        <cite>Design · Marketing · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>Walsh Duffield</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+
+    <!-- PROJECTS AND RESOURCES -->
+    <section id="projects">
+
+        <header>
+            <h2>Projects & Resources.</h2>
+            <p>A few projects I have worked on for the design community.</p>
+        </header>
 
         <article>
-            <aside>
-                <div style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); width: auto; padding: 1rem 1.5rem 0.5rem 1.5rem;">
-                    <span class="material-symbols-outlined icon-big" style="color: hsl(0, 0%, 2%);">&#xe413;</span>
-                </div>
-            </aside>
-            <h3 class="m0"><small>Looking for more?</small></h3>
-            <ul class="tags">
-                <li>19 Projects</li>
-            </ul>
-            <button class="open-modal button--wipe">View All Work</button>
+            <header>
+                <figure>
+                    <a href="https://www.figma.com/community/file/1501243965965777195" tabindex="-1"><img src="assets/images/work/itx/itx-web-accessibility-checklist-2.0-device-gradient.jpg" alt="A mockup of the ITX Web Accessibility Checklist 2.0 title card on a laptop with logo behind it."></a>
+                </figure>   
+                <h3>Web Accessibility Checklist 2.0</h3>
+                <p>Use this Figma-based checklist in your next design project to help ensure you are meeting web accessibility guidelines.</p>
+            </header>
+            <footer>
+                <a href="https://www.figma.com/community/file/1501243965965777195" tabindex="-1" target="_blank" rel="noopener noreferrer"><button>Go to Checklist</button></a><a href="https://www.figma.com/community/file/1159105366103536581" target="_blank" rel="noopener noreferrer">Curious about 1.0?</a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <figure>
+                    <a href="https://www.figma.com/community/file/1511353501366634236" tabindex="-1"><img src="assets/images/work/coderre/coderre-design-figma-starter.jpg" alt="A mockup of the Coderre Design Figma Starter title card on a laptop with logo behind it."></a>
+                </figure>
+                <h3>Figma Starter</h3>
+                <p>A blank variable and style framework to kickstart your design projects.</p>
+            </header>            
+            <footer>
+                <a href="https://www.figma.com/community/file/1511353501366634236" tabindex="-1" target="_blank" rel="noopener noreferrer"><button>Go to Community Page</button></a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-gamepad" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>   
+                <h3>Breakout</h3>
+                <p>A minimalist experiment where I mess around recreating the classic game of breakout in the browser.</p>
+            </header>
+            <footer>
+                <a href="projects/breakout.html" tabindex="-1"><button>View the Experiment</button></a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-clock" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>   
+                <h3>Hex Clock</h3>
+                <p>A minimalist experiment where the current time becomes a living hex color.</p>
+            </header>
+            <footer>
+                <a href="projects/hex-clock.html" tabindex="-1"><button>View the Experiment</button></a>
+            </footer>
         </article>
 
     </section>
 
-    <section id="resources">
-        <h2>Resources.</h2>
-        <p>A few projects I have worked on for the design community.</p>
-        <div class="gap"></div>
-        <article>
-            <aside><a href="https://www.figma.com/community/file/1501243965965777195" target="blank" tabindex="-1" class="link--case-study-image"><img src="images/work/itx/itx-web-accessibility-checklist-2.0-device-gradient.jpg" alt="Web Accessibility Figma Checklist"></a></aside>
-            <h3>Web Accessibility Checklist 2.0</h3>
-            <p>Use this Figma-based checklist in your next design project to help ensure you are meeting web accessibility guidelines.</p>
-            <a href="https://www.figma.com/community/file/1501243965965777195" tabindex="-1" target="blank"><button class="button--wipe"><span class="external">Go to Checklist</span></button></a>
-            <cite style="display: inline-block; font-size: 0.875rem; font-style: normal;"><a href="https://www.figma.com/community/file/1159105366103536581" target="_blank" tabindex="-1" class="link link--inline">Curious about 1.0?</a></cite>
-        </article>
-        <article>
-            <aside><a href="https://www.figma.com/community/file/1511353501366634236" target="blank" tabindex="-1" class="link--case-study-image"><img src="images/work/coderre/coderre-design-figma-starter.jpg" alt="Figma Starter File Template"></a></aside>
-            <h3><small>Figma Starter</small></h3>
-            <p>A blank variable and style framework to kickstart your design projects.</p>
-            <a href="https://www.figma.com/community/file/1511353501366634236" tabindex="-1" target="blank"><button class="button--wipe"><span class="external">Go to Community Page</span></button></a>
-        </article>
-
-        <!--
-        <div class="flex--container">
-            <div class="flex--left">
-                <div class="collection-stack">
-                    <div class="collection-view"></div>
-                    <div class="collection-shadow-1"></div>
-                    <div class="collection-shadow-2"></div>
-                    <div class="collection-shadow-3"></div>
-                    <div class="collection-shadow-4"></div>
-                  </div>
-                  <h4>Figma Accessibility Checklist</h4>
-                  <p class="p0 m0">Version 1.0</p>
-                  <a href="https://www.figma.com/community/file/1159105366103536581" target="blank" class="link link--inline">Get The Checklist</a>      
-            </div>
-            <div class="flex--right">
-                <div class="collection-stack">
-                    <div class="collection-view"></div>
-                    <div class="collection-shadow-1"></div>
-                    <div class="collection-shadow-2"></div>
-                    <div class="collection-shadow-3"></div>
-                    <div class="collection-shadow-4"></div>
-                  </div>
-                  <h4>Figma Accessibility Checklist</h4>
-                  <p class="p0 m0">Version 2.0</p>
-                  <a href="https://www.figma.com/community/file/1159105366103536581" target="blank" class="link link--inline">Get The Checklist</a>      
-            </div>
-        </div>
-        -->
-        
-
-    </section>
-    
+    <!-- WRITING -->
     <section id="writing">
-        <h2>Writing.</h2>
-        <p>Follow along with articles, presentations, and blog posts about design, productivity, and the meaning of life.</p>
-        <div class="gap"></div>
-        <article>
-            <aside><a href="./writing/core-ui-library.html" target="blank" tabindex="-1" class="link--case-study-image"><img src="images/work/coderre/coderre-design-core-library.jpg" alt="Web Accessibility Figma Checklist"></a></aside>
-            <h3>Core UI</h3>
-            <p>Follow along as I, in a series of articles, build out a deign system from scratch. Throughout the series I'll have helpful nuggets of design, accessibility, and process tips.</p>
-            <a href="./writing/core-ui-library.html" tabindex="-1"><button class="button--wipe">Check it Out</button></a>
-        </article>
-        <article>
-            <aside>
-                <div style="background-image: linear-gradient(120deg, hsl(0, 0%, 88%) 0%, hsl(0, 0%, 64%) 100%); width: auto; padding: 1rem 1.5rem 1rem 1.5rem;">
-                    <div class="actions--container">
-                        <span class="material-symbols-outlined icon-big" style="color: hsl(0, 0%, 2%);">shelf_auto_hide</span>
-                    </div>
-                </div>
-            </aside>
-            <h3><small>macOS Dock Organization</small></h3>
-            <p>Looking for the ultimate organized macOS dock? With a simple copy-paste-able terminal snippet. Get started and you can start to reign in the chaos.</p>
-            <a href="./writing/add-spacers-to-the-macOS-dock.html" tabindex="-1"><button class="button--wipe">Get Started</button></a>
-        </article>
-        <article>
-            <aside>
-                <div style="background-image: linear-gradient(120deg, hsl(0, 0%, 88%) 0%, hsl(0, 0%, 64%) 100%); width: auto; padding: 1rem 1.5rem 1rem 1.5rem;">
-                    <div class="actions--container">
-                        <span class="material-symbols-outlined icon-big" style="color: hsl(0, 0%, 2%);">keyboard_alt</span>
-                    </div>
-                </div>
-            </aside>            
-            <h3><small>Indispensable macOS Shortcuts</small></h3>
-            <p>Boost your speed, productivity, and macOS experience with a comprehensive list of shortcuts to add to your workflow..</p>
-            <a href="./writing/macOS-shortcuts.html" tabindex="-1"><button class="button--wipe">Get Started</button></a>
-        </article>
-    </section>
+        
+        <header>
+            <h2>Writing.</h2>
+            <p>A few musings and articles I've written on design, accessibility, along with a few projects and experiments.</p>
+        </header>
 
-
-    <section id="play">
-        <h2>Play.</h2>
-        <p>Here are a few of my experiments that have escaped into the wild.</p>
-        <div class="gap"></div>
         <article>
-            <aside>
-                <div style="background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); width: auto; padding: 1rem 1.5rem 1rem 1.5rem;">
-                    <div class="actions--container">
-                        <span class="material-symbols-outlined icon-big" style="color: hsl(0, 0%, 2%);">&#xea26;</span>
-                    </div>
-                </div>
-            </aside>
-            <h3>Dribbble</h3>
-            <p>Check out various designs I have completed through the years from logos to UI experiments on my Dribbble portfolio page.</p>
-            <a href="https://dribbble.com/CoderreDesign" tabindex="-1" target="blank"><button class="button--wipe"><span class="external">Visit Dribbble</span></button></a>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-keyboard" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>   
+                <h3>Essential macOS Shortcuts</h3>
+                <p>I have compiled a go-to reference list of shortcuts that I use to make my workflow more efficient.</p>
+            </header>
+            <footer>
+                <a href="writing/macOS-shortcuts.html" tabindex="-1"><button>Check Out the List</button></a>
+            </footer>
+        </article>
+
+        <article>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-clipboard-list-check" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>   
+                <h3>Design Systems Checklist</h3>
+                <p>This is a step-by-step guide to building a design system from scratch with notes and guidance on accessibility</p>
+            </header>
+            <footer>
+                <a href="projects/design-systems-checklist.html" tabindex="-1"><button>Check Out the List</button></a>
+            </footer>
         </article>
 
     </section>
 
-    <section id="feedback">
-        <h2>Feedback.</h2>
-        <h3><small>A few kind words and awards.</small></h3>
-        <div class="gap--md"></div>
+    <!-- CLIPPINGS -->
+    <section id="clippings">
+        
+        <header>
+            <h2>Clippings.</h2>
+            <p>Code snippets, design experiments, and past project highlights.</p>
+        </header>
+
+        <table>
+            <tr>
+                <th><img src="assets/images/clippings/wireframes-404-stickers.webp" alt="Stickers for the ITX conference showing an I love wireframes skull and bones and 404 not found ghost"></img></th>
+                <th><img src="assets/images/clippings/toy-box-brigade-red-splatter-logo.webp" alt="The Toy Box Brigade Red Splatter Logo, a ska band with a scared, mean, and tough looking stuffed bear mascot with a threatening look and bow tie, along with a boxy wordmark with the band's name."></img></th>
+            </tr>
+            <tr>
+                <th><img src="assets/images/clippings/smart-home-dashboard.webp" alt="A smart home dashboard for mobile with light and dark modes, showing device controls, climate, camera feeds, energy usage, and more."></img></th>
+                <th><img src="assets/images/clippings/roar-logistics-contact-page.webp" alt="The ROAR Logistics contact page, highlighting the live diesel fuel prices that effect prices, various contact methods I designed an interactive map where you can interact with each city and get that region's contact information, and latest posts."></img></th>
+            </tr>
+        </table>
+
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+
+        <header>
+            <h2>Feedback.</h2>
+            <p>A few kind words and awards.</p>
+        </header>
+
         <p><strong>Gold + Silver ADDYs</strong><br>AAF Buffalo</p>
         <p><strong>Honorable Mention Award for Websites</strong><br>Institutional Home Page Category<br>CASE</p>
         <p><strong>Top HR Product Award</strong><br>Human Resources Executive</p>
         <p><strong>Pinnacle Award Finalist</strong><br>Website Category<br>AMA Rochester</p>
-        <div class="gap--md"></div>
-        <blockquote>
+
+        <hr>
+
+        <article>
+            <blockquote>
             <p>When a client's designer left a few weeks ago, one of the UX Managers specifically asked for Tyler to be put on one of his projects because he "needed a strong designer, capable of complex problem solving".
                 Tyler already had quite a bit on his plate but stepped up, and has been going above and beyond to do the work needed to cover everything he was allocated.
                 Thank you Tyler! Your hard work and dedication is recognized and appreciated!</p>
             <cite>
-                - Nancy N.
+                Nancy N.
             </cite>
-        </blockquote>
-
-        <blockquote>
-            <p>It's been a true pleasure to watch you immediately engage with our client team members. I am grateful for the elegance and professionalism that you and (previous designer) brought to your transition... And I and the whole team - client's included - are thrilled to have you aboard! Looking forward to seeing all of your creative facets!</p>
-            <cite>
-                - Roberta O.
-            </cite>
-        </blockquote>
-
-        <blockquote>
-            <p>Tyler's a master of design who moved Heaven and Earth to deliver on an urgent logo request from our client. ~150 logo files in every conceivable format, safely delivered: he's a legend, folks!</p>
-            <cite>
-                - Tim S.
-            </cite>
-        </blockquote>
-
-        <details>
-            <summary>More testimonials (8)</summary>
+            </blockquote>
 
             <blockquote>
-                <p>"I love that you are thinking about accessibility and giving us options, especially as we approach our new brand." "I love this design." "With the abilities Tyler has, and the ideas he is bringing in, I think we will find efficiency." Tyler impressed the client's development team with his design language presentation today, and it was a great step to deepening our relationship with the client and embedding further onto their teams. Great work Tyler, keep it up!</p>
+                <p>It's been a true pleasure to watch you immediately engage with our client team members. I am grateful for the elegance and professionalism that you and (previous designer) brought to your transition... And I and the whole team - client's included - are thrilled to have you aboard! Looking forward to seeing all of your creative facets!</p>
                 <cite>
-                    - Andrew K.
+                    Roberta O.
                 </cite>
             </blockquote>
 
             <blockquote>
-                <p>I wanted to thank Tyler for the design of the ITX Product + Design Conference stickers this year! Not only were these stickers fun, and inspiring, but were also reflective of our accessible and inclusive culture that we are focused on here at ITX. The team and our guests of the event LOVED them, and I cannot wait to add them to my laptop to show them off!</p>
+                <p>Tyler's a master of design who moved Heaven and Earth to deliver on an urgent logo request from our client. ~150 logo files in every conceivable format, safely delivered: he's a legend, folks!</p>
                 <cite>
-                    - Stephanie C.
+                    Tim S.
                 </cite>
             </blockquote>
 
-            <blockquote>
-                <p>Tyler is by far one of the most talented designers that I have had the pleasure of working with. We have worked on several projects together that have included significantly complex design requirements from clients, and Tyler has delivered stunning visual architectures that hit the mark each and every time. His ability to produce impressive design layouts in extremely tight turnaround times is nothing less than remarkable. Within Buffalo's design community, Tyler is a valuable asset to his peers and raises the bar constantly with his innovative designs.</p>
-                <cite>
-                    - Shehzadali I.
-                </cite>
-            </blockquote>
+            <details>
+                <summary>More Testimonials<sup>8</sup></summary>
 
-            <blockquote>
-                <p>Tyler is an excellent web-conscious designer. He is lightning fast, and loses none of his efficiency in the process. What more could you&nbsp;want?</p>
-                <cite>
-                    - David K.
-                </cite>
-            </blockquote>
+                <blockquote>
+                    <p>"I love that you are thinking about accessibility and giving us options, especially as we approach our new brand." "I love this design." "With the abilities Tyler has, and the ideas he is bringing in, I think we will find efficiency." Tyler impressed the client's development team with his design language presentation today, and it was a great step to deepening our relationship with the client and embedding further onto their teams. Great work Tyler, keep it up!</p>
+                    <cite>
+                        Andrew K.
+                    </cite>
+                </blockquote>
 
-            <blockquote>
-                <p>Thank you!!! I love my site and my logo SO much! Most beginners don't get to feel proud to show off their blog right away, but I'm sooo grateful you made it what it is! I get loads of compliments and I'm always like that was pretty much ALL my awesome cousin's work!</p>
-                <cite>
-                    - Joy S.
-                </cite>
-            </blockquote>
+                <blockquote>
+                    <p>I wanted to thank Tyler for the design of the ITX Product + Design Conference stickers this year! Not only were these stickers fun, and inspiring, but were also reflective of our accessible and inclusive culture that we are focused on here at ITX. The team and our guests of the event LOVED them, and I cannot wait to add them to my laptop to show them off!</p>
+                    <cite>
+                        Stephanie C.
+                    </cite>
+                </blockquote>
 
-            <blockquote>
-                <p>Tyler knocked it out of the park with the design right out the gate and then was quick to make adjustments based on our feedback. Since going live, everyone who has seen the site has been blown away as well. Tyler is great to work with and his services are a tremendous value!</p>
-                <cite>
-                    - Thomas W.
-                </cite>
-            </blockquote>
+                <blockquote>
+                    <p>Tyler is by far one of the most talented designers that I have had the pleasure of working with. We have worked on several projects together that have included significantly complex design requirements from clients, and Tyler has delivered stunning visual architectures that hit the mark each and every time. His ability to produce impressive design layouts in extremely tight turnaround times is nothing less than remarkable. Within Buffalo's design community, Tyler is a valuable asset to his peers and raises the bar constantly with his innovative designs.</p>
+                    <cite>
+                        Shehzadali I.
+                    </cite>
+                </blockquote>
 
-            <blockquote>
-                <p>Not only am I proud and impressed with Tyler's work on TrollStompGaming, but I expected nothing less than his best. As with his previous position, at the Florence Nightingale Museum, he worked hard and did his best to satisfy the needs of his employers with his outstanding communication, teamwork, and time management skills.</p>
-                <cite>
-                    - Chad B.
-                </cite>
-            </blockquote>
+                <blockquote>
+                    <p>Tyler is an excellent web-conscious designer. He is lightning fast, and loses none of his efficiency in the process. What more could you&nbsp;want?</p>
+                    <cite>
+                        David K.
+                    </cite>
+                </blockquote>
 
-            <blockquote>
-                <p>Tyler is always on top of things for the website. He not only took the task of being our graphic designer, but he customized the website himself. He manages all the plug-ins and helps with content as well. He's such an important asset to the team and honestly the website wouldn't be half as great without him.</p>
-                <cite>
-                    - Michael P.
-                </cite>
-            </blockquote>
-        </details>
+                <blockquote>
+                    <p>Thank you!!! I love my site and my logo SO much! Most beginners don't get to feel proud to show off their blog right away, but I'm sooo grateful you made it what it is! I get loads of compliments and I'm always like that was pretty much ALL my awesome cousin's work!</p>
+                    <cite>
+                        Joy S.
+                    </cite>
+                </blockquote>
+
+                <blockquote>
+                    <p>Tyler knocked it out of the park with the design right out the gate and then was quick to make adjustments based on our feedback. Since going live, everyone who has seen the site has been blown away as well. Tyler is great to work with and his services are a tremendous value!</p>
+                    <cite>
+                        Thomas W.
+                    </cite>
+                </blockquote>
+
+                <blockquote>
+                    <p>Not only am I proud and impressed with Tyler's work on TrollStompGaming, but I expected nothing less than his best. As with his previous position, at the Florence Nightingale Museum, he worked hard and did his best to satisfy the needs of his employers with his outstanding communication, teamwork, and time management skills.</p>
+                    <cite>
+                        Chad B.
+                    </cite>
+                </blockquote>
+
+                <blockquote>
+                    <p>Tyler is always on top of things for the website. He not only took the task of being our graphic designer, but he customized the website himself. He manages all the plug-ins and helps with content as well. He's such an important asset to the team and honestly the website wouldn't be half as great without him.</p>
+                    <cite>
+                        Michael P.
+                    </cite>
+                </blockquote>
+            </details>
+        </article>
 
     </section>
 
+    <!-- CLIENTS -->
     <section id="clients">
-        <h2>Clients.</h2>
-        <h3><small>I have had the privilege to work with some great people and organizations.</small></h3>
-
-        <div class="gap"></div>
-
-        <div class="flex--container">
-            <div class="flex--left">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/bnmc-logo.png" alt="Buffalo Niagara Medical Campus Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/conex-logo.png" alt="The Construction Exchange of WNY Logo">
-                    </div>
-                </div>
-            </div>
-            <div class="flex--right">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/florence-nightingale-museum-logo.png" alt="The Florence Nightingale Museum Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/hearst-logo.png" alt="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex--container">
-            <div class="flex--left">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/hodgson-russ-logo.png" alt="Hodgson Russ Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/independent-health-logo.png" alt="Independent Health Logo">
-                    </div>
-                </div>
-            </div>
-            <div class="flex--right">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/itx-logo.png" alt="ITX Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/kore-logo.png" alt="logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex--container">
-            <div class="flex--left">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/labatt-blue-logo.png" alt="Labatt Blue Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/maccrist-logo.png" alt="Maccrist Logo">
-                    </div>
-                </div>
-            </div>
-            <div class="flex--right">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/paychex-logo.png" alt="Paychex Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/person-centered-services-logo.png" alt="Person Centered Services Logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex--container">
-            <div class="flex--left">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/storillo-logo.png" alt="Storillo Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/trocaire-college-logo.png" alt="Trocaire College Logo">
-                    </div>
-                </div>
-            </div>
-            <div class="flex--right">
-                <div class="flex--container">
-                    <div class="flex--left">
-                        <img class="logo" src="logos/university-at-buffalo-logo.png" alt="University at Buffalo Logo">
-                    </div>
-                    <div class="flex--right">
-                        <img class="logo" src="logos/well-now-logo.png" alt="Well Now Logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <cite>
-            ...and many others... let's add you to the list!
-        </cite>
-
+        <header>
+            <h2>Clients.</h2>
+            <p>Some of the organizations I've had the pleasure of working with, and I'd love to add yours as well.</p>
+        </header>
+            <ul>
+                <li><img class="logo" src="assets/images/logos/19-ideas-logo.png" alt="19 Ideas logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/bnmc-logo.png" alt="BNMC logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/conex-logo.png" alt="Conex logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/corning-logo.png" alt="Corning logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/florence-nightingale-museum-logo.png" alt="Florence Nightingale Museum logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/heartland-school-solutions.png" alt="Heartland School Solutions logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/hearst-logo.png" alt="Hearst logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/hodgson-russ-logo.png" alt="Hodgson Russ logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/independent-health-logo.png" alt="Independent Health logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/itx-logo.png" alt="ITX logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/kore-logo.png" alt="Kore logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/labatt-blue-logo.png" alt="Labatt Blue logo" loading="lazy"></li>
+                <!-- <li><img src="assets/images/logos/maccrist-logo.png" alt="Maccrist logo" loading="lazy"></li> -->
+                <li><img class="logo" src="assets/images/logos/paychex-logo.png" alt="Paychex logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/perky-tech.png" alt="Perky Tech logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/person-centered-services-logo.png" alt="Person Centered Services logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/storillo-logo.png" alt="Storillo logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/trocaire-college-logo.png" alt="Trocaire College logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/university-at-buffalo-logo.png" alt="University at Buffalo logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/well-now-urgent-care-logo.png" alt="WellNow logo" loading="lazy"></li>
+                <li><img class="logo" src="assets/images/logos/zelis-logo.png" alt="Zelis logo" loading="lazy"></li>
+            </ul>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
         <h2>Talk.</h2>
         <h3><small>I'd love to chat about potential partnerships, chicken wings, or a dog pic exchange.</small></h3>
-        <p>You can contact and connect with me through <a href="mailto:tyler@coderre.design" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="blank" class="link link--inline">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> as well.</p>
-
+        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
         <div class="location--container">
             <div id="location" class="location">Based in Buffalo, NY</div>
-            <div id="clock" class="time">Loading time...</div>
+            <div id="clock" class="time" data-timezone="America/New_York">Loading time...</div>
             <div id="temp" class="temp">Loading temperature...</div>
-          </div>
-        
-          <script>
-            // Live Clock for Buffalo (Eastern Time)
-            function updateClock() {
-              const now = new Date();
-              const options = {
-                timeZone: 'America/New_York',
-                hour: 'numeric',
-                minute: 'numeric',
-                // second: 'numeric',
-                // weekday: 'long',
-                // year: 'numeric',
-                // month: 'long',
-                // day: 'numeric',
-                hour12: true,
-              };
-              const formatter = new Intl.DateTimeFormat('en-US', options);
-              document.getElementById('clock').textContent = formatter.format(now);
-            }
-        
-            // Get Current Temperature via OpenWeatherMap
-            async function updateTemperature() {
-              const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
-              const city = 'Buffalo';
-              const units = 'imperial'; // or 'metric' for Celsius
-              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-        
-              try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const temp = Math.round(data.main.temp);
-                const unit = units === 'imperial' ? '°F' : '°C';
-                document.getElementById('temp').textContent = ` // ${temp}${unit}`;
-              } catch (err) {
-                document.getElementById('temp').textContent = 'Unable to load temperature';
-                console.error(err);
-              }
-            }
-        
-            // ⏱Run updates
-            updateClock();
-            setInterval(updateClock, 1000);
-        
-            updateTemperature();
-            setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
-          </script>
+            <noscript>
+                <style>
+                    #clock,
+                    #temp {
+                        display: none;
+                    }
+                </style>
+                <p>Local time and temperature are available when JavaScript is enabled.</p>
+            </noscript>
+        </div>
 
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
-            <input type="text" name="name" autocomplete="name" required aria-required="true" placeholder="Hello" required>
-            <div class="gap"></div>
+            <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+            <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
             <label for="email" class="required-field">Email</label>
-            <input type="email" name="email" autocomplete="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" required>
-            <div class="gap"></div>
-            <label for="message" class="required-field">Message</label>
+            <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+            <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+            <label for="message" enterkeyhint="send" class="required-field">Message</label>
             <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
             <div class="g-recaptcha" data-sitekey="6Ld76BYgAAAAAGzY0GwFTUrlxtMbfHZGJruCxjIt"></div>
-            <div class="gap"></div>
-            <button class="button--wipe">Send</button>
+            <noscript>
+                <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+            </noscript>
+            <button>Send</button>
         </form>
     </section>
 
     <footer>
-        <div class="footer--right-accent"></div>
-        <p class="top"><a href="#top" tabindex="0" class="link link--inline">Back to the top</a></p>
-        <p class="copyright">&#169; Tyler Coderre, all rights reserved <a href="accessibility.html" tabindex="0" class="link link--inline">Accessibility</a> + <a href="privacy.html" tabindex="0" class="link link--inline">Privacy</a></p>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="accessibility.html">Accessibility</a> + <a href="privacy.html">Privacy</a></cite>
     </footer>
-    
-    <dialog>
-        <form method="dialog" class="m0">
-            <div class="dialog--header">
-                <div class="dialog--title">
-                    <h2 class="case-study--dialog">Case Studies</h2>
-                </div>
-                <div class="dialog--close">
-                    <button class="close-modal m0" value="cancel" tabindex="0">Close</button>
-                </div>
-            </div>
-            <div class="dialog--content">
-                <p><small>Featured (3)</small></p>
-                <ul class="case-study--list">
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../index.html#contact" tabindex="1" class="link link--inline">Saas Experience and Enterprise Design System</a> <span class="case-study--label">Contact Only</span></h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../work/itx.html" tabindex="1" class="link link--inline">ITX</a></h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../work/paychex.html" tabindex="1" class="link link--inline">Paychex</a> <span class="case-study--label">Limited</span></h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="gap"></div>
-                <p class="m0"><small>The Phantom Zone (15)</small></p>
-                <p><small><em>Reach out for to chat about archived studies.</em></small></p>
-                <ul class="case-study--list">
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">A Jaunt with Joy</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Buffalo Niagara Medical Campus</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Hearst</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Hodgson Russ</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Independent Health</h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Kore Marketing</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Labatt + Zubaz</h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>Packaging Design</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Organization Development by Mike Cardus</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>Packaging Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Person Centered Services</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">ROAR Logistics</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Savarino Companies</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Storillo</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Trocaire College</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list"><h3 class="case-study--dialog">University at Buffalo</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                        </ul></li>
-                    <li class="case-study--list"><h3 class="case-study--dialog">Walsh Duffield</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul></li>
-                </ul>
-            </div>
-        </form>
-    </dialog> 
-
-
-
-    <svg width="0" height="0" style="position: absolute; overflow: hidden;">
-        <filter id="noiseFilter">
-          <feTurbulence 
-            type="fractalNoise" 
-            baseFrequency="0.6" 
-            stitchTiles="stitch" />
-          <feColorMatrix 
-            in="colorNoise" 
-            type="matrix" 
-            values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-          <feComposite 
-            operator="in" 
-            in2="SourceGraphic" 
-            result="monoNoise" />
-          <feBlend 
-            in="SourceGraphic" 
-            in2="monoNoise" 
-            mode="screen" />
-        </filter>
-      </svg>
-
-    <script>
-      function toggleCta() {
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-      }
-    </script>
-<script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>    <script src="script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </body>
-
 </html>

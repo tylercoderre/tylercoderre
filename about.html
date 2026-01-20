@@ -1,418 +1,246 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tyler Coderre / Resume</title>
-    <meta name="description" content="The online profile of Tyler Coderre">
-    <meta name="keywords" content="Tyler, Coderre, Design, Developer, UX, UI, UX Designer, UI Designer, Product Designer">
-    <meta property="og:title" content="Tyler Coderre">
-    <meta property="og:url" content="https://tylercoderre.com">
-    <meta property="og:description" content="The online profile of Tyler Coderre">
+    <title>About - Tyler Coderre</title>
+    <meta name="description" content="About Tyler Coderre - Product Designer and Accessibility Specialist">
+    <meta property="og:title" content="About - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/about.html">
+    <meta property="og:description" content="About Tyler Coderre - Product Designer and Accessibility Specialist">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/og-image.jpg">
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Tyler Coderre">
+    <meta name="twitter:description" content="About Tyler Coderre - Product Designer and Accessibility Specialist">
+    <meta name="twitter:image" content="assets/images/og-image.jpg">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
     <meta name="msapplication-TileColor" content="#111111">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
-
 <body>
+    <header id="Top">
+    <a href="index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
 
-    <a id='skip' class='screen-reader-text' href='#maincontent'>
-        Skip to Content
-    </a>
-
-    <header class="desktopheader">
-        <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-        <nav class="desktop--nav">
-            <ul id="menubar" role="menubar" aria-label="Navigation Menu">
-                <li role="none">
-                    <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                </li>
-                <li role="none">
-                    <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                </li>
-            </ul>
-        </nav>
-        <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Toggle</label>
-    </header>
-
-    <header class="mobileheader">
-        <div class="header-flex-container">
-            <div class="header-flex-child">
-                <div id="logo"><a href="index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-            </div>
-            <div class="header-flex-child">
-                <details class="mobilenav" aria-label="menu">
-                    <summary class="mobilenav"><label>Menu</label></summary>
-                    <nav class="desktop--nav">
-                        <ul id="menulist" role="menulist" aria-label="Navigation Menu">
-                            <li role="none">
-                                <a href="about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#writing" class="link link--nav" tabindex="0" role="menuitem">Writing</a>
-                            </li>
-                            <li role="none">
-                                <a href="index.html#contact" class="link link--nav" tabindex="0" role="menuitem">Talk</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </details>
-                <input type="checkbox" aria-labelledby="theme-switch" id="switch" /><label id="switch" for="switch">Theme Toggle</label>
-            </div>
-        </div>
-    </header>
-
-    <div id="top"></div>
-    <div id="maincontent"></div>
-
+    <!-- ABOUT -->
     <section>
-        <div class="experience--right-accent">
-            <span class="material-symbols-outlined">&#xe853;</span>
-        </div>
-        <div class="experience--content">
-            <h1>About.</h1>
-            <p>I've always enjoyed solving problems as puzzles while putting a nice coat of paint on things to button it all up in a tidy package. I'm a former, and sometimes current if you squint, hockey playing artist with a love of games and Lego.</p>
-
-            <div class="fullwidth centered-content">
-                <img class="wide" src="./images/now/tyler-and-shana.JPG" alt="An image displaying my workspace setup, with a list of some of the gear and software used in it below.">
-            </div>
-            <p class="copyright"><small>Tyler and Shana visiting Letchworth State Park</small></p>
-            <div class="gap--lg"></div>
-
-            <h2>Experience.</h2>
-            <p>I have built up a library of knowledge and experience over time through experiences with a <a href="#creative" class="link link--inline">design focus</a>, <a href="#extended" class="link link--inline">extended</a> experiences, <a href="#certifications" class="link link--inline">certifications</a>, and <a href="#education" class="link link--inline">education</a>.</p>
-            <p>For professional connections, you can reach out through my <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> profile. For those who prefer paper here's a <a href="files/tyler-coderre-resume.pdf" target="blank" class="link link--inline">PDF resume</a>.</p>
-            <p>And for those curious about the gear and software I use to stay productive, you can <a href="./now.html#workspace" class="link link--inline">check out my setup</a>.</p>
-        </div>
+        <h1>About.</h1>
+        <p>I've always enjoyed solving problems as puzzles while putting a nice coat of paint on things to button it all up in a tidy package. I'm a former, and sometimes current if you squint, hockey playing artist with a love of games and Lego.</p>
+        <figure class="media">
+            <img src="assets/images/now/tyler-and-shana.JPG" alt="Tyler and Shana smiling together"></img>
+            <figcaption>
+                <cite>Tyler and Shana visiting Letchworth State Park.</cite>
+            </figcaption>
+        </figure>
     </section>
 
-    <span class="material-symbols-outlined" style="margin-left: -0.125rem;">&#xe5db;</span>
+    <!-- EXPERIENCE -->
+    <section>
+        <h2>Experience.</h2>
+        <p>I have built up a library of knowledge and experience over time through experiences with a <a href="#creative">design focus</a>, <a href="#extended">extended</a> experiences, <a href="#certifications">certifications</a>, and <a href="#education">education</a>.</p>
+        <p>For professional connections, you can reach out through my <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" rel="noopener noreferrer">LinkedIn</a> profile. For those who prefer paper here's a <a href="assets/documents/tyler-coderre-resume.pdf" download>PDF resume</a>.</p>
+        <p>And for those curious about the gear and software I use to stay productive, you can <a href="./now.html#workspace">check out my setup</a>.</p>
+    </section>
 
+    <!-- CREATIVE -->
     <section id="creative">
-        <h2>Creative.</h2>
-        <p>These are positions and projects I held with a design focus.</p>
-
-        <div class="gap--lg"></div>
-        <article class="timeline" style="padding-top: 0;">
-            <h3 class="m0 p0">Designer / Developer</h3>
-            <h4 class="p0"><small>Coderre.Design</small></h4>
-            <p><small>May 2011 – Present</small></p>
-            <p>I design experiences & identities. I have a background in web design and development, graphic design, and game design. I create interfaces for web and mobile projects as well as complete branding packages. I have led projects across a variety of types and sizes that have achieved results and awards.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Senior UX III Designer</h3>
-            <h4 class="p0"><small>ITX Corp.</small></h4>
-            <p><small>Dec 2022 – Present</small></p>
-            <p>I lead the user experience and user interface design for award-winning enterprise and SaaS software for a Fortune 500 company and internal company projects.</p>
-            <ul>
-                <li>Designed and constructed a comprehensive design library for a leading SaaS payments and school management provider.</li>
-                <li>Designed and constructed Figma checklists and template files for file organization, accessibility checks and audits, and design library construction.</li>
-                <li>Contributed to design and feature development for advanced scheduling and time card platforms.</li>
-                <li>Built branding for a non-profit co-op community internet initiative.</li>
-            </ul>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Accessibility Expert</h3>
-            <h4 class="p0"><small>ITX Corp.</small></h4>
-            <p><small>Dec 2021 – Present</small></p>
-            <p>At ITX I was given a secondary title of Accessibility Champion to be a go-to expert on designing for accessibility and to use this knowledge to help other designers and developers to get their projects up to accessibility standards.</p>
-            <ul>
-                <li>Designed and constructed Figma checklists and template files for file organization, accessibility checks and audits, and design library construction.</li>
-                <li>Lead a design refresh of our company's website to meet AA WCAG 2.2 standards and AAA when possible.</li>
-                <li>Reserched and benchmarked best practices for the organization.</li>
-                <li>Became certifed in by the IAAP in accessibility.</li>
-            </ul>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Senior UX II Designer</h3>
-            <h4 class="p0"><small>ITX Corp.</small></h4>
-            <p><small>Jan 2022 – Dec 2022</small></p>
-            <p>I lead the user experience and user interface design for award-winning enterprise and SaaS software for a Fortune 500 company and internal company projects.</p>
-            <ul>
-                <li>Designed and worked with development in building a website platform for senior care providers.</li>
-                <li>Designed features and experiences for research and devlopment for a leading materials science company.</li>
-            </ul>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Senior UX Designer</h3>
-            <h4 class="p0"><small>ITX Corp.</small></h4>
-            <p><small>Dec 2021 – Jan 2022</small></p>
-            <p>I lead the user experience and user interface design for award-winning enterprise and SaaS software for a Fortune 500 company and internal company projects.</p>
-            <ul>
-                <li>Developed experience flows and inerface designs for automating state tax form filling and completion for a leading HR platform.</li>
-                <li>Lead the design and initial release of a talent tracker dashboard for a leading HR platform to manage employee metrics and get a holistic overview of them, along with the potential of employees leaving their organization.</li>
-            </ul>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Interaction Designer UI / UX</h3>
-            <h4 class="p0"><small>ITX Corp.</small></h4>
-            <p><small>Nov 2018 – Dec 2021</small></p>
-            <p>I lead the user experience and user interface design for award-winning enterprise and SaaS software for a Fortune 500 company and internal company projects.</p>
-            <ul>
-                <li>Developed the initial vision for a hiring application and tracking system a leading HR platform.</li>
-                <li>Lead the design on enhanced and additional features for performance reviews in a leading HR platform.</li>
-            </ul>
-        </article>
-        
-        <article class="timeline">
-            <h3 class="m0 p0">UI / UX Designer</h3>
-            <h4 class="p0"><small>19 IDEAS</small></h4>
-            <p><small>Aug 2015 – Oct 2018</small></p>
-            <p>Lead design on large websites, landing pages, email campaigns, and apps. Planned, developed, and implemented new company workflows and processes. Designed company and client branding and collateral.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Senior Web Designer / Developer</h3>
-            <h4 class="p0"><small>Hearst Digital Media Services</small></h4>
-            <p><small>Jun 2015 - Aug 2015</small></p>
-            <p>Designed websites for development. Laid out, designed, and coded content and designs for live and in development websites. Completed support tickets and site updates.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Web Designer</h3>
-            <h4 class="p0"><small>Hearst Digital Media Services</small></h4>
-            <p><small>Oct 2014 - Jun 2015</small></p>
-            <p>Designed websites for development. Laid out, designed, and coded content and designs for live and in development websites. Completed support tickets and site updates.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Head of Design and Development</h3>
-            <h4 class="p0"><small>Troll Stomp Gaming</small></h4>
-            <p><small>Nov 2012 - Nov 2013</small></p>
-            <p>I designed the organization’s logo and branding, managed and skinned their WordPress site and BBPress forum, developed graphics for the site and it’s articles, managed the site and forum, and wrote articles.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Head Game Designer / Developer</h3>
-            <h4 class="p0"><small>The Florence Nightingale Museum</small></h4>
-            <p><small>Jul 2011 - Aug 2011</small></p>
-            <p>I lead the design and development of a Flash based interface for children to learn about people and events related to Florence Nightingale and the Crimean War. The project offered the ability to explore a Crimean battlefield and hospital, interact with influential characters, and learn with interactive objects and educational mini games.</p>
-        </article>
-
-        <article class="timeline">
-            <h3 class="m0 p0">Web Designer / Developer</h3>
-            <h4 class="p0"><small>Kappa Kappa Psi - Kappa Eta Chapter</small></h4>
-            <p><small>May 2010 - May 2011</small></p>
-            <p>Designed and built the chapter website, built a new family tree, implemented new online forms for submitting chapter reports, officer reports, and correspondence.</p>
-        </article>
-
-        <article class="timeline" style="padding-bottom: 0;">
-            <h3 class="m0 p0">Creative Lead</h3>
-            <h4 class="p0"><small>Thunder of the East Marching Band</small></h4>
-            <p><small>Aug 2007 - May 2011</small></p>
-            <p>Designed various promotional materials for the university marching band. Projects I lead include; brochure design, posters, newsletters, album art, photography / editing, videography / editing, and other materials used internally and for promotion.</p>
-        </article>
-
+            <h2>Creative.</h2>
+            <p>These are positions and projects I held with a design focus.</p>
     </section>
-
-    <section id="extended">
-        <h2>Extended.</h2>
-        <p>Positions I have held outside of a design focus that have influenced my knowledge and skill set.</p>
-    </section>
-
+    <!-- DESIGNER DEVELOPER -->
     <section>
-        <article class="timeline" style="padding-top: 0;">
-            <h3 class="m0 p0">Customer Care / Tech Support</h3>
-            <h4 class="p0"><small>Time Warner Cable</small></h4>
-            <p><small>Aug 2013 - May 2014</small></p>
-            <p>I aided and educated customers about their bills and our services. As well as troubleshooting and repairing Time Warner Cable equipment over the phone and scheduling technicians field calls if need be for the New York City service area.</p>    
-        </article>
+        <h3>Designer & Developer</h3>
+        <cite>Coderre.Design / May 2011 – Present</cite>
+        <p>I design experiences & identities. I have a background in web design and development, graphic design, and game design. I create interfaces for web and mobile projects as well as complete branding packages. I have led projects across a variety of types and sizes that have achieved results and awards.</p>
+    </section>
+    <!-- SENIOR UX III DESIGNER -->
+    <section>
+        <h3>Senior UX III Designer</h3>
+        <cite>ITX Corp. / Dec 2022 – Present</cite>
+        <strong>Millions saved and earned for enterprise clients</strong>
+        <p>I lead the user experience and user interface design for award-winning enterprise and SaaS software for a Fortune 500 companies, enterprise clients, and internal company projects.</p>
+        <ul>
+            <li>Designed and constructed a comprehensive design library for a leading SaaS payments and school management provider.</li>
+            <li>Designed and constructed Figma checklists and template files for file organization, accessibility checks and audits, and design library construction.</li>
+            <li>Contributed to design and feature development for advanced scheduling and time card platforms.</li>
+            <li>Lead design and launched a new HR product offering that reduced turnover by 15% to 20%.</li>
+            <li>Visioned a state tax filing and automation workflow that saved millions in postal costs annually.</li>
+            <li>Built branding for a non-profit co-op community internet initiative.</li>
+        </ul>
+        <p>Big or small, I love to tackle challenges and create solutions that are both functional and beautiful.</p>
+        <blockquote>
+            <p>Tyler is an exceptional product (UX) designer whose combination of craft, character, and collaboration has made him one of the most skilled and reliable people on my team for over seven years. His blend of technical acumen, visual design strength, UX and IxD expertise, and strong problem-solving skills enables him to work seamlessly with clients, product partners, and software engineering teams.</p>
+            <p>Tyler thinks in systems, not just screens, and has designed and evolved design systems that scale across complex products. He is highly technical and comfortable discussing constraints and implementation details with engineers, consistently finding solutions that respect both user needs and technical realities. He is also a certified accessibility expert who not only designs accessible products but has helped craft accessibility learning paths and templates for others.</p>
+            <p>On a personal level, Tyler is even-tempered, open to critique, growth-focused, and has a very strong work ethic. He is always willing to listen and do what is needed to get the job done. In short, Tyler is the kind of senior designer you can trust with high-stakes work and cross-functional collaboration, and he is an absolute pleasure to work with.</p>
+            <cite>Nancy Neuman - Vice President & Director of User Experience</cite>
+        </blockquote>
+    </section>
+    <!-- ACCESSIBILITY EXPERT -->
+    <section>
+        <h3>Accessibility Expert</h3>
+        <cite>ITX Corp. / Dec 2021 – Present</cite>
+        <strong>Teaching and delivering accessible design</strong>
+        <p>At ITX I was given a secondary title of Accessibility Champion to be a go-to expert on designing for accessibility and to use this knowledge to help other designers and developers to get their projects up to accessibility standards.</p>
+        <ul>
+            <li>Designed and constructed Figma checklists and template files for file organization, accessibility checks and audits, and design library construction.</li>
+            <li>Lead a design refresh of our company's website to meet AA WCAG 2.2 standards and AAA when possible.</li>
+            <li>Researched and benchmarked best practices for the organization.</li>
+            <li>Became CPACC certified by the IAAP in accessibility.</li>
+        </ul>
+    </section>
+    
+    <!-- EXTENDED -->
+    <section id="extended">
+        <header>
+            <h3>Extended Experience</h3>
+            <p>I pride myself on my not only my years of design experience, but also my time in other pursuits, such as being a USA Hockey Official. Connect with me on <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" rel="noopener noreferrer">LinkedIn</a> for more details.</p>
+        </header>        
 
-        <article class="timeline">
-            <h3 class="m0 p0">Customer Service / Collections</h3>
-            <h4 class="p0"><small>Nationwide Credit Inc.</small></h4>
-            <p><small>Mar 2012 - Aug 2013</small></p>
-            <p>I aided and educated customers about their bills and our services. As well as troubleshooting and repairing Time Warner Cable equipment over the phone and scheduling technicians field calls if need be for the New York City service area.</p>    
-        </article>
+        <h4>Senior UX II Designer</h4>
+        <cite>ITX Corp. / Jan 2022 – Dec 2022</cite>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Big Brother</h3>
-            <h4 class="p0"><small>Kappa Kappa Psi - Kappa Eta Chapter</small></h4>
-            <p><small>Jan 2011 - May 2011</small></p>
-            <p>Mentored a membership candidate 1-on-1 during the rushing process in both fraternal and non-fraternal matters.</p>    
-        </article>
+        <h4>Senior UX Designer</h4>
+        <cite>ITX Corp. / Dec 2021 – Jan 2022</cite>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Ice Hockey Official</h3>
-            <h4 class="p0"><small>USA Hockey</small></h4>
-            <p><small>Nov 2000 - Apr 2013</small></p>
-            <p>I officiated ice hockey games from youth to adult to maintain a safe, fun, and competitive atmosphere. As a senior official, I would be paired with younger and or inexperienced officials to aid in their development.</p>    
-        </article>
+        <h4>Interaction Designer UI / UX</h4>
+        <cite>ITX Corp. / Nov 2018 – Dec 2021</cite>
 
-        <article class="timeline" style="padding-bottom: 0;">
-            <h3 class="m0 p0">Fire Alarm Testing</h3>
-            <h4 class="p0"><small>Binghamton University</small></h4>
-            <p><small>May 2007 - Jan 2012</small></p>
-            <p>Tested, maintained, and mapped out fire alarm systems for campus residence halls, apartments, and academic buildings. The latter half, managed and laid out and delegated testing schedules and deadlines for other testers.</p>    
-        </article>
+        <h4>UI / UX Designer</h4>
+        <cite>19 IDEAS / Aug 2015 – Oct 2018</cite>
 
+        <details>
+            <summary>Continued Experience<sup>12</sup></summary>
+
+                <h4>Senior Web Designer / Developer</h4>
+                <cite>Hearst Digital Media Services / Jun 2015 - Aug 2015</cite>
+
+                <h4>Web Designer</h4>
+                <cite>Hearst Digital Media Services / Oct 2014 - Jun 2015</cite>
+
+                <h4>Head of Design and Development</h4>
+                <cite>Troll Stomp Gaming / Nov 2012 - Nov 2013</cite>
+
+                <h4>Game Designer & Developer</h4>
+                <cite>The Florence Nightingale Museum / Jul 2011 - Aug 2011</cite>
+
+                <h4>Web Designer & Developer</h4>
+                <cite>Kappa Kappa Psi - Kappa Eta Chapter / May 2010 - May 2011</cite>
+
+                <h4>Creative Lead</h4>
+                <cite>Thunder of the East Marching Band - Kappa Eta Chapter / Aug 2007 - May 2011</cite>
+
+                <h4>Customer Care & Tech Support</h4>
+                <cite>Time Warner Cable / Aug 2013 - May 2014</cite>
+
+                <h4>Collections</h4>
+                <cite>Nationwide Credit Inc. / Jan 2013 - Aug 2013</cite>
+
+                <h4>Customer Service</h4>
+                <cite>Nationwide Credit Inc. / Mar 2012 - Aug 2013</cite>
+
+                <h4>Big Brother</h4>
+                <cite>Kappa Kappa Psi - Kappa Eta Chapter / Jan 2011 - May 2011</cite>
+
+                <h4>Ice Hockey Official</h4>
+                <cite>USA Hockey / Nov 2000 - Apr 2013</cite>
+
+                <h4>Fire Alarm Testing</h4>
+                <cite>Binghamton University / May 2007 - Jan 2012</cite>
+
+        </details>
     </section>
 
+    <!-- CERTIFICATIONS -->
     <section id="certifications">
-        <h2>Certifications.</h2>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Accessibility.</h3>
-            <h4 class="m0"><small>IAAP Certified Professionals in Accessibility Core Competencies (CPACC)</small></h4>
-            <p class="p0 m0"><small>IAAP - International Association of Accessibility Professionals</small></p>
-            <p><small>May 2024</small></p>
-            <h4 class="m0"><small>Accessibility Fundamentals - Disabilities, Guidelines, and Laws</small></h4>
-            <p class="p0 m0"><small>Deque University</small></p>
-            <p><small>Dec 2021</small></p>
-            <h4 class="p0 m0"><small>Basic Web and Document Accessibility for Content Contributors</small></h4>
-            <p class="p0 m0"><small>Deque University</small></p>
-            <p><small>Dec 2021</small></p>
-            <h4 class="p0 m0"><small>Designing an Accessible User Experience</small></h4>
-            <p class="p0 m0"><small>Deque University</small></p>
-            <p><small>Dec 2021</small></p>
-            <h4 class="p0 m0"><small>Responsive Design and Zoom</small></h4>
-            <p class="p0 m0"><small>Deque University</small></p>
-            <p><small>Dec 2021</small></p>
-            <h4 class="p0 m0"><small>Visual Design and Colors</small></h4>
-            <p class="p0 m0"><small>Deque University</small></p>
-            <p><small>Dec 2021</small></p>
-        </article>
+        <header>
+            <h2>Certifications.</h2>
+        </header>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Behaviors.</h3>
-            <h4 class="m0"><small>Gamification & Behavioral Design: The Octalysis Framework</small></h4>
-            <p class="p0 m0"><small>Udemy</small></p>
-            <p><small>2020</small></p>
-        </article>
+        <h3>IAAP Certified Professionals in Accessibility Core Competencies (CPACC)</h3>
+        <cite>IAAP - International Association of Accessibility Professionals</cite>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Diversity & Inclusion.</h3>
-            <h4 class="m0"><small>Design for Humanity: A New Perspective on User Experience</small></h4>
-            <p class="p0 m0"><small>Udemy</small></p>
-            <p><small>2020</small></p>
-        </article>
+        <h3>Object Oriented UX Foundations</h3>
+        <cite>ooux.com - Stephanie Prater</cite>
 
+        <details>
+            <summary>Accessibility Certifications<sup>5</sup></summary>
+
+                <h4>Accessibility Fundamentals - Disabilities, Guidelines, and Laws</h4>
+                <cite>Deque University</cite>
+
+                <h4>Basic Web and Document Accessibility for Content Contributors</h4>
+                <cite>Deque University</cite>
+
+                <h4>Designing an Accessible User Experience</h4>
+                <cite>Deque University</cite>
+
+                <h4>Responsive Design and Zoom</h4>
+                <cite>Deque University</cite>
+
+                <h4>Visual Design and Colors</h4>
+                <cite>Deque University</cite>
+
+        </details>
+
+        <details>
+            <summary>Behaviors & Inclusivity<sup>2</sup></summary>
+
+                <h4>Gamification & Behavioral Design: The Octalysis Framework</h4>
+                <cite>Udemy</cite>
+
+                <h4>Design for Humanity: A New Perspective on User Experience</h4>
+                <cite>Udemy</cite>
+
+        </details>
+        
     </section>
 
+    <!-- EDUCATION -->
     <section id="education">
-        <h2>Education.</h2>
+        <header>
+            <h2>Education.</h2>
+        </header>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Bachelor of Fine Arts</h3>
-            <h4 class="p0 m0"><small>BFA in Emerging Practices</small></h4>
-            <h4 class="p0"><small>University at Buffalo</small></h4>
-            <p><small>2011</small></p>
-            <p>I studied human interaction design, communication design, and graphic design creating interactive interfaces and artwork.</p>
-            <p><small>Activities and societies: Kappa Kappa Psi: Kappa Eta, Thunder of the East Marching Band, Blue Noise Pep Band</small></p>
-        </article>
+        <h3>Bachelor of Fine Arts</h3>
+        <h4>BFA in Emerging Practices</h4>
+        <cite>University at Buffalo</cite>
+        <p>I studied human interaction design, communication design, and graphic design creating interactive interfaces and artwork.</p>
+        <p>Activities and societies: Kappa Kappa Psi: Kappa Eta, Thunder of the East Marching Band, Blue Noise Pep Band</p>
 
-        <article class="timeline">
-            <h3 class="m0 p0">Game Design Minor</h3>
-            <h4 class="p0"><small>University at Buffalo</small></h4>
-            <p><small>2010</small></p>
-            <p>I studied game design, game theory, and other aspects of gamification and story telling.</p>
-        </article>
+        <hr>
 
-    </section>
-
-    <section id="contact">
-        <h2>Talk.</h2>
-        <h3><small>I'd love to chat about potential partnerships, chicken wings, or a dog pic exchange.</small></h3>
-        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="blank" class="link link--inline">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> as well.</p>
-
-        <div class="location--container">
-            <div id="location" class="location">Based in Buffalo, NY</div>
-            <div id="clock" class="time">Loading time...</div>
-            <div id="temp" class="temp">Loading temperature...</div>
-          </div>
-        
-          <script>
-            // Live Clock for Buffalo (Eastern Time)
-            function updateClock() {
-              const now = new Date();
-              const options = {
-                timeZone: 'America/New_York',
-                hour: 'numeric',
-                minute: 'numeric',
-                // second: 'numeric',
-                // weekday: 'long',
-                // year: 'numeric',
-                // month: 'long',
-                // day: 'numeric',
-                hour12: true,
-              };
-              const formatter = new Intl.DateTimeFormat('en-US', options);
-              document.getElementById('clock').textContent = formatter.format(now);
-            }
-        
-            // Get Current Temperature via OpenWeatherMap
-            async function updateTemperature() {
-              const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
-              const city = 'Buffalo';
-              const units = 'imperial'; // or 'metric' for Celsius
-              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-        
-              try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const temp = Math.round(data.main.temp);
-                const unit = units === 'imperial' ? '°F' : '°C';
-                document.getElementById('temp').textContent = ` // ${temp}${unit}`;
-              } catch (err) {
-                document.getElementById('temp').textContent = 'Unable to load temperature';
-                console.error(err);
-              }
-            }
-        
-            // ⏱Run updates
-            updateClock();
-            setInterval(updateClock, 1000);
-        
-            updateTemperature();
-            setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
-          </script>
-
-        <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
-            <label for="name" class="required-field">Name</label>
-            <input type="text" name="name" autocomplete="name" required aria-required="true" placeholder="Hello" required>
-            <div class="gap"></div>
-            <label for="email" class="required-field">Email</label>
-            <input type="email" name="email" autocomplete="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" required>
-            <div class="gap"></div>
-            <label for="message" class="required-field">Message</label>
-            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
-            <div class="g-recaptcha" data-sitekey="6Ld76BYgAAAAAGzY0GwFTUrlxtMbfHZGJruCxjIt"></div>
-            <div class="gap"></div>
-            <button class="button--wipe">Send</button>
-        </form>
+        <h3>Game Design Minor</h3>
+        <cite>University at Buffalo</cite>
+        <p>I studied game design, game theory, and other aspects of gamification and story telling.</p>
     </section>
 
     <footer>
-        <div class="footer--right-accent"></div>
-        <p class="top"><a href="#top" tabindex="0" class="link link--inline">Back to the top</a></p>
-        <p class="copyright">&#169; Tyler Coderre, all rights reserved <a href="./accessibility.html" tabindex="0" class="link link--inline">Accessibility</a> + <a href="./privacy.html" tabindex="0" class="link link--inline">Privacy</a></p>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="accessibility.html">Accessibility</a> + <a href="privacy.html">Privacy</a></cite>
     </footer>
-
-<script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>    <script src="script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </body>
-
 </html>

@@ -1,578 +1,300 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITX Case Study / Tyler Coderre</title>
-    <meta name="description" content="The online profile of Tyler Coderre">
-    <meta name="keywords" content="Tyler, Coderre, Design, Developer, UX, UI, UX Designer, UI Designer, Product Designer">
-    <meta property="og:title" content="Tyler Coderre">
-    <meta property="og:url" content="https://tylercoderre.com">
-    <meta property="og:description" content="The online profile of Tyler Coderre">
+    <title>ITX Case Study - Tyler Coderre</title>
+    <meta name="description" content="ITX case study focused on accessibility improvements and UX performance.">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
+    <meta property="og:title" content="ITX Case Study - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/work/itx.html">
+    <meta property="og:description" content="How I brought my company's website up to accessibility standards while improving UX and performance.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="../images/og-image.jpg">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
-    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#888888">
+    <meta property="og:image" content="../assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/work/itx.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ITX Case Study - Tyler Coderre">
+    <meta name="twitter:description" content="How I brought my company's website up to accessibility standards while improving UX and performance.">
+    <meta name="twitter:image" content="../assets/images/og-image.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
     <meta name="msapplication-TileColor" content="#111111">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="../assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="../assets/styles/style.css">
 </head>
-    
 <body>
-    
-    <a id='skip' class='screen-reader-text' href='#maincontent'>
-        Skip to Content
-    </a>
-    
-    <header class="desktopheader">
-        <div id="logo"><a href="../index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-        <nav class="desktop--nav">
-            <ul id="menubar" role="menubar" aria-label="Navigation Menu">
-                <li role="none">
-                    <a href="../about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                </li>
-                <li role="none">
-                    <a href="../index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                </li>
-                <li role="none">
-                    <a href="../index.html#writing" class="link link--nav"  tabindex="0" role="menuitem">Play</a>
-                </li>
-                <li role="none">
-                    <a href="../index.html#contact" class="link link--nav"  tabindex="0" role="menuitem">Talk</a>
-                </li>
-            </ul>
-        </nav>
-        <input type="checkbox" aria-labelledby="theme-switch" id="switch"/><label id="switch" for="switch">Toggle</label>
-    </header>
-    
-    <header class="mobileheader">
-        <div class="header-flex-container">
-            <div class="header-flex-child">
-                <div id="logo"><a href="../index.html" aria-label="logo" tabindex="-1" role="banner"><button class="tc-logo">Tyler Coderre</button></a></div>
-            </div>
-            <div class="header-flex-child">
-                <details class="mobilenav" aria-label="menu">
-                    <summary class="mobilenav"><label>Menu</label></summary>
-                    <nav class="desktop--nav">
-                        <ul id="menulist" role="menulist" aria-label="Navigation Menu">
-                            <li role="none">
-                                <a href="../about.html" class="link link--nav" tabindex="0" role="menuitem">About</a>
-                            </li>
-                            <li role="none">
-                                <a href="../index.html#work" class="link link--nav" tabindex="0" role="menuitem">Work</a>
-                            </li>
-                            <li role="none">
-                                <a href="../index.html#writing" class="link link--nav"  tabindex="0" role="menuitem">Play</a>
-                            </li>
-                            <li role="none">
-                                <a href="../index.html#contact" class="link link--nav"  tabindex="0" role="menuitem">Talk</a>
-                            </li>
-                        </ul>
-                    </nav>          
-                </details>
-                <input type="checkbox" aria-labelledby="theme-switch" id="switch"/><label id="switch" for="switch">Theme Toggle</label>
-            </div>
-        </div>
-    </header>
-    
-    <div id="top"></div>
-    <div id="maincontent"></div>
-    
+    <header id="Top">
+    <a href="../index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
+
+    <!-- HERO AND INTRODUCTION -->
     <section>
-            <h1>ITX</h1>
-            <h3 class="p0"><small>Designing for an accessible future.</small></h3>
-            <ul class="tags">
-                <li>UI + UX</li>
-                <li>UX Research</li>
+        <header>
+            <h1>Designing for an accessible future.</h1>
+            <ul>
+                <li>Accessibility</li>
                 <li>Graphic Design</li>
+                <li>UI + UX</li>
             </ul>
-        
-        <div class="gap"></div>
-        
-        <div class="fullwidth centered-content gradient-background">
-            <img class="wide" src="../images/work/itx/itx-homepage-logo-gradient.jpg" alt="ITX Case Study">
-        </div>
-        <div class="gap"></div>
-        <h2><small>Challenge</small></h2>
+        <figure class="media">
+            <img src="../assets/images/work/itx/itx-homepage-logo-gradient.jpg" alt="ITX featured image"></img>
+        </figure>
+        </header>
+
+        <h2>Framing the Problem.</h2>
+        <p><strong>Challenge</strong></p>
         <p>The ITX.com website was identified as not being up to par on what we like for accessibility.</p>
-        <div class="gap"></div>
-        <h2><small>Outcome</small></h2>
+        <p><strong>Outcome</strong></p>
         <p>I was brought in as one of the company experts on accessibility to bring the design in line with our standards.</p>
     </section>
-    
+
+    <!-- THE DISCOVERY -->
     <section>
         <h2>The Discovery.</h2>
-        <p><strong>Plotting a Course to Inclusivity.</strong></p>
+        <h3>Plotting a Course to Inclusivity.</h3>
         <p>The start of the process began with an audit / discovery phase. The first pass was looked over by Susi Pallero, an accessibility solutions specialist, to assess every page of our website in detail. Using a combination of her expertise and industry accessibility tools, she surfaced 57 areas of improvement for accessibility on the site. Some of the checks included the following:</p>
         <ul>
-            <li><p>Heading structure</p></li>
-            <li><p>Link structure</p></li>
-            <li><p>Keyboard navigation</p></li>
-            <li><p>Voice search capabilities</p></li>
-            <li><p>Color contrast</p></li>
-            <li><p>Responsive design</p></li>
+            <li>Heading structure</li>
+            <li>Link structure</li>
+            <li>Keyboard navigation</li>
+            <li>Voice search capabilities</li>
+            <li>Color contrast</li>
+            <li>Responsive design</li>
         </ul>
         <p>Our goal was to meet a minimum of WCAG 2.1 AA requirements – and AAA as often as possible – and we knew what obstacles were in our way. I took that initial audit and did a deep dive of our company's website, recording every color, typeface, block pattern, and the like to start the process of developing a new accessible design system.</p>
         <p>It was discovered on this audit that a complete overhaul of the site was going to be needed. By doing so I could develop a new accessible design system and streamline set of blocks that could be built using Wordpress's block patterns to eliminate the reliance on third-party builders that previous iterations used. This would increase performance while making the editing experience for the marketing team more streamlined and easier to maintain.</p>
-        <blockquote><strong>True inclusive design goes beyond accessible design elements.</strong> The hero block on our old website featured a white male seemingly “educating” a group of women and employees of color. This photo inadvertently reinforces harmful biases and unbalanced power dynamics. Where you can, it's best to remove the depiction of hierarchies. Or use it as a chance to lift up underrepresented groups. We chose to avoid the use of imagery that hinted at hierarchy.</blockquote>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--container">
-                    <div class="device--left">
-                        <img class="wide" src="../images/work/itx/itx-homepage.jpg" alt="ITX Homepage">
-                    </div>
-                    <div class="device--right">
-                        <div class="device--mobile">
-                            <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-homepage-mobile.jpg" alt="ITX Homepage Mobile">
-                        </div>
-                        <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
-                    </div>
+        <blockquote>
+            <p><strong>True inclusive design goes beyond accessible design elements.</strong>The hero block on our old website featured a white male seemingly “educating” a group of women and employees of color. This photo inadvertently reinforces harmful biases and unbalanced power dynamics. Where you can, it's best to remove the depiction of hierarchies. Or use it as a chance to lift up underrepresented groups. We chose to avoid the use of imagery that hinted at hierarchy.</p>
+        </blockquote>
+        <div class="device-pair">
+            <figure>
+                <img src="../assets/images/work/itx/itx-homepage.jpg" alt="ITX homepage desktop"></img>
+            </figure>
+            <figure class="device">
+                <div>
+                    <img src="../assets/images/work/itx/itx-homepage-mobile.jpg" alt="ITX homepage mobile"></img>
                 </div>
-            </div>
+            </figure>
         </div>
     </section>
-    
+
+    <!-- THE DESIGN SYSTEM -->
     <section>
         <h2>The Design System.</h2>
-        <p><strong>Designing a new inclusive experience and style guide.</strong></p>
+        <h3>Designing a new inclusive experience and style guide.</h3>
         <p>When designing the new design system for ITX.com, proper thought and care had to be given to each element and component, along with how they interact with each other. Accessibility is about the details. Every color, contact form, button, and interactive site element needs to be accessible to every user.</p>
         <p>A breakdown of some of the new system elements that were rebuilt include the following:</p>
-        <p><strong>Visual Elements</strong></p>
+        <h4>Visual Elements</h4>
         <ul>
-            <li><p>Colors</p></li>
-            <li><p>Typography</p></li>
-            <li><p>Content</p></li>
+            <li>Colors</li>
+            <li>Typography</li>
+            <li>Content</li>
         </ul>
-        <p><strong>Interactive Elements</strong></p>
-        <ul>
-            <li><p>Navigation</p></li>
-            <li><p>Buttons & Controls</p></li>
-            <li><p>Inputs & Forms</p></li>
-            <li><p>Success & Error Feedback</p></li>
-            <li><p>Audio Playback</p></li>
-            <li><p>Keyboard & Back to Top Controls</p></li>
-            <li><p>Cookie Prompts</p></li>
-            <li><p>And More...</p></li>
+        <h4>Interactive Elements</h4>
+        <ul>    
+            <li>Navigation</li>
+            <li>Buttons & Controls</li>
+            <li>Inputs & Forms</li>
+            <li>Success & Error Feedback</li>
+            <li>Audio Playback</li>
+            <li>Keyboard & Back to Top Controls</li>
+            <li>Cookie Prompts</li>
+            <li>And More...</li>
         </ul>
-        <div class="gap"></div>
         <h3>Colors.</h3>
-        <p>A positive visual experience creates a positive first impression. Our website’s visual elements define our branding and set the foundation for the overall design. We ensured that the colors, typography, and content were all visually appealing and brand-aligned, while meeting a minimum of WCAG 2.1 AA accessibility requirements. In fact, most of our design met AAA requirements.</p>
-        <p>From our office headquarters to our website, ITX’s branding runs deep. Our color palette of orange and teal is a non-negotiable part of our online presence. However, some of these color combinations were also non-negotiable barriers to accessibility.</p>
-        <p>For example, a typical link with a teal background and white text doesn’t have sufficient color contrast to meet WCAG AA requirements.</p>
-        <h4>The Solution.</h4>
+        <p>A positive visual experience creates a positive first impression. Our website's visual elements define our branding and set the foundation for the overall design. We ensured that the colors, typography, and content were all visually appealing and brand-aligned, while meeting a minimum of WCAG 2.1 AA accessibility requirements. In fact, most of our design met AAA requirements.</p>
+        <p>From our office headquarters to our website, ITX's branding runs deep. Our color palette of orange and teal is a non-negotiable part of our online presence. However, some of these color combinations were also non-negotiable barriers to accessibility.</p>
+        <p>For example, a typical link with a teal background and white text doesn't have sufficient color contrast to meet WCAG AA requirements.</p>
+        <h4>The Solution</h4>
         <p>Using ITX's existing color library as a starting point, I developed a new color system that tweaked all of the color values of the brand guide to hit a minimum contrast of AA and in many instances AAA with their strictly defined use cases. For instance, interactive elements on light backgrounds are accented by a new accessible teal, and on dark backgrounds, a new accessible orange. Which pulls to of the company's primary colors into actionable elements. While working with these colors I also defined equivalents for both digital and print applications. Each color has values for Hex, RGB, CMYK, and Pantone colors.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-style-guide-colors.jpg" alt="ITX Styleguide Colors">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
+        <blockquote>
+            <p><strong>When we design elements with proper color contrast,</strong> we're able to meet the visual needs of many more users. A site visitor will be able to better perceive the site, whether they have permanent disability, like color blindness, or are experiencing a temporary one, such as screen glare.</p>
+        </blockquote>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-style-guide-colors.jpg" alt="ITX website color system"></img>
             </div>
-        </div>
-        <div class="gap"></div>
-        <blockquote><strong>When we design elements with proper color contrast, </strong>we’re able to meet the visual needs of many more users. A site visitor will be able to better perceive the site, whether they have permanent disability, like color blindness, or are experiencing a temporary one, such as screen glare.</blockquote>
+        </figure>
     </section>
-    
+
+    <!-- TYPOGRAPHY CONTENT -->
     <section>
         <h2>Typography & Content.</h2>
-        <p>Consistent typography and content are central to website design. Keeping these element
-            uniform creates a cohesive user experience across the site. And creating clear and concise content allows users of all abilities to access the information they need – even if they’re just skimming the headings.
-            <p>Fonts should be easy to read, links easy to follow, and tables and lists easy to navigate. Research shows that sans serif fonts are best for readability, so we chose Open Sans as our primary web font.</p>
-            <p>Whether a visually impaired site visitor is using a screen reader or a person with dyslexia is scanning for information, they should be able to read and understand the website without friction. Typography should also display clearly when a user is reading with an on-screen magnifier.</p>
-            <blockquote>The World Wide Web Consortium has thorough guidelines and principles to follow when designing content, so we recommend that guide as a jumping-off point.</blockquote>
-            <h3><small>The Solution.</small></h3>
-            <p>Using <a href="https://type-scale.com" class="link link--inline" target="blank">a type scale tool</a> I developed a new type hierarchy system that would work on both mobile and desktop sizes while still being legible. The system also uses Rem units to be easily zoomed and controlled by those using accessibility devices.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-typography-and-content.jpg" alt="ITX Style Guide Typography and Content">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
+        <p>Consistent typography and content are central to website design. Keeping these element uniform creates a cohesive user experience across the site. And creating clear and concise content allows users of all abilities to access the information they need – even if they're just skimming the headings. </p>
+        <p>Fonts should be easy to read, links easy to follow, and tables and lists easy to navigate. Research shows that sans serif fonts are best for readability, so we chose Open Sans as our primary web font.</p>
+        <p>Whether a visually impaired site visitor is using a screen reader or a person with dyslexia is scanning for information, they should be able to read and understand the website without friction. Typography should also display clearly when a user is reading with an on-screen magnifier.</p>
+        <blockquote>
+            <p>The World Wide Web Consortium has thorough guidelines and principles to follow when designing content, so we recommend that guide as a jumping-off point.</p>
+        </blockquote>
+        <h4>The Solution.</h4>
+        <p>Using a <a href="https://type-scale.com/" target="_blank" rel="noopener noreferrer">type scale tool</a> I developed a new type hierarchy system that would work on both mobile and desktop sizes while still being legible. The system also uses Rem units to be easily zoomed and controlled by those using accessibility devices.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-typography-and-content.jpg" alt="ITX typography system"></img>
             </div>
-        </div>
+        </figure>
     </section>
-    
+
+    <!-- INTERACTIVE ELEMENTS -->
     <section>
-        <h2>Interactive Elements.</h2>
-        <p>At ITX, we create people-centric software products, and UX was at the forefront of all we do. When reimagining our website, we knew that our interactive elements needed to be accessible and foster a positive user experience.</p>
-        <div class="gap--lg"></div>
-            <h3><small>Navigation.</small></h3>
-            <p>For both accessibility and extensibility, I designed light and dark modes for most visual elements, including the navigation bar. In instances where the navigation is part of an image based full-width hero, the dark navigation is used. Where is when there isn't a hero image the light navigation is used for a cleaner and uninterrupted look.</p>
-            <p>During this process, indicators for page selections, keyboard navigation, new hover and focus states, were all designed and built from the ground up.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="../images/work/itx/itx-navigation-dark.png" alt="ITX Navigation Dark">
-            <div class="gap"></div>
-            <img class="wide" src="../images/work/itx/itx-navigation-light.png" alt="ITX Navigation Light">
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>Search & Overlay.</small></h3>
+        <header>
+            <h2>Interactive Elements.</h2>
+            <p>At ITX, we create people-centric software products, and UX was at the forefront of all we do. When reimagining our website, we knew that our interactive elements needed to be accessible and foster a positive user experience.</p>
+        </header>
+        <h3>Navigation.</h3>
+        <p>For both accessibility and extensibility, I designed light and dark modes for most visual elements, including the navigation bar. In instances where the navigation is part of an image based full-width hero, the dark navigation is used. Where is when there isn't a hero image the light navigation is used for a cleaner and uninterrupted look.</p>
+        <p>During this process, indicators for page selections, keyboard navigation, new hover and focus states, were all designed and built from the ground up.</p>
+        <figure class="media">
+            <img src="../assets/images/work/itx/itx-navigation-dark.png" alt="ITX navigation dark"></img>
+        </figure>
+        <figure class="media">
+            <img src="../assets/images/work/itx/itx-navigation-light.png" alt="ITX navigation light"></img>
+        </figure>
+
+        <h3>Search & Overlay.</h3>
         <p>The search function around the site is a type of input field but with more specific styling. For the new ITX.com, we created an overlay treatment for search. This clear focus state allows users to keep track of the cursor. The overlay disappears when the user clicks away from the search box.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="../images/work/itx/itx-search-dark.png" alt="ITX Search Dark">
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>Footer.</small></h3>
-        <p>A website’s footer is a hub for general information. ITX.com’s footer helps users navigate to our job openings, support page, and social media profiles, among other things. There’s also a field to sign up for our newsletter, Continuous Inspiration.</p><p>It’s a lot to pack into one block, so I arranged the content to create an intuitive user experience and with our developers and copy team, made sure that every icon has a clear alt text and every button has intuitive copy, so every user knows exactly where they’re navigating when interacting with the footer components.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="../images/work/itx/itx-footer.png" alt="ITX Footer">
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>The Rabbit Hole.</small></h3>
+        <figure class="media">
+            <img src="../assets/images/work/itx/itx-search-dark.png" alt="ITX search"></img>
+        </figure>
+    </section>
+    <section>
+        <h3>Footer</h3>
+        <p>A website's footer is a hub for general information. ITX.com's footer helps users navigate to our job openings, support page, and social media profiles, among other things. There's also a field to sign up for our newsletter, Continuous Inspiration.</p>
+        <p>It's a lot to pack into one block, so I arranged the content to create an intuitive user experience and with our developers and copy team, made sure that every icon has a clear alt text and every button has intuitive copy, so every user knows exactly where they're navigating when interacting with the footer components.</p>
+        <figure class="media">
+            <img src="../assets/images/work/itx/itx-footer.png" alt="ITX footer"></img>
+        </figure>
+    </section>
+    <section>
+        <h3>The Rabbit Hole.</h3>
         <p>Check out further permutations of the navigation, search, footer, and dialog prompts.</p>
-        <div class="gap"></div>
-            <div class="fullwidth centered-content">
-                <div class="wide">
-                    <div class="device--tablet">
-                        <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-navigation-and-prompts.jpg" alt="ITX Styleguide Navigation & Prompts">
-                    </div>
-                    <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
-                </div>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-navigation-and-prompts.jpg" alt="ITX navigation and prompts"></img>
             </div>
-            <div class="gap--lg"></div>
-        <h3><small>Buttons and Controls.</small></h3>
+        </figure>
+    </section>
+    <section>
+        <h3>Buttons & Controls.</h3>
         <p>The WCAG 2.1 AA requirements are central to designing accessible buttons. Our designers ensured that the hover and click states have clear contrast. The buttons on the new ITX website feature contrast of black on white, white on teal, white on dark gray, and black on orange.</p>
         <p>The colors of the ITX.com buttons will hit AAA for the text and hit or exceed AA for all of the colors and controls.</p>
         <p>As a rule, a site visitor should understand where a button leads without any other context. Buttons should also be large and in a logical location, so users can easily click on the element. This way, an individual can quickly determine a button’s purpose while scanning the page visually or using a screen reader. Myself and in many instances the copy team took a pass at rewriting most links and buttons along with all buttons designed with an accessible touch-friendly size.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="../images/work/itx/itx-buttons.png" alt="ITX Buttons">
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>Pagination.</small></h3>
-        <p>The website’s pagination had similar styling to the buttons, both in color and behavior. Our designers ensured that the pagination element had clear hover and focus indicators for intuitive navigation.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <img class="wide" src="../images/work/itx/itx-pagination.png" alt="ITX Pagination">
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>All Button & Control Permutations.</small></h3>
-        <p>Each button and control has it's place and use case for design consistency and accessibility.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-buttons.jpg" alt="ITX Style Guide Buttons & Controls">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-buttons.png" alt="ITX buttons"></img>
             </div>
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>Inputs & Forms.</small></h3>
-        <p>Without the right accessibility features, input fields on your contact page are unavailable to users with disabilities. So, without inclusive design, your business is missing out on valuable contacts and conversations. And at the same time, users are missing out on valuable services and information.</p><p>When building an accessible contact form for ITX.com, our team focused on a few key factors. We ensured that users could navigate the input fields using either a mouse or keyboard, adding clear hover states for each of these methods.</p><p>Our development team also coded clear error and success messages. This way, site visitors using screen readers know whether they filled out the form correctly or need to re-enter their information into a specific field.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-forms.jpg" alt="ITX Style Guide Forms & Inputs">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
-            </div>
-        </div>
-        <div class="gap"></div>
-        <blockquote><strong>Remember, inclusive design requires clear and concise content.</strong> A vague error message will only confuse readers, dissuading them from filling out the contact form at all.</blockquote>
-        <div class="gap"></div>
-        <p>Radio buttons and checkboxes are also part of the contact form, and we applied similar design treatments to these. Our designers ensured that the radio buttons and checkboxes had clear contrast and focus states as well.</p>
+        </figure>
     </section>
-            
+    <section>
+        <h3>Pagination</h3>
+        <p>The website's pagination had similar styling to the buttons, both in color and behavior. Our designers ensured that the pagination element had clear hover and focus indicators for intuitive navigation.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-pagination.png" alt="ITX pagination"></img>
+            </div>
+        </figure>
+    </section>
+    <section>
+        <h3>All Button & Control Permutations.</h3>
+        <p>Each button and control has it's place and use case for design consistency and accessibility.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-interactive-elements.jpg" alt="ITX interactive elements"></img>
+            </div>
+        </figure>
+    </section>
+    <section>
+        <h3>Inputs & Forms.</h3>
+        <p>Without the right accessibility features, input fields on your contact page are unavailable to users with disabilities. So, without inclusive design, your business is missing out on valuable contacts and conversations. And at the same time, users are missing out on valuable services and information.</p>
+        <p>When building an accessible contact form for ITX.com, our team focused on a few key factors. We ensured that users could navigate the input fields using either a mouse or keyboard, adding clear hover states for each of these methods.</p>
+        <p>Our development team also coded clear error and success messages. This way, site visitors using screen readers know whether they filled out the form correctly or need to re-enter their information into a specific field.</p>
+        <blockquote>
+            <p><strong>Remember, inclusive design requires clear and concise content.</strong> A vague error message will only confuse readers, dissuading them from filling out the contact form at all.</p>
+        </blockquote>
+        <p>Radio buttons and checkboxes are also part of the contact form, and we applied similar design treatments to these. Our designers ensured that the radio buttons and checkboxes had clear contrast and focus states as well.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-forms.jpg" alt="ITX forms"></img>
+            </div>
+        </figure>
+    </section>
+
+    <!-- BUILDING CONTENT BLOCKS -->
     <section>
         <h2>Building Content Blocks.</h2>
         <p>To ensure the site was going to be easy to build upon and maintain. A few building blocks were designed and coded to be plug and play using the Wordpress block builder system for easy and intuitive use.</p>
-        <p>With the design roadmap complete, it was time to assemble our new elements, putting the website together as the next phase of our agile kan-ban process. You’ll notice all of the previously mentioned elements as you scroll through ITX.com. However, we thought it would be helpful to break down the anatomy of a few of the larger content blocks that make up our site.</p><p>Our content design decisions all came down to structure. The layout within each content block, as well as the page, helps users understand which information is most important. Incidentally, this also helps search engines understand what the page is all about, aiding search engine optimization.</p><p>Each section of content merges text, buttons, audio players, and more, all with accessibility and usability in mind.</p>
-        <h3><small>The "Hero" aka Header Block.</small></h3>
+        <p>With the design roadmap complete, it was time to assemble our new elements, putting the website together as the next phase of our agile kan-ban process. You’ll notice all of the previously mentioned elements as you scroll through ITX.com. However, we thought it would be helpful to break down the anatomy of a few of the larger content blocks that make up our site.</p>
+        <p>Our content design decisions all came down to structure. The layout within each content block, as well as the page, helps users understand which information is most important. Incidentally, this also helps search engines understand what the page is all about, aiding search engine optimization.</p>
+        <p>Each section of content merges text, buttons, audio players, and more, all with accessibility and usability in mind.</p>
+    </section>
+    <section>        
+        <h3>The "Hero" aka Header Block.</h3>
         <p>We wanted our hero blocks to live up to their name. Featuring high-contrast headings and text, overlay styling, eye-catching photos, and accessible buttons, the content blocks introduce the reader to the page topics.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-hero-blocks.jpg" alt="ITX Style Guide Hero Blocks">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-hero-blocks.jpg" alt="ITX hero blocks"></img>
             </div>
-        </div>
-        <div class="gap--lg"></div>
-        <h3><small>Content Highlights Within Pages.</small></h3>
-        <p>I merged high-contrast headings and paragraph text, clearly labeled buttons, and various styling options to create our fully accessible content highlight blocks. In most cases the photos and graphics are decorative, so they don’t include alternative text (remember, alt text is only for informational images!).</p>
-        <div class="gap"></div>
+        </figure>
+    </section>
+    <section>
+        <h3>Content Highlights Within Pages.</h3>
+        <p>I merged high-contrast headings and paragraph text, clearly labeled buttons, and various styling options to create our fully accessible content highlight blocks. In most cases the photos and graphics are decorative, so they don't include alternative text (remember, alt text is only for informational images!).</p>
+    </section>
+    <section>
+        <h3>Podcast Blocks that Showcase Key Episodes.</h3>
+        <p>ITX is lucky enough to feature inspiring voices on our Product Momentum podcast, so we want to highlight them throughout our website. This block incorporates many of the features listed above: a heading, paragraph text, and button with a clear label. You'll also notice a high-contrast audio player that users can control with a keyboard. We made sure that screen readers announce the audio player's functionalities.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/itx/itx-styleguide-content-blocks.jpg" alt="ITX content blocks"></img>
+            </div>
+        </figure>
+    </section>
 
-        <h3><small>Podcast Blocks that Showcase Key Episodes.</small></h3>
-        <p>ITX is lucky enough to feature inspiring voices on our Product Momentum podcast, so we want to highlight them throughout our website. This block incorporates many of the features listed above: a heading, paragraph text, and button with a clear label. You'll also notice a high-contrast audio player that users can control with a keyboard. We made sure that screen readers announce the audio player’s functionalities.</p>
-        <div class="gap"></div>
-        <div class="fullwidth centered-content">
-            <div class="wide">
-                <div class="device--tablet">
-                    <img style="width: 100%; margin: 0 auto;" src="../images/work/itx/itx-styleguide-content-blocks.jpg" alt="ITX Style Guide Content Blocks">
-                </div>
-                <div style="width: 100%; margin: 2rem auto 0 auto;" class="centered"><hr><p><small>I'm Scrollable</small></p></div>
-            </div>
-        </div>
-        <div class="gap--lg"></div>
-    </section>
-            
-    <section id="share">
-        <h2>Share.</h2>
-        <p>Like what you see? Please spread the word on your platform of choice and check out mny other work:</p>
-        <ul class="inline">
-            <li><button class="open-modal button--wipe m0">View More Work</button></li>
-            <li class="share facebook icon-accent"><a href="http://www.facebook.com/sharer.php?u=" target="blank" class="link link--inline">Facebook</a></li>
-            <li class="share twitter icon-accent"><a href="https://twitter.com/share?url=&text=ITX Study by Coderre Design&hashtags=coderredesign,design" target="blank" class="link link--inline">Twitter</a></li>
-            <li class="share reddit icon-accent"><a href="http://reddit.com/submit?url=&title=ITX Case Study by Coderre Design" target="blank" class="link link--inline">Reddit</a></li>
-            <li class="share email icon-accent"><a href="mailto:?Subject=ITX Case Study by Coderre Design&Body=I%20saw%20this%20and%20thought%20of%20you!%20 " target="blank" class="link link--inline">Email</a></li>
-        </ul>
-    </section>
-    
-    <dialog>
-        <form method="dialog" class="m0">
-            <div class="dialog--header">
-                <div class="dialog--title">
-                    <h2 class="case-study--dialog">Case Studies</h2>
-                </div>
-                <div class="dialog--close">
-                    <button class="close-modal m0" value="cancel" tabindex="0">Close</button>
-                </div>
-            </div>
-            <div class="dialog--content">
-                <p><small>Featured (3)</small></p>
-                <ul class="case-study--list">
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../index.html#contact" tabindex="1" class="link link--inline">Saas Experience and Enterprise Design System</a> <span class="case-study--label">Contact Only</span></h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../work/itx.html" tabindex="1" class="link link--inline">ITX</a></h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog"><a href="../work/paychex.html" tabindex="1" class="link link--inline">Paychex</a> <span class="case-study--label">Limited</span></h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="gap"></div>
-                <p class="m0"><small>The Phantom Zone (15)</small></p>
-                <p><small><em>Reach out for to chat about archived studies.</em></small></p>
-                <ul class="case-study--list">
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">A Jaunt with Joy</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Buffalo Niagara Medical Campus</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Hearst</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Hodgson Russ</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Independent Health</h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Kore Marketing</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Labatt + Zubaz</h3>
-                        <ul class="tags">
-                            <li>Graphic Design</li>
-                            <li>Packaging Design</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Organization Development by Mike Cardus</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>Packaging Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Person Centered Services</h3>
-                        <ul class="tags">
-                            <li>Branding</li>
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">ROAR Logistics</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Savarino Companies</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Storillo</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                            <li>Development</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list">
-                        <h3 class="case-study--dialog">Trocaire College</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                        </ul>
-                    </li>
-                    <li class="case-study--list"><h3 class="case-study--dialog">University at Buffalo</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>Marketing</li>
-                            <li>UI + UX</li>
-                        </ul></li>
-                    <li class="case-study--list"><h3 class="case-study--dialog">Walsh Duffield</h3>
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li>UI + UX</li>
-                        </ul></li>
-                </ul>
-            </div>
-        </form>
-    </dialog> 
-    
+    <!-- CONTACT -->
     <section id="contact">
         <h2>Still Curious?</h2>
-        <h3><small>Browse one of my other <a href="../index.html#work" class="link link--inline">case studies</a>, <a href="../index.html#writing" class="link link--inline">writing</a>, <a href="../index.html#resources" class="link link--inline">resouces</a>, or reach out for a <a href="../index.html#contact" class="link link--inline">chat</a>.</small></h3>
-        <p>I'd love to chat about potential partnerships, design, artificial intelligence, chicken wings, or a dog pic exchange. You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="blank" class="link link--inline">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="blank" class="link link--inline">LinkedIn</a> as well.</p>
-
-        <div class="location--container">
-            <div id="location" class="location">Based in Buffalo, NY</div>
-            <div id="clock" class="time">Loading time...</div>
-            <div id="temp" class="temp">Loading temperature...</div>
-        </div>
-        
-          <script>
-            // Live Clock for Buffalo (Eastern Time)
-            function updateClock() {
-              const now = new Date();
-              const options = {
-                timeZone: 'America/New_York',
-                hour: 'numeric',
-                minute: 'numeric',
-                // second: 'numeric',
-                // weekday: 'long',
-                // year: 'numeric',
-                // month: 'long',
-                // day: 'numeric',
-                hour12: true,
-              };
-              const formatter = new Intl.DateTimeFormat('en-US', options);
-              document.getElementById('clock').textContent = formatter.format(now);
-            }
-        
-            // Get Current Temperature via OpenWeatherMap
-            async function updateTemperature() {
-              const apiKey = 'a41c006d2ee7b466f3d445df68ef65fe';
-              const city = 'Buffalo';
-              const units = 'imperial'; // or 'metric' for Celsius
-              const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-        
-              try {
-                const response = await fetch(url);
-                const data = await response.json();
-                const temp = Math.round(data.main.temp);
-                const unit = units === 'imperial' ? '°F' : '°C';
-                document.getElementById('temp').textContent = ` // ${temp}${unit}`;
-              } catch (err) {
-                document.getElementById('temp').textContent = 'Unable to load temperature';
-                console.error(err);
-              }
-            }
-        
-            // ⏱Run updates
-            updateClock();
-            setInterval(updateClock, 1000);
-        
-            updateTemperature();
-            setInterval(updateTemperature, 10 * 60 * 1000); // every 10 min
-          </script>
+        <h3>Browse one of my other <a href="../index.html#work">case studies</a>, <a href="../index.html#writing">writings</a>, <a href="../index.html#projects">resources</a>, or reach out for a chat.</h3>
+        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
 
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
-            <input type="text" name="name" autocomplete="name" required aria-required="true" placeholder="Hello" required>
-            <div class="gap"></div>
+            <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+            <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
             <label for="email" class="required-field">Email</label>
-            <input type="email" name="email" autocomplete="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" required>
-            <div class="gap"></div>
-            <label for="message" class="required-field">Message</label>
+            <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+            <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+            <label for="message" enterkeyhint="send" class="required-field">Message</label>
             <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
             <div class="g-recaptcha" data-sitekey="6Ld76BYgAAAAAGzY0GwFTUrlxtMbfHZGJruCxjIt"></div>
-            <div class="gap"></div>
-            <button class="button--wipe">Send</button>
+            <noscript>
+                <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+            </noscript>
+            <button>Send</button>
         </form>
     </section>
-        
+
     <footer>
-        <div class="footer--right-accent"></div>
-        <p class="top"><a href="#top" tabindex="0" class="link link--inline">Back to the top</a></p>
-        <p class="copyright">&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html" tabindex="0" class="link link--inline">Accessibility</a> + <a href="../privacy.html" tabindex="0" class="link link--inline">Privacy</a></p>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
     </footer>
-    
-<script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>    <script src="../script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
 </body>
 </html>
-            

@@ -1,0 +1,131 @@
+/* Breakout Theme Tokens */
+:root {
+	--breakout-canvas-bg: var(--tc-background-primary);
+	--breakout-grid: var(--tc-border);
+	--breakout-paddle: var(--tc-text-primary);
+	--breakout-ball: var(--tc-text-primary);
+	--breakout-brick: var(--tc-text-primary);
+}
+
+/* Breakout Layout */
+.breakout {
+	margin: var(--tc-space-md) 0;
+	display: grid;
+	justify-items: center;
+	gap: 1rem;
+	font-family: var(--tc-font-sans);
+	color: var(--tc-text-primary);
+}
+
+.breakout,
+.breakout * {
+	box-sizing: border-box;
+}
+
+/* CRT Frame */
+.breakout .crt {
+	width: min(560px, 100%);
+	position: relative;
+	color: var(--tc-text-primary);
+}
+
+.breakout .bezel {
+	background: var(--tc-background-primary);
+	border: 1px solid var(--tc-border);
+	border-radius: 0rem;
+	padding: 1rem;
+}
+
+.breakout .wrap {
+	text-align: center;
+}
+
+/* Breakout Logo */
+.breakout-logo {
+	margin: 0 0 0.75rem;
+	letter-spacing: 0.4rem;
+	font-weight: 700;
+	font-size: 1.25rem;
+	color: var(--tc-text-primary);
+}
+
+/* Game Panel */
+.breakout .panel {
+	background: var(--tc-background-primary);
+	border: 1px solid var(--tc-border);
+	border-radius: 1rem;
+	padding: 1rem 0;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Scanlines */
+.breakout .panel::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: repeating-linear-gradient(
+		to bottom,
+		currentColor 0px,
+		currentColor 1px,
+		transparent 2px,
+		transparent 4px
+	);
+	opacity: 0.06;
+}
+
+html[data-theme="dark"] .breakout .panel::after {
+	opacity: 0.12;
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-theme]) .breakout .panel::after {
+		opacity: 0.12;
+	}
+}
+
+/* HUD */
+.breakout #hud {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	padding: 0 1rem 1rem 1rem;
+}
+
+.breakout .led {
+	font-family: var(--tc-font-mono);
+	letter-spacing: 0.08rem;
+	font-size: 0.875rem;
+}
+
+/* Game Canvas */
+.breakout canvas {
+	width: 100%;
+	height: auto;
+	max-width: 520px;
+	aspect-ratio: 1 / 1;
+	display: block;
+	margin: 0 auto;
+	background: var(--breakout-canvas-bg);
+	background-image:
+		linear-gradient(to right, var(--breakout-grid) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--breakout-grid) 1px, transparent 1px);
+	background-size: calc(100% / 24) calc(100% / 24);
+	border-radius: 0;
+	border-top: 1px solid var(--tc-border);
+	border-bottom: 1px solid var(--tc-border);
+	image-rendering: pixelated;
+}
+
+/* Controls */
+.breakout .controls {
+	margin-top: 0.75rem;
+	display: flex;
+	gap: 0.75rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
