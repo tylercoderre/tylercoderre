@@ -1,0 +1,12 @@
+/* Hex Clock Logo Hover */
+body:has(#hex) > header > a[aria-label="Home"]:hover,
+body:has(#hex) > header > a[aria-label="Home"]:focus-visible {
+	color: var(--tc-logo-hover-text, var(--tc-text-primary));
+	background: var(--tc-logo-hover-bg, var(--tc-background-secondary));
+	border-color: var(--tc-logo-hover-bg, var(--tc-background-secondary));
+}
+
+body:has(#hex) > header > a[aria-label="Home"]:hover::before,
+body:has(#hex) > header > a[aria-label="Home"]:focus-visible::before {
+	filter: var(--tc-logo-hover-filter, var(--tc-logo-filter, none));
+}

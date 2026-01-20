@@ -1,4 +1,3 @@
-User-Agent: *
+User-agent: *
 Allow: /
-
-sitemap: https://tylercoderre.com/sitemap.xml 
+Sitemap: https://tylercoderre.com/sitemap.xml

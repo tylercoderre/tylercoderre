@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Coderre Design">
+  <rect width="1000" height="1000" fill="#ffffff"/>
+  <g transform="translate(95.6 95) scale(3)">
+    <path fill="#111111" d="M235.9,0H0v233.9L134.8,270l134.8-36.1V0H235.9L235.9,0z M235.9,208l-101.1,27.1L33.7,208V33.7h202.2V208z"/>
+    <circle fill="#111111" cx="176.9" cy="92.8" r="25.3"/>
+    <circle fill="#111111" cx="92.7" cy="92.8" r="25.3"/>
+    <circle fill="#111111" cx="134.8" cy="168.6" r="25.3"/>
+  </g>
+</svg>
