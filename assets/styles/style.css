@@ -336,8 +336,10 @@ a:hover::after {
 
 a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download]),
 a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download]) {
-	/* Make room for the external-link icon on offsite links */
-	padding-right: 1.15em;
+	/* Keep the icon attached to the link text on wrap */
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.3em;
 }
 
 a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download])::before,
@@ -346,17 +348,18 @@ a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download])::before {
 	font: var(--fa-font-sharp-regular);
 	font-size: 0.75em;
 	line-height: 1;
-	position: absolute;
-	right: 0.125rem;
-	top: 50%;
-	transform: translateY(-64%);
+	position: static;
+	order: 1;
+	transform: none;
 	color: var(--tc-text-secondary);
 	pointer-events: none;
 }
 
 a[download]:not(:has(> img)):not(:has(> button)) {
-	/* Make room for the download icon on download links */
-	padding-right: 1.15em;
+	/* Keep the icon attached to the link text on wrap */
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.3em;
 }
 
 a[download]:not(:has(> img)):not(:has(> button))::before {
@@ -364,10 +367,9 @@ a[download]:not(:has(> img)):not(:has(> button))::before {
 	font: var(--fa-font-sharp-regular);
 	font-size: 0.75em;
 	line-height: 1;
-	position: absolute;
-	right: 0.125rem;
-	top: 50%;
-	transform: translateY(-64%);
+	position: static;
+	order: 1;
+	transform: none;
 	color: var(--tc-text-secondary);
 	pointer-events: none;
 }
@@ -1043,7 +1045,7 @@ body > header > a[aria-label="Home"] {
 	text-decoration: none;
 	color: var(--tc-text-primary);
 	white-space: nowrap;
-	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.1s ease-in-out;
 	font-size: 0.875rem;
 	border-bottom: 0;
 	position: relative;
@@ -1076,13 +1078,19 @@ body > header > a[aria-label="Home"]:hover {
 	border-color: var(--tc-background-secondary);
 }
 
-/* Primary Navigation */
-body > header > a[aria-label="Home"]:focus,
+body > header > a[aria-label="Home"]:active {
+	transform: scale(0.9);
+}
+
 /* Primary Navigation */
 body > header > a[aria-label="Home"]:focus-visible {
 	border-radius: 2rem;
 	outline: 1px solid var(--tc-border);
 	outline-offset: 4px;
+}
+
+body > header > a[aria-label="Home"]:focus:not(:focus-visible) {
+	outline: none;
 }
 
 /* Primary Navigation */
@@ -1608,25 +1616,21 @@ input[type="button"][disabled]::after {
 	width: 0;
 }
 
-button:focus,
 button:focus-visible,
-input[type="submit"]:focus,
 input[type="submit"]:focus-visible,
-input[type="reset"]:focus,
 input[type="reset"]:focus-visible,
-input[type="button"]:focus,
 input[type="button"]:focus-visible {
 	border-color: var(--tc-border);
 	outline: 1px solid var(--tc-border);
 	outline-offset: 4px;
 }
 
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-	border-color: var(--tc-border);
-	outline: 1px solid var(--tc-border);
-	outline-offset: 4px;
+button:focus:not(:focus-visible),
+input[type="submit"]:focus:not(:focus-visible),
+input[type="reset"]:focus:not(:focus-visible),
+input[type="button"]:focus:not(:focus-visible),
+dialog header a[data-dialog-close]:focus:not(:focus-visible) {
+	outline: none;
 }
 
 /* Primary Navigation */
