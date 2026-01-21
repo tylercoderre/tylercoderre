@@ -18,7 +18,7 @@
     --tc-root-400-light: hsl(0, 0%, 4%);
     --tc-root-300-light: hsl(0, 0%, 32%);
     --tc-root-200-light: hsl(0, 0%, 92%);
-    --tc-root-100-light: hsl(0, 0%, 100%);
+    --tc-root-100-light: hsl(0, 0%, 96%);
 
     --tc-root-400-dark: hsl(0, 0%, 96%);
     --tc-root-300-dark: hsl(0, 0%, 92%);
@@ -2093,6 +2093,10 @@ input:not([type="checkbox"]):not([type="radio"]) {
 	box-sizing: border-box;
 	width: 100%;
 	transition: border-color 0.3s ease, box-shadow 0.2s ease-in-out;
+}
+
+form .g-recaptcha {
+	margin-bottom: 1rem;
 }
 
 .field-error {
