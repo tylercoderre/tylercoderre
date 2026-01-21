@@ -18,7 +18,7 @@
     --tc-root-400-light: hsl(0, 0%, 4%);
     --tc-root-300-light: hsl(0, 0%, 32%);
     --tc-root-200-light: hsl(0, 0%, 92%);
-    --tc-root-100-light: hsl(0, 0%, 96%);
+    --tc-root-100-light: hsl(0, 0%, 100%);
 
     --tc-root-400-dark: hsl(0, 0%, 96%);
     --tc-root-300-dark: hsl(0, 0%, 92%);
@@ -637,6 +637,7 @@ figure kbd:hover {
 	font-size: 0.85rem;
 	font-weight: 500;
 	color: var(--tc-text-secondary);
+	align-self: flex-start;
 }
 
 /* Type Specimen */
@@ -1722,6 +1723,7 @@ pre {
 }
 
 code {
+	background: var(--tc-background-secondary);
 	border-radius: 0;
 }
 
@@ -1736,6 +1738,8 @@ kbd:not(:where(figure *)) {
 }
 
 pre {
+	background: var(--tc-background-secondary);
+	border-radius: 0;
 	padding: 1rem 1.4rem;
 	max-width: 100%;
 	aspect-ratio: 3 / 2;
