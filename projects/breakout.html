@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="../assets/styles/breakout.css">
     </head>
     <body>
+    <a class="skip-link" href="#content">Skip to content</a>
         <header id="Top">
             <a href="../index.html" aria-label="Home">Tyler Coderre</a>
             <nav aria-label="Primary">
@@ -46,22 +47,40 @@
             </nav>
         </header>
 
-        <main class="breakout" data-breakout>
+
+        <main class="breakout" data-breakout id="content" tabindex="-1">
             <div class="crt">
                 <div class="bezel">
                     <div class="wrap">
                         <h1 class="breakout-logo">BREAKOUT</h1>
-                        <div class="panel">
-                            <div id="hud">
-                                <div class="led">Score <span id="score">000000</span></div>
-                                <div class="led">Lives <span id="lives">03</span></div>
+                            <div class="panel">
+                                <div class="canvas-wrap">
+                                    <div id="hud">
+                                        <div class="led">Score <span id="score">000000</span></div>
+                                        <div class="led">Lives <span id="lives" class="lives" aria-label="3 lives remaining">
+                                            <span class="life-heart" aria-hidden="true"></span>
+                                            <span class="life-heart" aria-hidden="true"></span>
+                                            <span class="life-heart" aria-hidden="true"></span>
+                                        </span></div>
+                                    </div>
+                                    <canvas id="game" width="480" height="480" role="img" aria-label="Breakout game board"></canvas>
+                                </div>
                                 <div id="status">← → to move • Space = start/pause • R = reset</div>
+                            <div class="controls controls--keys">
+                                <button id="btnStart" class="btn touch-key" type="button">Start</button>
+                                <button id="btnPause" class="btn touch-key" type="button">Pause</button>
+                                <button id="btnReset" class="btn touch-key" type="button">Reset</button>
                             </div>
-                            <canvas id="game" width="480" height="480" role="img" aria-label="Breakout game board"></canvas>
-                            <div class="controls">
-                                <button id="btnStart" class="btn" type="button">Start</button>
-                                <button id="btnPause" class="btn" type="button">Pause</button>
-                                <button id="btnReset" class="btn" type="button">Reset</button>
+                            <div class="controls controls--touch" role="group" aria-label="Touch controls">
+                                <button class="btn touch-key" type="button" data-touch-control="left" aria-label="Move left">
+                                    <span class="breakout-icon breakout-icon--left" aria-hidden="true"></span>
+                                </button>
+                                <button class="btn touch-key" type="button" data-touch-control="space" aria-label="Spacebar (start or pause)">
+                                    <span class="breakout-icon breakout-icon--space" aria-hidden="true"></span>
+                                </button>
+                                <button class="btn touch-key" type="button" data-touch-control="right" aria-label="Move right">
+                                    <span class="breakout-icon breakout-icon--right" aria-hidden="true"></span>
+                                </button>
                             </div>
                             <noscript>
                                 <p>JavaScript is required to play Breakout.</p>

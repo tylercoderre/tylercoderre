@@ -206,6 +206,16 @@ body {
 	line-height: 1.5;
 }
 
+body:focus,
+body:focus-visible {
+	outline: none;
+}
+
+main[tabindex="-1"]:focus,
+section[tabindex="-1"]:focus {
+	outline: none;
+}
+
 ::selection {
 	/* Set background color for selected text */
 	background: var(--tc-text-primary);
@@ -1510,7 +1520,8 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
-dialog header a[data-dialog-close] {
+dialog header a[data-dialog-close],
+.skip-link {
 	background: transparent;
 	border: 1px solid var(--tc-border);
 	border-radius: 4rem;
@@ -1539,11 +1550,13 @@ button::after,
 input[type="submit"]::after,
 input[type="reset"]::after,
 input[type="button"]::after,
-dialog header a[data-dialog-close]::after {
+dialog header a[data-dialog-close]::after,
+.skip-link::after {
 	content: '';
 	position: absolute;
 	left: -35%;
 	top: 0;
+	bottom: auto;
 	height: 100%;
 	width: 0;
 	background: var(--tc-text-primary);
@@ -1567,7 +1580,10 @@ input[type="button"]:focus-visible,
 input[type="button"]:hover,
 dialog header a[data-dialog-close]:focus,
 dialog header a[data-dialog-close]:focus-visible,
-dialog header a[data-dialog-close]:hover {
+dialog header a[data-dialog-close]:hover,
+.skip-link:focus,
+.skip-link:focus-visible,
+.skip-link:hover {
 	border-color: transparent;
 	caret-color: transparent;
 	color: var(--tc-background-primary);
@@ -1577,7 +1593,8 @@ button:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active,
-dialog header a[data-dialog-close]:active {
+dialog header a[data-dialog-close]:active,
+.skip-link:active {
 	transform: scale(0.9);
 }
 
@@ -1595,7 +1612,10 @@ input[type="button"]:focus-visible::after,
 input[type="button"]:hover::after,
 dialog header a[data-dialog-close]:focus::after,
 dialog header a[data-dialog-close]:focus-visible::after,
-dialog header a[data-dialog-close]:hover::after {
+dialog header a[data-dialog-close]:hover::after,
+.skip-link:focus::after,
+.skip-link:focus-visible::after,
+.skip-link:hover::after {
 	width: 135%;
 }
 
@@ -1620,7 +1640,8 @@ input[type="button"][disabled]::after {
 button:focus-visible,
 input[type="submit"]:focus-visible,
 input[type="reset"]:focus-visible,
-input[type="button"]:focus-visible {
+input[type="button"]:focus-visible,
+.skip-link:focus-visible {
 	border-color: var(--tc-border);
 	outline: 1px solid var(--tc-border);
 	outline-offset: 4px;
@@ -1633,6 +1654,36 @@ input[type="button"]:focus:not(:focus-visible),
 dialog header a[data-dialog-close]:focus:not(:focus-visible) {
 	outline: none;
 }
+
+.skip-link:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.skip-link {
+	border-bottom: none;
+	left: 50%;
+	padding-bottom: 0;
+	position: fixed;
+	top: -4rem;
+	translate: -50% 0;
+	word-break: normal;
+	z-index: 10;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+	border-radius: 4rem;
+	corner-shape: auto;
+	top: 1rem;
+}
+
+.skip-link:focus::after,
+.skip-link:focus-visible::after,
+.skip-link:hover::after {
+	transform: skew(45deg);
+	transform-origin: top left;
+}
+
 
 /* Primary Navigation */
 body > header button[data-theme-toggle] {

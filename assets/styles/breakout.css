@@ -30,10 +30,10 @@
 }
 
 .breakout .bezel {
-	background: var(--tc-background-primary);
+	background: var(--tc-background-secondary);
 	border: 1px solid var(--tc-border);
-	border-radius: 0rem;
-	padding: 1rem;
+	border-radius: 2rem;
+	padding: 2rem;
 }
 
 .breakout .wrap {
@@ -42,7 +42,7 @@
 
 /* Breakout Logo */
 .breakout-logo {
-	margin: 0 0 0.75rem;
+	margin: 0 0 2rem;
 	letter-spacing: 0.4rem;
 	font-weight: 700;
 	font-size: 1.25rem;
@@ -53,18 +53,59 @@
 .breakout .panel {
 	background: var(--tc-background-primary);
 	border: 1px solid var(--tc-border);
-	border-radius: 1rem;
-	padding: 1rem 0;
+	border-radius: 2rem;
+	padding: 2.25rem 2rem 2rem 2rem;
 	position: relative;
 	overflow: hidden;
 }
 
 /* Scanlines */
-.breakout .panel::after {
+.breakout .canvas-wrap {
+	position: relative;
+	width: 100%;
+	max-width: 520px;
+	margin: 0 auto;
+	border-radius: 1rem;
+	overflow: visible;
+}
+
+.breakout .canvas-wrap::before {
+	content: "\f111";
+	font: var(--fa-font-sharp-regular);
+	position: absolute;
+	left: -1.5rem;
+	top: 50%;
+	width: 1rem;
+	height: 1rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	line-height: 1;
+	color: currentColor;
+	pointer-events: none;
+	transform: translateY(-50%);
+	z-index: 2;
+}
+
+.breakout .panel[data-state="paused"] .canvas-wrap::before {
+	content: "\e0ca";
+	font: var(--fa-font-sharp-solid);
+	font-size: 1rem;
+}
+
+.breakout .panel[data-state="running"] .canvas-wrap::before {
+	content: "\e0c9";
+	font: var(--fa-font-sharp-solid);
+	font-size: 1rem;
+}
+
+.breakout .canvas-wrap::after {
 	content: '';
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
+	border-radius: inherit;
 	background: repeating-linear-gradient(
 		to bottom,
 		currentColor 0px,
@@ -75,12 +116,12 @@
 	opacity: 0.06;
 }
 
-html[data-theme="dark"] .breakout .panel::after {
+html[data-theme="dark"] .breakout .canvas-wrap::after {
 	opacity: 0.12;
 }
 
 @media (prefers-color-scheme: dark) {
-	html:not([data-theme]) .breakout .panel::after {
+	html:not([data-theme]) .breakout .canvas-wrap::after {
 		opacity: 0.12;
 	}
 }
@@ -92,13 +133,62 @@ html[data-theme="dark"] .breakout .panel::after {
 	align-items: center;
 	margin: 0;
 	gap: 0.5rem;
-	flex-wrap: wrap;
-	padding: 0 1rem 1rem 1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0.5rem 1rem;
+	border-bottom: 1px dashed var(--tc-border);
+	box-sizing: border-box;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.breakout cite {
+	margin-bottom: 0;
 }
 
 .breakout .led {
 	font-family: var(--tc-font-mono);
 	letter-spacing: 0.08rem;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.breakout .lives {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.breakout .life-heart {
+	width: 1rem;
+	height: 1rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+}
+
+.breakout .life-heart::before {
+	content: "\f004";
+	font: var(--fa-font-sharp-solid);
+	font-size: 1rem;
+}
+
+.breakout .life-heart.is-empty::before {
+	font: var(--fa-font-sharp-regular);
+	font-size: 1rem;
+	display: inline-block;
+	transform: scale(1.1);
+	transform-origin: center;
+}
+
+#status {
+	margin-top: 0.75rem;
 	font-size: 0.875rem;
 }
 
@@ -115,17 +205,113 @@ html[data-theme="dark"] .breakout .panel::after {
 		linear-gradient(to right, var(--breakout-grid) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--breakout-grid) 1px, transparent 1px);
 	background-size: calc(100% / 24) calc(100% / 24);
-	border-radius: 0;
-	border-top: 1px solid var(--tc-border);
-	border-bottom: 1px solid var(--tc-border);
+	border-radius: 1rem;
+	border: 1px solid var(--tc-border);
 	image-rendering: pixelated;
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+
+.breakout,
+.breakout * {
+	caret-color: transparent;
 }
 
 /* Controls */
 .breakout .controls {
 	margin-top: 0.75rem;
 	display: flex;
-	gap: 0.75rem;
+	gap: 2rem;
 	justify-content: center;
 	flex-wrap: wrap;
+}
+
+.breakout .controls + .controls {
+	margin-top: 2rem;
+}
+
+.breakout .controls--touch,
+.breakout .controls--keys {
+	width: min(520px, 100%);
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	padding: 0;
+	box-sizing: border-box;
+	column-gap: 2rem;
+	row-gap: 2rem;
+}
+
+.breakout .controls--touch .btn,
+.breakout .controls--keys .btn {
+	width: 100%;
+	touch-action: none;
+}
+
+.breakout .touch-key {
+	min-width: 3rem;
+	min-height: 3rem;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.25rem;
+	box-sizing: border-box;
+	text-align: center;
+	white-space: nowrap;
+	flex-shrink: 0;
+	gap: 0.125rem;
+	align-self: center;
+	margin: 0;
+	background: var(--tc-background-primary);
+	border: 1px solid var(--tc-border);
+	border-bottom: 3px solid var(--tc-border);
+	border-radius: 0.5rem;
+	color: var(--tc-text-primary);
+	font-weight: 400;
+	transition: background-color 0.15s ease, border-bottom-width 0.15s ease, transform 0.1s ease;
+}
+
+.breakout .touch-key .breakout-icon {
+	font: var(--fa-font-sharp-solid);
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.breakout .touch-key .breakout-icon--left::before {
+	content: "\f355";
+}
+
+.breakout .touch-key .breakout-icon--right::before {
+	content: "\f356";
+}
+
+.breakout .touch-key .breakout-icon--space::before {
+	content: "\005b";
+}
+
+.breakout .touch-key .breakout-icon--space {
+	transform: rotate(-90deg);
+}
+
+.breakout .touch-key::after {
+	content: none;
+}
+
+.breakout .touch-key:hover,
+.breakout .touch-key:active,
+.breakout .touch-key.is-pressed {
+	background: var(--tc-background-secondary);
+	border-bottom-width: 1px;
+	transform: translateY(2px);
+}
+
+.breakout .touch-key:focus,
+.breakout .touch-key:focus-visible {
+	color: var(--tc-text-primary);
+	border-color: var(--tc-border);
+	outline: 1px solid var(--tc-border);
+	outline-offset: 2px;
 }

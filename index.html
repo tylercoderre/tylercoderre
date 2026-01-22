@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header id="Top">
     <a href="index.html" aria-label="Home">Tyler Coderre</a>
     <nav aria-label="Primary">
@@ -48,13 +49,14 @@
 </header>
 
 
+
     <!-- HERO AND INTRODUCTION -->
-    <section id="hero">
+    <section id="hero" tabindex="-1">
         <div class="orbit">
             <img src="assets/images/headshot.jpg" alt="Headshot of Tyler Coderre in black and white giving a goofy look in front of a banner that says Give a Damn"></img>
             <span aria-hidden="true"><span><span>Tyler</span></span></span>
         </div>
-        <h1>Hello, I'm Tyler</h1>
+        <h1 id="content" tabindex="-1">Hello, I'm Tyler</h1>
         <h2>I turn messy problems into simple, inclusive solutions — and I can do the same for you.</h2>
         <div class="actions">
             <a href="#contact" tabindex="-1"><button>Let's Talk</button></a>

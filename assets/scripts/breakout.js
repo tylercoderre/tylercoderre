@@ -15,6 +15,7 @@
 	const brickGap = 3;
 	const brickW = (W - (cols + 1) * brickGap) / cols;
 	const brickH = 18;
+	const maxLives = 3;
 
 	const paddle = { w: 80, h: 12, x: W / 2 - 40, y: H - 36, speed: 6 };
 	const ball = { x: W / 2, y: H / 2 + 60, r: 6, vx: 3, vy: -3, speedInc: 0.05 };
@@ -24,9 +25,11 @@
 	let lives;
 	let running = false;
 	let paused = false;
+	let awaitingServe = false;
 	let loopId;
 	let leftPressed = false;
 	let rightPressed = false;
+	let hudHeight = 0;
 	let colors = null;
 	let themeToken = '';
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -67,11 +70,12 @@
 
 	const resetLevel = () => {
 		bricks = [];
+		const topOffset = Math.max(60, hudHeight + 32);
 		for (let r = 0; r < rows; r += 1) {
 			for (let c = 0; c < cols; c += 1) {
 				bricks.push({
 					x: brickGap + c * (brickW + brickGap),
-					y: 60 + r * (brickH + brickGap),
+					y: topOffset + r * (brickH + brickGap),
 					w: brickW,
 					h: brickH,
 					alive: true,
@@ -80,15 +84,47 @@
 		}
 	};
 
+	const renderLives = () => {
+		const livesEl = document.getElementById('lives');
+		if (!livesEl) {
+			return;
+		}
+		const livesCount = Math.max(0, lives);
+		const lost = Math.max(0, maxLives - livesCount);
+		livesEl.setAttribute(
+			'aria-label',
+			`${livesCount} ${livesCount === 1 ? 'life' : 'lives'} remaining`
+		);
+		livesEl.textContent = '';
+		for (let i = 0; i < maxLives; i += 1) {
+			const heart = document.createElement('span');
+			heart.className = 'life-heart';
+			if (i < lost) {
+				heart.classList.add('is-empty');
+			}
+			heart.setAttribute('aria-hidden', 'true');
+			livesEl.appendChild(heart);
+		}
+	};
+
 	const updateHUD = () => {
 		const scoreEl = document.getElementById('score');
-		const livesEl = document.getElementById('lives');
 		if (scoreEl) {
 			scoreEl.textContent = fmt(score);
 		}
-		if (livesEl) {
-			livesEl.textContent = lives.toString().padStart(2, '0');
+		renderLives();
+	};
+
+	const updateHudState = () => {
+		const panel = document.querySelector('.breakout .panel');
+		if (!panel) {
+			return;
 		}
+		if (!running) {
+			panel.removeAttribute('data-state');
+			return;
+		}
+		panel.dataset.state = paused ? 'paused' : 'running';
 	};
 
 	const setStatus = (msg) => {
@@ -106,14 +142,21 @@
 		ball.vy = -3;
 	};
 
+	const attachBallToPaddle = () => {
+		ball.x = paddle.x + paddle.w / 2;
+		ball.y = paddle.y - ball.r - 1;
+	};
+
 	const resetGame = () => {
 		score = 0;
-		lives = 3;
+		lives = maxLives;
 		updateHUD();
 		resetLevel();
 		centerBallOnPaddle(true);
 		running = false;
 		paused = false;
+		awaitingServe = true;
+		updateHudState();
 		setStatus('PRESS SPACE OR START');
 		render();
 		clearInterval(loopId);
@@ -123,6 +166,8 @@
 		if (!running) {
 			running = true;
 			paused = false;
+			awaitingServe = false;
+			updateHudState();
 			loop();
 			setStatus('');
 		}
@@ -130,22 +175,32 @@
 
 	const pause = () => {
 		paused = !paused;
+		if (!paused && awaitingServe) {
+			awaitingServe = false;
+		}
+		updateHudState();
 		setStatus(paused ? 'PAUSED' : '');
 	};
 
 	const loop = () => {
 		clearInterval(loopId);
 		loopId = setInterval(() => {
-			if (running && !paused) {
-				update();
-				render();
+			if (!running) {
+				return;
 			}
+			updatePaddle();
+			if (paused) {
+				if (awaitingServe) {
+					attachBallToPaddle();
+				}
+			} else {
+				updateBall();
+			}
+			render();
 		}, 1000 / 60);
 	};
 
-	const update = () => {
-		syncThemeColors();
-
+	const updatePaddle = () => {
 		if (leftPressed) {
 			paddle.x -= paddle.speed;
 		}
@@ -153,7 +208,9 @@
 			paddle.x += paddle.speed;
 		}
 		paddle.x = Math.max(0, Math.min(W - paddle.w, paddle.x));
+	};
 
+	const updateBall = () => {
 		ball.x += ball.vx;
 		ball.y += ball.vy;
 
@@ -165,8 +222,8 @@
 			ball.x = W - ball.r;
 			ball.vx *= -1;
 		}
-		if (ball.y < ball.r) {
-			ball.y = ball.r;
+		if (ball.y - ball.r <= hudHeight) {
+			ball.y = hudHeight + ball.r;
 			ball.vy *= -1;
 		}
 
@@ -179,6 +236,8 @@
 			}
 			centerBallOnPaddle(true);
 			paused = true;
+			awaitingServe = true;
+			updateHudState();
 			setStatus('PRESS SPACE TO SERVE');
 		}
 
@@ -230,6 +289,8 @@
 			resetLevel();
 			centerBallOnPaddle(true);
 			paused = true;
+			awaitingServe = true;
+			updateHudState();
 			setStatus('LEVEL CLEARED — PRESS SPACE');
 		}
 	};
@@ -266,21 +327,61 @@
 	const gameOver = () => {
 		running = false;
 		paused = false;
+		awaitingServe = false;
+		updateHudState();
 		setStatus('GAME OVER — PRESS R TO RESET');
 		clearInterval(loopId);
 	};
 
+	const updateHudHeight = () => {
+		const hud = document.getElementById('hud');
+		if (!hud) {
+			hudHeight = 0;
+			return;
+		}
+		const rect = hud.getBoundingClientRect();
+		hudHeight = rect.height || 0;
+	};
+
+	const handleSpaceAction = () => {
+		if (!running) {
+			start();
+		} else {
+			pause();
+		}
+	};
+
+	const setPressedState = (button, pressed) => {
+		if (!button) {
+			return;
+		}
+		button.classList.toggle('is-pressed', pressed);
+	};
+
 	document.addEventListener('keydown', (event) => {
 		const key = event.key.toLowerCase();
+		const isSpace = event.code === 'Space' || key === ' ' || key === 'spacebar';
+		const isArrow = key === 'arrowleft' || key === 'arrowright';
+		const target = event.target;
+		const isEditable =
+			target &&
+			(target.isContentEditable ||
+				target.tagName === 'INPUT' ||
+				target.tagName === 'TEXTAREA' ||
+				target.tagName === 'SELECT');
+		if (!isEditable && (isArrow || isSpace)) {
+			event.preventDefault();
+		}
 		if (key === 'arrowleft') {
 			leftPressed = true;
+			setPressedState(touchLeft, true);
 		} else if (key === 'arrowright') {
 			rightPressed = true;
-		} else if (key === ' ') {
-			if (!running) {
-				start();
-			} else {
-				pause();
+			setPressedState(touchRight, true);
+		} else if (isSpace) {
+			setPressedState(touchSpace, true);
+			if (!event.repeat) {
+				handleSpaceAction();
 			}
 		} else if (key === 'r') {
 			resetGame();
@@ -289,16 +390,24 @@
 
 	document.addEventListener('keyup', (event) => {
 		const key = event.key.toLowerCase();
+		const isSpace = event.code === 'Space' || key === ' ' || key === 'spacebar';
 		if (key === 'arrowleft') {
 			leftPressed = false;
+			setPressedState(touchLeft, false);
 		} else if (key === 'arrowright') {
 			rightPressed = false;
+			setPressedState(touchRight, false);
+		} else if (isSpace) {
+			setPressedState(touchSpace, false);
 		}
 	});
 
 	const startBtn = document.getElementById('btnStart');
 	const pauseBtn = document.getElementById('btnPause');
 	const resetBtn = document.getElementById('btnReset');
+	const touchLeft = document.querySelector('[data-touch-control="left"]');
+	const touchRight = document.querySelector('[data-touch-control="right"]');
+	const touchSpace = document.querySelector('[data-touch-control="space"]');
 
 	if (startBtn) {
 		startBtn.addEventListener('click', start);
@@ -310,6 +419,43 @@
 		resetBtn.addEventListener('click', resetGame);
 	}
 
+	const bindHoldButton = (button, onPress, onRelease) => {
+		if (!button) {
+			return;
+		}
+		const press = (event) => {
+			event.preventDefault();
+			onPress();
+		};
+		const release = (event) => {
+			event.preventDefault();
+			onRelease();
+		};
+		button.addEventListener('pointerdown', press);
+		button.addEventListener('pointerup', release);
+		button.addEventListener('pointerleave', release);
+		button.addEventListener('pointercancel', release);
+	};
+
+	bindHoldButton(touchLeft, () => {
+		leftPressed = true;
+	}, () => {
+		leftPressed = false;
+	});
+
+	bindHoldButton(touchRight, () => {
+		rightPressed = true;
+	}, () => {
+		rightPressed = false;
+	});
+
+	if (touchSpace) {
+		touchSpace.addEventListener('click', (event) => {
+			event.preventDefault();
+			handleSpaceAction();
+		});
+	}
+
 	const refreshTheme = () => {
 		syncThemeColors(true);
 		render();
@@ -319,6 +465,11 @@
 	themeObserver.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
 	mediaQuery.addEventListener('change', refreshTheme);
 
+	window.addEventListener('resize', () => {
+		updateHudHeight();
+	});
+
+	updateHudHeight();
 	syncThemeColors();
 	resetGame();
 })();
