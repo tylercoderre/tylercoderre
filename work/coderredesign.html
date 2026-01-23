@@ -121,58 +121,44 @@
     <!-- COLOR SYSTEM -->
     <section>
         <h2>A Minimalist Brand System</h2>
-        <p>A pure monochrome palette — black, white, and grayscale tones — ensures contrast and timelessness. Key text and action values meet WCAG AAA standards, keeping the experience consistent across screens and environments.</p>
+        <p>A pure monochrome palette — ink and paper with halftone overlays — ensures contrast and timelessness. Key text and action values meet WCAG AAA standards, keeping the experience consistent across screens and environments.</p>
         <figure class="type-specimen" aria-labelledby="color-system-title">
             <figcaption id="color-system-title"><strong>Color System</strong> — Monochrome tokens for text, borders, and surfaces</figcaption>
             <dl>
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%);">Aa</span>
-                        <span><strong>Primary Text</strong><code>--tc-text-primary</code><small>hsl(0, 0%, 4%)</small></span>
+                        <span><strong>Text</strong><code>--tc-text</code><small>hsl(0, 0%, 4%)</small></span>
                     </dt>
-                    <dd>High-contrast copy and headings.<small>Accessibility: primary text color for maximum readability on the main background. Contrast: 18.11:1 on primary background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 32%);">Aa</span>
-                        <span><strong>Secondary Text</strong><code>--tc-text-secondary</code><small>hsl(0, 0%, 32%)</small></span>
-                    </dt>
-                    <dd>Supporting copy and metadata.<small>Accessibility: use for supporting information; keep paired with the primary background. Contrast: 7.20:1 on primary background.</small></dd>
+                    <dd>High-contrast copy and headings.<small>Accessibility: text color for maximum readability on the main background. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%);"></span>
-                        <span><strong>Primary Background</strong><code>--tc-background-primary</code><small>hsl(0, 0%, 96%)</small></span>
+                        <span><strong>Background</strong><code>--tc-background</code><small>hsl(0, 0%, 96%)</small></span>
                     </dt>
                     <dd>Main canvas and surface.<small>Accessibility: pair with primary text for consistent legibility. Contrast: 18.11:1 with primary text.</small></dd>
                 </div>
                 <div>
                     <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 92%);"></span>
-                        <span><strong>Secondary Background</strong><code>--tc-background-secondary</code><small>hsl(0, 0%, 92%)</small></span>
+                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%); --swatch-border: hsl(0, 0%, 4%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
+                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 4%)</small></span>
                     </dt>
-                    <dd>Subtle panels and highlights.<small>Accessibility: use behind primary text and icons for soft contrast. Contrast: 16.53:1 with primary text.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 32%); --swatch-border: hsl(0, 0%, 32%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
-                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 32%)</small></span>
-                    </dt>
-                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 7.20:1 on primary background.</small></dd>
+                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%);">Aa</span>
                         <span><strong>Link</strong><code>--tc-link</code><small>hsl(0, 0%, 4%)</small></span>
                     </dt>
-                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on primary background.</small></dd>
+                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%); --swatch-border: hsl(0, 0%, 32%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
+                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%); --swatch-border: hsl(0, 0%, 4%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
                         <span><strong>Action</strong><code>--tc-action</code><small>hsl(0, 0%, 4%)</small></span>
                     </dt>
-                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on primary background.</small></dd>
+                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on background.</small></dd>
                 </div>
             </dl>
         </figure>
@@ -182,51 +168,111 @@
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%);">Aa</span>
-                        <span><strong>Primary Text</strong><code>--tc-text-primary</code><small>hsl(0, 0%, 96%)</small></span>
+                        <span><strong>Text</strong><code>--tc-text</code><small>hsl(0, 0%, 96%)</small></span>
                     </dt>
-                    <dd>High-contrast copy and headings.<small>Accessibility: primary text color for maximum readability on the main background. Contrast: 18.11:1 on primary background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 92%);">Aa</span>
-                        <span><strong>Secondary Text</strong><code>--tc-text-secondary</code><small>hsl(0, 0%, 92%)</small></span>
-                    </dt>
-                    <dd>Supporting copy and metadata.<small>Accessibility: use for supporting information; keep paired with the primary background. Contrast: 16.53:1 on primary background.</small></dd>
+                    <dd>High-contrast copy and headings.<small>Accessibility: text color for maximum readability on the main background. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%);"></span>
-                        <span><strong>Primary Background</strong><code>--tc-background-primary</code><small>hsl(0, 0%, 4%)</small></span>
+                        <span><strong>Background</strong><code>--tc-background</code><small>hsl(0, 0%, 4%)</small></span>
                     </dt>
                     <dd>Main canvas and surface.<small>Accessibility: pair with primary text for consistent legibility. Contrast: 18.11:1 with primary text.</small></dd>
                 </div>
                 <div>
                     <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 24%);"></span>
-                        <span><strong>Secondary Background</strong><code>--tc-background-secondary</code><small>hsl(0, 0%, 24%)</small></span>
+                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%); --swatch-border: hsl(0, 0%, 96%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
+                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 96%)</small></span>
                     </dt>
-                    <dd>Subtle panels and highlights.<small>Accessibility: use behind primary text and icons for soft contrast. Contrast: 9.92:1 with primary text.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 92%); --swatch-border: hsl(0, 0%, 92%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
-                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 92%)</small></span>
-                    </dt>
-                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 16.53:1 on primary background.</small></dd>
+                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
                         <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%);">Aa</span>
                         <span><strong>Link</strong><code>--tc-link</code><small>hsl(0, 0%, 96%)</small></span>
                     </dt>
-                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on primary background.</small></dd>
+                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on background.</small></dd>
                 </div>
                 <div>
                     <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%); --swatch-border: hsl(0, 0%, 92%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
+                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%); --swatch-border: hsl(0, 0%, 96%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
                         <span><strong>Action</strong><code>--tc-action</code><small>hsl(0, 0%, 96%)</small></span>
                     </dt>
-                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on primary background.</small></dd>
+                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on background.</small></dd>
+                </div>
+            </dl>
+        </figure>
+    </section>
+
+    <!-- HALFTONE PATTERNS -->
+    <section>
+        <h3>Halftone Patterns</h3>
+        <p>Inspired by classic computing screens and printed dithering, these patterns add texture with a strict two-color palette. Each halftone stays legible in both modes because it only mixes ink and paper.</p>
+        <figure class="type-specimen" aria-labelledby="halftone-system-title">
+            <figcaption id="halftone-system-title"><strong>Halftone Library</strong> — 2-color textures for UI surfaces</figcaption>
+            <dl>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-100);"></span>
+                        <span><strong>Halftone 100</strong><code>--tc-halftone-100</code><small>background: var(--tc-halftone-100);</small></span>
+                    </dt>
+                    <dd>Solid paper base for clean surfaces.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-200);"></span>
+                        <span><strong>Halftone 200</strong><code>--tc-halftone-200</code><small>background: var(--tc-halftone-200);</small></span>
+                    </dt>
+                    <dd>Light dot grid for quiet texture.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-300);"></span>
+                        <span><strong>Halftone 300</strong><code>--tc-halftone-300</code><small>background: var(--tc-halftone-300);</small></span>
+                    </dt>
+                    <dd>Denser dots for subtle emphasis.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-400);"></span>
+                        <span><strong>Halftone 400</strong><code>--tc-halftone-400</code><small>background: var(--tc-halftone-400);</small></span>
+                    </dt>
+                    <dd>Micro grid for fine texture.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-500);"></span>
+                        <span><strong>Halftone 500</strong><code>--tc-halftone-500</code><small>background: var(--tc-halftone-500);</small></span>
+                    </dt>
+                    <dd>Micro grid doubled for stronger texture.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-600);"></span>
+                        <span><strong>Halftone 600</strong><code>--tc-halftone-600</code><small>background: var(--tc-halftone-600);</small></span>
+                    </dt>
+                    <dd>Inverse micro dots over ink.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-700);"></span>
+                        <span><strong>Halftone 700</strong><code>--tc-halftone-700</code><small>background: var(--tc-halftone-700);</small></span>
+                    </dt>
+                    <dd>Inverse dots, denser for depth.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-800);"></span>
+                        <span><strong>Halftone 800</strong><code>--tc-halftone-800</code><small>background: var(--tc-halftone-800);</small></span>
+                    </dt>
+                    <dd>Inverse dots at mid density.</dd>
+                </div>
+                <div>
+                    <dt>
+                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-900);"></span>
+                        <span><strong>Halftone 900</strong><code>--tc-halftone-900</code><small>background: var(--tc-halftone-900);</small></span>
+                    </dt>
+                    <dd>Solid ink base for bold panels.</dd>
                 </div>
             </dl>
         </figure>
@@ -324,41 +370,41 @@
 &lt;/header&gt;
 </code></pre>
         <p><strong>CSS</strong></p>
-        <p>The palette is inverted by swapping the root tokens, with a soft transition for the mode change and a reduced-motion fallback.</p>
+        <p>The palette is inverted by swapping ink and paper, while halftones are built from the same two colors. A soft transition smooths the mode change with a reduced-motion fallback.</p>
         <pre><code>:root {
-  --tc-root-400-light: hsl(0, 0%, 4%);
-  --tc-root-300-light: hsl(0, 0%, 32%);
-  --tc-root-200-light: hsl(0, 0%, 92%);
-  --tc-root-100-light: hsl(0, 0%, 96%);
+  --tc-root-ink: hsl(0, 0%, 4%);
+  --tc-root-paper: hsl(0, 0%, 96%);
 
-  --tc-root-400-dark: hsl(0, 0%, 96%);
-  --tc-root-300-dark: hsl(0, 0%, 92%);
-  --tc-root-200-dark: hsl(0, 0%, 24%);
-  --tc-root-100-dark: hsl(0, 0%, 4%);
+  --tc-halftone-100: var(--tc-root-paper);
+  --tc-halftone-200: radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 4px 4px, var(--tc-root-paper);
+  --tc-halftone-300: radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 4px 4px, radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 2px 2px / 4px 4px, var(--tc-root-paper);
+  --tc-halftone-400: radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 2px 2px, var(--tc-root-paper);
+  --tc-halftone-500: radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 2px 2px, radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 1px 1px / 2px 2px, var(--tc-root-paper);
+  --tc-halftone-600: radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 2px 2px, var(--tc-root-ink);
+  --tc-halftone-700: radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 4px 4px, radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 2px 2px / 4px 4px, var(--tc-root-ink);
+  --tc-halftone-800: radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 4px 4px, var(--tc-root-ink);
+  --tc-halftone-900: var(--tc-root-ink);
 
-  --tc-root-400: var(--tc-root-400-light);
-  --tc-root-300: var(--tc-root-300-light);
-  --tc-root-200: var(--tc-root-200-light);
-  --tc-root-100: var(--tc-root-100-light);
+  --tc-text: var(--tc-root-ink);
+  --tc-link: var(--tc-root-ink);
+  --tc-action: var(--tc-root-ink);
+  --tc-background: var(--tc-root-paper);
+  --tc-border: var(--tc-root-ink);
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) {
-    --tc-root-400: var(--tc-root-400-dark);
-    --tc-root-300: var(--tc-root-300-dark);
-    --tc-root-200: var(--tc-root-200-dark);
-    --tc-root-100: var(--tc-root-100-dark);
+    --tc-root-ink: hsl(0, 0%, 96%);
+    --tc-root-paper: hsl(0, 0%, 4%);
     color-scheme: dark;
   }
 }
 
 html[data-theme="dark"] {
-  --tc-root-400: var(--tc-root-400-dark);
-  --tc-root-300: var(--tc-root-300-dark);
-  --tc-root-200: var(--tc-root-200-dark);
-  --tc-root-100: var(--tc-root-100-dark);
+  --tc-root-ink: hsl(0, 0%, 96%);
+  --tc-root-paper: hsl(0, 0%, 4%);
   color-scheme: dark;
 }
 
@@ -382,13 +428,13 @@ body &gt; header button[data-theme-toggle] {
   height: 1.875rem;
   margin: 0;
   line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-grid;
+  place-items: center;
   font-size: 0.875rem;
   border-radius: 2rem;
   margin-left: auto;
   overflow: visible;
+  position: relative;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -408,30 +454,82 @@ body &gt; header button[data-theme-toggle] i {
 body &gt; header button[data-theme-toggle]:hover,
 body &gt; header button[data-theme-toggle]:focus,
 body &gt; header button[data-theme-toggle]:focus-visible {
-  background: var(--tc-background-secondary);
-  color: var(--tc-text-primary);
+  background: transparent;
+  color: var(--tc-text);
   border-color: transparent;
 }
 
 nav button[data-theme-toggle] [data-theme-icon] {
-  display: none;
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 
-html[data-theme="dark"] nav button[data-theme-toggle] [data-theme-icon="dark"] {
-  display: inline-flex;
+html[data-theme="dark"] nav button[data-theme-toggle] [data-theme-icon="light"] {
+  opacity: 1;
 }
 
-html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="light"] {
-  display: inline-flex;
+html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="dark"] {
+  opacity: 1;
+}
+
+html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+  opacity: 0;
+}
+
+html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+  opacity: 1;
+}
+
+html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+  opacity: 0;
+}
+
+html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+  opacity: 1;
+}
+
+body &gt; header button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon] {
+  transform: rotate(15deg);
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) nav button[data-theme-toggle] [data-theme-icon="light"] {
-    display: none;
+    opacity: 1;
   }
 
   html:not([data-theme]) nav button[data-theme-toggle] [data-theme-icon="dark"] {
-    display: inline-flex;
+    opacity: 0;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+    opacity: 0;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) nav button[data-theme-toggle] [data-theme-icon="dark"] {
+    opacity: 1;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle] [data-theme-icon="light"] {
+    opacity: 0;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+    opacity: 0;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+    opacity: 1;
   }
 }
 </code></pre>
@@ -558,7 +656,7 @@ const updateThemeColor = () =&gt; {
     return;
   }
 
-  const value = getComputedStyle(root).getPropertyValue('--tc-background-primary').trim();
+  const value = getComputedStyle(root).getPropertyValue('--tc-background').trim();
   if (value) {
     meta.setAttribute('content', value);
   }

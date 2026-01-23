@@ -70,14 +70,13 @@
 	};
 
 	const setTextColor = (textColor) => {
-		root.style.setProperty('--tc-text-primary', textColor);
-		root.style.setProperty('--tc-text-secondary', textColor);
+		root.style.setProperty('--tc-text', textColor);
 		root.style.setProperty('--tc-link', textColor);
 		root.style.setProperty('--tc-action', textColor);
 		const isLightText = textColor === '#ffffff';
 		root.style.setProperty('--tc-logo-filter', isLightText ? 'invert(1)' : 'none');
 		root.style.setProperty('--tc-logo-hover-text', isLightText ? '#000000' : textColor);
-		root.style.setProperty('--tc-logo-hover-bg', isLightText ? '#ffffff' : 'var(--tc-background-secondary)');
+		root.style.setProperty('--tc-logo-hover-bg', isLightText ? '#ffffff' : 'var(--tc-halftone-200)');
 		root.style.setProperty('--tc-logo-hover-filter', isLightText ? 'none' : 'var(--tc-logo-filter, none)');
 		document.body.style.color = textColor;
 	};

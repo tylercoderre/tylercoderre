@@ -29,6 +29,8 @@
 	let loopId;
 	let leftPressed = false;
 	let rightPressed = false;
+	const pressedControls = new Set();
+	const controlOrder = [];
 	let hudHeight = 0;
 	let colors = null;
 	let themeToken = '';
@@ -44,11 +46,11 @@
 	const updateThemeColors = () => {
 		const styles = getComputedStyle(breakoutRoot || root);
 		colors = {
-			canvas: readCssVar(styles, '--breakout-canvas-bg', readCssVar(styles, '--tc-background-primary', '#ffffff')),
+			canvas: readCssVar(styles, '--breakout-canvas-bg', readCssVar(styles, '--tc-background', '#ffffff')),
 			grid: readCssVar(styles, '--breakout-grid', readCssVar(styles, '--tc-border', '#cccccc')),
-			paddle: readCssVar(styles, '--breakout-paddle', readCssVar(styles, '--tc-text-primary', '#111111')),
-			ball: readCssVar(styles, '--breakout-ball', readCssVar(styles, '--tc-text-primary', '#111111')),
-			brick: readCssVar(styles, '--breakout-brick', readCssVar(styles, '--tc-text-primary', '#111111')),
+			paddle: readCssVar(styles, '--breakout-paddle', readCssVar(styles, '--tc-text', '#111111')),
+			ball: readCssVar(styles, '--breakout-ball', readCssVar(styles, '--tc-text', '#111111')),
+			brick: readCssVar(styles, '--breakout-brick', readCssVar(styles, '--tc-text', '#111111')),
 		};
 	};
 
@@ -358,6 +360,35 @@
 		button.classList.toggle('is-pressed', pressed);
 	};
 
+	const updateActiveControls = () => {
+		const active = controlOrder[controlOrder.length - 1];
+		leftPressed = active === 'left';
+		rightPressed = active === 'right';
+	};
+
+	const registerPress = (control) => {
+		if (!pressedControls.has(control)) {
+			pressedControls.add(control);
+		}
+		const index = controlOrder.indexOf(control);
+		if (index !== -1) {
+			controlOrder.splice(index, 1);
+		}
+		controlOrder.push(control);
+		updateActiveControls();
+	};
+
+	const registerRelease = (control) => {
+		if (pressedControls.has(control)) {
+			pressedControls.delete(control);
+		}
+		const index = controlOrder.indexOf(control);
+		if (index !== -1) {
+			controlOrder.splice(index, 1);
+		}
+		updateActiveControls();
+	};
+
 	document.addEventListener('keydown', (event) => {
 		const key = event.key.toLowerCase();
 		const isSpace = event.code === 'Space' || key === ' ' || key === 'spacebar';
@@ -373,14 +404,19 @@
 			event.preventDefault();
 		}
 		if (key === 'arrowleft') {
-			leftPressed = true;
+			if (!event.repeat) {
+				registerPress('left');
+			}
 			setPressedState(touchLeft, true);
 		} else if (key === 'arrowright') {
-			rightPressed = true;
+			if (!event.repeat) {
+				registerPress('right');
+			}
 			setPressedState(touchRight, true);
 		} else if (isSpace) {
 			setPressedState(touchSpace, true);
 			if (!event.repeat) {
+				registerPress('space');
 				handleSpaceAction();
 			}
 		} else if (key === 'r') {
@@ -392,12 +428,13 @@
 		const key = event.key.toLowerCase();
 		const isSpace = event.code === 'Space' || key === ' ' || key === 'spacebar';
 		if (key === 'arrowleft') {
-			leftPressed = false;
+			registerRelease('left');
 			setPressedState(touchLeft, false);
 		} else if (key === 'arrowright') {
-			rightPressed = false;
+			registerRelease('right');
 			setPressedState(touchRight, false);
 		} else if (isSpace) {
+			registerRelease('space');
 			setPressedState(touchSpace, false);
 		}
 	});
@@ -419,16 +456,21 @@
 		resetBtn.addEventListener('click', resetGame);
 	}
 
-	const bindHoldButton = (button, onPress, onRelease) => {
+	const bindHoldButton = (button, onPress, onRelease, options = {}) => {
 		if (!button) {
 			return;
 		}
+		const { preventDefault = true } = options;
 		const press = (event) => {
-			event.preventDefault();
+			if (preventDefault) {
+				event.preventDefault();
+			}
 			onPress();
 		};
 		const release = (event) => {
-			event.preventDefault();
+			if (preventDefault) {
+				event.preventDefault();
+			}
 			onRelease();
 		};
 		button.addEventListener('pointerdown', press);
@@ -438,18 +480,29 @@
 	};
 
 	bindHoldButton(touchLeft, () => {
-		leftPressed = true;
+		registerPress('left');
+		setPressedState(touchLeft, true);
 	}, () => {
-		leftPressed = false;
+		registerRelease('left');
+		setPressedState(touchLeft, false);
 	});
 
 	bindHoldButton(touchRight, () => {
-		rightPressed = true;
+		registerPress('right');
+		setPressedState(touchRight, true);
 	}, () => {
-		rightPressed = false;
+		registerRelease('right');
+		setPressedState(touchRight, false);
 	});
 
 	if (touchSpace) {
+		bindHoldButton(touchSpace, () => {
+			registerPress('space');
+			setPressedState(touchSpace, true);
+		}, () => {
+			registerRelease('space');
+			setPressedState(touchSpace, false);
+		}, { preventDefault: false });
 		touchSpace.addEventListener('click', (event) => {
 			event.preventDefault();
 			handleSpaceAction();

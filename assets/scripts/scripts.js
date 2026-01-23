@@ -119,7 +119,7 @@
 			return;
 		}
 
-		const value = getComputedStyle(root).getPropertyValue('--tc-background-primary').trim();
+		const value = getComputedStyle(root).getPropertyValue('--tc-background').trim();
 		if (value) {
 			meta.setAttribute('content', value);
 		}

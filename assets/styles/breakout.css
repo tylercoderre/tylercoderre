@@ -1,10 +1,10 @@
 /* Breakout Theme Tokens */
 :root {
-	--breakout-canvas-bg: var(--tc-background-primary);
+	--breakout-canvas-bg: var(--tc-background);
 	--breakout-grid: var(--tc-border);
-	--breakout-paddle: var(--tc-text-primary);
-	--breakout-ball: var(--tc-text-primary);
-	--breakout-brick: var(--tc-text-primary);
+	--breakout-paddle: var(--tc-text);
+	--breakout-ball: var(--tc-text);
+	--breakout-brick: var(--tc-text);
 }
 
 /* Breakout Layout */
@@ -14,7 +14,7 @@
 	justify-items: center;
 	gap: 1rem;
 	font-family: var(--tc-font-sans);
-	color: var(--tc-text-primary);
+	color: var(--tc-text);
 }
 
 .breakout,
@@ -26,11 +26,11 @@
 .breakout .crt {
 	width: min(560px, 100%);
 	position: relative;
-	color: var(--tc-text-primary);
+	color: var(--tc-text);
 }
 
 .breakout .bezel {
-	background: var(--tc-background-secondary);
+	background: var(--tc-halftone-200);
 	border: 1px solid var(--tc-border);
 	border-radius: 2rem;
 	padding: 2rem;
@@ -46,12 +46,12 @@
 	letter-spacing: 0.4rem;
 	font-weight: 700;
 	font-size: 1.25rem;
-	color: var(--tc-text-primary);
+	color: var(--tc-text);
 }
 
 /* Game Panel */
 .breakout .panel {
-	background: var(--tc-background-primary);
+	background: var(--tc-background);
 	border: 1px solid var(--tc-border);
 	border-radius: 2rem;
 	padding: 2.25rem 2rem 2rem 2rem;
@@ -263,11 +263,11 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 	gap: 0.125rem;
 	align-self: center;
 	margin: 0;
-	background: var(--tc-background-primary);
+	background: var(--tc-background);
 	border: 1px solid var(--tc-border);
 	border-bottom: 3px solid var(--tc-border);
 	border-radius: 0.5rem;
-	color: var(--tc-text-primary);
+	color: var(--tc-text);
 	font-weight: 400;
 	transition: background-color 0.15s ease, border-bottom-width 0.15s ease, transform 0.1s ease;
 }
@@ -303,15 +303,43 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 .breakout .touch-key:hover,
 .breakout .touch-key:active,
 .breakout .touch-key.is-pressed {
-	background: var(--tc-background-secondary);
+	background: var(--tc-halftone-200);
 	border-bottom-width: 1px;
 	transform: translateY(2px);
 }
 
 .breakout .touch-key:focus,
 .breakout .touch-key:focus-visible {
-	color: var(--tc-text-primary);
+	color: var(--tc-text);
 	border-color: var(--tc-border);
 	outline: 1px solid var(--tc-border);
 	outline-offset: 2px;
+}
+
+.breakout .touch-key:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (max-width: 480px) {
+	.breakout .bezel {
+		padding: 1rem;
+	}
+
+	.breakout-logo {
+		margin-bottom: 1rem;
+	}
+
+	.breakout #hud .led {
+		font-size: 0;
+		gap: 0;
+	}
+
+	.breakout #hud .led #score,
+	.breakout #hud .led .lives {
+		font-size: 0.875rem;
+	}
+
+	.breakout .controls--keys .touch-key {
+		font-size: 0.875rem;
+	}
 }
