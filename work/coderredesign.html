@@ -477,26 +477,6 @@ html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="da
   opacity: 1;
 }
 
-html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
-  opacity: 0;
-}
-
-html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
-  opacity: 1;
-}
-
-html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
-  opacity: 0;
-}
-
-html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
-  opacity: 1;
-}
-
-body &gt; header button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon] {
-  transform: rotate(15deg);
-}
-
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) nav button[data-theme-toggle] [data-theme-icon="light"] {
     opacity: 1;
@@ -506,13 +486,6 @@ body &gt; header button[data-theme-toggle]:is(:hover, :focus-visible) [data-them
     opacity: 0;
   }
 
-  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
-    opacity: 0;
-  }
-
-  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
-    opacity: 1;
-  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -524,6 +497,41 @@ body &gt; header button[data-theme-toggle]:is(:hover, :focus-visible) [data-them
     opacity: 0;
   }
 
+}
+
+@media (hover: hover) {
+  html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+    opacity: 0;
+  }
+
+  html[data-theme="dark"] nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+    opacity: 1;
+  }
+
+  html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+    opacity: 0;
+  }
+
+  html:not([data-theme="dark"]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+    opacity: 1;
+  }
+
+  body &gt; header button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon] {
+    transform: rotate(15deg);
+  }
+}
+
+@media (hover: hover) and (prefers-color-scheme: dark) {
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="light"] {
+    opacity: 0;
+  }
+
+  html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (prefers-color-scheme: light) {
   html:not([data-theme]) nav button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon="dark"] {
     opacity: 0;
   }

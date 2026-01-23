@@ -72,7 +72,7 @@
 
 	const resetLevel = () => {
 		bricks = [];
-		const topOffset = Math.max(60, hudHeight + 32);
+		const topOffset = Math.max(80, hudHeight + 48);
 		for (let r = 0; r < rows; r += 1) {
 			for (let c = 0; c < cols; c += 1) {
 				bricks.push({
@@ -342,7 +342,17 @@
 			return;
 		}
 		const rect = hud.getBoundingClientRect();
-		hudHeight = rect.height || 0;
+		const nextHeight = rect.height || 0;
+		if (hudHeight === nextHeight) {
+			return;
+		}
+		hudHeight = nextHeight;
+		if (!running) {
+			resetLevel();
+			if (colors) {
+				render();
+			}
+		}
 	};
 
 	const handleSpaceAction = () => {
