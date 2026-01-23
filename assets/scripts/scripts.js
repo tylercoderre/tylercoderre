@@ -165,6 +165,7 @@
 	const initClock = () => {
 		const clockEl = document.getElementById('clock');
 		const tempEl = document.getElementById('temp');
+		const weatherIconEl = tempEl ? tempEl.closest('.weather')?.querySelector('.weather__icon') : null;
 
 		if (!clockEl) {
 			return;
@@ -180,6 +181,25 @@
 
 		const updateClock = () => {
 			clockEl.textContent = formatter.format(new Date());
+		};
+
+		const conditionIconMap = {
+			Clear: 'fa-sun',
+			Clouds: 'fa-clouds',
+			Drizzle: 'fa-cloud-drizzle',
+			Rain: 'fa-cloud-rain',
+			Thunderstorm: 'fa-cloud-bolt',
+			Snow: 'fa-cloud-snow',
+			Mist: 'fa-cloud-fog',
+			Smoke: 'fa-smog',
+			Haze: 'fa-sun-haze',
+			Dust: 'fa-sun-dust',
+			Fog: 'fa-fog',
+			Sand: 'fa-sun-dust',
+			Ash: 'fa-smog',
+			Squall: 'fa-wind',
+			Tornado: 'fa-tornado',
+			Default: 'fa-cloud'
 		};
 
 		const updateTemperature = async () => {
@@ -199,8 +219,14 @@
 				}
 				const data = await response.json();
 				const temp = Math.round(data.main.temp);
+				const condition = data.weather && data.weather[0] ? data.weather[0].main : 'Clear';
+				const iconClass = conditionIconMap[condition] || conditionIconMap.Default;
 				const unitLabel = units === 'imperial' ? ' deg F' : ' deg C';
-				tempEl.textContent = ` // ${temp}${unitLabel}`;
+				tempEl.textContent = `${temp}${unitLabel}`;
+				if (weatherIconEl) {
+					weatherIconEl.className = `weather__icon fa-sharp fa-regular ${iconClass}`;
+					weatherIconEl.setAttribute('title', condition);
+				}
 			} catch (error) {
 				tempEl.textContent = 'Unable to load temperature';
 			}

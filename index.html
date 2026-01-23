@@ -535,13 +535,20 @@
         <h3><small>I'd love to chat about potential partnerships, chicken wings, or a dog pic exchange.</small></h3>
         <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
         <div class="location--container">
-            <div id="location" class="location">Based in Buffalo, NY</div>
-            <div id="clock" class="time" data-timezone="America/New_York">Loading time...</div>
-            <div id="temp" class="temp">Loading temperature...</div>
+            <div class="weather">
+                <div class="weather__details">
+                    <div id="location" class="location">Based in Buffalo, NY</div>
+                    <div class="weather__meta">
+                        <div id="clock" class="time" data-timezone="America/New_York">Loading time...</div>
+                        <span class="weather__separator" aria-hidden="true">//</span>
+                        <i class="weather__icon fa-sharp fa-regular fa-cloud" aria-hidden="true"></i>
+                        <div id="temp" class="temp">Loading temperature...</div>
+                    </div>
+                </div>
+            </div>
             <noscript>
                 <style>
-                    #clock,
-                    #temp {
+                    .weather {
                         display: none;
                     }
                 </style>

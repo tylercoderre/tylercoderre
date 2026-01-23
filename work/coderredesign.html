@@ -121,161 +121,162 @@
     <!-- COLOR SYSTEM -->
     <section>
         <h2>A Minimalist Brand System</h2>
-        <p>A pure monochrome palette — ink and paper with halftone overlays — ensures contrast and timelessness. Key text and action values meet WCAG AAA standards, keeping the experience consistent across screens and environments.</p>
-        <figure class="type-specimen" aria-labelledby="color-system-title">
-            <figcaption id="color-system-title"><strong>Color System</strong> — Monochrome tokens for text, borders, and surfaces</figcaption>
-            <dl>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%);">Aa</span>
-                        <span><strong>Text</strong><code>--tc-text</code><small>hsl(0, 0%, 4%)</small></span>
-                    </dt>
-                    <dd>High-contrast copy and headings.<small>Accessibility: text color for maximum readability on the main background. Contrast: 18.11:1 on background.</small></dd>
+        <p>Two colors, infinite flexibility. Ink and paper cover every surface and UI state, then invert their usage for dark mode to keep contrast consistent across environments.</p>
+        <div class="color-swatches">
+            <div class="color-swatches__group">
+                <h3>Light mode</h3>
+                <div class="color-swatch-grid">
+                    <figure class="color-swatch" style="--swatch-color: var(--tc-root-ink); --swatch-overlay-text: var(--tc-root-paper);">
+                        <div class="color-swatch__chip" aria-hidden="true">
+                            <div class="color-swatch__overlay">
+                                <span class="color-swatch__overlay-label">WCAG 2.2</span>
+                                <span class="color-swatch__overlay-value">16.81:1 AAA</span>
+                                <span class="color-swatch__overlay-label">WCAG 3.0 (APCA)</span>
+                                <span class="color-swatch__overlay-value">Lc 98.7 Preferred</span>
+                            </div>
+                        </div>
+                        <figcaption class="color-swatch__body">
+                            <div class="color-swatch__header">
+                                <span class="color-swatch__name">Ink</span>
+                                <span class="color-swatch__token">--tc-root-ink</span>
+                            </div>
+                            <p class="color-swatch__usage">Text, links, borders, actions, icons.</p>
+                            <p class="color-swatch__values">HSL 0 0% 8%</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="color-swatch" style="--swatch-color: var(--tc-root-paper); --swatch-overlay-text: var(--tc-root-ink);">
+                        <div class="color-swatch__chip" aria-hidden="true">
+                            <div class="color-swatch__overlay">
+                                <span class="color-swatch__overlay-label">WCAG 2.2</span>
+                                <span class="color-swatch__overlay-value">16.81:1 AAA</span>
+                                <span class="color-swatch__overlay-label">WCAG 3.0 (APCA)</span>
+                                <span class="color-swatch__overlay-value">Lc 98.7 Preferred</span>
+                            </div>
+                        </div>
+                        <figcaption class="color-swatch__body">
+                            <div class="color-swatch__header">
+                                <span class="color-swatch__name">Paper</span>
+                                <span class="color-swatch__token">--tc-root-paper</span>
+                            </div>
+                            <p class="color-swatch__usage">Backgrounds, surfaces, negative space.</p>
+                            <p class="color-swatch__values">HSL 0 0% 96%</p>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%);"></span>
-                        <span><strong>Background</strong><code>--tc-background</code><small>hsl(0, 0%, 96%)</small></span>
-                    </dt>
-                    <dd>Main canvas and surface.<small>Accessibility: pair with primary text for consistent legibility. Contrast: 18.11:1 with primary text.</small></dd>
+            </div>
+            <div class="color-swatches__group">
+                <h3>Dark mode</h3>
+                <div class="color-swatch-grid">
+                    <figure class="color-swatch" style="--swatch-color: var(--tc-root-paper); --swatch-overlay-text: var(--tc-root-ink);">
+                        <div class="color-swatch__chip" aria-hidden="true">
+                            <div class="color-swatch__overlay">
+                                <span class="color-swatch__overlay-label">WCAG 2.2</span>
+                                <span class="color-swatch__overlay-value">16.81:1 AAA</span>
+                                <span class="color-swatch__overlay-label">WCAG 3.0 (APCA)</span>
+                                <span class="color-swatch__overlay-value">Lc 98.7 Preferred</span>
+                            </div>
+                        </div>
+                        <figcaption class="color-swatch__body">
+                            <div class="color-swatch__header">
+                                <span class="color-swatch__name">Paper</span>
+                                <span class="color-swatch__token">--tc-root-paper</span>
+                            </div>
+                            <p class="color-swatch__usage">Text, links, borders, actions, icons.</p>
+                            <p class="color-swatch__values">HSL 0 0% 96%</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="color-swatch" style="--swatch-color: var(--tc-root-ink); --swatch-overlay-text: var(--tc-root-paper);">
+                        <div class="color-swatch__chip" aria-hidden="true">
+                            <div class="color-swatch__overlay">
+                                <span class="color-swatch__overlay-label">WCAG 2.2</span>
+                                <span class="color-swatch__overlay-value">16.81:1 AAA</span>
+                                <span class="color-swatch__overlay-label">WCAG 3.0 (APCA)</span>
+                                <span class="color-swatch__overlay-value">Lc 98.7 Preferred</span>
+                            </div>
+                        </div>
+                        <figcaption class="color-swatch__body">
+                            <div class="color-swatch__header">
+                                <span class="color-swatch__name">Ink</span>
+                                <span class="color-swatch__token">--tc-root-ink</span>
+                            </div>
+                            <p class="color-swatch__usage">Backgrounds, surfaces, negative space.</p>
+                            <p class="color-swatch__values">HSL 0 0% 8%</p>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%); --swatch-border: hsl(0, 0%, 4%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
-                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 4%)</small></span>
-                    </dt>
-                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%);">Aa</span>
-                        <span><strong>Link</strong><code>--tc-link</code><small>hsl(0, 0%, 4%)</small></span>
-                    </dt>
-                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 96%); --swatch-text: hsl(0, 0%, 4%); --swatch-border: hsl(0, 0%, 4%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
-                        <span><strong>Action</strong><code>--tc-action</code><small>hsl(0, 0%, 4%)</small></span>
-                    </dt>
-                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-            </dl>
-        </figure>
-        <figure class="type-specimen" aria-labelledby="color-system-dark-title">
-            <figcaption id="color-system-dark-title"><strong>Color System (Dark)</strong> — Inverted tokens for low-light surfaces</figcaption>
-            <dl>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%);">Aa</span>
-                        <span><strong>Text</strong><code>--tc-text</code><small>hsl(0, 0%, 96%)</small></span>
-                    </dt>
-                    <dd>High-contrast copy and headings.<small>Accessibility: text color for maximum readability on the main background. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%);"></span>
-                        <span><strong>Background</strong><code>--tc-background</code><small>hsl(0, 0%, 4%)</small></span>
-                    </dt>
-                    <dd>Main canvas and surface.<small>Accessibility: pair with primary text for consistent legibility. Contrast: 18.11:1 with primary text.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%); --swatch-border: hsl(0, 0%, 96%);"><i class="fa-sharp fa-solid fa-minus" aria-hidden="true"></i></span>
-                        <span><strong>Border</strong><code>--tc-border</code><small>hsl(0, 0%, 96%)</small></span>
-                    </dt>
-                    <dd>Structural dividers and outlines.<small>Accessibility: reserved for higher-visibility separation. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%);">Aa</span>
-                        <span><strong>Link</strong><code>--tc-link</code><small>hsl(0, 0%, 96%)</small></span>
-                    </dt>
-                    <dd>Interactive text and focus cues.<small>Accessibility: ensure hover and focus states remain distinct. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: hsl(0, 0%, 4%); --swatch-text: hsl(0, 0%, 96%); --swatch-border: hsl(0, 0%, 96%);"><i class="fa-sharp fa-solid fa-bar-progress-full" aria-hidden="true"></i></span>
-                        <span><strong>Action</strong><code>--tc-action</code><small>hsl(0, 0%, 96%)</small></span>
-                    </dt>
-                    <dd>Primary interactive emphasis.<small>Accessibility: use for key actions; maintain contrast on both themes. Contrast: 18.11:1 on background.</small></dd>
-                </div>
-            </dl>
-        </figure>
+            </div>
+        </div>
     </section>
 
     <!-- HALFTONE PATTERNS -->
     <section>
         <h3>Halftone Patterns</h3>
         <p>Inspired by classic computing screens and printed dithering, these patterns add texture with a strict two-color palette. Each halftone stays legible in both modes because it only mixes ink and paper.</p>
-        <figure class="type-specimen" aria-labelledby="halftone-system-title">
-            <figcaption id="halftone-system-title"><strong>Halftone Library</strong> — 2-color textures for UI surfaces</figcaption>
-            <dl>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-100);"></span>
-                        <span><strong>Halftone 100</strong><code>--tc-halftone-100</code><small>background: var(--tc-halftone-100);</small></span>
-                    </dt>
-                    <dd>Solid paper base for clean surfaces.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-200);"></span>
-                        <span><strong>Halftone 200</strong><code>--tc-halftone-200</code><small>background: var(--tc-halftone-200);</small></span>
-                    </dt>
-                    <dd>Light dot grid for quiet texture.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-300);"></span>
-                        <span><strong>Halftone 300</strong><code>--tc-halftone-300</code><small>background: var(--tc-halftone-300);</small></span>
-                    </dt>
-                    <dd>Denser dots for subtle emphasis.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-400);"></span>
-                        <span><strong>Halftone 400</strong><code>--tc-halftone-400</code><small>background: var(--tc-halftone-400);</small></span>
-                    </dt>
-                    <dd>Micro grid for fine texture.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-500);"></span>
-                        <span><strong>Halftone 500</strong><code>--tc-halftone-500</code><small>background: var(--tc-halftone-500);</small></span>
-                    </dt>
-                    <dd>Micro grid doubled for stronger texture.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-600);"></span>
-                        <span><strong>Halftone 600</strong><code>--tc-halftone-600</code><small>background: var(--tc-halftone-600);</small></span>
-                    </dt>
-                    <dd>Inverse micro dots over ink.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-700);"></span>
-                        <span><strong>Halftone 700</strong><code>--tc-halftone-700</code><small>background: var(--tc-halftone-700);</small></span>
-                    </dt>
-                    <dd>Inverse dots, denser for depth.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-800);"></span>
-                        <span><strong>Halftone 800</strong><code>--tc-halftone-800</code><small>background: var(--tc-halftone-800);</small></span>
-                    </dt>
-                    <dd>Inverse dots at mid density.</dd>
-                </div>
-                <div>
-                    <dt>
-                        <span aria-hidden="true" style="--swatch-fill: var(--tc-halftone-900);"></span>
-                        <span><strong>Halftone 900</strong><code>--tc-halftone-900</code><small>background: var(--tc-halftone-900);</small></span>
-                    </dt>
-                    <dd>Solid ink base for bold panels.</dd>
-                </div>
-            </dl>
-        </figure>
+        <div class="color-swatch-grid">
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-100);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 100 <span class="color-swatch__token">--tc-halftone-100</span></p>
+                    <p class="color-swatch__usage">Solid paper base for clean surfaces.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-200);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 200 <span class="color-swatch__token">--tc-halftone-200</span></p>
+                    <p class="color-swatch__usage">Light dot grid for quiet texture.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-300);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 300 <span class="color-swatch__token">--tc-halftone-300</span></p>
+                    <p class="color-swatch__usage">Denser dots for subtle emphasis.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-400);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 400 <span class="color-swatch__token">--tc-halftone-400</span></p>
+                    <p class="color-swatch__usage">Micro grid for fine texture.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-500);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 500 <span class="color-swatch__token">--tc-halftone-500</span></p>
+                    <p class="color-swatch__usage">Micro grid doubled for stronger texture.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-600);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 600 <span class="color-swatch__token">--tc-halftone-600</span></p>
+                    <p class="color-swatch__usage">Inverse micro dots over ink.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-700);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 700 <span class="color-swatch__token">--tc-halftone-700</span></p>
+                    <p class="color-swatch__usage">Inverse dots, denser for depth.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-800);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 800 <span class="color-swatch__token">--tc-halftone-800</span></p>
+                    <p class="color-swatch__usage">Inverse dots at mid density.</p>
+                </figcaption>
+            </figure>
+            <figure class="color-swatch color-swatch--halftone" style="--swatch-color: var(--tc-halftone-900);">
+                <div class="color-swatch__chip" aria-hidden="true"></div>
+                <figcaption class="color-swatch__body">
+                    <p class="color-swatch__title">Halftone 900 <span class="color-swatch__token">--tc-halftone-900</span></p>
+                    <p class="color-swatch__usage">Solid ink base for bold panels.</p>
+                </figcaption>
+            </figure>
+        </div>
     </section>
 
     <!-- TYPOGRAPHY AND ICONOGRAPHY -->
@@ -372,7 +373,7 @@
         <p><strong>CSS</strong></p>
         <p>The palette is inverted by swapping ink and paper, while halftones are built from the same two colors. A soft transition smooths the mode change with a reduced-motion fallback.</p>
         <pre><code>:root {
-  --tc-root-ink: hsl(0, 0%, 4%);
+  --tc-root-ink: hsl(0, 0%, 8%);
   --tc-root-paper: hsl(0, 0%, 96%);
 
   --tc-halftone-100: var(--tc-root-paper);
@@ -396,15 +397,21 @@
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) {
-    --tc-root-ink: hsl(0, 0%, 96%);
-    --tc-root-paper: hsl(0, 0%, 4%);
+    --tc-text: var(--tc-root-paper);
+    --tc-link: var(--tc-root-paper);
+    --tc-action: var(--tc-root-paper);
+    --tc-background: var(--tc-root-ink);
+    --tc-border: var(--tc-root-paper);
     color-scheme: dark;
   }
 }
 
 html[data-theme="dark"] {
-  --tc-root-ink: hsl(0, 0%, 96%);
-  --tc-root-paper: hsl(0, 0%, 4%);
+  --tc-text: var(--tc-root-paper);
+  --tc-link: var(--tc-root-paper);
+  --tc-action: var(--tc-root-paper);
+  --tc-background: var(--tc-root-ink);
+  --tc-border: var(--tc-root-paper);
   color-scheme: dark;
 }
 

@@ -53,13 +53,20 @@
         <p>What am I up to now? This page was inspired by the <a href="https://nownownow.com/" target="_blank" rel="noopener noreferrer">now pages</a> kicked off by <a href="https://sive.rs/now" target="_blank" rel="noopener noreferrer">Derek Sivers</a> after thinking it was a nifty premise.</p>
 
         <div class="location--container">
-            <p class="location">Currently based in Buffalo, NY</p>
-            <span class="time" id="clock" data-timezone="America/New_York">Loading time...</span>
-            <span class="temp" id="temp">Loading temperature...</span>
+            <div class="weather">
+                <div class="weather__details">
+                    <p class="location">Currently based in Buffalo, NY</p>
+                    <div class="weather__meta">
+                        <span class="time" id="clock" data-timezone="America/New_York">Loading time...</span>
+                        <span class="weather__separator" aria-hidden="true">//</span>
+                        <i class="weather__icon fa-sharp fa-regular fa-cloud" aria-hidden="true"></i>
+                        <span class="temp" id="temp">Loading temperature...</span>
+                    </div>
+                </div>
+            </div>
             <noscript>
                 <style>
-                    #clock,
-                    #temp {
+                    .weather {
                         display: none;
                     }
                 </style>
