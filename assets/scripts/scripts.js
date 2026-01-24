@@ -424,6 +424,96 @@
 		});
 	};
 
+	const initCodeCopy = () => {
+		const blocks = document.querySelectorAll('[data-code-block]');
+		const hasClipboardApi = typeof navigator !== 'undefined'
+			&& navigator.clipboard
+			&& typeof navigator.clipboard.writeText === 'function';
+		const hasExecCommand = typeof document.execCommand === 'function';
+
+		if (!blocks.length || (!hasClipboardApi && !hasExecCommand)) {
+			return;
+		}
+
+		const fallbackCopy = (text) => {
+			const textarea = document.createElement('textarea');
+			textarea.value = text;
+			textarea.setAttribute('readonly', '');
+			textarea.style.position = 'fixed';
+			textarea.style.top = '0';
+			textarea.style.left = '0';
+			textarea.style.opacity = '0';
+			document.body.appendChild(textarea);
+			textarea.select();
+
+			let success = false;
+			try {
+				success = document.execCommand('copy');
+			} catch (error) {
+				success = false;
+			}
+
+			document.body.removeChild(textarea);
+			return success;
+		};
+
+		blocks.forEach((block) => {
+			const button = block.querySelector('[data-code-copy]');
+			const code = block.querySelector('pre code');
+
+			if (!button || !code) {
+				return;
+			}
+
+			const label = button.querySelector('span');
+			const defaultLabel = label ? label.textContent : '';
+			let resetTimer = null;
+
+			const setLabel = (nextLabel) => {
+				if (!label) {
+					return;
+				}
+
+				label.textContent = nextLabel;
+				window.clearTimeout(resetTimer);
+				resetTimer = window.setTimeout(() => {
+					label.textContent = defaultLabel;
+				}, 2000);
+			};
+
+			button.hidden = false;
+			button.addEventListener('click', async () => {
+				const text = code.textContent || '';
+
+				if (hasClipboardApi) {
+					try {
+						await navigator.clipboard.writeText(text);
+						setLabel('Copied');
+						if (!button.matches(':focus-visible')) {
+							button.blur();
+						}
+						return;
+					} catch (error) {
+						// ignore clipboard errors and fall through
+					}
+				}
+
+				if (fallbackCopy(text)) {
+					setLabel('Copied');
+					if (!button.matches(':focus-visible')) {
+						button.blur();
+					}
+					return;
+				}
+
+				setLabel('Copy Code');
+				if (!button.matches(':focus-visible')) {
+					button.blur();
+				}
+			});
+		});
+	};
+
 	const initPage = () => {
 		updateThemeLinks(root.getAttribute('data-theme'));
 		updateThemeColor();
@@ -431,6 +521,7 @@
 		initFormValidation();
 		initThemeToggle();
 		initDialogs();
+		initCodeCopy();
 	};
 
 	if (document.readyState === 'loading') {

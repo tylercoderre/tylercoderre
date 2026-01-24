@@ -19,32 +19,32 @@
     --tc-root-paper: hsl(0, 0%, 96%);
 
 	/* Halftone Patterns */
-	--tc-halftone-100: var(--tc-root-paper);
+	--tc-halftone-100: var(--tc-background);
 	--tc-halftone-200:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 4px 4px,
-		var(--tc-root-paper);
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 0 0 / 4px 4px,
+		var(--tc-background);
 	--tc-halftone-300:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 4px 4px,
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 2px 2px / 4px 4px,
-		var(--tc-root-paper);
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 0 0 / 4px 4px,
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 2px 2px / 4px 4px,
+		var(--tc-background);
 	--tc-halftone-400:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 2px 2px,
-		var(--tc-root-paper);
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 0 0 / 2px 2px,
+		var(--tc-background);
 	--tc-halftone-500:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 0 0 / 2px 2px,
-		radial-gradient(circle 1px at 0 0, var(--tc-root-ink) 1px, transparent 0) 1px 1px / 2px 2px,
-		var(--tc-root-paper);
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 0 0 / 2px 2px,
+		radial-gradient(circle 1px at 0 0, var(--tc-text) 1px, transparent 0) 1px 1px / 2px 2px,
+		var(--tc-background);
 	--tc-halftone-600:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 2px 2px,
-		var(--tc-root-ink);
+		radial-gradient(circle 1px at 0 0, var(--tc-background) 1px, transparent 0) 0 0 / 2px 2px,
+		var(--tc-text);
 	--tc-halftone-700:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 4px 4px,
-		radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 2px 2px / 4px 4px,
-		var(--tc-root-ink);
+		radial-gradient(circle 1px at 0 0, var(--tc-background) 1px, transparent 0) 0 0 / 4px 4px,
+		radial-gradient(circle 1px at 0 0, var(--tc-background) 1px, transparent 0) 2px 2px / 4px 4px,
+		var(--tc-text);
 	--tc-halftone-800:
-		radial-gradient(circle 1px at 0 0, var(--tc-root-paper) 1px, transparent 0) 0 0 / 4px 4px,
-		var(--tc-root-ink);
-	--tc-halftone-900: var(--tc-root-ink);
+		radial-gradient(circle 1px at 0 0, var(--tc-background) 1px, transparent 0) 0 0 / 4px 4px,
+		var(--tc-text);
+	--tc-halftone-900: var(--tc-text);
 
     /* Theme Colors */
     --tc-text: var(--tc-root-ink);
@@ -2028,6 +2028,129 @@ code pre {
 	border: 1px solid var(--tc-border);
 	padding: 0;
 	margin: 0;
+}
+
+figure[data-code-block] {
+	--code-surface: var(--tc-text);
+	--code-ink: var(--tc-background);
+	margin: var(--tc-space-md) 0;
+	border: 1px solid currentColor;
+	background: var(--code-surface);
+	color: var(--code-ink);
+	overflow: hidden;
+	border-radius: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-theme]) figure[data-code-block] {
+		--code-surface: var(--tc-background);
+		--code-ink: var(--tc-text);
+	}
+}
+
+html[data-theme="dark"] figure[data-code-block] {
+	--code-surface: var(--tc-background);
+	--code-ink: var(--tc-text);
+}
+
+figure[data-code-block] > figcaption {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	border-bottom: 1px solid currentColor;
+	font-family: var(--tc-font-mono);
+	font-size: 0.85rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+
+figure[data-code-block] > figcaption > span {
+	padding: 0.85rem 1.5rem;
+	font-weight: 600;
+}
+
+figure[data-code-block] > figcaption button {
+	border: 0;
+	border-left: 1px solid currentColor;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	padding: 0.85rem 1.5rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	justify-content: flex-end;
+	text-align: right;
+	cursor: pointer;
+	border-radius: 0;
+	margin: 0;
+	transition: background-color 0.2s ease, color 0.2s ease;
+	white-space: nowrap;
+}
+
+figure[data-code-block] > figcaption button::after {
+	content: none;
+}
+
+figure[data-code-block] > figcaption button span {
+	flex: 1 1 auto;
+	text-align: right;
+	display: inline-grid;
+}
+
+figure[data-code-block] > figcaption button span::after {
+	content: attr(data-copy-label);
+	visibility: hidden;
+	height: 0;
+	overflow: hidden;
+}
+
+figure[data-code-block] > figcaption button i {
+	font-size: 1rem;
+}
+
+figure[data-code-block] > figcaption button:is(:hover, :focus, :focus-visible) {
+	background: var(--code-ink);
+	color: var(--code-surface);
+}
+
+figure[data-code-block] > figcaption button:focus-visible {
+	outline: 2px dashed currentColor;
+	outline-offset: -4px;
+}
+
+figure[data-code-block] > figcaption button:active {
+	transform: none;
+}
+
+figure[data-code-block] pre {
+	margin: 0;
+	border: 0;
+	padding: 1.6rem 1.7rem;
+	background: transparent;
+	color: inherit;
+	aspect-ratio: auto;
+	overflow: auto;
+}
+
+figure[data-code-block] pre code {
+	color: inherit;
+}
+
+@media (max-width: 40rem) {
+	figure[data-code-block] > figcaption {
+		grid-template-columns: 1fr;
+	}
+
+	figure[data-code-block] > figcaption button {
+		border-left: 0;
+		border-top: 1px solid currentColor;
+		justify-content: flex-start;
+	}
 }
 
 /* Details */

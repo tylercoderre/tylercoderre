@@ -30,8 +30,7 @@
 }
 
 .breakout .bezel {
-	background: var(--tc-halftone-200);
-	border: 1px solid var(--tc-border);
+	background: var(--tc-halftone-400);
 	border-radius: 2rem;
 	padding: 2rem;
 }
@@ -52,16 +51,11 @@
 .breakout .bezel .breakout-logo,
 .breakout .bezel cite {
 	color: var(--tc-text);
-	-webkit-text-fill-color: var(--tc-text);
-	-webkit-text-stroke: 2px var(--tc-background);
-	paint-order: stroke fill;
-	text-shadow: 2px 2px 0 var(--tc-background), 2px -2px 0 var(--tc-background), -2px -2px 0 var(--tc-background), -2px 2px 0 var(--tc-background);
 }
 
 /* Game Panel */
 .breakout .panel {
 	background: var(--tc-background);
-	border: 1px solid var(--tc-border);
 	border-radius: 2rem;
 	padding: 2.25rem 2rem 2rem 2rem;
 	position: relative;

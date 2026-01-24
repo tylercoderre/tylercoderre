@@ -348,7 +348,15 @@
         <p>The theme toggle uses CSS variables and localStorage to persist user preference — small script, high UX impact.</p>
         <p><strong>HTML</strong></p>
         <p>Drop a single script in the head and the toggle button in the nav. The icons swap based on theme state so the action is always clear.</p>
-        <pre><code>&lt;head&gt;
+        <figure data-code-block>
+            <figcaption>
+                <span>HTML</span>
+                <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                    <span data-copy-label="Copy Code">Copy Code</span>
+                    <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+                </button>
+            </figcaption>
+            <pre><code>&lt;head&gt;
   &lt;script src="assets/scripts/scripts.js"&gt;&lt;/script&gt;
   &lt;link rel="stylesheet" href="assets/styles/style.css"&gt;
 &lt;/head&gt;
@@ -370,9 +378,18 @@
   &lt;/nav&gt;
 &lt;/header&gt;
 </code></pre>
+        </figure>
         <p><strong>CSS</strong></p>
         <p>The palette is inverted by swapping ink and paper, while halftones are built from the same two colors. A soft transition smooths the mode change with a reduced-motion fallback.</p>
-        <pre><code>:root {
+        <figure data-code-block>
+            <figcaption>
+                <span>CSS</span>
+                <button type="button" data-code-copy hidden aria-label="Copy CSS code to clipboard">
+                    <span data-copy-label="Copy Code">Copy Code</span>
+                    <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+                </button>
+            </figcaption>
+            <pre><code>:root {
   --tc-root-ink: hsl(0, 0%, 8%);
   --tc-root-paper: hsl(0, 0%, 96%);
 
@@ -548,9 +565,18 @@ html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="da
   }
 }
 </code></pre>
+        </figure>
         <p><strong>JavaScript</strong></p>
         <p>The script resolves theme from user preference first, falls back to system, and persists the choice across pages with no extra markup.</p>
-        <pre><code>const root = document.documentElement;
+        <figure data-code-block>
+            <figcaption>
+                <span>JavaScript</span>
+                <button type="button" data-code-copy hidden aria-label="Copy JavaScript code to clipboard">
+                    <span data-copy-label="Copy Code">Copy Code</span>
+                    <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+                </button>
+            </figcaption>
+            <pre><code>const root = document.documentElement;
 const storageKey = 'tc-theme';
 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 const isFileProtocol = window.location.protocol === 'file:';
@@ -776,6 +802,7 @@ if (document.readyState === 'loading') {
   initPage();
 }
 </code></pre>
+        </figure>
 
     <blockquote>Preference remembered, instantly applied.</blockquote>
     </section>
