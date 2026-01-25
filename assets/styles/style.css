@@ -258,6 +258,31 @@ h2 {
 	color: var(--tc-text);
 }
 
+.section-heading {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.section-counter {
+	margin-left: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+	color: var(--tc-text);
+	white-space: nowrap;
+}
+
+section.is-complete .section-counter::after {
+	font-family: "Font Awesome 7 Sharp";
+	content: "\f00c";
+	font-size: 0.85rem;
+	line-height: 1;
+	color: var(--tc-link);
+	margin-left: 0.5rem;
+}
+
 h3 {
 	font-size: 1.55rem;
 	line-height: 1.25;
@@ -432,7 +457,8 @@ a:has(> button)::after {
 
 a:has(> img) {
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	cursor: pointer;
 }
 
@@ -1326,6 +1352,16 @@ header ul li::before {
 	z-index: 5;
 }
 
+@media (max-width: 36rem) {
+	.checklist-actions {
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+		justify-content: center;
+		width: calc(100% - 2rem);
+	}
+}
+
 /* Checklist Actions */
 .checklist-actions button {
 	margin: 0;
@@ -2169,22 +2205,25 @@ details {
 	border-radius: 0;
 	corner-shape: squircle;
 	caret-color: transparent;
+	--summary-icon-size: 0.85rem;
+	--summary-gap: 0.5rem;
+	--summary-line-height: 1.25rem;
 	transition: border-color 0.3s ease, padding-bottom 0.3s ease, row-gap 0.3s ease;
 }
 
 .checklist {
 	border: 1px solid var(--tc-border);
 	padding: 1rem;
+	position: relative;
 }
 
 summary {
 	/* Makes the <summary> look more like a "clickable" link with the pointer cursor */
 	cursor: pointer;
 	color: var(--tc-link);
-	--summary-icon-size: 0.85rem;
-	--summary-gap: 0.75rem;
 	font-weight: 400;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	gap: 0;
 	list-style: none;
 	caret-color: transparent;
@@ -2193,11 +2232,26 @@ summary {
 	padding-bottom: 0;
 	margin: 0;
 	width: fit-content;
+	line-height: var(--summary-line-height);
+}
+
+.checklist.is-complete::after {
+	font-family: "Font Awesome 7 Sharp";
+	content: "\f00c";
+	position: absolute;
+	right: 1rem;
+	top: calc(1rem + (var(--summary-line-height) / 2));
+	transform: translateY(-50%);
+	font-size: var(--summary-icon-size);
+	line-height: 1;
+	color: var(--tc-link);
+	pointer-events: none;
 }
 
 summary h4 {
 	margin: 0;
 	display: inline;
+	line-height: inherit;
 }
 
 summary::-webkit-details-marker {
@@ -2209,6 +2263,10 @@ summary::before {
 	content: "\f067";
 	font-size: var(--summary-icon-size);
 	margin-right: var(--summary-gap);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
 	transition: transform 0.3s ease;
 }
 
@@ -2233,7 +2291,7 @@ summary:hover::after {
 	left: calc((var(--summary-icon-size) + var(--summary-gap)) - 0.125rem);
 }
 
-details > *:not(summary) {
+details > *:not(summary):not(.summary-check) {
 	opacity: 0;
 	transform: translateY(-0.5rem);
 	max-height: 0;
@@ -2266,7 +2324,7 @@ details[open].checklist {
 	padding-bottom: 1rem;
 }
 
-details[open] > *:not(summary) {
+details[open] > *:not(summary):not(.summary-check) {
 	opacity: 1;
 	transform: translateY(0);
 	max-height: 999rem;
@@ -3077,9 +3135,9 @@ figure.device > div img {
 	isolation: isolate;
 	color: var(--tc-text);
 	-webkit-text-fill-color: var(--tc-text);
-	-webkit-text-stroke: 2px var(--tc-background);
+	-webkit-text-stroke: 1px var(--tc-background);
 	paint-order: stroke fill;
-	text-shadow: 2px 2px 0 var(--tc-background), 2px -2px 0 var(--tc-background), -2px -2px 0 var(--tc-background), -2px 2px 0 var(--tc-background);
+	text-shadow: 1px 1px 0 var(--tc-background), 1px -1px 0 var(--tc-background), -1px -1px 0 var(--tc-background), -1px 1px 0 var(--tc-background);
 }
 
 .striped::before {
@@ -3115,7 +3173,7 @@ figure.device > div img {
 	background: var(--tc-halftone-200);
 	color: var(--tc-text);
 	-webkit-text-fill-color: var(--tc-text);
-	-webkit-text-stroke: 2px var(--tc-background);
+	-webkit-text-stroke: 1px var(--tc-background);
 	paint-order: stroke fill;
-	text-shadow: 2px 2px 0 var(--tc-background), 2px -2px 0 var(--tc-background), -2px -2px 0 var(--tc-background), -2px 2px 0 var(--tc-background);
+	text-shadow: 1px 1px 0 var(--tc-background), 1px -1px 0 var(--tc-background), -1px -1px 0 var(--tc-background), -1px 1px 0 var(--tc-background);
 }

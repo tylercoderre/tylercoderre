@@ -42,17 +42,31 @@
 			if (progressBar) {
 				progressBar.value = percentage;
 			}
+			const counter = section.querySelector('.section-counter__value');
+			if (counter) {
+				counter.textContent = `${checked} / ${total}`;
+			}
+			section.classList.toggle('is-complete', checked === total);
 		});
 	};
 
 	const updateDetailsProgress = () => {
 		document.querySelectorAll('details').forEach((details) => {
 			const detailsCheckboxes = details.querySelectorAll('input[type="checkbox"]');
+			if (!detailsCheckboxes.length) {
+				return;
+			}
 			const checked = details.querySelectorAll('input[type="checkbox"]:checked').length;
+			const total = detailsCheckboxes.length;
 			const label = details.querySelector('.summary-progress');
 			if (label) {
-				label.textContent = `${checked} / ${detailsCheckboxes.length}`;
+				label.textContent = `${checked} / ${total}`;
 			}
+			const existingCheck = details.querySelector('.summary-check');
+			if (existingCheck) {
+				existingCheck.remove();
+			}
+			details.classList.toggle('is-complete', checked === total);
 		});
 	};
 
