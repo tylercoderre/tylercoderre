@@ -72,18 +72,22 @@
             <h1 id="content" tabindex="-1">Design Systems Checklist</h1>
             <h2><small>Build better design systems with this list.</small></h2>
             <p>After building various design systems for clients and companies, I wanted to take what I've learned to write up a checklist that you can use to make sure you've covered all the essentials.</p>
-            <figure class="alert" role="status" aria-live="polite">
-                <i class="fa-sharp fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-                <figcaption>
-                    <strong>Working in the open.</strong>
-                    <p>This design library checklist is in progress, so it may have some bugs as I refine and complete it. If you have feedback or suggestions to help make it a valuable tool for your flow, please reach out.</p>
-                </figcaption>
-            </figure>
+            <p>This is a living document, and I want it to be as useful as possible. If you spot anything that should be corrected, clarified, or added, I’d love your feedback.</p>
+            <a class="link--actions" href="#contact">Share feedback or suggest edits</a>
+            <details>
+                <summary>Table of Contents (4)</summary>
+                <ol>
+                    <li><a href="#design-language">Design Language</a></li>
+                    <li><a href="#foundations">Foundations</a></li>
+                    <li><a href="#core-components">Core Components</a></li>
+                    <li><a href="#maintenance">Maintenance</a></li>
+                </ol>
+            </details>
         </section>
 
         <!-- DESIGN LANGUAGE -->
         <section>
-            <h2>Design Language</h2>
+            <h2 id="design-language">Design Language</h2>
             <progress max="100" value="0"></progress>
 
             <p>This is how your product “talks” to people. It’s the look, feel, and flow that makes everything feel connected. When it all works together, users don’t have to think too hard.</p>
@@ -159,10 +163,14 @@
                 <li>Storybook</li>
             </ul>
 
+            <!--
             <h5>Reference & Inspiration</h5>
             <ul class="list--inline">
                 <li>Guide</li>
+                <li>Guide</li>
+                <li>Guide</li>
             </ul>
+            -->
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -266,7 +274,7 @@
 
         <!-- FOUNDATIONS -->
         <section>
-            <h2>Foundations</h2>
+            <h2 id="foundations">Foundations</h2>
             <progress max="100" value="80"></progress>
             <p>This is the base layer of your design system. Stuff like colors, fonts, and tokens live here. When you change something here, it ripples out through everything else... o it’s important to get it right.</p>
 
@@ -570,9 +578,9 @@
                         </label>
                     </li>
                     <li class="checklist-item">
-                        <input type="checkbox" id="iconography-researved-icons" name="Researved Icons" value="" class="checklist-item--input">
-                        <label for="iconography-researved-icons">
-                            <h5>Researved Icons</h5>
+                        <input type="checkbox" id="iconography-reserved-icons" name="Reserved Icons" value="" class="checklist-item--input">
+                        <label for="iconography-reserved-icons">
+                            <h5>Reserved Icons</h5>
                             <p>Keep some icons locked in for specific uses, like navigation or delete. Don’t let them get reused for random stuff. This keeps things clear for users.</p>
                         </label>
                     </li>
@@ -588,10 +596,10 @@
 
             <h5>Tools</h5>
             <ul class="list--inline">
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Material Design Icons</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">FontAwesome</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Icons8</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Phosphor</a></li>
+                <li>Material Design Icons</li>
+                <li>FontAwesome</li>
+                <li>Icons8</li>
+                <li>Phosphor</li>
             </ul>
 
             <h5>Reference & Inspiration</h5>
@@ -648,20 +656,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -743,20 +737,20 @@
 
         <!-- CORE COMPONENTS -->
         <section>
-            <h2>Core Components</h2>
+            <h2 id="core-components">Core Components</h2>
             <progress max="100" value="80"></progress>
             <p>Core components are the basic building blocks of your interface. They show up everywhere in your product, like buttons, inputs, and toggles. Reusing them helps reduce design and tech debt, keeps things consistent, and speeds up development.</p>
-            <p>These components are meant to be complete. If you split them into smaller pieces, they stop working the way they’re supposed to. Therefore this list won't include items formed by cor components such as headers, menus, etc...</p>
+            <p>These components are meant to be complete. If you split them into smaller pieces, they stop working the way they’re supposed to. Therefore this list won't include items formed by core components such as headers, menus, etc...</p>
 
-            <h3>Accordian (Collapse)</h3>
+            <h3>Accordion (Collapse)</h3>
             <p>An accordion shows or hides content when you click or tap a trigger. It’s a simple way to keep things tidy and let users reveal info as needed.</p>
 
             <details class="checklist">
-                <summary><h4>Accordian (Collapse) Checklist <span class="summary-progress">0 / 4</span></h4></summary>
+                <summary><h4>Accordion (Collapse) Checklist <span class="summary-progress">0 / 4</span></h4></summary>
                 <ul class="checklist-item--list">
                     <li class="checklist-item">
-                        <input type="checkbox" id="accordian-open-vs-closed" name="Open vs Closed" value="" class="checklist-item--input">
-                        <label for="accordian--open-vs-closed">
+                        <input type="checkbox" id="accordion-open-vs-closed" name="Open vs Closed" value="" class="checklist-item--input">
+                        <label for="accordion--open-vs-closed">
                             <h5>Open vs Closed</h5>
                             <p>There are two main states (exc. interactive and accessibility states such as hove, focus, active...): open and closed. If there’s an icon (like an arrow), it should clearly show which state it’s in.</p>
                             <ul class="list--inline">
@@ -768,8 +762,8 @@
                         </label>
                     </li>
                     <li class="checklist-item">
-                        <input type="checkbox" id="accordian-composition" name="Composition" value="" class="checklist-item--input">
-                        <label for="accordian--composition">
+                        <input type="checkbox" id="accordion-composition" name="Composition" value="" class="checklist-item--input">
+                        <label for="accordion--composition">
                             <h5>Composition</h5>
                             <p>The content area should be flexible. It should work with text, images, or even other components inside.</p>
                             <ul class="list--inline">
@@ -780,8 +774,8 @@
                         </label>
                     </li>
                     <li class="checklist-item">
-                        <input type="checkbox" id="accordian-toggle-transition" name="Toggle Transition" value="" class="checklist-item--input">
-                        <label for="accordian-toggle-transition">
+                        <input type="checkbox" id="accordion-toggle-transition" name="Toggle Transition" value="" class="checklist-item--input">
+                        <label for="accordion-toggle-transition">
                             <h5>Toggle Transition</h5>
                             <p>Use a smooth, simple animation when opening or closing. This helps users see what’s happening.</p>
                             <ul class="list--inline">
@@ -796,8 +790,8 @@
                         </label>
                     </li>
                     <li class="checklist-item">
-                        <input type="checkbox" id="accordian-content-and-trigger-relation" name="Content & Trigger Relation" value="" class="checklist-item--input">
-                        <label for="accordian-content-and-trigger-relation">
+                        <input type="checkbox" id="accordion-content-and-trigger-relation" name="Content & Trigger Relation" value="" class="checklist-item--input">
+                        <label for="accordion-content-and-trigger-relation">
                             <h5>Content & Trigger Relation</h5>
                             <p>Make sure assistive tech can link the content to the trigger. If someone focuses the content, they should also hear what it’s related to.</p>
                             <ul class="list--inline">
@@ -820,13 +814,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -863,7 +850,7 @@
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#abbreviations" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.1.4  Abbreviations (AAA)">3.1.4</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#reading-level" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.1.5 Reading Level (AAA)">3.1.5</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pronunciation" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.1.6 Pronunciation (AAA)">3.1.6</abbr></a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#status-messages" tabindex="0" target="_blank" rel="noopener noreferrer">4.1.3 Status Messages</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#status-messages" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.1.3 Status Messages">4.1.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -922,20 +909,13 @@
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum) (AA)">2.4.11</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced) (AAA)">2.4.12</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance (AAA)">2.4.13</abbr></a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.1.2 Name, Role, Value (A)">4.1.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1016,7 +996,7 @@
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard-no-exception" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.3 Keyboard (No Exception) (AAA)">2.1.3</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order (A)">2.4.3</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible (AA)">2.4.7</abbr></a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum) (AA)">2.4.11</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced) (AAA)">2.4.12</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance (AAA)">2.4.13</abbr></a></li>
@@ -1027,13 +1007,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1065,7 +1038,7 @@
                             <p>Badges might need different styles depending on where they show up. Some can be bold and bright, others more subtle with soft backgrounds.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1101,18 +1074,18 @@
                             <p>If the badge is showing something like a selected filter, make it possible to remove it with a close or clear button.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.4 Link Purpose in Cntext</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.4 Link Purpose in Context">2.4.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size (Enhanced)">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size (Minimum)">2.5.8</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1130,21 +1103,14 @@
                             <p>For things like notification indicators, badges should be easy to place in the corner of an icon or avatar.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#non-text-content" tabindex="0" target="_blank" rel="noopener noreferrer">1.1.1 Non-Text Content</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#identify-purpose" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.6 Identify Purpose</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#images-of-text-no-exception" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.9 Images of Text</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#non-text-content" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.1.1 Non-Text Content">1.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#identify-purpose" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.6 Identify Purpose">1.3.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#images-of-text-no-exception" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.9 Images of Text">1.4.9</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1176,7 +1142,7 @@
                             <p>Not all buttons should look the same. Primary buttons should stand out, while secondary or subtle buttons can blend in more. The style should match the action’s importance and where it appears.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1187,8 +1153,8 @@
                             <p>Have a few sizes ready. Use smaller ones in tight spaces, and larger ones for forms or touch-heavy areas.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1212,8 +1178,8 @@
                             <p>When someone hovers with a mouse, show a clear visual change so they know the button can be clicked.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1224,14 +1190,14 @@
                             <p>When someone uses a keyboard or assistive tech, the button should show a visible focus ring or style so they can tell where they are.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1242,8 +1208,8 @@
                             <p>Show feedback when the button is being clicked or toggled. This helps people know the press was registered.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1254,7 +1220,7 @@
                             <p>If the button triggers something that takes time, show a loading indicator. Make sure the button doesn’t change size when loading so layout stays stable.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1265,7 +1231,7 @@
                             <p>Make it clear when a button can’t be used. It should look inactive and not respond to clicks or taps.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1276,22 +1242,15 @@
                             <p>The button should always be announced correctly by screen readers, whether it’s a button or a link. Use the right role based on what it does.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.4 Link Purpose in Context</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer">4.2.1 Name, Role, Value</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.4 Link Purpose in Context">2.4.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.2.1 Name, Role, Value">4.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1322,7 +1281,7 @@
                             <p>Sometimes you don’t want a breadcrumb link to be clickable. Allow individual items to be disabled when needed.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1342,13 +1301,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1401,15 +1353,15 @@
                             <p>All dates should be keyboard focusable in addition to hover and active states. Let users move around using arrow keys and switch months without needing a mouse. Screen reader users should be able to navigate smoothly too.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1420,15 +1372,15 @@
                             <p>When a date is selected or focused, assistive tech like screen readers should announce it clearly so the user knows what’s happening.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.1.2 Name, Role, Value (A)">4.1.1</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#status-messages" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.1.3 Status Messages (AA)">4.1.2</abbr></a></li>
                             </ul>
@@ -1436,13 +1388,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1457,7 +1402,7 @@
                         <input type="checkbox" id="card-" name="Composition" value="" class="checklist-item--input">
                         <label for="card-">
                             <h5>Composition</h5>
-                            <p>The inside of a card should be flexible. It should work with text, images, buttons, or even other components. Take into consideration hierarchy and reading order for those using assitive devices so content in your cards are read out in a logical order.</p>
+                            <p>The inside of a card should be flexible. It should work with text, images, buttons, or even other components. Take into consideration hierarchy and reading order for those using assistive devices so content in your cards are read out in a logical order.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.1 Info and Relationships (A)">1.3.1</abbr></a></li>
@@ -1508,13 +1453,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -1550,8 +1488,8 @@
                             <p>Item layout should adapt to different content. On smaller screens, show part of the next item to hint that more content is scrollable.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1584,13 +1522,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -1607,8 +1538,8 @@
                             <p>Every checkbox should have a label. Clicking the label should also toggle the checkbox. If the label isn’t shown on the screen, make sure it’s still announced properly for screen readers.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1626,11 +1557,11 @@
                             <p>If there’s a problem with the checkbox input, show an error message and change the color of the field to match. Always include both visual and text feedback.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.1 Error Identification</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.3 Error Suggestion</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (All)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.1 Error Identification">3.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.3 Error Suggestion">3.3.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (Legal, Financial, Data)">3.3.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (All)">3.3.4</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1641,7 +1572,7 @@
                             <p>Use this when the checkbox shouldn’t be interactive. Disabled checkboxes don’t send data when the form is submitted.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellations">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1659,8 +1590,8 @@
                             <p>You can group multiple checkboxes together so users can pick more than one related option at once.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.1 Info & Rleationships</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.2 Meaningful Sequence</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.1 Info & Relationships">1.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.2 Meaningful Sequence">1.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1671,27 +1602,20 @@
                             <p>Checkboxes should work with a keyboard. If you’re using native elements, this should be built in automatically. Along with including hover, focus, and active states.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -1719,13 +1643,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -1739,7 +1656,7 @@
                         <input type="checkbox" id="dropdown-composition" name="Composition" value="" class="checklist-item--input">
                         <label for="dropdown-composition">
                             <h5>Composition</h5>
-                            <p>Dropdowns should be flexible enough to hold different kinds of content, including icons, text, or even other components. Take into consideration the reading and focus order for those using assitve devices so that they can interpret the content logically.</p>
+                            <p>Dropdowns should be flexible enough to hold different kinds of content, including icons, text, or even other components. Take into consideration the reading and focus order for those using assistive devices so that they can interpret the content logically.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0"  target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.1 Info and Relationships (A)">1.3.1</abbr></a></li>
@@ -1754,15 +1671,15 @@
                             <p>Dropdowns can open on hover, but that same behavior should also work for keyboard users when the trigger gets focus.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1802,13 +1719,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -1839,8 +1749,8 @@
                             <p>Offer a few standard icon sizes that line up with your typography scale. This keeps icons and text visually aligned and balanced.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1856,17 +1766,10 @@
 
             <h5>Tools</h5>
             <ul class="list--inline">
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Material Design Icons</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">FontAwesome</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Icons8</a></li>
-                <li><a href="#" tabindex="0" target="_blank" rel="noopener noreferrer">Phosphor</a></li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
+                <li>Material Design Icons</li>
+                <li>FontAwesome</li>
+                <li>Icons8</li>
+                <li>Phosphor</li>
             </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
@@ -1899,8 +1802,8 @@
                             <p>Images should support flexible width, height, and aspect ratio. This lets them scale properly within their parent container and keeps layouts clean.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1917,13 +1820,6 @@
             <h5>Tools</h5>
             <ul class="list--inline">
                 <li><a href="https://sheribyrnehaber.com/context-is-the-most-critical-aspect-of-alt-text-everyone-seems-to-miss/" tabindex="0" target="_blank" rel="noopener noreferrer">Alt Text Writing Guide</a></li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
             </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
@@ -1969,7 +1865,7 @@
                             <p>If a link shouldn’t be clickable, show it as disabled. It should look inactive and not respond to clicks or taps.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -1996,13 +1892,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2042,13 +1931,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -2079,8 +1961,8 @@
                             <p>Use different sizes depending on where the loader appears. A full-page loader should be bigger than one used inside a button.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2105,21 +1987,14 @@
                             <p>If the loader stands alone (not tied to a visible element), add a label so screen readers can announce what’s being loaded.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#identify-purpose" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.6 Identify Purpose</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#identify-purpose" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.6 Identify Purpose">1.3.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer"> Name, Role, Value</a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2177,8 +2052,8 @@
                             <p>Support different sizes based on the content. Not every modal needs to take up the whole screen.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2203,22 +2078,15 @@
                             <p>Use proper accessibility roles and make sure screen readers can announce the modal’s title and subtitle. If those aren’t visible, add an accessible label instead.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.4 Link Purpose in Context</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer">4.2.1 Name, Role, Value</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.4 Link Purpose in Context">2.4.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="4.2.1 Name, Role, Value">4.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2236,15 +2104,15 @@
                             <p>Clearly show which page is selected. The selected page shouldn’t be clickable since the user is already on it. These should be distinct from the additional hover, focus, and active states to navigate to other pages.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2277,21 +2145,14 @@
                         </label>
                     </li>
                     <li class="checklist-item">
-                        <input type="checkbox" id="pagination-state-announcements" name="State Announcments" value="" class="checklist-item--input">
+                        <input type="checkbox" id="pagination-state-announcements" name="State Announcements" value="" class="checklist-item--input">
                         <label for="pagination-state-announcements">
-                            <h5>State Announcments</h5>
+                            <h5>State Announcements</h5>
                             <p>When a page is focused or selected, let assistive technologies announce that change clearly to the user.</p>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2309,8 +2170,8 @@
                             <p>Show a clear label that tells users what the progress bar is tracking. This helps them know what to expect.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2321,8 +2182,8 @@
                             <p>Support a few size options so the progress bar can fit different layouts—big ones for full-screen tasks, smaller ones for compact areas.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2340,20 +2201,13 @@
                             <p>If you can’t show a label on screen, make sure to add an accessibility label so screen readers can still describe what the bar is for.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.3 Label in Name</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#label-in-name" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.3 Label in Name">2.5.3</abbr></a></li>
                                 <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#name-role-value" tabindex="0" target="_blank" rel="noopener noreferrer"> Name, Role, Value</a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2371,8 +2225,8 @@
                             <p>Every radio button should have a label. Clicking the label should select the radio. If the label isn’t visible, make sure screen readers can still announce what it’s for.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2383,7 +2237,7 @@
                             <p>Clearly show which option is selected. This is the value that will be sent when the form is submitted.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2394,11 +2248,11 @@
                             <p>If there’s an issue with the radio group (like a required choice that’s missing), show a clear error message and change the field’s visual style to match.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.1 Error Identification</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.3 Error Suggestion</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (All)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.1 Error Identification">3.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.3 Error Suggestion">3.3.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (Legal, Financial, Data)">3.3.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (All)">3.3.4</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2409,8 +2263,8 @@
                             <p>Radio buttons should always be used in a group. This ensures that users can only pick one and won’t get stuck with an unchangeable choice.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.1 Info & Rleationships</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence" tabindex="0" target="_blank" rel="noopener noreferrer">1.3.2 Meaningful Sequence</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.1 Info & Relationships">1.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.3.2 Meaningful Sequence">1.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2421,28 +2275,21 @@
                             <p>Users should be able to select a radio option using the keyboard. Native HTML elements usually handle this out of the box. Make sure your radio inputs utilize hover, focus, active, and disabled states in addition to the described.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2460,8 +2307,8 @@
                             <p>Every select field should have a text label. Clicking the label should open the dropdown. If there’s no visible label, provide one for screen readers.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2472,11 +2319,11 @@
                             <p>If there’s a problem with the selection (like a required field left empty), show an error message and a visual cue like an icon or color change.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.1 Error Identification</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.3 Error Suggestion</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (All)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.1 Error Identification">3.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.3 Error Suggestion">3.3.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (Legal, Financial, Data)">3.3.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (All)">3.3.4</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2487,7 +2334,7 @@
                             <p>Use this when you don’t want users to interact with the select field. Disabled fields won’t send data when the form is submitted.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2505,7 +2352,7 @@
                             <p>Add extra text under the field to explain what the user should choose or why it matters.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2536,20 +2383,13 @@
                             <p>If the label isn’t visible, always provide an accessibility label so screen readers can still describe the purpose of the field. Along with covering all of the necessary hover, focus, and active states.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2567,8 +2407,8 @@
                             <p>Skeletons are placeholders that show up while real content is loading. They help reduce the feeling of waiting and keep layouts from jumping around.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2598,21 +2438,14 @@
                             <p>If the user has reduced motion turned on, slow down or remove the skeleton’s animation to respect accessibility settings.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.1 Three Flashes or Below Threshold</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.2 Three Flashes</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.3 Animation from Interaction</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.1 Three Flashes or Below Threshold">2.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.2 Three Flashes">2.3.2</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.3 Animation from Interaction">2.3.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2630,8 +2463,8 @@
                             <p>Every switch should have a label. Clicking the label should also toggle the switch. If the label isn’t visible, make sure screen readers can still announce what it does.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2649,7 +2482,7 @@
                             <p>If the switch shouldn’t be used, show it as disabled. It shouldn’t respond to clicks, taps, or key presses.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2669,13 +2502,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2719,7 +2545,7 @@
                             <p>You can disable specific tabs if they’re not available or ready yet. Disabled tabs shouldn’t respond to clicks or keyboard navigation.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2753,13 +2579,6 @@
                 </ul>
             </details>
 
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -2776,8 +2595,8 @@
                             <p>Every text area should have a label. Clicking the label should move focus to the field. If there’s no visible label, add one for screen readers.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2788,11 +2607,11 @@
                             <p>If something goes wrong—like a required field is left empty—show a clear error message and a visual style change so users know what to fix.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.1 Error Identification</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.3 Error Suggestion</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (All)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.1 Error Identification">3.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.3 Error Suggestion">3.3.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (Legal, Financial, Data)">3.3.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (All)">3.3.4</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2803,7 +2622,7 @@
                             <p>Use this when the field shouldn’t be editable. Disabled fields should look inactive and won’t send data when the form is submitted.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2821,7 +2640,7 @@
                             <p>Add extra info under the field if users need help understanding what to write or how their input will be used.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2832,8 +2651,8 @@
                             <p>Offer different sizes to fit different layouts. Bigger forms like on marketing pages may need a larger field, while compact UIs may need something smaller.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2846,13 +2665,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -2870,8 +2682,8 @@
                             <p>Every text field should have a label. Clicking the label should move focus to the field. If it’s not shown visually, make sure screen readers still get a proper label.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.6 Headings & Labels</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.6 Headings & Labels">2.4.6</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2882,11 +2694,11 @@
                             <p>If the field has a problem (like being left empty when required), show an error message and change the visual style so it’s easy to spot.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.1 Error Identification</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.3 Error Suggestion</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (Legal, Financial, Data)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.4 Error Prevention (All)</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-identification" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.1 Error Identification">3.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.3 Error Suggestion">3.3.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (Legal, Financial, Data)">3.3.4</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.4 Error Prevention (All)">3.3.4</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2897,7 +2709,7 @@
                             <p>Use this to make the field read-only. It should look inactive and won’t send any value when the form is submitted.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.2 Pointer Cancelations</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.2 Pointer Cancellation">2.5.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2915,7 +2727,7 @@
                             <p>Show extra info below the field when users might need guidance, such as format rules or what the field is used for.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer">3.3.2 Labels or Instructions</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.3.2 Labels or Instructions">3.3.2</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2946,8 +2758,8 @@
                             <p>Offer multiple size options depending on where the field is used. Larger forms might need bigger fields, while tight layouts call for smaller ones.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.5 Target Size Enhanced</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.5.8 Target Size Minimum</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.5 Target Size Enhanced">2.5.5</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.5.8 Target Size Minimum">2.5.8</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -2960,13 +2772,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -3060,15 +2865,15 @@
                             <p>If the toast includes actions, they should be keyboard-focusable. While focused, the toast shouldn’t auto-dismiss.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -3079,25 +2884,18 @@
                             <p>If the user has reduced motion enabled, simplify or turn off toast animations to respect their preference.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#timing-adjustable" tabindex="0" target="_blank" rel="noopener noreferrer">2.2.1 Timing Adjustable</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pause-stop-hide" tabindex="0" target="_blank" rel="noopener noreferrer">2.2.2 Pause, Stop, Hide</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#no-timing" tabindex="0" target="_blank" rel="noopener noreferrer">2.2.3 No Timing</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#no-timing" tabindex="0" target="_blank" rel="noopener noreferrer">2.2.3 No Timing</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.1 Three Flashes or Below Threshold</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.2 Three Flashes</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions" tabindex="0" target="_blank" rel="noopener noreferrer">2.3.3 Animation from Interaction</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#timing-adjustable" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.2.1 Timing Adjustable">2.2.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#pause-stop-hide" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.2.2 Pause, Stop, Hide">2.2.2</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#no-timing" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.2.3 No Timing">2.2.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#no-timing" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.2.3 No Timing">2.2.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.1 Three Flashes or Below Threshold">2.3.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#three-flashes" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.2 Three Flashes">2.3.2</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.3.3 Animation from Interaction">2.3.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -3115,8 +2913,8 @@
                             <p>Tooltips show quick info when a user hovers over or focuses on an element. They’re great for giving extra context without cluttering the interface.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
                             </ul>
                         </label>
                     </li>
@@ -3143,27 +2941,20 @@
                             <p>Tooltips should appear not just on hover, but also when the trigger element gets keyboard focus—so they work for everyone.</p>
                             <ul class="list--inline">
                                 <li>WCAG:</li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.1 Use of Color</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer">1.4.3 Content on Hover or Focus</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer">2.1.1 Keyboard</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.3 Focus Order</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.7 Focus Visible</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.11 Focus Not Obscured (Minimum)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.12 Focus Not Obscured (Enhanced)</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer">2.4.13 Focus Appearence</a></li>
-                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer">3.2.1 On Focus</a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#use-of-color" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.1 Use of Color">1.4.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="1.4.3 Content on Hover or Focus">1.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#keyboard" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.1.1 Keyboard">2.1.1</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-order" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.3 Focus Order">2.4.3</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-visible" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.7 Focus Visible">2.4.7</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.11 Focus Not Obscured (Minimum)">2.4.11</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.12 Focus Not Obscured (Enhanced)">2.4.12</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="2.4.13 Focus Appearance">2.4.13</abbr></a></li>
+                                <li><a href="https://www.w3.org/WAI/WCAG22/quickref/#on-focus" tabindex="0" target="_blank" rel="noopener noreferrer"><abbr class="tooltip" title="3.2.1 On Focus">3.2.1</abbr></a></li>
                             </ul>
                         </label>
                     </li>
                 </ul>
             </details>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -3172,7 +2963,7 @@
 
         <!-- MAINTENANCE -->
         <section>
-            <h2>Maintenance</h2>
+            <h2 id="maintenance">Maintenance</h2>
             <progress max="100" value="80"></progress>
             <p>Design systems aren’t “set it and forget it” projects. They need regular updates, clear planning, and open feedback loops. To keep things running smoothly, your team should treat the system like any other product—something you build, maintain, and improve together over time.</p>
 
@@ -3255,20 +3046,6 @@
                 </ul>
             </details>
 
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -3308,20 +3085,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -3377,20 +3140,6 @@
                 </ul>
             </details>
 
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
@@ -3430,20 +3179,6 @@
                     </li>
                 </ul>
             </details>
-
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
 
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
@@ -3485,23 +3220,30 @@
                 </ul>
             </details>
 
-            <h5>Tools</h5>
-            <ul class="list--inline">
-                <li>Tool</li>
-                <li>Tool</li>
-                <li>Tool</li>
-            </ul>
-
-            <h5>Reference & Inspiration</h5>
-            <ul class="list--inline">
-                <li>Guide</li>
-                <li>Guide</li>
-                <li>Guide</li>
-            </ul>
-
             <p><a class="link--top" href="#Top">Back to the top</a></p>
             <hr>
 
+        </section>
+
+        <section id="contact">
+            <h2>Feedback.</h2>
+            <h3><small>Help make this checklist better for everyone.</small></h3>
+            <p>If you have corrections, additions, or suggestions, send them through this form and I’ll update the checklist as I refine it.</p>
+            <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
+                <label for="name" class="required-field">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+                <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
+                <label for="email" class="required-field">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+                <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+                <label for="message" enterkeyhint="send" class="required-field">Message</label>
+                <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LcdBVEsAAAAAN6tSzyR3GIUkPqkMJQkOxoK-CbS"></div>
+                <noscript>
+                    <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+                </noscript>
+                <button>Send</button>
+            </form>
         </section>
 
         <footer>
@@ -3510,6 +3252,7 @@
         </footer>
 
         <script src="../assets/scripts/design-systems-checklist.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
     </body>
 </html>

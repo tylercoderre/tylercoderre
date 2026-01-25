@@ -15,11 +15,17 @@
 	gap: 1rem;
 	font-family: var(--tc-font-sans);
 	color: var(--tc-text);
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
 }
 
 .breakout,
 .breakout * {
 	box-sizing: border-box;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
 }
 
 /* CRT Frame */
@@ -31,8 +37,12 @@
 
 .breakout .bezel {
 	background: var(--tc-halftone-400);
-	border-radius: 2rem;
+	border-radius: 0;
 	padding: 2rem;
+	border: 1px solid transparent;
+	outline: 1px solid var(--tc-border);
+	outline-offset: 4px;
+	background-position: 4px 4px;
 }
 
 .breakout .wrap {
@@ -56,8 +66,11 @@
 /* Game Panel */
 .breakout .panel {
 	background: var(--tc-background);
-	border-radius: 2rem;
+	border-radius: 0;
 	padding: 2.25rem 2rem 2rem 2rem;
+	border: 1px solid var(--tc-border);
+	outline: 4px solid var(--tc-background);
+	outline-offset: 0;
 	position: relative;
 	overflow: hidden;
 }
@@ -208,7 +221,7 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 		linear-gradient(to right, var(--breakout-grid) 1px, transparent 1px),
 		linear-gradient(to bottom, var(--breakout-grid) 1px, transparent 1px);
 	background-size: calc(100% / 24) calc(100% / 24);
-	border-radius: 1rem;
+	border-radius: 0;
 	border: 1px solid var(--tc-border);
 	image-rendering: pixelated;
 	overflow: hidden;
@@ -234,8 +247,18 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 	margin-top: 2rem;
 }
 
-.breakout .controls--touch,
 .breakout .controls--keys {
+	width: min(520px, 100%);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr) 2rem minmax(0, 1fr);
+	justify-items: center;
+	align-items: center;
+	padding: 0;
+	box-sizing: border-box;
+	column-gap: 0;
+}
+
+.breakout .controls--touch {
 	width: min(520px, 100%);
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -245,10 +268,46 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 	row-gap: 2rem;
 }
 
-.breakout .controls--touch .btn,
-.breakout .controls--keys .btn {
+.breakout .controls--touch .btn {
 	width: 100%;
 	touch-action: none;
+}
+
+.breakout .controls--keys .btn {
+	width: auto;
+	touch-action: none;
+}
+
+.breakout .controls--keys .touch-key {
+	border-radius: 4rem;
+	min-height: 2.25rem;
+	padding: 0.125rem 1rem;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+}
+
+.breakout #btnPause {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.breakout #btnReset {
+	grid-column: 4;
+	grid-row: 1;
+}
+
+.breakout .touch-control {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.breakout .touch-label {
+	margin-top: 0.5rem;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	font-style: normal;
 }
 
 .breakout .touch-key {
@@ -306,7 +365,7 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 .breakout .touch-key:hover,
 .breakout .touch-key:active,
 .breakout .touch-key.is-pressed {
-	background: var(--tc-halftone-200);
+	background: var(--tc-halftone-300);
 	border-bottom-width: 1px;
 	transform: translateY(2px);
 }

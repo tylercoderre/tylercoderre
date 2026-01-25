@@ -11,7 +11,7 @@
 	const W = canvas.width;
 	const H = canvas.height;
 	const rows = 6;
-	const cols = 10;
+	const cols = 8;
 	const brickGap = 3;
 	const brickW = (W - (cols + 1) * brickGap) / cols;
 	const brickH = 18;
@@ -35,6 +35,8 @@
 	let colors = null;
 	let themeToken = '';
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+	const smallQuery = window.matchMedia('(max-width: 480px)');
+	let isSmall = smallQuery.matches;
 
 	const fmt = (n) => n.toString().padStart(6, '0');
 
@@ -72,7 +74,7 @@
 
 	const resetLevel = () => {
 		bricks = [];
-		const topOffset = Math.max(80, hudHeight + 48);
+		const topOffset = hudHeight + (smallQuery.matches ? 96 : 48);
 		for (let r = 0; r < rows; r += 1) {
 			for (let c = 0; c < cols; c += 1) {
 				bricks.push({
@@ -132,7 +134,7 @@
 	const setStatus = (msg) => {
 		const statusEl = document.getElementById('status');
 		if (statusEl) {
-			statusEl.textContent = msg || '← → to move • Space = start/pause • R = reset';
+			statusEl.textContent = msg || '← → to move • Space = start • R = reset';
 		}
 	};
 
@@ -159,7 +161,7 @@
 		paused = false;
 		awaitingServe = true;
 		updateHudState();
-		setStatus('PRESS SPACE OR START');
+		setStatus('PRESS SPACE TO START');
 		render();
 		clearInterval(loopId);
 	};
@@ -343,10 +345,12 @@
 		}
 		const rect = hud.getBoundingClientRect();
 		const nextHeight = rect.height || 0;
-		if (hudHeight === nextHeight) {
+		const nextIsSmall = smallQuery.matches;
+		if (hudHeight === nextHeight && isSmall === nextIsSmall) {
 			return;
 		}
 		hudHeight = nextHeight;
+		isSmall = nextIsSmall;
 		if (!running) {
 			resetLevel();
 			if (colors) {

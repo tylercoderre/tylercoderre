@@ -65,22 +65,30 @@
                                     </div>
                                     <canvas id="game" width="480" height="480" role="img" aria-label="Breakout game board"></canvas>
                                 </div>
-                                <div id="status">← → to move • Space = start/pause • R = reset</div>
+                                <div id="status">← → to move • Space = start • R = reset</div>
                             <div class="controls controls--keys">
-                                <button id="btnStart" class="btn touch-key" type="button">Start</button>
                                 <button id="btnPause" class="btn touch-key" type="button">Pause</button>
                                 <button id="btnReset" class="btn touch-key" type="button">Reset</button>
                             </div>
                             <div class="controls controls--touch" role="group" aria-label="Touch controls">
-                                <button class="btn touch-key" type="button" data-touch-control="left" aria-label="Move left">
-                                    <span class="breakout-icon breakout-icon--left" aria-hidden="true"></span>
-                                </button>
-                                <button class="btn touch-key" type="button" data-touch-control="space" aria-label="Spacebar (start or pause)">
-                                    <span class="breakout-icon breakout-icon--space" aria-hidden="true"></span>
-                                </button>
-                                <button class="btn touch-key" type="button" data-touch-control="right" aria-label="Move right">
-                                    <span class="breakout-icon breakout-icon--right" aria-hidden="true"></span>
-                                </button>
+                                <div class="touch-control">
+                                    <button class="btn touch-key" type="button" data-touch-control="left" aria-label="Move left">
+                                        <span class="breakout-icon breakout-icon--left" aria-hidden="true"></span>
+                                    </button>
+                                    <cite class="touch-label">LEFT</cite>
+                                </div>
+                                <div class="touch-control">
+                                    <button class="btn touch-key" type="button" data-touch-control="space" aria-label="Spacebar (start or pause)">
+                                        <span class="breakout-icon breakout-icon--space" aria-hidden="true"></span>
+                                    </button>
+                                    <cite class="touch-label">SPACE</cite>
+                                </div>
+                                <div class="touch-control">
+                                    <button class="btn touch-key" type="button" data-touch-control="right" aria-label="Move right">
+                                        <span class="breakout-icon breakout-icon--right" aria-hidden="true"></span>
+                                    </button>
+                                    <cite class="touch-label">RIGHT</cite>
+                                </div>
                             </div>
                             <noscript>
                                 <p>JavaScript is required to play Breakout.</p>
