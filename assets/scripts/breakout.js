@@ -134,8 +134,24 @@
 	const setStatus = (msg) => {
 		const statusEl = document.getElementById('status');
 		if (statusEl) {
-			statusEl.textContent = msg || '← → to move • Space = start • R = reset';
+			statusEl.textContent = msg || 'PRESS SPACE TO START';
 		}
+	};
+
+	const updateStatus = () => {
+		if (!running) {
+			setStatus('PRESS SPACE TO START');
+			return;
+		}
+		if (awaitingServe) {
+			setStatus('PRESS SPACE TO SERVE');
+			return;
+		}
+		if (paused) {
+			setStatus('PAUSED — PRESS SPACE TO RESUME');
+			return;
+		}
+		setStatus('PRESS SPACE TO PAUSE');
 	};
 
 	const centerBallOnPaddle = (randomDir = false) => {
@@ -161,7 +177,7 @@
 		paused = false;
 		awaitingServe = true;
 		updateHudState();
-		setStatus('PRESS SPACE TO START');
+		updateStatus();
 		render();
 		clearInterval(loopId);
 	};
@@ -173,7 +189,7 @@
 			awaitingServe = false;
 			updateHudState();
 			loop();
-			setStatus('');
+			updateStatus();
 		}
 	};
 
@@ -183,7 +199,7 @@
 			awaitingServe = false;
 		}
 		updateHudState();
-		setStatus(paused ? 'PAUSED' : '');
+		updateStatus();
 	};
 
 	const loop = () => {
@@ -242,7 +258,7 @@
 			paused = true;
 			awaitingServe = true;
 			updateHudState();
-			setStatus('PRESS SPACE TO SERVE');
+			updateStatus();
 		}
 
 		if (
@@ -295,7 +311,7 @@
 			paused = true;
 			awaitingServe = true;
 			updateHudState();
-			setStatus('LEVEL CLEARED — PRESS SPACE');
+			updateStatus();
 		}
 	};
 

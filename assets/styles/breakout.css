@@ -382,6 +382,12 @@ html[data-theme="dark"] .breakout .canvas-wrap::after {
 	outline: none;
 }
 
+.breakout .instructions {
+	margin: 2rem 0 0;
+	width: 100%;
+	text-align: left;
+}
+
 @media (max-width: 480px) {
 	.breakout .bezel {
 		padding: 1rem;
