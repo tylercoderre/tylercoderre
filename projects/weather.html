@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Study - Tyler Coderre</title>
+    <meta name="description" content="A weather UI experiment focused on clear, minimal forecasts.">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
+    <meta property="og:title" content="Weather Study - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/projects/weather.html">
+    <meta property="og:description" content="A weather UI experiment focused on clear, minimal forecasts.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/projects/weather.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather Study - Tyler Coderre">
+    <meta name="twitter:description" content="A weather UI experiment focused on clear, minimal forecasts.">
+    <meta name="twitter:image" content="../assets/images/og-image.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="../assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/weather.css">
+</head>
+<body>
+    <a class="skip-link" href="#weather">Skip to content</a>
+    <header id="Top">
+    <a href="../index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
+
+
+    <main id="weather" data-weather-page tabindex="-1">
+        <header data-weather-header>
+            <div data-weather-heading>
+                <h1 data-weather-location>Buffalo, NY</h1>
+                <h2>
+                    <time data-weather-time data-timezone="America/New_York">Loading time...</time>,
+                    <time data-weather-date>Loading date...</time>
+                </h2>
+            </div>
+            <fieldset data-unit-toggle>
+                <legend>Temperature units</legend>
+                <label>
+                    °F / °C
+                    <input type="checkbox" data-unit-toggle-input>
+                </label>
+            </fieldset>
+        </header>
+
+        <section aria-labelledby="current">
+            <div data-weather-current>
+                <h2 id="current">
+                    <data data-weather-temp>--</data>
+                    <small data-weather-unit aria-hidden="true">°F</small>
+                </h2>
+                <div data-weather-range>
+                    <p data-weather-high></p>
+                    <p data-weather-low></p>
+                </div>
+            </div>
+            <h3 data-weather-condition>Loading conditions...</h3>
+            <p data-weather-precip-line>
+                <data data-weather-precip-type>Loading precipitation...</data>
+                /
+                <data data-weather-precip-chance>--</data>
+                /
+                <data data-weather-precip-total>--</data>
+            </p>
+
+            <table data-hourly-table>
+                <thead>
+                    <tr>
+                        <th scope="col">Hour</th>
+                        <th scope="col">Condition</th>
+                        <th scope="col">Precip</th>
+                        <th scope="col">Temp</th>
+                    </tr>
+                </thead>
+                <tbody data-hourly-body>
+                    <tr>
+                        <td>Loading...</td>
+                        <td></td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="forecast">
+            <header data-forecast-header>
+                <h2 id="forecast">Up Next</h2>
+                <p>Four Day Forecast</p>
+            </header>
+            <div data-forecast-list>
+                <p>Loading...</p>
+                <p><i class="fa-sharp fa-regular fa-cloud" aria-hidden="true"></i></p>
+                <p>--° / --°</p>
+            </div>
+        </section>
+
+        <noscript>
+            <p>Live weather data loads when JavaScript is enabled.</p>
+        </noscript>
+    </main>
+
+    <footer>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
+    </footer>
+
+    <script src="../assets/scripts/weather.js"></script>
+    <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

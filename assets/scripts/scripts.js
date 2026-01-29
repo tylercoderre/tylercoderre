@@ -163,14 +163,13 @@
 	applyTheme(initialTheme);
 
 	const initClock = () => {
-		const clockEl = document.getElementById('clock');
-		const tempEl = document.getElementById('temp');
-		const weatherIconEl = tempEl ? tempEl.closest('.weather')?.querySelector('.weather__icon') : null;
-
+		const clockEl = document.querySelector('#clock');
 		if (!clockEl) {
 			return;
 		}
 
+		const tempEl = document.querySelector('#temp');
+		const weatherIconEl = document.querySelector('.weather__icon');
 		const timeZone = clockEl.getAttribute('data-timezone') || 'America/New_York';
 		const formatter = new Intl.DateTimeFormat('en-US', {
 			timeZone,
@@ -221,8 +220,7 @@
 				const temp = Math.round(data.main.temp);
 				const condition = data.weather && data.weather[0] ? data.weather[0].main : 'Clear';
 				const iconClass = conditionIconMap[condition] || conditionIconMap.Default;
-				const unitLabel = units === 'imperial' ? ' deg F' : ' deg C';
-				tempEl.textContent = `${temp}${unitLabel}`;
+				tempEl.textContent = `${temp}`;
 				if (weatherIconEl) {
 					weatherIconEl.className = `weather__icon fa-sharp fa-regular ${iconClass}`;
 					weatherIconEl.setAttribute('title', condition);
@@ -514,6 +512,160 @@
 		});
 	};
 
+	const initMediumFeed = () => {
+		const feed = document.querySelector('[data-medium-feed]');
+		if (!feed) {
+			return;
+		}
+
+		const list = feed.querySelector('[data-medium-feed-list]');
+		const status = feed.querySelector('[data-medium-feed-status]');
+		if (!list) {
+			return;
+		}
+
+		const username = feed.getAttribute('data-medium-username') || 'tylercoderre';
+		const limit = Number.parseInt(feed.getAttribute('data-medium-limit') || '3', 10);
+		const feedUrl = feed.getAttribute('data-medium-feed-url') || `https://${username}.medium.com/feed`;
+		const fallbackUrl = `https://medium.com/feed/@${username}`;
+
+		const setStatus = (text, show = true) => {
+			if (!status) {
+				return;
+			}
+			status.textContent = text;
+			status.hidden = !show;
+		};
+
+		const stripHtml = (html) => {
+			const temp = document.createElement('div');
+			temp.innerHTML = html;
+			return (temp.textContent || '').replace(/\s+/g, ' ').trim();
+		};
+
+		const formatDate = (value) => {
+			const date = new Date(value);
+			if (Number.isNaN(date.getTime())) {
+				return null;
+			}
+			return {
+				label: new Intl.DateTimeFormat('en-US', {
+					month: 'short',
+					day: 'numeric',
+					year: 'numeric',
+				}).format(date),
+				iso: date.toISOString(),
+			};
+		};
+
+		const parseFeed = (xmlText) => {
+			const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
+			const items = Array.from(doc.querySelectorAll('item'));
+			return items.map((item) => {
+				const title = item.querySelector('title')?.textContent?.trim() || 'Untitled';
+				const link = item.querySelector('link')?.textContent?.trim() || '';
+				const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+				const encoded = item.querySelector('content\\:encoded')?.textContent
+					|| item.querySelector('encoded')?.textContent
+					|| item.querySelector('description')?.textContent
+					|| '';
+				const cleaned = stripHtml(encoded)
+					.replace(/Continue reading on Medium\s*»?/gi, '')
+					.replace(/\s+/g, ' ')
+					.trim();
+				return {
+					title,
+					link,
+					pubDate,
+					excerpt: cleaned,
+				};
+			}).filter((item) => item.link);
+		};
+
+		const renderItems = (items) => {
+			list.innerHTML = '';
+			items.slice(0, Number.isFinite(limit) ? limit : 3).forEach((item) => {
+				const li = document.createElement('li');
+
+				const title = document.createElement('h4');
+				const link = document.createElement('a');
+				link.href = item.link;
+				link.target = '_blank';
+				link.rel = 'noopener noreferrer';
+				link.textContent = item.title;
+				title.appendChild(link);
+
+				const meta = document.createElement('time');
+				const formatted = formatDate(item.pubDate);
+				if (formatted) {
+					meta.dateTime = formatted.iso;
+					meta.textContent = formatted.label;
+				}
+
+				const excerpt = document.createElement('p');
+				excerpt.textContent = item.excerpt ? `${item.excerpt.slice(0, 140)}${item.excerpt.length > 140 ? '…' : ''}` : '';
+
+				li.appendChild(title);
+				if (meta.textContent) {
+					li.appendChild(meta);
+				}
+				if (excerpt.textContent) {
+					li.appendChild(excerpt);
+				}
+				list.appendChild(li);
+			});
+		};
+
+		const fetchWithProxy = async (url) => {
+			const response = await fetch(url);
+			if (response.ok) {
+				return parseFeed(await response.text());
+			}
+			throw new Error('Direct feed failed');
+		};
+
+		const fetchWithAllOrigins = async (url) => {
+			const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+			const response = await fetch(proxyUrl);
+			if (response.ok) {
+				return parseFeed(await response.text());
+			}
+			throw new Error('Proxy feed failed');
+		};
+
+		const fetchFeed = async () => {
+			const urls = [feedUrl, fallbackUrl];
+			for (const url of urls) {
+				try {
+					return await fetchWithProxy(url);
+				} catch (error) {
+					// Try next step
+				}
+				try {
+					return await fetchWithAllOrigins(url);
+				} catch (error) {
+					// Try next URL
+				}
+			}
+			return [];
+		};
+
+		setStatus('Loading latest posts...', true);
+
+		fetchFeed()
+			.then((items) => {
+				if (!items.length) {
+					setStatus('No posts found yet. Check back soon.', true);
+					return;
+				}
+				renderItems(items);
+				setStatus('', false);
+			})
+			.catch(() => {
+				setStatus('Unable to load Medium posts right now.', true);
+			});
+	};
+
 	const initPage = () => {
 		updateThemeLinks(root.getAttribute('data-theme'));
 		updateThemeColor();
@@ -522,6 +674,7 @@
 		initThemeToggle();
 		initDialogs();
 		initCodeCopy();
+		initMediumFeed();
 	};
 
 	if (document.readyState === 'loading') {
