@@ -347,6 +347,8 @@ sup {
 strong {
 	font-weight: 700;
 	color: var(--tc-text);
+	font-size: inherit;
+	line-height: inherit;
 }
 
 /* Links */

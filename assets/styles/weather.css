@@ -60,6 +60,18 @@
 	font-variant-numeric: tabular-nums;
 }
 
+[data-weather-temp][data-negative="true"]::before {
+	content: "-";
+	font-size: 4rem;
+	line-height: 1;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	transform: translateY(-0.25em);
+	font-weight: 800;
+	margin-right: 0.25rem;
+}
+
 [data-weather-unit] {
 	font-size: 2rem;
 	font-weight: 600;

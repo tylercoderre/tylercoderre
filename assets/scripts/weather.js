@@ -74,6 +74,7 @@
 		};
 
 		const formatTemp = (value, unit) => `${formatTempNumber(value, unit)}°${unit}`;
+		const formatTempNoUnit = (value, unit) => `${formatTempNumber(value, unit)}°`;
 
 		const renderUnits = () => {
 			const unit = getUnit();
@@ -82,19 +83,34 @@
 			}
 			if (tempEl && tempEl.dataset.tempF) {
 				const value = Number(tempEl.dataset.tempF);
-				tempEl.textContent = Number.isFinite(value) ? formatTempNumber(value, unit) : '--';
+				if (Number.isFinite(value)) {
+					const numeric = unit === 'C' ? toCelsius(value) : Math.round(value);
+					if (numeric < 0) {
+						tempEl.setAttribute('data-negative', 'true');
+						tempEl.textContent = `${Math.abs(numeric)}`;
+					} else {
+						tempEl.removeAttribute('data-negative');
+						tempEl.textContent = `${numeric}`;
+					}
+				} else {
+					tempEl.removeAttribute('data-negative');
+					tempEl.textContent = '--';
+				}
 			}
+			const isNarrow = window.matchMedia('(max-width: 479px)').matches;
 			if (highValueEl && highValueEl.dataset.tempF) {
 				const value = Number(highValueEl.dataset.tempF);
-				highValueEl.innerHTML = Number.isFinite(value)
-					? `<i class="fa-sharp fa-solid fa-arrow-up" aria-hidden="true"></i> ${formatTemp(value, unit)}`
-					: '<i class="fa-sharp fa-solid fa-arrow-up" aria-hidden="true"></i> --';
+				const formatted = Number.isFinite(value)
+					? (isNarrow ? formatTempNoUnit(value, unit) : formatTemp(value, unit))
+					: '--';
+				highValueEl.innerHTML = `<i class="fa-sharp fa-solid fa-arrow-up" aria-hidden="true"></i> ${formatted}`;
 			}
 			if (lowValueEl && lowValueEl.dataset.tempF) {
 				const value = Number(lowValueEl.dataset.tempF);
-				lowValueEl.innerHTML = Number.isFinite(value)
-					? `<i class="fa-sharp fa-solid fa-arrow-down" aria-hidden="true"></i> ${formatTemp(value, unit)}`
-					: '<i class="fa-sharp fa-solid fa-arrow-down" aria-hidden="true"></i> --';
+				const formatted = Number.isFinite(value)
+					? (isNarrow ? formatTempNoUnit(value, unit) : formatTemp(value, unit))
+					: '--';
+				lowValueEl.innerHTML = `<i class="fa-sharp fa-solid fa-arrow-down" aria-hidden="true"></i> ${formatted}`;
 			}
 			document.querySelectorAll('[data-hourly-value]').forEach((el) => {
 				const value = Number(el.dataset.tempF);
@@ -386,6 +402,7 @@
 		unitInputs.forEach((input) => {
 			input.addEventListener('change', renderUnits);
 		});
+		window.addEventListener('resize', renderUnits);
 		renderUnits();
 	};
 

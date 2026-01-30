@@ -10,3 +10,7 @@ body:has(#hex) > header > a[aria-label="Home"]:hover::before,
 body:has(#hex) > header > a[aria-label="Home"]:focus-visible::before {
 	filter: var(--tc-logo-hover-filter, var(--tc-logo-filter, none));
 }
+
+body:has(#hex) footer {
+	background: transparent;
+}
