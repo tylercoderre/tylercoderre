@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("HyperlegibleSans-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("HyperlegibleSans-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("HyperlegibleSans-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("HyperlegibleSans-MediumItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("HyperlegibleSans-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Hyperlegible Sans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("HyperlegibleSans-BoldItalic.woff2") format("woff2");
+}

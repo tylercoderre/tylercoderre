@@ -4,13 +4,15 @@
 @import url('../fonts/fontawesome/css/sharp-solid.css');
 @import url('../fonts/fontawesome/css/brands.css');
 
-/* Import Inter Font */
+/* Import Hyperlegible Sans Font */
+@import url('../fonts/hyperlegiblesans/hyperlegiblesans.css');
+/* Import Inter Font (Fallback) */
 @import url('../fonts/inter/inter.css');
 
 /* Light theme variables (default theme) */
 :root {
 	/* Theme Fonts */
-    --tc-font-sans: 'InterVariable', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --tc-font-sans: "Hyperlegible Sans", 'InterVariable', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --tc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace;
     
 	/* Root Colors */
