@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/styles/hex-clock.css">
 </head>
 <body>
-    <a class="skip-link" href="#hex">Skip to content</a>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header id="Top">
     <a href="../index.html" aria-label="Home">Tyler Coderre</a>
     <nav aria-label="Primary">
@@ -44,10 +44,12 @@
     </nav>
 </header>
 
+    <main id="content" tabindex="-1">
+
 
     <!-- 000000 -->
     <section>
-        <h1 id="hex" aria-live="polite" tabindex="-1">#000000</h1>
+        <h1 id="hex" aria-live="polite">#000000.</h1>
         <p>Playing with time as color</p>
         <p id="hex-time" aria-live="polite">00:00:00</p>
         <noscript>
@@ -55,7 +57,9 @@
         </noscript>
     </section>
 
-    <footer>
+        </main>
+
+<footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
         <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
     </footer>

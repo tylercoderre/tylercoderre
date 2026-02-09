@@ -272,8 +272,13 @@ h2 {
 	align-items: center;
 	gap: 0.5rem;
 	font-size: 0.875rem;
+	font-weight: 300;
 	color: var(--tc-text);
 	white-space: nowrap;
+}
+
+.section-counter__value {
+	font-weight: 300;
 }
 
 section.is-complete .section-counter::after {
@@ -344,6 +349,8 @@ sup {
 	margin: 0 0 0 0.25rem;
 	font-weight: 500;
 	color: var(--tc-text);
+	position: relative;
+	top: -0.2em;
 }
 
 strong {
@@ -594,6 +601,7 @@ figure kbd sup {
 	display: block;
 	vertical-align: baseline;
 	color: inherit;
+	top: 0;
 }
 
 figure kbd sub {
@@ -953,25 +961,6 @@ article[data-type="stack"] {
 }
 
 
-ul {
-	list-style: none;
-	padding-left: 0;
-	margin-left: 0;
-}
-
-ul li {
-	display: flex;
-	align-items: center;
-	gap: 0.35rem;
-	position: relative;
-}
-
-ul li::before {
-	content: "\f068";
-	font: var(--fa-font-sharp-solid);
-	font-size: 0.7rem;
-}
-
 ul:has(li > img) {
 	list-style: none;
 	margin: 2rem 0 0;
@@ -1014,6 +1003,44 @@ html[data-theme="dark"] .logo {
 @media (prefers-color-scheme: dark) {
 	html:not([data-theme]) .logo {
 		filter: invert(1);
+	}
+}
+
+.logo-swap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 24rem;
+	margin: 0 auto;
+}
+
+.logo-swap img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 24rem;
+}
+
+.logo-swap .logo--dark {
+	display: none;
+}
+
+html[data-theme="dark"] .logo-swap .logo--light {
+	display: none;
+}
+
+html[data-theme="dark"] .logo-swap .logo--dark {
+	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not([data-theme]) .logo-swap .logo--light {
+		display: none;
+	}
+
+	html:not([data-theme]) .logo-swap .logo--dark {
+		display: block;
 	}
 }
 
@@ -1452,6 +1479,7 @@ header ul li::before {
 
 .summary-progress {
 	font-size: 0.85rem;
+	font-weight: 300;
 	color: var(--tc-text);
 	margin-left: 0.35rem;
 }
@@ -1464,6 +1492,7 @@ header ul li::before {
 	flex-wrap: wrap;
 	gap: 0.5rem 0.75rem;
 }
+
 
 .checklist-item label .list--inline {
 	padding-left: 0;
@@ -1673,7 +1702,7 @@ dialog li {
 	align-items: initial;
 	gap: 0;
 	position: static;
-	margin: 0 0 0.75rem 0;
+	margin: 0 0 1rem 0;
 	list-style: none;
 	padding-left: 0;
 	margin-left: 0;
@@ -2174,6 +2203,8 @@ figure[data-code-block] > figcaption button span {
 	flex: 1 1 auto;
 	text-align: right;
 	display: inline-grid;
+	position: relative;
+	top: 0.375em;
 }
 
 figure[data-code-block] > figcaption button span::after {
@@ -2208,6 +2239,7 @@ figure[data-code-block] pre {
 	background: transparent;
 	color: inherit;
 	aspect-ratio: auto;
+	max-height: 48rem;
 	overflow: auto;
 }
 
@@ -2458,6 +2490,66 @@ table caption {
 	font-weight: bold;
 	margin-bottom: .5rem;
 }
+
+table.anatomy {
+	width: 100%;
+	font-size: 0.875rem;
+}
+
+table.anatomy th,
+table.anatomy td,
+table.anatomy p,
+table.anatomy strong {
+	font-size: 0.875rem;
+}
+
+.anatomy-wrap table {
+	margin-bottom: 0;
+}
+
+.anatomy-wrap {
+	width: 100%;
+	max-height: 36rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+	overscroll-behavior: none;
+	overscroll-behavior-y: none;
+	border-left: 1px solid var(--tc-border);
+	border-right: 1px solid var(--tc-border);
+	border-top: 1px solid var(--tc-border);
+	border-bottom: 1px solid var(--tc-border);
+	margin-bottom: 2rem;
+}
+
+table.anatomy .anatomy__key {
+	width: 1%;
+	white-space: nowrap;
+	text-align: center;
+	vertical-align: top;
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}
+
+table.anatomy th:first-child,
+table.anatomy td:first-child {
+	border-left: 0;
+}
+
+table.anatomy th:last-child,
+table.anatomy td:last-child {
+	border-right: 0;
+}
+
+table.anatomy tr:first-child th,
+table.anatomy tr:first-child td {
+	border-top: 0;
+}
+
+table.anatomy tr:last-child th,
+table.anatomy tr:last-child td {
+	border-bottom: 0;
+}
+
 
 textarea {
 	/* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
@@ -3154,6 +3246,129 @@ section > header + .device-pair {
 	margin: 0 auto;
 }
 
+.media--full > img,
+.media--full > video {
+	max-width: 64rem;
+}
+
+.media--pair {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--tc-space-md);
+	align-items: flex-start;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	padding-left: max(var(--tc-space-md), calc(50vw - 24rem));
+	padding-right: max(var(--tc-space-md), calc(50vw - 24rem));
+	box-sizing: border-box;
+}
+
+.media--pair > img,
+.media--pair > video,
+.media--pair > div {
+	flex: 0 1 calc(50% - (var(--tc-space-md) / 2));
+	max-width: calc(50% - (var(--tc-space-md) / 2));
+	min-width: 0;
+}
+
+.media--pair > img,
+.media--pair > video,
+.media--pair > div > img,
+.media--pair > div > video {
+	margin: 0;
+}
+
+.media--pair > div {
+	display: flex;
+	flex-direction: column;
+	gap: var(--tc-space-md);
+}
+
+.media--pair > div > img,
+.media--pair > div > video {
+	width: 100%;
+}
+
+.media--pair > div:has(> i[class*="fa-"]) {
+	gap: 1rem;
+}
+
+.media--pair > div > i[class*="fa-"] {
+	display: block;
+	margin: 0 !important;
+}
+
+.media--pair > div > i[class*="fa-"] + p,
+.media--pair > div > i[class*="fa-"] + h3,
+.media--pair > div > i[class*="fa-"] + h4 {
+	margin-top: 0;
+}
+
+.media--stats {
+	width: 100%;
+	max-width: 36rem;
+	position: static;
+	left: auto;
+	right: auto;
+	margin: 1rem auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.media--split {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--tc-space-md);
+	align-items: flex-start;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	padding-left: max(var(--tc-space-md), calc(50vw - 24rem));
+	padding-right: max(var(--tc-space-md), calc(50vw - 24rem));
+	box-sizing: border-box;
+}
+
+.media--split > img,
+.media--split > video {
+	flex: 2 1 0;
+	min-width: 0;
+	margin: 0;
+	max-width: 32rem;
+}
+
+.media--split > div {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--tc-space-md);
+	min-width: 0;
+	max-width: 16rem;
+}
+
+.media--split > div > img,
+.media--split > div > video {
+	width: 100%;
+	margin: 0;
+}
+
+@media (max-width: 40rem) {
+	.media--pair > img,
+	.media--pair > video,
+	.media--pair > div,
+	.media--split > img,
+	.media--split > video,
+	.media--split > div {
+		flex-basis: 100%;
+	}
+}
+
 .device-pair {
 	width: 100vw;
 	position: relative;
@@ -3234,7 +3449,7 @@ figure.device > div img {
 }
 
 .device-pair figure.device > div {
-	max-width: 300px;
+	max-width: calc(48rem / 3 - var(--tc-space-sm));
 	aspect-ratio: 8 / 16;
 }
 

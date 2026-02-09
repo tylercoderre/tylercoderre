@@ -47,11 +47,13 @@
     </nav>
 </header>
 
+    <main id="content" tabindex="-1">
+
 
     <!-- HERO AND INTRODUCTION -->
     <section>
         <header>
-            <h1 id="content" tabindex="-1">Designing for an accessible future.</h1>
+            <h1>Designing for an Accessible Future.</h1>
             <ul>
                 <li>Accessibility</li>
                 <li>Graphic Design</li>
@@ -102,16 +104,16 @@
     <!-- THE DESIGN SYSTEM -->
     <section>
         <h2>The Design System.</h2>
-        <h3>Designing a new inclusive experience and style guide.</h3>
+        <h3>Designing a New Inclusive Experience and Style Guide.</h3>
         <p>When designing the new design system for ITX.com, proper thought and care had to be given to each element and component, along with how they interact with each other. Accessibility is about the details. Every color, contact form, button, and interactive site element needs to be accessible to every user.</p>
         <p>A breakdown of some of the new system elements that were rebuilt include the following:</p>
-        <h4>Visual Elements</h4>
+        <h4>Visual Elements.</h4>
         <ul>
             <li>Colors</li>
             <li>Typography</li>
             <li>Content</li>
         </ul>
-        <h4>Interactive Elements</h4>
+        <h4>Interactive Elements.</h4>
         <ul>    
             <li>Navigation</li>
             <li>Buttons & Controls</li>
@@ -126,7 +128,7 @@
         <p>A positive visual experience creates a positive first impression. Our website's visual elements define our branding and set the foundation for the overall design. We ensured that the colors, typography, and content were all visually appealing and brand-aligned, while meeting a minimum of WCAG 2.1 AA accessibility requirements. In fact, most of our design met AAA requirements.</p>
         <p>From our office headquarters to our website, ITX's branding runs deep. Our color palette of orange and teal is a non-negotiable part of our online presence. However, some of these color combinations were also non-negotiable barriers to accessibility.</p>
         <p>For example, a typical link with a teal background and white text doesn't have sufficient color contrast to meet WCAG AA requirements.</p>
-        <h4>The Solution</h4>
+        <h4>The Solution.</h4>
         <p>Using ITX's existing color library as a starting point, I developed a new color system that tweaked all of the color values of the brand guide to hit a minimum contrast of AA and in many instances AAA with their strictly defined use cases. For instance, interactive elements on light backgrounds are accented by a new accessible teal, and on dark backgrounds, a new accessible orange. Which pulls to of the company's primary colors into actionable elements. While working with these colors I also defined equivalents for both digital and print applications. Each color has values for Hex, RGB, CMYK, and Pantone colors.</p>
         <blockquote>
             <p><strong>When we design elements with proper color contrast,</strong> we're able to meet the visual needs of many more users. A site visitor will be able to better perceive the site, whether they have permanent disability, like color blindness, or are experiencing a temporary one, such as screen glare.</p>
@@ -179,7 +181,7 @@
         </figure>
     </section>
     <section>
-        <h3>Footer</h3>
+        <h3>Footer.</h3>
         <p>A website's footer is a hub for general information. ITX.com's footer helps users navigate to our job openings, support page, and social media profiles, among other things. There's also a field to sign up for our newsletter, Continuous Inspiration.</p>
         <p>It's a lot to pack into one block, so I arranged the content to create an intuitive user experience and with our developers and copy team, made sure that every icon has a clear alt text and every button has intuitive copy, so every user knows exactly where they're navigating when interacting with the footer components.</p>
         <figure class="media">
@@ -207,7 +209,7 @@
         </figure>
     </section>
     <section>
-        <h3>Pagination</h3>
+        <h3>Pagination.</h3>
         <p>The website's pagination had similar styling to the buttons, both in color and behavior. Our designers ensured that the pagination element had clear hover and focus indicators for intuitive navigation.</p>
         <figure class="device">
             <div>
@@ -249,7 +251,7 @@
         <p>Each section of content merges text, buttons, audio players, and more, all with accessibility and usability in mind.</p>
     </section>
     <section>        
-        <h3>The "Hero" aka Header Block.</h3>
+        <h3>The "Hero" Aka Header Block.</h3>
         <p>We wanted our hero blocks to live up to their name. Featuring high-contrast headings and text, overlay styling, eye-catching photos, and accessible buttons, the content blocks introduce the reader to the page topics.</p>
         <figure class="device">
             <div>
@@ -262,7 +264,7 @@
         <p>I merged high-contrast headings and paragraph text, clearly labeled buttons, and various styling options to create our fully accessible content highlight blocks. In most cases the photos and graphics are decorative, so they don't include alternative text (remember, alt text is only for informational images!).</p>
     </section>
     <section>
-        <h3>Podcast Blocks that Showcase Key Episodes.</h3>
+        <h3>Podcast Blocks That Showcase Key Episodes.</h3>
         <p>ITX is lucky enough to feature inspiring voices on our Product Momentum podcast, so we want to highlight them throughout our website. This block incorporates many of the features listed above: a heading, paragraph text, and button with a clear label. You'll also notice a high-contrast audio player that users can control with a keyboard. We made sure that screen readers announce the audio player's functionalities.</p>
         <figure class="device">
             <div>
@@ -271,11 +273,29 @@
         </figure>
     </section>
 
+    <!-- CASE STUDY NAV -->
+    <section aria-labelledby="more-work-title">
+        <article>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-folder-closed" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>
+                <h3 id="more-work-title">Keep Exploring.</h3>
+                <p>Discover more case studies and past projects to see how each solution came together.</p>
+            </header>
+            <footer>
+                <a href="#all-work-dialog" data-dialog-open="all-work-dialog"><button type="button">View All Work</button></a>
+            </footer>
+        </article>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
         <h2>Still Curious?</h2>
-        <h3>Browse one of my other <a href="../index.html#work">case studies</a>, <a href="../index.html#writing">writings</a>, <a href="../index.html#projects">resources</a>, or reach out for a chat.</h3>
+        <h3>Browse One of My Other <a href="#all-work-dialog" data-dialog-open="all-work-dialog">Case Studies</a>, <a href="../index.html#writing">Writings</a>, <a href="../index.html#projects">Resources</a>, Or Reach out for a Chat.</h3>
         <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
+        
+
 
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
@@ -295,7 +315,130 @@
 
     </section>
 
-    <footer>
+    
+
+
+
+
+
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies.</h2>
+                <button type="button" data-dialog-close>Close</button>
+            </header>
+            <!-- SECTION -->
+            <section>
+                <p><strong>Featured</strong><sup>6</sup></p>
+                <ul>
+                    <li>
+                        <p><a href="../work/healthcare-search-platform.html">Healthcare Search Platform</a></p>
+                        <cite>Accessibility · Design Systems · Development · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Accessibility · Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/itx.html">ITX</a></p>
+                        <cite>Accessibility · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/paychex.html">Paychex</a> <sup>Limited</sup> <sup>Awarded</sup></p>
+                        <cite>Accessibility · Graphic Design · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/trocaire-college.html">Trocaire College</a><sup>Awarded</sup></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>Case Study Archive</strong><sup>18</sup></p>
+                <cite>Some studies are linked; others are available on request.</cite>
+                <ul>
+                    <li>
+                        <p><a href="../work/19-ideas.html">19 IDEAS</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>A Jaunt With Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Arounja</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/buffalo-niagara-medical-campus.html">Buffalo Niagara Medical Campus</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>DanandKat.ie</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/green-power-energy.html">Green Power Energy</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/hodgson-russ.html">Hodgson Russ</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/independent-health.html">Independent Health</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/kore-marketing-agency.html">Kore Marketing</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/labatt-blue-and-zubaz.html">Labatt + Zubaz</a> <sup>Awarded</sup></p>
+                        <cite>Design · Product Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/mike-cardus.html">Organization Development by Mike Cardus</a></p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/person-centered-services.html">Person Centered Services</a><sup>Awarded</sup></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/roar-logistics.html">ROAR Logistics</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>SAMCO Technologies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/savarino-companies.html">Savarino Companies</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/storillo.html">Storillo</a></p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/university-at-buffalo.html">University at Buffalo</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/walsh-duffield.html">Walsh Duffield</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+        </main>
+
+<footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
         <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
     </footer>

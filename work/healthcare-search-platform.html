@@ -47,19 +47,23 @@
     </nav>
 </header>
 
+    <main id="content" tabindex="-1">
+
 
 
     <!-- HERO AND INTRODUCTION -->
     <section>
         <header>
-            <h1 id="content" tabindex="-1">Making Healthcare Search Understandable for Infrequent, Stressed Users</h1>
+            <h1>Making Healthcare Search Understandable for Infrequent, Stressed Users.</h1>
             <ul>
                 <li>Accessibility</li>
+                <li>Design Systems</li>
+                <li>Development</li>
                 <li>UI + UX</li>
                 <li>UX Research</li>
             </ul>
-            <figure class="striped">
-                <i class="fa-sharp fa-regular fa-magnifying-glass" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+            <figure class="media">
+                <img src="../assets/images/work/healthcare/healthcare-homepage-logo-gradient.jpg" alt="Healthcare Search Platform featured image">
             </figure>
         </header>
 
@@ -70,44 +74,87 @@
 
     <!-- TLDR -->
     <section>
-        <h2>Case Study TLDR (Recruiter + Fast Scan)</h2>
-        <p>Making Healthcare Search Understandable for Infrequent, Stressed Users.</p>
-        <p>Redesigned a white-labeled healthcare provider search platform to make search context visible, adjustable, and trustworthy without breaking an existing material-based design system or white-label constraints.</p>
-        <p>Key improvements included a contextual search system tying network, location, radius, and dependents directly to search and browsing, address-based location search to fix inaccurate results near geographic borders, and a new modular dialog system that enabled browsing, filtering, and adjustments without breaking user flow.</p>
-        <p>Through iterative design, four rounds of usability testing, and close collaboration with engineering, the experience became easier to understand, faster to use, and significantly more confidence-inspiring. Users consistently completed tasks more quickly, noticed and adjusted search context without prompting, and reported higher trust in results.</p>
+        <h2>Framing the Work.</h2>
+        <p><strong>What This Was:</strong> An enterprise redesign of a white-labeled provider search platform where users infrequently search for care, often under stress, and need to trust results quickly.</p>
+
+        <div class="media--pair media--stats" role="group" aria-label="Project snapshot">
+            <div>
+                <i class="fa-sharp fa-regular fa-user-pen" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Role</strong></p>
+                <p>Lead UX And UI Designer (Design Systems + Pattern Ownership)</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-users" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Collaboration</strong></p>
+                <p>Product, Engineering, Research, And Partner Stakeholders</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-layer-group" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Scope</strong></p>
+                <p>Contextual Search System, Modular Dialog Framework, Location + Radius Controls, Network + Dependent Selection, Content And Discoverability</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-clipboard-list-check" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Validation</strong></p>
+                <p>4 Rounds Of Usability Testing With Unfamiliar Users</p>
+            </div>
+        </div>
+
+        <p><strong>The Core Move:</strong> I reframed the problem as <strong>context visibility</strong>. Network, location, radius, and dependents became first-class, visible, and adjustable inputs tied directly to searching and browsing.</p>
+
+        <p><strong>How We Made Decisions:</strong> We combined qualitative usability findings with quantitative behavioral data. Pendo reports helped identify where users dropped off, where they backtracked, and which entry points were underused. We also reviewed conversion and funnel data to prioritize fixes that improved clarity without increasing friction.</p>
+
+        <p><strong>Testing Cadence:</strong> We ran four rounds of usability testing and refinement. I co-moderated rotating sessions (trading on-and-off) so we could keep facilitation sharp, capture consistent notes, and iterate quickly between rounds.</p>
+
+        <details>
+            <summary><strong>Key Outcomes.</strong></summary>
+            <ul>
+                <li>Users consistently noticed and understood search context without prompting.</li>
+                <li>Adjustments to location, radius, and dependents became intuitive during browsing and results review.</li>
+                <li>Task completion improved across primary workflows (search, browse categories, and refine results).</li>
+                <li>Trust in results increased because the system explained itself.</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary><strong>Why This Matters For Enterprise Work.</strong></summary>
+            <ul>
+                <li><strong>White-label safe:</strong> solved clarity problems without relying on a header redesign or fragile global layout changes.</li>
+                <li><strong>Design system compatible:</strong> introduced new patterns by extending existing components and states, not replacing them.</li>
+                <li><strong>Rollout-ready:</strong> designed progressive configurations so the system could ship in phases without rework.</li>
+            </ul>
+        </details>
     </section>
 
-    <!-- ONE-MINUTE SKIM -->
     <section>
-        <h2>One-Minute Skim Version (Hiring Managers)</h2>
-        <h3>The Challenge</h3>
-        <p>Users rarely used this healthcare search tool and often arrived stressed or unfamiliar with how provider networks, locations, and dependents affected results. Critical search context was easy to miss, hard to change, and inconsistently applied across search, categories, and shortcuts.</p>
-        </section>
-        <section>
-        <h3>The Constraints</h3>
-        <p>The product was white-labeled, relied on an existing material-based component library, and could not support major design overhauls or header changes due to unpredictable partner branding.</p>
-        </section>
-        <section>
-        <h3>The Work</h3>
-        <p>I reframed the problem around context visibility rather than search quality. I designed a new contextual search system that tied all parameters together, introduced address-based location search, surfaced and simplified radius controls, and built a modular dialog system to support browsing, filtering, and adjustments without breaking flow.</p>
-        <p>I validated the work across four rounds of usability testing with users unfamiliar with the platform.</p>
-        </section>
-        <section>
-        <h3>The Outcome</h3>
-        <p>Search context became obvious instead of hidden. Browsing no longer required guesswork. Users completed tasks faster, adjusted parameters with confidence, and consistently trusted results. The platform became easier to understand without disrupting existing systems or branding.</p>
+        <h2>Design System And Pattern Contribution.</h2>
+        <p>This project was not just a UI refresh. It required rebuilding how search context, browsing, and adjustments work as <strong>reusable patterns</strong> inside an enterprise design system that multiple partners rely on.</p>
+        <ul>
+            <li><strong>Contextual Search Pattern:</strong> a responsive search system that binds state (network, location, radius, dependents) to every entry point.</li>
+            <li><strong>Modular Dialog Framework:</strong> a consistent dialog anatomy with header, action ribbon, content area, and conditional footer, designed to support complex tasks without breaking flow.</li>
+            <li><strong>State + Accessibility:</strong> documented focus/active states, touch targets, responsive rules, and do/don’t guidance to keep implementations consistent.</li>
+            <li><strong>Phased Configurations:</strong> designed MVP through advanced configurations so features could ship safely without rework.</li>
+        </ul>
+
+        <details>
+            <summary><strong>Suggested Additions (Optional).</strong></summary>
+            <ul>
+                <li>Add a short “Rollout Plan” timeline showing phase 1 (dialog system), phase 2 (address search), phase 3 (recent searches and saved addresses).</li>
+                <li>Add one image that shows your component documentation zoomed out, plus one zoomed-in example with key callouts.</li>
+            </ul>
+        </details>
     </section>
 
     <!-- FULL CASE STUDY -->
     <section>
-        <h2>Full Case Study (Primary Portfolio Version)</h2>
-        <h3>Overview</h3>
+        <h2>Overview.</h2>
         <p>This project focused on improving the usability, clarity, and flexibility of a white-labeled healthcare provider search platform used to find in-network care.</p>
         <p>Most users interacted with the product infrequently, often when starting a new health plan or searching for care under stressful circumstances. Many were unfamiliar with how healthcare networks, locations, dependents, and distance affected results.</p>
         <p>Despite this, the interface required users to manage multiple layers of invisible context while searching. The goal of this work was to make that context visible, understandable, and easy to change without disrupting an established design system or breaking white-label requirements.</p>
         <p>The result was a modular, accessible search experience that significantly improved discoverability, task success, and confidence in results.</p>
         </section>
         <section>
-        <h3>The Problem</h3>
+        <h3>The Problem.</h3>
         <p>Usability testing revealed a consistent pattern. Users could complete searches, but they were often unsure whether the results were correct.</p>
         <p>On the homepage, users frequently overlooked which network, location, or dependent they were searching under. Those parameters existed, but they felt disconnected from the search input itself.</p>
         <p>Once users did notice them, they did not realize those selections applied globally to the search input, common searches, and featured categories. As a result, users treated those shortcuts as separate systems rather than filtered entry points into the same search experience.</p>
@@ -115,23 +162,24 @@
         <p>After a search was completed, users could no longer change dependents from the results page. Adjusting required returning to the homepage, breaking flow and increasing frustration.</p>
         <p>Location controls added further confusion. Search radius was buried in filters, making it difficult to see what radius was active, how distance was calculated, or how to change it quickly.</p>
         <p>The system worked, but it did not explain itself.</p>
+
         </section>
         <section>
-        <h3>Constraints</h3>
+        <h3>Constraints.</h3>
         <p>This was not a greenfield redesign.</p>
         <p>The platform relied on an existing material-based component library. Major visual or structural changes were out of scope and budget.</p>
         <p>Because the product was white-labeled, the header needed to accommodate unpredictable branding. Some partners required extremely wide logos or multiple logos grouped together. Adding more controls to the header risked breaking layouts across clients.</p>
         <p>Any solution needed to improve clarity without introducing instability.</p>
         </section>
         <section>
-        <h3>Expanding Scope</h3>
+        <h3>Expanding Scope.</h3>
         <p>Midway through the project, address-based location search was added to the requirements.</p>
         <p>Previously, users could only enter a zip code, city, or state. Distance was calculated from the centroid of those areas, which produced inaccurate results for users near geographic borders. Users could live minutes from a provider and still see no nearby results.</p>
         <p>This surfaced a deeper issue. Because radius controls were buried, users had no way to understand why results looked wrong or how to fix them without trial and error.</p>
         <p>Address search alone was not enough. Location and distance needed to become first-class, visible elements of the experience.</p>
         </section>
         <section>
-        <h3>Reframing the Problem</h3>
+        <h3>Reframing the Problem.</h3>
         <p>The issue was not data quality or search performance. It was context visibility.</p>
         <p>Users needed to always understand:</p>
         <ul>
@@ -142,63 +190,398 @@
         <p>When that context was visible and adjustable, confusion dropped immediately.</p>
         </section>
         <section>
-        <h3>The Approach</h3>
+        <h3>The Approach.</h3>
         <p>I benchmarked healthcare and non-healthcare search experiences across mobile and desktop, focusing on how systems communicate state and scope.</p>
         <p>I explored modular wireframes that could scale across breakpoints while remaining compatible with the existing component library. These ranged from low-risk refinements to more progressive patterns designed for incremental rollout.</p>
         <p>I then developed multiple high-fidelity directions, intentionally spanning conservative through forward-looking solutions so stakeholders could evaluate tradeoffs concretely.</p>
         <p>To validate decisions, I co-moderated four rounds of usability testing with participants unfamiliar with the platform. This ensured fresh mental models and surfaced real confusion points.</p>
         </section>
         <section>
-        <h3>The Solution</h3>
-        <h4>Contextual Search</h4>
+
+        <h3>The Solution.</h3>
+        <h4>Contextual Search.</h4>
         <p>A new search component grouped all parameters with the search input itself. Network, location, radius, and dependents were visually and behaviorally connected, making it clear that all entry points shared the same rules.</p>
         <p>The component was responsive by design, adapting from a full-width desktop ribbon to stacked and single-column layouts for tablet and mobile. Dependents were accessible on all screen sizes.</p>
+        <p>The logged-in hero pairs the new contextual search with clear state indicators, so users understand what they’re searching for, who it applies to, and where results are anchored at a glance.</p>
+        <div class="device-pair">
+            <figure>
+                <img src="../assets/images/work/healthcare/healthcare-homepage-hero-desktop-logged-in.png" alt="Healthcare search platform logged-in homepage hero on desktop">
+            </figure>
+            <figure class="device">
+                <div>
+                    <img src="../assets/images/work/healthcare/healthcare-homepage-hero-mobile-logged-in.png" alt="Healthcare search platform logged-in homepage hero on mobile">
+                </div>
+            </figure>
+        </div>
+        
+        <h5>Component Atom Anatomy, Showing Sizing and Spacing Specifications.</h5>
+        <figure class="device">
+            <div>
+            <img src="../assets/images/work/healthcare/component-atoms-sizing-and-spacing.png" alt="search component atom showing sizing and spacing specifications">
+            </div>
+        </figure>
+        <h5>Component Anatomy, Showing Parameters Are Organized.</h5>
+        <figure class="device">
+            <div>
+            <img src="../assets/images/work/healthcare/search-anatomy.png" alt="search component anatomy">
+            </div>
+        </figure>
+        <h4>Search Component Anatomy:</h4>
+        <div class="anatomy-wrap">
+            <table class="anatomy">
+                <tbody>
+                <tr>
+                    <th scope="row" class="anatomy__key">A</th>
+                    <td>
+                        <p><strong>Search Input.</strong></p>
+                        <p><strong>Searching with Auto Suggestions.</strong> The search field will be for searching keywords for care, doctors names, locations, etc... to narrow down search results for the type of care the user is looking for.</p>
+                        <p>When it’s active, it will also open up the auto suggestions panel that will populate with suggested search criteria based on what the user is entering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">B</th>
+                    <td>
+                        <p><strong>Location Parameter.</strong></p>
+                        <p><strong>Location and Range Data Dialog Launcher.</strong> Activating the location parameter will open up the location parameter dialog that will allow users to search by location and adjust the search range / radius of their search.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">C</th>
+                    <td>
+                        <p><strong>Network Parameter.</strong></p>
+                        <p><strong>Network Selection Dialog Launcher.</strong> Activating the network parameter will open up the network parameter dialog that will allow users to browse network offerings for supported providers.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">D</th>
+                    <td>
+                        <p><strong>Dependents Parameter.</strong></p>
+                        <p><strong>Dependents Selection Dialog Launcher.</strong> Activating the dependent parameter will open up the dependent parameter dialog that will allow users to select those on their health plans to browse for care with more accurate pricing and supported providers.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">E</th>
+                    <td>
+                        <p><strong>Find Care Button.</strong></p>
+                        <p><strong>An Option and Visual Anchor.</strong> When filling out the search parameters, you can still hit “Enter” when typing in the search field. The find care button is there for an alternate route option for accessibility, clarity, and to draw the eye over the search parameter input selections.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4>Putting it All Together:</h4>
+        <p>Now we take the search input and parameter controls and combine them into a cohesive search experience that is both accessible and intuitive for the homepage hero. The next two images diagram the sizing and spacing documentation for the tablet and larger devices, narrow, mobile devices.</p>
+
+        <h5>The Dialog Anatomy. Showing Sections by Letter and Component Details by Number.</h5>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/dialog-anatomy.png" alt="Dialog anatomy showing how the modular dialog system is structured for sections and components">
+            </div>
+        </figure>
+        <div class="anatomy-wrap">
+            <table class="anatomy">
+                <tbody>
+                <tr>
+                    <th scope="row" class="anatomy__key">A</th>
+                    <td>
+                        <p><strong>Dialog Header.</strong></p>
+                        <p><strong>Required.</strong> The dialog header will always be present since the dialog title is a required item to always be present.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">B</th>
+                    <td>
+                        <p><strong>Dialog Action Ribbon.</strong></p>
+                        <p><strong>Optional.</strong> The action ribbon is an optional, intractable area for more complex actions in a dialog such as search and select/filter.</p>
+                        <p><strong>Responsive.</strong> In the dialog’s “little” configuration, or when screen sizes compress to mobile sizes, the ribbon elements will stack in a single column with the exception of the back button, which will remain on the top row with the first, or only actionable element.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">C</th>
+                    <td>
+                        <p><strong>Dialog Content Area.</strong></p>
+                        <p><strong>Required & Dynamic.</strong> This is where you would insert any content into a dialog to allow the user to complete their task or gain information.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">D</th>
+                    <td>
+                        <p><strong>Dialog Footer.</strong></p>
+                        <p><strong>Conditional.</strong> The footer only displays when one of it’s internal elements is needed such as, the footer checkbox and label, primary, and secondary buttons.</p>
+                        <p><strong>Responsive.</strong> In the dialog’s “little” configuration, or when screen sizes compress to mobile sizes, the footer elements will stack in a single column. Along with the buttons becoming full-width for easier touch targets on mobile devices..</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">E</th>
+                    <td>
+                        <p><strong>Default vs Fullscreen.</strong></p>
+                        <p>The styling will change on the dialog depending on if it’s in it’s default overlay layout or fullscreen layout.</p>
+                        <p><strong>Default.</strong> The default use will have the dialog overlay the page with a scrim and have rounded corners with a box shadow.</p>
+                        <p><strong>Fullscreen.</strong> When in fullscreen, the dialog goes full-width and height, so there will not be rounded corners or box shadows since the dialog is intended to cover up all of the page content beneath it. This style is used on smaller mobile breakpoints.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="anatomy-wrap">
+            <table class="anatomy">
+                <tbody>
+                <tr>
+                    <th scope="row" class="anatomy__key">1</th>
+                    <td>
+                        <p><strong>Dialog Title.</strong></p>
+                        <p><strong>Required.</strong> The dialog title will always be present, giving a short and concise title for context. The title should be short and only a couple words max (ideally a single line) for easy readability.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">2</th>
+                    <td>
+                        <p><strong>Dialog Description.</strong></p>
+                        <p><strong>Optional.</strong> When you need to give further context, description, and or instructions, that would not otherwise go in the dialog’s content itself. You can use the optional dialog description. It should be kept as short as possible for readability, however, it can wrap and grow in height for longer descriptions.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">3</th>
+                    <td>
+                        <p><strong>Dialog Close.</strong></p>
+                        <p><strong>Required Conditionally.</strong> If your dialog does not use a “cancel” button that would close the dialog, then you must use the close “X” button which uses the “text” style icon button.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">4</th>
+                    <td>
+                        <p><strong>Dialog Back.</strong></p>
+                        <p><strong>Appears Conditionally.</strong> The back button appears conditionally when navigating from one dialog to another to give a way of back tracking.</p>
+                        <p><strong>Conditional Locations.</strong> Depending on the use case the button may appear in the header, inline with the title, description, and close button, or it may appear in the action ribbon on the far left if in use.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">5</th>
+                    <td>
+                        <p><strong>Dialog Ribbon Search.</strong></p>
+                        <p><strong>Optional.</strong> The action ribbon can contain a search with auto-suggest when needed. This can be used for searching (address search), as well as filtering (browsing categories).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">6</th>
+                    <td>
+                        <p><strong>Dialog Ribbon Select.</strong></p>
+                        <p><strong>Optional.</strong></p>
+                        <p><strong>Select (Angle Down).</strong> The angle down select is used when a dropdown menu will appear.</p>
+                        <p><strong>Navigational (Angle Right).</strong> The angle right select is used when you are going to be taken to a new dialog or page as a result of interacting with it. This is demonstrated when adjusting the location when browsing categories since you will be accessing the locations dialog in order to be able to utilize the search and range adjustments.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">7</th>
+                    <td>
+                        <p><strong>Dialog Content Area.</strong></p>
+                        <p><strong>Required & Dynamic.</strong> This is where you would insert any content into a dialog to allow the user to complete their task or gain information.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">8</th>
+                    <td>
+                        <p><strong>Dialog Checkbox.</strong></p>
+                        <p><strong>Optional.</strong> The checkbox and label can be used optionally for a variety of user inputs. Examples may include “don’t show again” for prompts they want to dismiss permanently, along with checking and opting in/out of disclosures such as privacy policies, newsletter sign ups, and more.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">9</th>
+                    <td>
+                        <p><strong>Dialog Secondary Action.</strong></p>
+                        <p><strong>Optional.</strong> When more than one action is present in a dialog, you may need use of the secondary button. Examples of secondary actions would be a “reset” button seen in the search parameters’ dialogs and filters, or a “cancel” button that would be paired with a primary action and would close the dialog.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">10</th>
+                    <td>
+                        <p><strong>Dialog Primary Action.</strong></p>
+                        <p><strong>Optional.</strong> When your dialog has an action to complete, the primary button will be used to do so. Examples would be submitting forms filled out in a dialog, confirming and acknowledging messages, applying search parameters and filters, etc...</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">11</th>
+                    <td>
+                        <p><strong>Type to Filter.</strong></p>
+                        <p><strong>Optional.</strong> When you need to browse long lists, the type to filter, paired with the anchor links component, can quickly navigate users to what they are looking for.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">12</th>
+                    <td>
+                        <p><strong>Anchor Links.</strong></p>
+                        <p><strong>Optional.</strong> Activated with the type to filter, anchor links will jump you down to specific points in an alphabetical list.</p>
+                        <p><strong>Style.</strong> Sections that have items to navigate to will have a bold link version of their letter, where-is sections that are not present, will have their letter regular weight and disabled.</p>
+                        <p><strong>Responsiveness.</strong> Since the touch target size on the smallest dialog crams the letters together too tight, even when made caption size, they are replaced by a dropdown select in order to still be accessible.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="anatomy__key">13</th>
+                    <td>
+                        <p><strong>Navigational.</strong></p>
+                        <p><strong>Optional.</strong> You’ll notice when the type to filter with anchor links element is active, we will no longer have a search input in the top ribbon, since the type to filter accomplishes this task.</p>
+                        <p>Navigational inputs would navigate you to new pages or dialogs, as opposed to dropdown menus. This may be used in instances a dropdown doesn’t present enough functionality, such as the location selection when browsing by category.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         </section>
         <section>
-        <h4>Navigation Simplification</h4>
+        <h4>Spacing and Sizing.</h4>
+        <p>Spacing and sizing rules keep the dialog system consistent across screen sizes, making it easier to scan, easier to use, and easier to maintain. These specs document padding, type scale, touch targets, and alignment so every configuration stays readable and accessible.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/dialog-sizing.png" alt="Dialog sizing and spacing documentation">
+            </div>
+        </figure>
+        </section>
+        <section>
+        <h4>Dialog Documentation Overview.</h4>
+        <p>This is a zoomed-out view of the full dialog documentation set. It’s not meant to be read line-by-line here, but to show how the system comes together across anatomy, sizing, spacing, positioning, display types, configuration states, and clear do/don’t guidance.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/dialog-specs.png" alt="Zoomed out dialog component documentation covering anatomy, sizing, spacing, configurations, and use cases">
+            </div>
+        </figure>
+        </section>
+        <section>
+        <h4>Navigation Simplification.</h4>
         <p>Rarely used settings were moved into the user profile menu. This reduced clutter, preserved space for unpredictable branding, and created room for future navigation without reworking the header.</p>
         </section>
         <section>
-        <h4>Modular Dialog System</h4>
-        <p>I designed and documented a modular dialog system that extended the existing design library to support more complex interactions.</p>
-        <p>This system enabled category browsing directly from the homepage, with inline visibility into active network, location, and radius. Users could adjust parameters without losing their place.</p>
-        </section>
         <section>
-        <h4>Location and Radius</h4>
+        <h4>Location and Radius.</h4>
         <p>Location dialogs clearly displayed the active radius and allowed immediate updates. Address autocomplete supported street address, city, state, and zip.</p>
         <p>Logged-out users were given sensible defaults to ensure results always had a location anchor. Logged-in users could save multiple addresses, supporting scenarios like searching near work, for dependents away at college, or for loved ones in other cities.</p>
+        <p>The location dialog also followed a phased rollout to manage added complexity: first the new dialog system, then address support, and later recent search history and saved addresses.</p>
+        <p>This view shows the location dialog with every available configuration turned on. The left image shows how content scrolls within the dialog, while the right shows all options visible at once.</p>
+        <figure class="media">
+            <img src="../assets/images/work/healthcare/location-dialog-all-options.png" alt="Location dialog showing all configuration options, with scroll behavior on the left and full option visibility on the right">
+        </figure>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/location-dialog-specs.png" alt="Location dialog specifications showing layout, spacing, and configuration states">
+            </div>
+        </figure>
         </section>
         <section>
-        <h4>Networks and Dependents</h4>
+        <h4>Networks and Dependents.</h4>
         <p>Network selection gained search, visual scanning aids, pinned enrolled networks, and support for saving additional networks.</p>
         <p>Dependents were elevated to first-class entities. Dialogs supported search, clear labeling, tier indicators, and avatars, reducing errors and increasing confidence when searching for someone else.</p>
+        <p>This network view contrasts the MVP and advanced configurations. The left shows the icon-only list with enrolled networks pinned to the top for logged-in users. The right adds provider logos and the ability to manage saved networks, including pinning plans for family members you support.</p>
+        <figure class="media">
+            <img src="../assets/images/work/healthcare/network-dialog.png" alt="Network dialog comparing icon-only MVP and logo-enabled saved network configurations">
+        </figure>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/network-dialog-specs.png" alt="Network dialog specifications showing logo and icon configurations">
+            </div>
+        </figure>
+        <p>Network dialogs supported logo images via the avatar component or icons next to networks, configurable to each provider’s preference. The imagery improved recognition and scanability, with search appearing conditionally for longer network lists.</p>
+        <p>This dependents view shows the dialog and the live search state. The left illustrates the default list, and the right shows filtering in action with matched text highlighted in bold.</p>
+        <figure class="media">
+            <img src="../assets/images/work/healthcare/dependents-dialog.png" alt="Dependents dialog showing default list and live search filtering with highlighted matches">
+        </figure>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/dependents-dialog-specs.png" alt="Dependents dialog specifications showing avatar and icon configurations">
+            </div>
+        </figure>
+        <p>Dependents dialogs supported avatars or icons beside plan members, configurable to provider preference. Search and the dialog system were applied conditionally for longer member lists.</p>
         </section>
         <section>
-        <h4>Content and Discoverability</h4>
+        <h4>Content and Discoverability.</h4>
         <p>Copy was rewritten to clarify functionality and relationships. Common searches and categories were aligned under a shared mental model. The “All categories” entry point was moved into context, eliminating the need to search simply to browse.</p>
         <p>Space reclaimed on the results page allowed dependents to be adjusted without leaving results.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/categories-dialog-specs.png" alt="Categories dialog specifications showing hierarchy, featured lists, and alphabetical navigation">
+            </div>
+        </figure>
+        <p>The categories dialog allows users to browse from high-level groupings down to niche services. The first page supports featured, provider-configurable lists, then drills into child categories and items. Long lists include search with alphabetical anchor links and grouping for faster navigation.</p>
         </section>
         <section>
-        <h4>Accessibility and Delivery</h4>
+        <h4>Accessibility and Delivery.</h4>
         <p>Accessibility improvements were integrated from the start. New focus and active states were designed, including offset focus outlines for improved visibility. I collaborated directly with engineering, providing example code and detailed documentation covering states, spacing, color usage, and responsive behavior.</p>
+        <figure class="device">
+            <div>
+                <img src="../assets/images/work/healthcare/component-detailed-specs.png" alt="Detailed specifications for the healthcare search component"></img>
+            </div>
+        </figure>
+        </section>
+
+        <section>
+        <h3>Leadership Notes And Tradeoffs.</h3>
+        <p>This work balanced clarity improvements with enterprise constraints. The key tradeoff was resisting a header-first solution and instead making context visible where users actually make decisions: at the search input, while browsing, and while reviewing results.</p>
+        <ul>
+            <li><strong>Stability over novelty:</strong> extended existing components and states to reduce implementation risk.</li>
+            <li><strong>Progressive complexity:</strong> advanced features (saved addresses, recent searches, richer logos) were designed as optional configurations.</li>
+            <li><strong>Trust as a feature:</strong> clarity and explainability were treated as product functionality, not polish.</li>
+        </ul>
         </section>
         <section>
-        <h3>Results and Impact</h3>
+
+        <h3>Results and Impact.</h3>
+
+        <div class="media--pair media--stats" role="group" aria-label="Results snapshot">
+            <div>
+                <i class="fa-sharp fa-regular fa-clipboard-list-check" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Task Success</strong></p>
+                <p><strong>33%</strong> (tracking baseline) to <strong>100%</strong> (usability testing)</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-timeline-arrow" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Validation</strong></p>
+                <p>4 Rounds Of Testing And Refinement</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-layer-group" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Signals Used</strong></p>
+                <p>Pendo Behavior Reports + Conversion And Funnel Data</p>
+            </div>
+            <div>
+                <i class="fa-sharp fa-regular fa-toolbox" aria-hidden="true" style="font-size: 2rem;"></i>
+                <p><strong>Enterprise Fit</strong></p>
+                <p>White-Label Safe, Design System Compatible</p>
+            </div>
+        </div>
+
         <ul>
-            <li>Users consistently noticed and understood search context</li>
-            <li>Adjustments to location, radius, and dependents became intuitive</li>
-            <li>Task completion improved across all primary workflows</li>
-            <li>Confidence in results increased significantly</li>
+            <li>Users consistently noticed and understood search context without prompting.</li>
+            <li>Adjustments to location, radius, dependents, and networks became intuitive during browsing and results review.</li>
+            <li>Task success improved from 33% (tracking baseline) to 100% in testing scenarios.</li>
+            <li>Confidence in results increased because scope and state were visible and explainable.</li>
         </ul>
-        <p>Participants frequently commented that the experience felt clearer and easier than their own healthcare tools.</p>
-        <p>The platform became more understandable, more flexible, and more trustworthy without disrupting existing systems.</p>
+
+        <p>We paired qualitative testing insights with quantitative signals. Pendo reports helped us identify drop-off points, backtracking behavior, and underused entry points. Conversion and funnel data helped prioritize improvements that increased clarity without adding friction.</p>
+
+        <p>Participants frequently commented that the redesigned experience felt clearer and easier than their own healthcare tools. The platform became more understandable, more flexible, and more trustworthy without disrupting existing systems.</p>
+    </section>
+
+    <!-- CASE STUDY NAV -->
+    <section aria-labelledby="more-work-title">
+        <article>
+            <header>
+                <figure class="dotted">
+                    <i class="fa-sharp fa-regular fa-folder-closed" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
+                </figure>
+                <h3 id="more-work-title">Keep Exploring.</h3>
+                <p>Discover more case studies and past projects to see how each solution came together.</p>
+            </header>
+            <footer>
+                <a href="#all-work-dialog" data-dialog-open="all-work-dialog"><button type="button">View All Work</button></a>
+            </footer>
+        </article>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
         <h2>Still Curious?</h2>
-        <h3>Browse one of my other <a href="../index.html#work">case studies</a>, <a href="../index.html#writing">writings</a>, <a href="../index.html#projects">resources</a>, or reach out for a chat.</h3>
+        <h3>Browse One of My Other <a href="#all-work-dialog" data-dialog-open="all-work-dialog">Case Studies</a>, <a href="../index.html#writing">Writings</a>, <a href="../index.html#projects">Resources</a>, Or Reach out for a Chat.</h3>
         <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
+        
+
 
         <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
             <label for="name" class="required-field">Name</label>
@@ -215,10 +598,133 @@
             </noscript>
             <button>Send</button>
         </form>
-    
+
     </section>
 
-    <footer>
+    
+
+
+
+
+
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies.</h2>
+                <button type="button" data-dialog-close>Close</button>
+            </header>
+            <!-- SECTION -->
+            <section>
+                <p><strong>Featured</strong><sup>6</sup></p>
+                <ul>
+                    <li>
+                        <p><a href="../work/healthcare-search-platform.html">Healthcare Search Platform</a></p>
+                        <cite>Accessibility · Design Systems · Development · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Accessibility · Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/itx.html">ITX</a></p>
+                        <cite>Accessibility · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/paychex.html">Paychex</a> <sup>Limited</sup> <sup>Awarded</sup></p>
+                        <cite>Accessibility · Graphic Design · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/trocaire-college.html">Trocaire College</a><sup>Awarded</sup></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>Case Study Archive</strong><sup>18</sup></p>
+                <cite>Some studies are linked; others are available on request.</cite>
+                <ul>
+                    <li>
+                        <p><a href="../work/19-ideas.html">19 IDEAS</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>A Jaunt With Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Arounja</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/buffalo-niagara-medical-campus.html">Buffalo Niagara Medical Campus</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>DanandKat.ie</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/green-power-energy.html">Green Power Energy</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/hodgson-russ.html">Hodgson Russ</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/independent-health.html">Independent Health</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/kore-marketing-agency.html">Kore Marketing</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/labatt-blue-and-zubaz.html">Labatt + Zubaz</a> <sup>Awarded</sup></p>
+                        <cite>Design · Product Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/mike-cardus.html">Organization Development by Mike Cardus</a></p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/person-centered-services.html">Person Centered Services</a><sup>Awarded</sup></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/roar-logistics.html">ROAR Logistics</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>SAMCO Technologies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/savarino-companies.html">Savarino Companies</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/storillo.html">Storillo</a></p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/university-at-buffalo.html">University at Buffalo</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/walsh-duffield.html">Walsh Duffield</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+        </main>
+
+<footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
         <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
     </footer>

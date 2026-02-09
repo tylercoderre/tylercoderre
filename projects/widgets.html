@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/styles/widgets.css">
 </head>
 <body>
-    <a class="skip-link" href="#widgets">Skip to content</a>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header id="Top">
     <a href="../index.html" aria-label="Home">Tyler Coderre</a>
     <nav aria-label="Primary">
@@ -44,15 +44,17 @@
     </nav>
 </header>
 
+    <main id="content" tabindex="-1">
+
 
     <section>
         <header>
-            <h1 id="widgets" tabindex="-1">Widgets.</h1>
+            <h1 id="widgets">Widgets.</h1>
             <p>A UI experiment exploring compact, utilitarian widgets inspired by classic digital modules.</p>
         </header>
         <div class="widgets" aria-label="Widget showcase">
             <aside class="widget" aria-label="Calendar widget">
-                <h3><data data-widget-date>Loading date...</data></h3>
+                <h3><data data-widget-date>Loading Date...</data></h3>
                 <p data-widget-day>Loading day...</p>
                 <p><time data-widget-time data-timezone="America/New_York">Loading time...</time></p>
                 <div class="widget-cta">
@@ -61,7 +63,7 @@
             </aside>
             <aside class="widget" aria-label="Weather widget">
                 <h3>
-                    <data data-widget-temp>Loading temperature...</data>
+                    <data data-widget-temp>Loading Temperature...</data>
                     <i class="fa-sharp fa-regular fa-cloud" data-widget-icon aria-hidden="true"></i>
                 </h3>
                 <p data-widget-condition>Loading condition...</p>
@@ -77,7 +79,9 @@
         </noscript>
     </section>
 
-    <footer>
+        </main>
+
+<footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
         <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
     </footer>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../assets/styles/weather.css">
 </head>
 <body>
-    <a class="skip-link" href="#weather">Skip to content</a>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header id="Top">
     <a href="../index.html" aria-label="Home">Tyler Coderre</a>
     <nav aria-label="Primary">
@@ -49,13 +49,13 @@
 </header>
 
 
-    <main id="weather" data-weather-page tabindex="-1">
+    <main data-weather-page id="content" tabindex="-1">
         <header data-weather-header>
             <div data-weather-heading>
-                <h1 data-weather-location>Buffalo, NY</h1>
+                <h1 data-weather-location>Buffalo, NY.</h1>
                 <h2>
-                    <time data-weather-time data-timezone="America/New_York">Loading time...</time>,
-                    <time data-weather-date>Loading date...</time>
+                    <time data-weather-time data-timezone="America/New_York">Loading Time...</time>,
+                    <time data-weather-date>Loading Date...</time>
                 </h2>
             </div>
             <fieldset data-unit-toggle>
@@ -71,14 +71,14 @@
             <div data-weather-current>
                 <h2 id="current">
                     <data data-weather-temp>--</data>
-                    <small data-weather-unit aria-hidden="true">°F</small>
+                    <small data-weather-unit aria-hidden="true">°F.</small>
                 </h2>
                 <div data-weather-range>
                     <p data-weather-high></p>
                     <p data-weather-low></p>
                 </div>
             </div>
-            <h3 data-weather-condition>Loading conditions...</h3>
+            <h3 data-weather-condition>Loading Conditions...</h3>
             <p data-weather-precip-line>
                 <data data-weather-precip-type>Loading precipitation...</data>
                 /
@@ -109,7 +109,7 @@
 
         <section aria-labelledby="forecast">
             <header data-forecast-header>
-                <h2 id="forecast">Up Next</h2>
+                <h2 id="forecast">Up Next.</h2>
                 <p>Four Day Forecast</p>
             </header>
             <div data-forecast-list>
