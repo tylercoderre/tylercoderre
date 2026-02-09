@@ -3319,6 +3319,22 @@ section > header + .device-pair {
 	padding-right: 0;
 }
 
+.media--stats > div {
+	gap: 0.5rem;
+}
+
+.media--stats > div:has(> i[class*="fa-"]) {
+	gap: 0.5rem;
+}
+
+.media--stats > div > p {
+	margin: 0;
+}
+
+.media--stats > div > p + p {
+	margin-top: 0;
+}
+
 .media--split {
 	display: flex;
 	flex-wrap: wrap;
