@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Input Mask Field Guide - Tyler Coderre</title>
+    <meta name="description" content="A designer-led reference for form inputs that feel obvious to users, predictable to developers, and easier for product teams to reason about.">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
+    <meta property="og:title" content="The Input Mask Field Guide - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/writing/input-mask-field-guide.html">
+    <meta property="og:description" content="A designer-led reference for form inputs that feel obvious to users, predictable to developers, and easier for product teams to reason about.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/writing/input-mask-field-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Input Mask Field Guide - Tyler Coderre">
+    <meta name="twitter:description" content="A designer-led reference for form inputs that feel obvious to users, predictable to developers, and easier for product teams to reason about.">
+    <meta name="twitter:image" content="../assets/images/og-image.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="../assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header id="Top">
+    <a href="../index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
+
+    <main id="content" tabindex="-1">
+
+    <section>
+    <h1>The Input Mask Field Guide</h1>
+    <h2>A designer-led reference for form inputs that feel obvious to users, predictable to developers, and easier for product teams to reason about.</h2>
+    <figure>
+        <img src="../assets/images/writing/input-mask-field-guide/input-mask-field-guide-hero.jpg" alt="Two long time favorite inputs in my rotation, my Planck keyboard and Logitech MX Master 3s">
+        <figcaption>Two long time favorite inputs in my rotation, my Planck keyboard and Logitech MX Master 3s</figcaption>
+    </figure>
+    <p>Forms are where good UX goes to die. Not because forms are inherently evil, but because forms are where assumptions collide.</p>
+    <p>Users assume “I just type the thing.”</p>
+    <p>Design assumes “the format is obvious.”</p>
+    <p>Engineering assumes “we’ll validate it later.”</p>
+    <p>Product assumes “it’s a small story.”</p>
+    <p>Then someone on mobile tries to enter a phone number, realizes their keypad does not even have parentheses, and suddenly your “small story” is a conversion cliff.</p>
+    <p>Input masks are one of the simplest ways to prevent that. They also happen to be a great forcing function for cross-team clarity. Done well, they reduce errors and make inputs feel effortless. Done poorly, they turn typing into a boss fight.</p>
+    <p>This guide is meant to live in that sweet spot between reference and tool kit. I’m writing it from a design-systems mindset, but it’s built to be useful for developers and product folks too. Every pattern comes in two layers:</p>
+    <ol>
+        <li><strong>Minimum viable HTML</strong>: a single-line input that is semantic and works without JavaScript.</li>
+        <li><strong>Enhanced version</strong>: optional JS that improves formatting, reduces errors, and adds context. Progressive enhancement only.</li>
+    </ol>
+    <p>If the JS never loads, you still have a functional form. You just lose the “nice.”</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>A Couple Rules Before We Get Into The List</h2>
+    <p>If you only remember a few things, remember these:</p>
+    <ul>
+        <li>Masks should <strong>guide</strong>, not <strong>control</strong>.</li>
+        <li>Paste should always work. People paste everything.</li>
+        <li>Labels should be real. Placeholders are not instruction.</li>
+        <li>Decide and document <strong>display value vs stored value</strong>. This is the part that saves everyone time.</li>
+    </ul>
+    <p>Alright. Let’s do the list.</p>
+
+    </section>
+
+    <section>
+
+    <h2>1. Phone Number Formatting</h2>
+    <p>This one is the classic. It’s also the one that instantly reveals whether anyone tested the form on a phone.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;phone&quot; name=&quot;phone&quot; type=&quot;tel&quot; inputmode=&quot;tel&quot; autocomplete=&quot;tel&quot;&gt;</code></pre>
+    </figure>
+    <p>What it does: phone-friendly keyboard and better autofill.</p>
+    <h3>Enhanced HTML</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;phone&quot;&gt;Phone&lt;/label&gt;
+&lt;input id=&quot;phone&quot; name=&quot;phone&quot; type=&quot;tel&quot; inputmode=&quot;tel&quot; autocomplete=&quot;tel&quot; aria-describedby=&quot;phone-help&quot;&gt;
+&lt;p id=&quot;phone-help&quot;&gt;Format: (555) 123-4567&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const phoneEl = document.querySelector(&quot;#phone&quot;);
+
+function formatUSPhone(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 10);
+  const a = digits.slice(0, 3);
+  const b = digits.slice(3, 6);
+  const c = digits.slice(6);
+
+  if (digits.length &lt;= 3) return a;
+  if (digits.length &lt;= 6) return `(${a}) ${b}`;
+  return `(${a}) ${b}-${c}`;
+}
+
+phoneEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  phoneEl.value = formatUSPhone(phoneEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS: </strong>inserts punctuation so users do not have to switch keyboards.</p>
+    <p><strong>Design systems note: </strong>define whether the stored value is digits-only or formatted.</p>
+    <p>If you have ever rage-typed a phone number into a field that refuses spaces and then yells at you for not adding dashes, congratulations. You have met the bad version of this pattern.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>2. Date (MM/DD/YYYY)</h2>
+    <p>Dates are deceptively hard. Format is region-dependent, validation is messy, and everyone has opinions.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;date&quot; name=&quot;date&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;bday&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;date&quot;&gt;Date&lt;/label&gt;
+&lt;input id=&quot;date&quot; name=&quot;date&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;bday&quot; aria-describedby=&quot;date-help&quot;&gt;
+&lt;p id=&quot;date-help&quot;&gt;Format: MM/DD/YYYY&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const dateEl = document.querySelector(&quot;#date&quot;);
+
+function formatDateMMDDYYYY(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 8);
+  const mm = digits.slice(0, 2);
+  const dd = digits.slice(2, 4);
+  const yyyy = digits.slice(4);
+
+  if (digits.length &lt;= 2) return mm;
+  if (digits.length &lt;= 4) return `${mm}/${dd}`;
+  return `${mm}/${dd}/${yyyy}`;
+}
+
+dateEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  dateEl.value = formatDateMMDDYYYY(dateEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS:</strong> auto-slashes reduce format confusion mid-entry.</p>
+    <p><strong>Product note:</strong> if you ship internationally, make this locale-aware or use an accessible date picker.</p>
+    <p>Nothing makes a team discover “we never decided our date format” faster than a production bug report from someone in another country.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>3. Credit Card Number</h2>
+    <h3>Grouped Spacing</h3>
+    <p>If users cannot scan the digits, they will misread them. Grouping is not fluff, it’s error prevention.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;cc&quot; name=&quot;cc&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;cc-number&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;cc&quot;&gt;Card number&lt;/label&gt;
+&lt;input id=&quot;cc&quot; name=&quot;cc&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;cc-number&quot; aria-describedby=&quot;cc-help&quot;&gt;
+&lt;p id=&quot;cc-help&quot;&gt;We’ll add spacing for readability.&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const ccEl = document.querySelector(&quot;#cc&quot;);
+
+function formatCardNumber(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 19);
+  return digits.replace(/(.{4})/g, &quot;$1 &quot;).trim();
+}
+
+ccEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  ccEl.value = formatCardNumber(ccEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS:</strong> makes long numbers readable and easier to verify.</p>
+    <p>If you want to watch a designer get intensely focused, ask them to read a 16-digit number out loud with no spacing. It turns into a live stress test.</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>4. Currency Amount</h2>
+    <h3>Normalize While Typing, Format on Blur</h3>
+    <p>This is where teams accidentally create an input that fights the user. The trick is to be gentle.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;amount&quot; name=&quot;amount&quot; type=&quot;text&quot; inputmode=&quot;decimal&quot; autocomplete=&quot;off&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;amount&quot;&gt;Amount&lt;/label&gt;
+&lt;input id=&quot;amount&quot; name=&quot;amount&quot; type=&quot;text&quot; inputmode=&quot;decimal&quot; autocomplete=&quot;off&quot; aria-describedby=&quot;amount-help&quot;&gt;
+&lt;p id=&quot;amount-help&quot;&gt;Example: 1250.50&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const amountEl = document.querySelector(&quot;#amount&quot;);
+
+function normalizeCurrency(raw) {
+  const cleaned = raw.replace(/[^\d.]/g, &quot;&quot;);
+  const [whole = &quot;&quot;, frac = &quot;&quot;] = cleaned.split(&quot;.&quot;);
+  const w = (whole || &quot;0&quot;).replace(/^0+(?=\d)/, &quot;&quot;);
+  const f = frac.slice(0, 2);
+  return f ? `${w}.${f}` : w;
+}
+
+function formatCurrencyDisplay(raw) {
+  const n = Number(normalizeCurrency(raw));
+  if (!Number.isFinite(n)) return &quot;&quot;;
+  return n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+amountEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  amountEl.value = normalizeCurrency(amountEl.value);
+});
+
+amountEl?.addEventListener(&quot;blur&quot;, () =&gt; {
+  amountEl.value = formatCurrencyDisplay(amountEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS: </strong>avoids the “I cannot type the number I want” problem. Normalize first. Pretty later.</p>
+    <p>If your currency input inserts commas while I’m in the middle of typing, I will immediately assume the rest of your app is also going to argue with me.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>5. SSN-Style Separators (###-##-####)</h2>
+    <p>Same concept as dates. Different punctuation. Still valuable for readability.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;ssn&quot; name=&quot;ssn&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;ssn&quot;&gt;SSN&lt;/label&gt;
+&lt;input id=&quot;ssn&quot; name=&quot;ssn&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot; aria-describedby=&quot;ssn-help&quot;&gt;
+&lt;p id=&quot;ssn-help&quot;&gt;Format: 123-45-6789&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const ssnEl = document.querySelector(&quot;#ssn&quot;);
+
+function formatSSN(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 9);
+  const a = digits.slice(0, 3);
+  const b = digits.slice(3, 5);
+  const c = digits.slice(5);
+
+  if (digits.length &lt;= 3) return a;
+  if (digits.length &lt;= 5) return `${a}-${b}`;
+  return `${a}-${b}-${c}`;
+}
+
+ssnEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  ssnEl.value = formatSSN(ssnEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Product check: </strong>do you actually need full SSN, or just last 4.</p>
+    <p>If product says “we need SSN,” ask “why” three times. The answer is often “we actually just need last 4” and you just saved everyone a security review.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>6. ZIP / Postal Code (##### or #####-####)</h2>
+    <p>This is a great example of a mask that stays out of the way.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;zip&quot; name=&quot;zip&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;postal-code&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;zip&quot;&gt;ZIP code&lt;/label&gt;
+&lt;input id=&quot;zip&quot; name=&quot;zip&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;postal-code&quot; aria-describedby=&quot;zip-help&quot;&gt;
+&lt;p id=&quot;zip-help&quot;&gt;5 digits, or ZIP+4.&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const zipEl = document.querySelector(&quot;#zip&quot;);
+
+function formatZIP(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 9);
+  if (digits.length &lt;= 5) return digits;
+  return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+}
+
+zipEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  zipEl.value = formatZIP(zipEl.value);
+});</code></pre>
+    </figure>
+    <p>ZIP+4 is the “optional side quest” of form inputs. Great when available, never required for basic gameplay.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>7. Time (HH:MM)</h2>
+    <p>This one is simple, but it removes hesitation.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;time&quot; name=&quot;time&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;off&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;time&quot;&gt;Time&lt;/label&gt;
+&lt;input id=&quot;time&quot; name=&quot;time&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; aria-describedby=&quot;time-help&quot;&gt;
+&lt;p id=&quot;time-help&quot;&gt;Format: HH:MM&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const timeEl = document.querySelector(&quot;#time&quot;);
+
+function formatTime(raw) {
+  const digits = raw.replace(/\D/g, &quot;&quot;).slice(0, 4);
+  const hh = digits.slice(0, 2);
+  const mm = digits.slice(2);
+
+  if (digits.length &lt;= 2) return hh;
+  return `${hh}:${mm}`;
+}
+
+timeEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  timeEl.value = formatTime(timeEl.value);
+});</code></pre>
+    </figure>
+    <p>A surprising amount of form UX is just removing the moment where someone pauses and thinks “wait, what do they mean.”</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>8. One-Time Password (OTP) with Paste Support</h2>
+    <p>This one feels like magic when it’s done right, and like punishment when it’s done wrong. Paste support is the whole game.</p>
+    <h3>Minimum viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;otp&quot; name=&quot;otp&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;one-time-code&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Verification code&lt;/legend&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 1&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 2&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 3&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 4&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 5&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 6&quot; maxlength=&quot;1&quot;&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const otpEls = Array.from(document.querySelectorAll(&quot;.otp&quot;));
+
+otpEls.forEach((el, idx) =&gt; {
+  el.addEventListener(&quot;input&quot;, () =&gt; {
+    el.value = el.value.replace(/\D/g, &quot;&quot;).slice(0, 1);
+    if (el.value &amp;&amp; otpEls[idx + 1]) otpEls[idx + 1].focus();
+  });
+
+  el.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+    if (e.key === &quot;Backspace&quot; &amp;&amp; !el.value &amp;&amp; otpEls[idx - 1]) otpEls[idx - 1].focus();
+  });
+
+  el.addEventListener(&quot;paste&quot;, (e) =&gt; {
+    const text = (e.clipboardData?.getData(&quot;text&quot;) ?? &quot;&quot;).replace(/\D/g, &quot;&quot;);
+    if (!text) return;
+    e.preventDefault();
+    text.slice(0, otpEls.length).split(&quot;&quot;).forEach((d, i) =&gt; {
+      if (otpEls[i]) otpEls[i].value = d;
+    });
+    otpEls[Math.min(text.length, otpEls.length) - 1]?.focus();
+  });
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS: </strong>auto-advance, backspace navigation, paste. That last one is non-negotiable.</p>
+    <p>OTP fields without paste support feel like they were designed by someone who has never received an OTP code in their life.</p>
+    <h3>Remove Even More Friction with Auto-Fill</h3>
+    <p>One thing I do enjoy that Apple does, is allows you to auto-fill these codes when hooked up properly. To do this is pretty simple:</p>
+    <h3>Minimum Viable (updated)</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input
+  id=&quot;otp&quot;
+  name=&quot;one-time-code&quot;
+  type=&quot;text&quot;
+  inputmode=&quot;numeric&quot;
+  autocomplete=&quot;one-time-code&quot;
+  autocapitalize=&quot;off&quot;
+  spellcheck=&quot;false&quot;
+/&gt;</code></pre>
+    </figure>
+    <p><strong>Why this helps on Apple</strong></p>
+    <ul>
+        <li>autocomplete=”one-time-code” is the key that triggers iOS’s OTP suggestion bar from SMS and Mail (when the OS detects a code).</li>
+        <li>A single input is the most reliable target for the automatic “From Messages” / “From Mail” code suggestion.</li>
+    </ul>
+    <h3>If You Keep the 6-field OTP UI, Add a Hidden “Collector” Field (Recommended)</h3>
+    <p>Multi-box OTP can work, but iOS autofill is more reliable when there is a single input to fill. The clean pattern is:</p>
+    <ul>
+        <li>One <strong>hidden or visually-hidden</strong> single input that iOS can autofill into.</li>
+        <li>When it receives a full code, your JS splits it into the 6 boxes.</li>
+    </ul>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;otp-full&quot; class=&quot;sr-only&quot;&gt;Verification code&lt;/label&gt;
+&lt;input
+  id=&quot;otp-full&quot;
+  name=&quot;one-time-code&quot;
+  type=&quot;text&quot;
+  inputmode=&quot;numeric&quot;
+  autocomplete=&quot;one-time-code&quot;
+  autocapitalize=&quot;off&quot;
+  spellcheck=&quot;false&quot;
+  class=&quot;sr-only&quot;
+/&gt;
+
+&lt;fieldset aria-describedby=&quot;otp-help&quot;&gt;
+  &lt;legend&gt;Verification code&lt;/legend&gt;
+  &lt;p id=&quot;otp-help&quot;&gt;6 digits&lt;/p&gt;
+  &lt;div&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 1&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 2&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 3&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 4&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 5&quot; maxlength=&quot;1&quot;&gt;
+    &lt;input class=&quot;otp&quot; inputmode=&quot;numeric&quot; aria-label=&quot;Digit 6&quot; maxlength=&quot;1&quot;&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+    </figure>
+    <h3>Minimal “sr-only” Utility</h3>
+    <p>If you do not already have one.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+    </figure>
+    <h3>Updated Optional JS</h3>
+    <p>This adds Autofill support</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const otpEls = Array.from(document.querySelectorAll(&quot;.otp&quot;));
+const otpFull = document.querySelector(&quot;#otp-full&quot;);
+
+function fillOtpBoxes(code) {
+  const digits = (code ?? &quot;&quot;).replace(/\D/g, &quot;&quot;).slice(0, otpEls.length);
+  digits.split(&quot;&quot;).forEach((d, i) =&gt; {
+    if (otpEls[i]) otpEls[i].value = d;
+  });
+  // Focus the last filled box for clarity
+  const last = Math.min(digits.length, otpEls.length) - 1;
+  if (last &gt;= 0) otpEls[last]?.focus();
+}
+
+otpEls.forEach((el, idx) =&gt; {
+  el.addEventListener(&quot;input&quot;, () =&gt; {
+    el.value = el.value.replace(/\D/g, &quot;&quot;).slice(0, 1);
+    if (el.value &amp;&amp; otpEls[idx + 1]) otpEls[idx + 1].focus();
+  });
+
+  el.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+    if (e.key === &quot;Backspace&quot; &amp;&amp; !el.value &amp;&amp; otpEls[idx - 1]) otpEls[idx - 1].focus();
+  });
+
+  el.addEventListener(&quot;paste&quot;, (e) =&gt; {
+    const text = (e.clipboardData?.getData(&quot;text&quot;) ?? &quot;&quot;);
+    if (!text) return;
+    e.preventDefault();
+    fillOtpBoxes(text);
+  });
+});
+
+// iOS autofill usually sets the value without triggering a normal &quot;paste&quot; event.
+// Listen for input/change on the single field and fan it out.
+otpFull?.addEventListener(&quot;input&quot;, () =&gt; {
+  fillOtpBoxes(otpFull.value);
+});
+
+otpFull?.addEventListener(&quot;change&quot;, () =&gt; {
+  fillOtpBoxes(otpFull.value);
+});
+
+// Optional: when user taps into the first box, focus the single field briefly
+// to encourage iOS to show the OTP suggestion, then bounce focus back.
+otpEls[0]?.addEventListener(&quot;focus&quot;, () =&gt; {
+  if (!otpFull) return;
+  otpFull.focus();
+  // Return focus back quickly so the multi-box UI still feels natural.
+  requestAnimationFrame(() =&gt; otpEls[0]?.focus());
+});</code></pre>
+    </figure>
+    <p><strong>Why this works: </strong>iOS now sees autocomplete=”one-time-code” on a real input and offers the code suggestion. So your UI still gets the multi-box “looks nice” experience. And importantly, the code is still accessible because there’s a single labelled input in the DOM.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>9. Password Field Enhancements</h2>
+    <h3>Show, Hide, and Caps Lock Warning</h3>
+    <p>This is not a mask in the traditional sense, but it belongs in the same toolbox. This is error prevention.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;pw&quot; name=&quot;pw&quot; type=&quot;password&quot; autocomplete=&quot;current-password&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;pw&quot;&gt;Password&lt;/label&gt;
+&lt;input id=&quot;pw&quot; name=&quot;pw&quot; type=&quot;password&quot; autocomplete=&quot;current-password&quot; aria-describedby=&quot;pw-help&quot;&gt;
+&lt;p id=&quot;pw-help&quot;&gt;Use at least 12 characters.&lt;/p&gt;
+&lt;button type=&quot;button&quot; id=&quot;pw-toggle&quot; aria-controls=&quot;pw&quot; aria-pressed=&quot;false&quot;&gt;Show&lt;/button&gt;
+&lt;p id=&quot;caps&quot; hidden&gt;Caps Lock is on.&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const pwEl = document.querySelector(&quot;#pw&quot;);
+const toggleEl = document.querySelector(&quot;#pw-toggle&quot;);
+const capsEl = document.querySelector(&quot;#caps&quot;);
+
+toggleEl?.addEventListener(&quot;click&quot;, () =&gt; {
+  const isHidden = pwEl.type === &quot;password&quot;;
+  pwEl.type = isHidden ? &quot;text&quot; : &quot;password&quot;;
+  toggleEl.setAttribute(&quot;aria-pressed&quot;, String(isHidden));
+  toggleEl.textContent = isHidden ? &quot;Hide&quot; : &quot;Show&quot;;
+});
+
+pwEl?.addEventListener(&quot;keyup&quot;, (e) =&gt; {
+  const capsOn = e.getModifierState &amp;&amp; e.getModifierState(&quot;CapsLock&quot;);
+  if (capsEl) capsEl.hidden = !capsOn;
+});</code></pre>
+    </figure>
+    <p>Password UX is where you discover whether your product thinks users are adversaries or customers.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>10. IBAN</h2>
+    <p>IBAN is short for <strong>International Bank Account Number</strong>. It’s a standardized format used in many countries for cross-border and domestic bank transfers. It’s long, it’s alphanumeric, and it is extremely easy to misread when it’s presented as a single unbroken string. Grouping is basically a kindness.</p>
+    <h3>Minimum Viable</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;input id=&quot;iban&quot; name=&quot;iban&quot; type=&quot;text&quot; inputmode=&quot;text&quot; autocomplete=&quot;off&quot;&gt;</code></pre>
+    </figure>
+    <h3>Enhanced HTML for JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>HTML</span>
+            <button type="button" data-code-copy hidden aria-label="Copy HTML code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>&lt;label for=&quot;iban&quot;&gt;International bank account number (IBAN)&lt;/label&gt;
+&lt;input id=&quot;iban&quot; name=&quot;iban&quot; type=&quot;text&quot; inputmode=&quot;text&quot; autocomplete=&quot;off&quot; aria-describedby=&quot;iban-help&quot;&gt;
+&lt;p id=&quot;iban-help&quot;&gt;We’ll add spacing for readability. Example: GB33BUKB20201555555555&lt;/p&gt;</code></pre>
+    </figure>
+    <h3>Optional JS</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Javascript</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Javascript code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>const ibanEl = document.querySelector(&quot;#iban&quot;);
+
+function formatIBAN(raw) {
+  const cleaned = raw.replace(/[^a-z0-9]/gi, &quot;&quot;).toUpperCase().slice(0, 34);
+  return cleaned.replace(/(.{4})/g, &quot;$1 &quot;).trim();
+}
+
+ibanEl?.addEventListener(&quot;input&quot;, () =&gt; {
+  ibanEl.value = formatIBAN(ibanEl.value);
+});</code></pre>
+    </figure>
+    <p><strong>Why include JS: </strong>makes long strings scannable and reduces transcription mistakes.</p>
+    <p>This is the moment where someone on the team says “why would we ever need this,” and someone else says “because we have customers outside the US,” and then you all learn something.</p>
+    
+    </section>
+    
+    <section>
+
+    <h2>The Part That Makes This Useful Across Teams</h2>
+    <p>When you add any masked input to a design system, write down these six things and you eliminate most of the churn:</p>
+    <ol>
+        <li>Display format</li>
+        <li>Stored format</li>
+        <li>Allowed characters</li>
+        <li>When validation runs (input, blur, submit)</li>
+        <li>Error message behavior and placement</li>
+        <li>Paste/autofill/mobile keyboard expectations</li>
+    </ol>
+    <p>That is the handoff. Not the pixels.</p>
+    <p>If you want, tell me which of these your product uses today and which ones you want standardized. I can turn this into a compact component-spec template and a QA checklist you can reuse across teams.</p>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Still Curious?</h2>
+        <h3>Browse One of My Other <a href="#all-work-dialog" data-dialog-open="all-work-dialog">Case Studies</a>, <a href="../index.html#writing">Writings</a>, <a href="../index.html#projects">Resources</a>, Or Reach out for a Chat.</h3>
+        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
+
+        <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
+            <label for="name" class="required-field">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+            <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
+            <label for="email" class="required-field">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+            <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+            <label for="message" enterkeyhint="send" class="required-field">Message</label>
+            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
+            <div class="g-recaptcha" data-sitekey="6LcdBVEsAAAAAN6tSzyR3GIUkPqkMJQkOxoK-CbS"></div>
+            <noscript>
+                <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+            </noscript>
+            <button>Send</button>
+        </form>
+
+    </section>
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies.</h2>
+                <button type="button" data-dialog-close>Close</button>
+            </header>
+            <!-- SECTION -->
+            <section>
+                <p><strong>Featured</strong><sup>6</sup></p>
+                <ul>
+                    <li>
+                        <p><a href="../work/healthcare-search-platform.html">Healthcare Search Platform</a></p>
+                        <cite>Accessibility · Design Systems · Development · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Accessibility · Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/itx.html">ITX</a></p>
+                        <cite>Accessibility · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/paychex.html">Paychex</a> <sup>Limited</sup> <sup>Awarded</sup></p>
+                        <cite>Accessibility · Graphic Design · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/trocaire-college.html">Trocaire College</a><sup>Awarded</sup></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>Case Study Archive</strong><sup>18</sup></p>
+                <cite>Some studies are linked; others are available on request.</cite>
+                <ul>
+                    <li>
+                        <p><a href="../work/19-ideas.html">19 IDEAS</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>A Jaunt With Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Arounja</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/buffalo-niagara-medical-campus.html">Buffalo Niagara Medical Campus</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>DanandKat.ie</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/green-power-energy.html">Green Power Energy</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/hodgson-russ.html">Hodgson Russ</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/independent-health.html">Independent Health</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/kore-marketing-agency.html">Kore Marketing</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/labatt-blue-and-zubaz.html">Labatt + Zubaz</a> <sup>Awarded</sup></p>
+                        <cite>Design · Product Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/mike-cardus.html">Organization Development by Mike Cardus</a></p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/person-centered-services.html">Person Centered Services</a><sup>Awarded</sup></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/roar-logistics.html">ROAR Logistics</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>SAMCO Technologies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/savarino-companies.html">Savarino Companies</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/storillo.html">Storillo</a></p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/university-at-buffalo.html">University at Buffalo</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/walsh-duffield.html">Walsh Duffield</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+
+    </main>
+
+<footer>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
+    </footer>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

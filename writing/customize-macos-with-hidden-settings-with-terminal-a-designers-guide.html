@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize macOS with Hidden Settings with Terminal: A Designer’s Guide - Tyler Coderre</title>
+    <meta name="description" content="Tailor your Mac beyond the defaults. No coding degree required.">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
+    <meta property="og:title" content="Customize macOS with Hidden Settings with Terminal: A Designer’s Guide - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide.html">
+    <meta property="og:description" content="Tailor your Mac beyond the defaults. No coding degree required.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customize macOS with Hidden Settings with Terminal: A Designer’s Guide - Tyler Coderre">
+    <meta name="twitter:description" content="Tailor your Mac beyond the defaults. No coding degree required.">
+    <meta name="twitter:image" content="../assets/images/og-image.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="../assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header id="Top">
+    <a href="../index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
+
+    <main id="content" tabindex="-1">
+
+    <section>
+    <h1>Customize macOS with Hidden Settings with Terminal: A Designer’s Guide</h1>
+    <h2>Tailor your Mac beyond the defaults. No coding degree required.</h2>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-hero.jpg" alt="Let’s open that terminal and get started.">
+        <figcaption>Let’s open that terminal and get started.</figcaption>
+    </figure>
+    <p>I have a confession: I dropped out of a computer science degree to pursue design, yet here I am geeking out over Terminal commands. As a designer, I love customizing my Mac’s behavior beyond what the System Settings app offers. Luckily, macOS has <em>hidden settings</em> accessible through the Terminal’s defaults command . Don’t worry, you <strong>don’t</strong> need to be a programmer to use these. It’s basically copy-paste!</p>
+    <p>Below, I’ll share some of my favorite hidden macOS tweaks and how to enable them. Each tweak comes with a one-line Terminal command and a quick way to undo it if you change your mind.</p>
+    <p>Open the <strong>Terminal</strong> app (search for it via <strong>Spotlight</strong> with <code>CMD + Space</code>, then type “Terminal”) and let’s unlock those secret settings.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-01.jpg" alt="A new blank terminal window open, and ready to go. Yours may look a bi different.">
+        <figcaption>A new blank terminal window open, and ready to go. Yours may look a bi different.</figcaption>
+    </figure>
+
+    </section>
+    
+    <section>
+
+    <h2>Before You Start</h2>
+    <ol>
+        <li><strong>Copy and paste exactly.</strong> These commands are picky.</li>
+        <li><strong>Most tweaks are easily reversible.</strong> I’ll include a revert for each.</li>
+        <li><strong>Some changes need an app restart.</strong> Finder and Dock are the usual suspects.</li>
+        <li><strong>Password prompts can happen.</strong> That is normal for certain system-level changes.</li>
+    </ol>
+    <h3><strong>My top 5, if you only do a few</strong></h3>
+    <ul>
+        <li><strong>Dock spacers</strong> (organization without effort)</li>
+        <li><strong>Remove Dock delay</strong> (instant focus mode)</li>
+        <li><strong>Always expand Save dialog</strong> (saves clicks forever)</li>
+        <li><strong>Screenshot folder location</strong> (stop screenshot landfill)</li>
+        <li><strong>Show full Finder path</strong> (always know where you are)</li>
+    </ul>
+
+    </section>
+    
+    <section>
+
+    <h2>The Defaults Command</h2>
+    <h3>Don’t panic, this is the “settings” app, but in text form.</h3>
+    <p>If you’ve never used Terminal, the vibe can feel like “one wrong move and my Mac explodes.” I get it. The good news is that defaults is not some mysterious hacker tool. It’s just a way to <strong>change preference settings</strong> that macOS apps already use, but do not always expose in System Settings.</p>
+    <p><strong>Think of it like this:</strong></p>
+    <ul>
+        <li><strong>System Settings</strong> = the switches Apple <em>lets you see</em></li>
+        <li><strong>defaults</strong> = the switches that <em>still exist</em>, but are hidden behind the curtain</li>
+    </ul>
+    <p>You are not rewriting macOS. You’re flipping preference values on and off.</p>
+    <p><strong>General format:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write &lt;domain&gt; &lt;key&gt; &lt;value&gt;</code></pre>
+    </figure>
+    <h3>What Defaults Actually Changes</h3>
+    <p>macOS apps store preferences in files (usually .plist files). defaults is a command-line shortcut for reading and updating those values.</p>
+    <p><strong>So when you run a command like this:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder AppleShowAllFiles -bool true</code></pre>
+    </figure>
+    <p>You’re basically telling macOS:</p>
+    <blockquote>
+        <p><em>“Hey Finder, for the setting called <code>AppleShowAllFiles</code>, set it to <code>true</code>.”</em></p>
+    </blockquote>
+    <p>Finder then changes how it behaves next time it loads that preference.</p>
+
+    </section>
+    
+    <section>
+
+    <h2>The General Format for Defaults</h2>
+    <p>Here’s the shape of most of these commands:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write &lt;domain&gt; &lt;key&gt; &lt;value&gt;</code></pre>
+    </figure>
+    <p>Here’s what each part means, in normal-human terms:</p>
+    <h3>&lt;domain&gt;</h3>
+    <p>Aka: which app or system area are we changing?</p>
+    <p>This is the “bucket” of settings you’re touching.</p>
+    <ul>
+        <li><code>com.apple.finder</code> = Finder preferences</li>
+        <li><code>com.apple.dock</code> = Dock preferences</li>
+        <li><code>com.apple.screencapture</code> = Screenshot preferences</li>
+        <li><code>NSGlobalDomain</code> = system-wide preferences (applies across apps)</li>
+    </ul>
+    <p>If you’re curious, com.apple.finder is basically Finder’s unique identifier (an “app ID”). That’s how macOS knows which app’s settings you mean.</p>
+    <h3>&lt;key&gt;</h3>
+    <p>Aka: which specific setting?</p>
+    <p>This is the name of the preference. Think of it like an internal settings label.</p>
+    <p><strong>Examples from this article:</strong></p>
+    <ul>
+        <li><code>AppleShowAllFiles</code> (Finder hidden files)</li>
+        <li><code>_FXShowPosixPathInTitle</code> (Finder title path)</li>
+        <li><code>showhidden</code> (Dock dim hidden apps)</li>
+    </ul>
+    <p>Keys look kind of nerdy because they were created by engineers, not writers. You don’t need to memorize them. You just need to paste them correctly.</p>
+    <h3>&lt;value&gt;</h3>
+    <p>Aka: what are we setting it to?</p>
+    <p>This is the new value you’re assigning to the key.</p>
+    <p><strong>Common types you’ll see:</strong></p>
+    <ul>
+        <li><strong>Boolean</strong>: true / false</li>
+        <li><strong>Integer</strong>: 1, 0, 2</li>
+        <li><strong>Float</strong> (decimal number): 0.2, 0.5, 0</li>
+        <li><strong>String</strong>: “something”</li>
+    </ul>
+    <p>In this article, most tweaks are simple booleans (true/false) or floats (animation speed).</p>
+
+    </section>
+    
+    <section>
+
+    <h2>Why So We Run “killall Finder” &amp; “killall Dock” Commands?</h2>
+    <p>Some apps do not immediately reload their preferences while they’re running. Finder and Dock are the biggest offenders.</p>
+    <p>So you’ll often see:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>killall Finder</code></pre>
+    </figure>
+    <p>That just restarts Finder so it re-reads its preferences. Same with:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>killall Dock</code></pre>
+    </figure>
+    <p>It sounds violent, but it’s not. You are not deleting anything. You’re basically telling macOS:</p>
+    <blockquote>
+        <p><em>“Close this app and relaunch it so the setting takes effect.”</em></p>
+    </blockquote>
+
+    </section>
+    
+    <section>
+
+    <h2>Why Am I Being Asked for My Password?</h2>
+    <p>Sometimes macOS asks for your password when a change touches more protected settings. That is normal.</p>
+    <p>It does not mean something is wrong. It is a verification step to make sure:</p>
+    <ul>
+        <li>it’s really you at the keyboard</li>
+        <li>it’s not a random program changing system behavior silently</li>
+    </ul>
+    <p>Also important: when you type your password in Terminal, <strong>it won’t show dots or characters</strong>. It will look like nothing is happening. That’s normal too. Type it and press Return.</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Why Use Defaults at All?</h2>
+    <p>Because it gives you control over the macOS environment in ways Apple does not always surface:</p>
+    <ul>
+        <li>Personalizing system behavior</li>
+        <li>Unlocking hidden or experimental features</li>
+        <li>Speeding up animations and interactions</li>
+        <li>Workflow optimizations (especially if you bounce between design + dev work)</li>
+    </ul>
+    <p>And because a lot of these tweaks are genuinely practical. Some are tiny quality-of-life wins. A few are “how was this not a setting already?” level.</p>
+    <p>Now that you know what you’re looking at, the rest of the article becomes way less intimidating. It’s just:</p>
+    <p><strong>Pick a behavior → paste a command → restart the app → enjoy → revert if needed.</strong></p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Tweaks by Category</h2>
+    <p>As you go through this article, I have broken up the Terminal commands by category. Each one is: has what it does, the command, and how to revert or undo it.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-02.jpg" alt="Tweaks to make Finder fit your workflow.">
+        <figcaption>Tweaks to make Finder fit your workflow.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Show Hidden Files in Finder by Default</h2>
+    <p>By default, Finder hides “dotfiles” (files or folders that start with a .) and other system items. If you frequently work with web or config files (like <code>.gitignore</code> or <code>.env</code> files) or just want to see <em>everything</em> on your drive, you can make Finder always show hidden files .</p>
+    <p>Run this command in Terminal and hit <strong>Return</strong>:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder</code></pre>
+    </figure>
+    <p>This will restart Finder and reveal all hidden files (no need to manually relaunch Finder; <code>killall</code> Finder handles that). You should now see previously invisible files (often gray-colored) in Finder windows.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-03.jpg" alt="You’ll notice 3 “hidden” files now appearing at the top of the file list.">
+        <figcaption>You’ll notice 3 “hidden” files now appearing at the top of the file list.</figcaption>
+    </figure>
+    <p><strong>Revert:</strong> If your Finder is suddenly too cluttered for your taste, you can hide those files again.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder</code></pre>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Show the Full File Path in Finder’s Title Bar</h2>
+    <p>Ever get lost in nested folders and wish Finder would just tell you the full path of the directory you’re in? By default, Finder’s title bar only shows the current folder name, but you can make it display the <em>entire</em> path from root to your current location . This gives you instant context about where you are in the filesystem (super handy for power users and designers rummaging through project assets).</p>
+    <p>To enable this, run:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder</code></pre>
+    </figure>
+    <p>Once you press Return, Finder will restart, and each Finder window’s title bar will show the full directory path (in small text) instead of just the folder name . For example, if you’re viewing Pictures/Design/Assets, the title bar will say <code>/Users/YourName/Pictures/Design/Assets</code> instead of just <code>Assets</code>.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-04.jpg" alt="You’ll now notice across the bottom and the title of the Finder window, the directory path enabled.">
+        <figcaption>You’ll now notice across the bottom and the title of the Finder window, the directory path enabled.</figcaption>
+    </figure>
+    <p><strong>Revert:</strong> Not feeling it? You can hide the full path again by changing <strong>-bool true</strong> to <strong>-bool false</strong> and running the command once more . Finder will go back to showing only the folder name. (By the way, even without this tweak, you can always <strong>Command-click</strong> a window title to see a dropdown of the path — a neat built-in trick!).</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Enhance Finder with Further Stats</h2>
+    <h3>Show Status Bar</h3>
+    <p>You can get further information on the location and file details in Finder with this simple command:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder ShowStatusBar -bool true &amp;&amp; killall Finder</code></pre>
+    </figure>
+    <p>Now you have insights on sizes, file counts, and space available on the drive you’re on, all in one convenient and glance-able place.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-05.jpg" alt="">
+    </figure>
+    <p>You can even pair this with the path bar:</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-06.jpg" alt="">
+    </figure>
+    <p><strong>Revert:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder ShowStatusBar -bool false &amp;&amp; killall Finder</code></pre>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Enable the “Quit Finder” Option</h2>
+    <p>If you look at Finder’s menu bar, you’ll notice there’s usually no <strong>Quit</strong> option since Finder is always running by design. But maybe you want to <strong>quit Finder</strong> like a regular app (perhaps to free up some memory or because you just want to say you can). This hidden setting adds a <strong>Quit Finder</strong> item to the Finder menu.</p>
+    <p>Enable it with:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder QuitMenuItem -bool true; killall Finder</code></pre>
+    </figure>
+    <p>When Finder reloads, click the <strong>Finder</strong> menu — you’ll see <strong>Quit Finder</strong> listed now . You can even use <strong>Cmd + Q</strong> to close Finder like other apps. Keep in mind that quitting Finder will close all Finder windows and remove desktop icons until Finder automatically restarts (which it typically will when needed, or you can relaunch it manually). The macOS defaults database notes that this tweak “behaves strangely” and generally isn’t recommended for everyday use — but it’s a fun trick to know and can be useful in certain cases.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-07.jpg" alt="Now, I’ll be able to quit Finder easily.">
+        <figcaption>Now, I’ll be able to quit Finder easily.</figcaption>
+    </figure>
+    <p><strong>Revert:</strong> To remove the Quit option, run the same command with <strong>false</strong> instead of true and restart Finder . The Quit Finder menu item will disappear (and Finder will go back to being un-quittable in the UI).</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-08.jpg" alt="Commands for organization, customization of appearances, and animations for your dock.">
+        <figcaption>Commands for organization, customization of appearances, and animations for your dock.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Make Hidden App Icons Translucent in the Dock</h2>
+    <p>Have you ever hidden an app (with <strong>Cmd + H</strong>) and wondered which apps are hidden? This tweak makes it obvious: any <strong>hidden application’s Dock icon becomes translucent</strong> . It’s a subtle UI change that I personally love when I want to get focused in and pair it up with hiding the dock. Once enabled, hidden apps appear ghosted, so you can tell at a glance what’s out of sight. This is great for designers like me who hide apps to reduce screen clutter, yet want a visual reminder of what’s still running in the background.</p>
+    <p>To enable translucent hidden icons, use:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock showhidden -bool true; killall Dock</code></pre>
+    </figure>
+    <p>When the Dock comes back (it will restart automatically with killall), any app you <strong>hide</strong> (via Cmd+H or by Option-clicking away) will have a semi-transparent icon in the Dock . Unhide the app (bring it to foreground) and the icon returns to normal opacity. Take a moment to try it: hide an app and watch its icon dim — pretty cool, right?</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-09.jpg" alt="Toggling on and off hide on Mail with this enabled will dim the icon.">
+        <figcaption>Toggling on and off hide on Mail with this enabled will dim the icon.</figcaption>
+    </figure>
+    <p><strong>Revert:</strong> If you prefer the Dock icons <em>not</em> doing this, or like me use it sporadically and temporarily depending on the situation, just reverse it by running:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock showhidden -bool false; killall Dock</code></pre>
+    </figure>
+    <p>This sets the Dock behavior back to default (no transparency for hidden app icons). In other words, replace “true” with “false” (or “yes” with “no”) and restart the Dock to undo the ghost effect .</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Dock Customization &amp; Organization</h2>
+    <h3>Adding Dock Spacers</h3>
+    <p>This is my favorite “I have my life together” illusion.</p>
+    <p>If your Dock is basically a long row of “apps I totally use on purpose,” spacers are a tiny tweak that makes it feel organized without changing how anything works. I use them to create visual groups like <strong>Work</strong>, <strong>Design</strong>, <strong>Comms</strong>, <strong>Random</strong>. It scratches the same itch as alphabetizing your pantry, but with less effort.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-10.jpg" alt="I like to group app icons by use type, communication, design, media, gaming, etc…">
+        <figcaption>I like to group app icons by use type, communication, design, media, gaming, etc…</figcaption>
+    </figure>
+    <h3>Add a regular spacer</h3>
+    <p>Paste this into Terminal and press Return:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock persistent-apps -array-add &#x27;{&quot;tile-type&quot;=&quot;spacer-tile&quot;;}&#x27;; killall Dock</code></pre>
+    </figure>
+    <h3>Add a small spacer</h3>
+    <p>Same idea, just smaller and usually works better for vertical docks:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock persistent-apps -array-add &#x27;{&quot;tile-type&quot;=&quot;small-spacer-tile&quot;;}&#x27;; killall Dock</code></pre>
+    </figure>
+    <p>After the Dock restarts, drag the spacer(s) wherever you want, like any other Dock icon.</p>
+    <h3>Remove spacers</h3>
+    <p>Just remove them like an app icon. Drag the spacer off the Dock, or right-click it and choose <strong>Remove from Dock</strong>.</p>
+    <h3>Optional extra: spacers on the “Documents” side of the Dock</h3>
+    <p>If you want separators over by Downloads, folders, and minimized windows, use persistent-others instead of persistent-apps.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock persistent-others -array-add &#x27;{&quot;tile-type&quot;=&quot;small-spacer-tile&quot;;}&#x27;; killall Dock</code></pre>
+    </figure>
+    <h3>Show only running apps in Dock</h3>
+    <p>Want to go more minimalist? This is a “clean Dock” mode. Only currently running apps show up.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock static-only -bool true; killall Dock</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace true with false.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-11.jpg" alt="Adjust the behaviors and animations around your Mac’s UI.">
+        <figcaption>Adjust the behaviors and animations around your Mac’s UI.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Minimizing Window Animations</h2>
+    <p>If you miss that old-school “vacuum into the Dock” effect, this brings it back. I’ve always had a soft spot for this animation when minimizing windows.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock mineffect -string &quot;suck&quot;; killall Dock</code></pre>
+    </figure>
+    <p><strong>Revert:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock mineffect -string &quot;genie&quot;; killall Dock</code></pre>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Disable Rubber-Band Scrolling</h2>
+    <p>This removes that “bounce” when you scroll past the top or bottom.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write -g NSScrollViewRubberbanding -int 0</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace 0 with 1.</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Remove the Delay When Hiding &amp; Showing the Dock</h2>
+    <p>This one is for the speed demons out there. The macOS Dock can auto-hide, which is great for screen real estate and getting into a focus state, but by default it has a slight delay and animation when appearing. If you, like me, have the patience of a goldfish when you get into a productive flow, you can <strong>make the Dock appear instantly</strong> when you hover at the screen edge. This involves tweaking two related settings: the show/hide <strong>delay</strong> and the <strong>animation time</strong>.</p>
+    <p><strong>1. Remove Dock Autohide Delay:</strong></p>
+    <p>This delay is the short pause before the Dock begins to show. The default is about 0.2 seconds . To eliminate it, run:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock autohide-delay -float 0; killall Dock</code></pre>
+    </figure>
+    <p>Now, when you push your cursor to the screen edge, the Dock should pop up <strong>immediately</strong> with no pause. It makes your Mac feel snappier.</p>
+    <p><strong>2. Speed Up the Dock Animation:</strong></p>
+    <p>Even with no delay, the Dock still takes ~0.5s to slide in/out (that’s the animation duration) . You can reduce this too. For instance, set it to 0 for an <em>instant</em> pop-in:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.dock autohide-time-modifier -float 0; killall Dock</code></pre>
+    </figure>
+    <p>With both delay and time modifier at 0, the Dock will appear and disappear with zero lag — it just <em>blinks</em> in and out . (If that’s too jarring, you can use a small value like 0.1 instead of 0 to keep a tiny quick animation.)</p>
+    <p><em>(Image suggestion: Maybe a comparison graphic of the Dock appearing with delay vs without, though this might be hard to capture in a single image)</em></p>
+    <p><strong>Revert:</strong> To go back to the default behavior, you can delete these custom values. For delay:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults delete com.apple.dock autohide-delay; killall Dock</code></pre>
+    </figure>
+    <p>And for the animation time:</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults delete com.apple.dock autohide-time-modifier; killall Dock</code></pre>
+    </figure>
+    <p>Deleting the keys restores Apple’s defaults (0.2s delay and 0.5s animation, respectively) . Alternatively, you could set the float values back to 0.2 and 0.5 if you remember them. But hey, I suspect once you get used to the snappy Dock, you won’t miss the old sluggish slide.</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Hide All Desktop Icons</h2>
+    <p>For when your desktop has become a junk drawer, or for easy privacy on screen sharing. Personally I enjoy the clean, and distraction free look it provides.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.finder CreateDesktop -bool false; killall Finder</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace false with true.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-12.jpg" alt="Serenity now!">
+        <figcaption>Serenity now!</figcaption>
+    </figure>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-13.jpg" alt="Make screenshots appear and behave how you’d like in macOS.">
+        <figcaption>Make screenshots appear and behave how you’d like in macOS.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Screenshot Tweaks</h2>
+    <h3>Disable the Drop Shadows on Screenshots</h3>
+    <p>Ever notice how when you take a screenshot of a window (using CMD + Shift + 4 then Spacebar and click), macOS adds a nice drop shadow around the window in the image? Aesthetically pleasing, perhaps, but as a designer I sometimes want <em>cleaner</em> screenshots (for example, when compositing images). There’s a hidden setting to <strong>remove the shadow from window screenshots</strong>.</p>
+    <h3>Removing the Shadow:</h3>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.screencapture disable-shadow -bool true; killall SystemUIServer</code></pre>
+    </figure>
+    <p>After running this, any new <strong>window screenshots</strong> you take will have no shadow — just the window itself . This can look more professional when dropping screenshots into documents or designs (no more weird fuzzy edges). The killall SystemUIServer command refreshes the system UI daemon to apply the change immediately .</p>
+    <p><strong>Revert:</strong> To bring back the default shadows, run the same command with <strong>-bool false</strong> and then kill SystemUIServer again . Your window screenshots will once more include the drop shadow (which, admittedly, can make them look more <strong>3D</strong> on wallpapers or webpages).</p>
+    <h3>Change screenshot file format to JPEG</h3>
+    <p>For further customization, you can change the default PNG format to JPG.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.screencapture type -string &quot;jpg&quot;; killall SystemUIServer</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace “jpg” with “png”.</p>
+    <h3>Change default screenshot save location</h3>
+    <p>I like this because it keeps my Desktop from becoming a screenshot landfill. I have a specific folder just for screenshots I have as a default to audit and clean later.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.screencapture location -string &quot;$HOME/Pictures/Screenshots&quot;; killall SystemUIServer</code></pre>
+    </figure>
+    <p><strong>Revert:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults delete com.apple.screencapture location; killall SystemUIServer</code></pre>
+    </figure>
+    <h3><strong>Disable floating thumbnail preview</strong></h3>
+    <p>Turns off the little preview that appears after you take a screenshot. Sometimes it’s useful, but most of the time I find it annoying and getting in the way. Especially if I’m taking a batch of screenshots and it keeps popping up like <strong>Whack-a-Mole…</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.screencapture show-thumbnail -bool false; killall SystemUIServer</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace false with true.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-14.jpg" alt="Tweak the base behaviors.">
+        <figcaption>Tweak the base behaviors.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>System &amp; Quality of Life Improvements</h2>
+    <h3>Always expand “Save” dialog</h3>
+    <p>If you hate clicking the little disclosure triangle every time you save, this fixes it.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace true with false.</p>
+    <h3>Always expand “Print” dialog</h3>
+    <p>Same idea, but for printing.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace true with false.</p>
+    <h3>Save files locally (not iCloud) by default</h3>
+    <p>Stops macOS from trying to push everything into iCloud Drive first.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace false with true.</p>
+    <h3>Stop creating .DS_Store files on network drives</h3>
+    <p>If you work with network shares, this keeps macOS from sprinkling .DS_Store everywhere.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace true with false.</p>
+    <h3>Re-enable key repeat (disable accent menu)</h3>
+    <p>If you want press-and-hold to repeat keys (for games, shortcuts, or just typing fast), do this.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write -g ApplePressAndHoldEnabled -bool false</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace false with true.</p>
+    <figure>
+        <img src="../assets/images/writing/customize-macos-with-hidden-settings-with-terminal-a-designers-guide/customize-macos-with-hidden-settings-with-terminal-a-designers-guide-15.jpg" alt="Adjust warnings and automatic behaviors on you machine.">
+        <figcaption>Adjust warnings and automatic behaviors on you machine.</figcaption>
+    </figure>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Privacy</h2>
+    <h3>Prevent Photos from opening automatically</h3>
+    <p>Stops Photos from launching every time you plug in a phone or camera.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true</code></pre>
+    </figure>
+    <p><strong>Revert:</strong></p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults -currentHost delete com.apple.ImageCapture disableHotPlug</code></pre>
+    </figure>
+    <h3>Disable “Downloaded from Internet” warning</h3>
+    <p>This removes the quarantine warning for downloaded apps.</p>
+    <figure data-code-block>
+        <figcaption>
+            <span>Terminal</span>
+            <button type="button" data-code-copy hidden aria-label="Copy Terminal code to clipboard">
+                <span data-copy-label="Copy Code">Copy Code</span>
+                <i class="fa-sharp fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </figcaption>
+        <pre><code>defaults write com.apple.LaunchServices LSQuarantine -bool false</code></pre>
+    </figure>
+    <p><strong>Revert:</strong> Replace false with true.</p>
+    
+    </section>
+    
+    <section>
+    
+    <h2>Final Thoughts</h2>
+    <p>These are just a few of the many hidden settings (“<strong>defaults write</strong>” tweaks) that can tailor your Mac to your liking. Apple doesn’t provide GUI switches for these, but as you’ve seen, a quick Terminal command can work magic — whether it’s speeding up the Dock, revealing files, or adjusting Finder’s behavior.</p>
+    <p>As a designer who strayed from a formal CS path, I find it empowering (and a bit humorous) that I can still <em>hack</em> my system in simple ways — it’s like having a secret control panel for macOS. Just remember that with great power comes great responsibility: always double-check commands and be sure you understand them. The ones I’ve listed are safe and easily reversible, and I’ve personally used all of them without issues. If something doesn’t behave as expected, you can typically revert by changing “true” to “false” or deleting the custom setting.</p>
+    <blockquote>
+        <p>If you have the itch for further customization and want to dive deepr. Then go check out: <a href="https://macos-defaults.com/">https://macos-defaults.com/</a> to find more. These are a few of my favorites and you may find some there that work better for you.</p>
+    </blockquote>
+    <p>Feel free to experiment and make your Mac truly yours. After all, one big reason we use Macs is because they <em>can</em> be tweaked and tuned exactly how we want! Happy customizing!</p>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Still Curious?</h2>
+        <h3>Browse One of My Other <a href="#all-work-dialog" data-dialog-open="all-work-dialog">Case Studies</a>, <a href="../index.html#writing">Writings</a>, <a href="../index.html#projects">Resources</a>, Or Reach out for a Chat.</h3>
+        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
+
+        <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
+            <label for="name" class="required-field">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+            <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
+            <label for="email" class="required-field">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+            <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+            <label for="message" enterkeyhint="send" class="required-field">Message</label>
+            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
+            <div class="g-recaptcha" data-sitekey="6LcdBVEsAAAAAN6tSzyR3GIUkPqkMJQkOxoK-CbS"></div>
+            <noscript>
+                <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+            </noscript>
+            <button>Send</button>
+        </form>
+
+    </section>
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies.</h2>
+                <button type="button" data-dialog-close>Close</button>
+            </header>
+            <!-- SECTION -->
+            <section>
+                <p><strong>Featured</strong><sup>6</sup></p>
+                <ul>
+                    <li>
+                        <p><a href="../work/healthcare-search-platform.html">Healthcare Search Platform</a></p>
+                        <cite>Accessibility · Design Systems · Development · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Accessibility · Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/itx.html">ITX</a></p>
+                        <cite>Accessibility · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/paychex.html">Paychex</a> <sup>Limited</sup> <sup>Awarded</sup></p>
+                        <cite>Accessibility · Graphic Design · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/trocaire-college.html">Trocaire College</a><sup>Awarded</sup></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>Case Study Archive</strong><sup>18</sup></p>
+                <cite>Some studies are linked; others are available on request.</cite>
+                <ul>
+                    <li>
+                        <p><a href="../work/19-ideas.html">19 IDEAS</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>A Jaunt With Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Arounja</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/buffalo-niagara-medical-campus.html">Buffalo Niagara Medical Campus</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>DanandKat.ie</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/green-power-energy.html">Green Power Energy</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/hodgson-russ.html">Hodgson Russ</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/independent-health.html">Independent Health</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/kore-marketing-agency.html">Kore Marketing</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/labatt-blue-and-zubaz.html">Labatt + Zubaz</a> <sup>Awarded</sup></p>
+                        <cite>Design · Product Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/mike-cardus.html">Organization Development by Mike Cardus</a></p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/person-centered-services.html">Person Centered Services</a><sup>Awarded</sup></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/roar-logistics.html">ROAR Logistics</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>SAMCO Technologies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/savarino-companies.html">Savarino Companies</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/storillo.html">Storillo</a></p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/university-at-buffalo.html">University at Buffalo</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/walsh-duffield.html">Walsh Duffield</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+
+    </main>
+
+<footer>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
+    </footer>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

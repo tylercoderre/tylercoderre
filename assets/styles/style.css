@@ -2108,7 +2108,7 @@ pre {
 	border-radius: 0;
 	padding: 1rem 1.4rem;
 	max-width: 100%;
-	aspect-ratio: 3 / 2;
+	max-height: 48rem;
 	overflow: auto;
 }
 
