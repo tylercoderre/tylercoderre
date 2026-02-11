@@ -1,5 +1,6 @@
 (() => {
 	const root = document.documentElement;
+	root.classList.add('js');
 	const storageKey = 'tc-theme';
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 	const isFileProtocol = window.location.protocol === 'file:';
@@ -666,6 +667,56 @@
 			});
 	};
 
+	const initDeviceMockupScrollbars = () => {
+		const frames = Array.from(document.querySelectorAll('figure.device > div'));
+		if (!frames.length) {
+			return;
+		}
+
+		const items = frames.map((frame) => {
+			const scroller = frame.querySelector(':scope > div');
+			if (!scroller) {
+				return null;
+			}
+
+			const update = () => {
+				const scrollHeight = scroller.scrollHeight;
+				const clientHeight = scroller.clientHeight;
+				if (scrollHeight <= clientHeight + 1) {
+					frame.style.setProperty('--device-scrollbar-opacity', '0');
+					return;
+				}
+
+				const trackHeight = clientHeight;
+				const minThumb = 24;
+				const thumbHeight = Math.max(trackHeight * (clientHeight / scrollHeight), minThumb);
+				const maxScrollTop = scrollHeight - clientHeight;
+				const maxThumbTop = Math.max(trackHeight - thumbHeight, 0);
+				const thumbTop = maxScrollTop ? (scroller.scrollTop / maxScrollTop) * maxThumbTop : 0;
+
+				frame.style.setProperty('--device-scrollbar-height', `${thumbHeight}px`);
+				frame.style.setProperty('--device-scrollbar-offset', `${thumbTop}px`);
+				frame.style.setProperty('--device-scrollbar-opacity', '1');
+			};
+
+			scroller.addEventListener('scroll', update, { passive: true });
+			return { scroller, update };
+		}).filter(Boolean);
+
+		const updateAll = () => {
+			items.forEach((item) => item.update());
+		};
+
+		updateAll();
+
+		if ('ResizeObserver' in window) {
+			const observer = new ResizeObserver(updateAll);
+			items.forEach((item) => observer.observe(item.scroller));
+		} else {
+			window.addEventListener('resize', updateAll);
+		}
+	};
+
 	const initPage = () => {
 		updateThemeLinks(root.getAttribute('data-theme'));
 		updateThemeColor();
@@ -675,6 +726,7 @@
 		initDialogs();
 		initCodeCopy();
 		initMediumFeed();
+		initDeviceMockupScrollbars();
 	};
 
 	if (document.readyState === 'loading') {

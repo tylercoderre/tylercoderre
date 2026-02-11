@@ -3314,7 +3314,7 @@ section > header + .device-pair {
 	position: static;
 	left: auto;
 	right: auto;
-	margin: 1rem auto;
+	margin: 2rem auto;
 	padding-left: 0;
 	padding-right: 0;
 }
@@ -3433,15 +3433,51 @@ figure.device > div {
 	width: 100%;
 	max-width: 48rem;
 	aspect-ratio: 16 / 10;
-	overflow: auto;
+	overflow: hidden;
 	border: 1px solid var(--tc-border);
 	border-radius: 1rem;
 	background: var(--tc-background);
 	box-shadow:
 		0 0 0 4px var(--tc-background),
 		0 0 0 5px var(--tc-border);
-	overscroll-behavior: contain;
+	position: relative;
+	--device-scrollbar-size: 3px;
 }
+
+figure.device > div > div {
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+	overscroll-behavior: contain;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+figure.device > div > div::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+figure.device > div::after {
+	content: '';
+	position: absolute;
+	top: var(--device-scrollbar-offset, 0px);
+	right: 2px;
+	width: var(--device-scrollbar-size);
+	height: var(--device-scrollbar-height, 24px);
+	background: var(--tc-root-paper);
+	border: 1px solid var(--tc-root-ink);
+	border-radius: 1rem;
+	pointer-events: none;
+	opacity: var(--device-scrollbar-opacity, 0);
+	transition: opacity 0.2s ease;
+	display: none;
+}
+
+html.js figure.device > div::after {
+	display: block;
+}
+
 
 figure.device::after {
 	content: "I'm Scrollable";
