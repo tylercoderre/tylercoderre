@@ -28,6 +28,7 @@
         <script src="assets/scripts/scripts.js"></script>
 
     <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/404-game.css">
 </head>
 <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -47,29 +48,56 @@
 </header>
 
     <main id="content" tabindex="-1">
-
-
-    <section>
-        <header>
-            <figure>
-                <img style="max-width: 10rem; margin-bottom: 0;" src="assets/images/404-shirt-coderre-design.png" alt="Coderre Design 404 shirt artwork."></img>
-            </figure>
-            <h1>Oh No.</h1>
-            <h2>It Looks Like You May Have Gotten Lost... In Space...</h2>
-        </header>
-        <p>The page you are looking for either has moved, been deleted, or never graced this plane of existence and I'm sorry about that.</p>
-        <div class="actions">
-            <a href="index.html" tabindex="-1"><button>Ditch the 404 & Return Home</button></a>
-            <a class="link--actions" href="mailto:tyler@tylercoderre.com?subject=404%20T-Shirt%20by%20Coderre%20Design&amp;body=I%20would%20like%20this%20shirt">Get this shirt</a>
-        </div>    
-        </section>
-
-        </main>
+        <div class="404-game">
+            <div class="msg" id="typing">
+                <span>You took a wrong turn on your way to Tyler's home ... page ...</span>
+                <span>You've stumbled into the lost fouro forest ...</span>
+            </div>
+            <div class="screen">
+                <canvas id="foroforest" width="480" height="342"></canvas>
+                <noscript>
+                    <div class="nojs center">
+                        <p class="ins">404 not found</p>
+                        <p class="ins">pls insert 1 javascript to play</p>
+                    </div>
+                </noscript>
+            </div>
+            <a class="btn start-key" href="index.html">Home</a>
+            <div id="ctrl" class="ctrlr">
+                <div class="dpad">
+                    <div class="btns center">
+                        <button class="btn dir" id="upBtn" type="button" aria-label="Move up">
+                            <i class="fa-sharp fa-solid fa-arrow-up" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="btns center">
+                        <button class="btn dir" id="leftBtn" type="button" aria-label="Move left">
+                            <i class="fa-sharp fa-solid fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn dir" id="rightBtn" type="button" aria-label="Move right">
+                            <i class="fa-sharp fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="btns center">
+                        <button class="btn dir" id="downBtn" type="button" aria-label="Move down">
+                            <i class="fa-sharp fa-solid fa-arrow-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="face">
+                    <div class="btns center">
+                        <button class="btn act" id="bBtn" type="button" style="margin-top:50px">B</button>
+                        <button class="btn act" id="aBtn" type="button" style="margin:-30px 22px 0 0">A</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 <footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
         <cite>&#169; Tyler Coderre, all rights reserved <a href="accessibility.html">Accessibility</a> + <a href="privacy.html">Privacy</a></cite>
     </footer>
-    <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+    <script src="assets/scripts/404-game.js"></script>
 </body>
 </html>

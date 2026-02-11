@@ -177,13 +177,11 @@
 		if (!panel) {
 			return;
 		}
-		if (paused) {
-			panel.dataset.state = 'paused';
-		} else if (!gameOver) {
-			panel.dataset.state = 'running';
-		} else {
+		if (!started || gameOver) {
 			panel.removeAttribute('data-state');
+			return;
 		}
+		panel.dataset.state = paused ? 'paused' : 'running';
 	};
 
 	const clearNext = () => {
