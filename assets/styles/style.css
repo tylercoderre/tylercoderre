@@ -1818,7 +1818,7 @@ dialog header button {
 	margin: 0;
 }
 
-dialog ul {
+.list--catalog {
 	list-style: none;
 	padding: 0;
 	margin: 0 0 2rem 0;
@@ -1828,7 +1828,7 @@ dialog ul {
 	margin-left: 0;
 }
 
-dialog li {
+.list--catalog li {
 	display: block;
 	align-items: initial;
 	gap: 0;
@@ -1839,26 +1839,26 @@ dialog li {
 	margin-left: 0;
 }
 
-dialog ul li::before {
+.list--catalog li::before {
 	content: none;
 	display: none;
 }
 
-dialog li h1,
-dialog li h2,
-dialog li h3,
-dialog li h4,
-dialog li h5,
-dialog li h6,
-dialog li p {
+.list--catalog h1,
+.list--catalog h2,
+.list--catalog h3,
+.list--catalog h4,
+.list--catalog h5,
+.list--catalog h6,
+.list--catalog p {
 	color: var(--tc-text);
 }
 
-dialog li:last-child {
+.list--catalog li:last-child {
 	margin-bottom: 0;
 }
 
-dialog li > * {
+.list--catalog li > * {
 	margin-bottom: 0;
 }
 
@@ -2734,22 +2734,6 @@ ul li::before {
 	top: 0.25rem;
 }
 
-dialog ul {
-	padding-left: 0;
-	list-style: none;
-}
-
-dialog li {
-	padding-left: 0;
-	margin-left: 0;
-	list-style: none;
-}
-
-dialog ul li::before {
-	content: none;
-	display: none;
-}
-
 mark {
 	padding: 3px 6px;
 	background: var(--tc-text);
@@ -3370,6 +3354,13 @@ section > header + .device-pair {
 	margin: 0 auto;
 }
 
+.media > a > img {
+	display: block;
+	width: 100%;
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
 .media > video {
 	display: block;
 	width: 100%;
@@ -3388,6 +3379,7 @@ section > header + .device-pair {
 	gap: 2rem;
 	column-gap: 2rem;
 	row-gap: 2rem;
+	margin-bottom: 2rem;
 	align-items: flex-start;
 	width: 100vw;
 	position: relative;
