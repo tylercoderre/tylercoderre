@@ -583,6 +583,25 @@
 			}).filter((item) => item.link);
 		};
 
+		const parseRss2Json = (data) => {
+			const items = Array.isArray(data?.items) ? data.items : [];
+			return items.map((item) => {
+				const title = item.title?.trim() || 'Untitled';
+				const link = item.link?.trim() || '';
+				const pubDate = item.pubDate?.trim() || '';
+				const cleaned = stripHtml(item.description || item.content || item.contentSnippet || '')
+					.replace(/Continue reading on Medium\s*»?/gi, '')
+					.replace(/\s+/g, ' ')
+					.trim();
+				return {
+					title,
+					link,
+					pubDate,
+					excerpt: cleaned,
+				};
+			}).filter((item) => item.link);
+		};
+
 		const renderItems = (items) => {
 			list.innerHTML = '';
 			items.slice(0, Number.isFinite(limit) ? limit : 3).forEach((item) => {
@@ -617,8 +636,18 @@
 			});
 		};
 
+		const fetchWithTimeout = async (url, options = {}) => {
+			const controller = new AbortController();
+			const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+			try {
+				return await fetch(url, { ...options, signal: controller.signal });
+			} finally {
+				window.clearTimeout(timeoutId);
+			}
+		};
+
 		const fetchWithProxy = async (url) => {
-			const response = await fetch(url);
+			const response = await fetchWithTimeout(url);
 			if (response.ok) {
 				return parseFeed(await response.text());
 			}
@@ -627,11 +656,24 @@
 
 		const fetchWithAllOrigins = async (url) => {
 			const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-			const response = await fetch(proxyUrl);
+			const response = await fetchWithTimeout(proxyUrl);
 			if (response.ok) {
 				return parseFeed(await response.text());
 			}
 			throw new Error('Proxy feed failed');
+		};
+
+		const fetchWithRss2Json = async (url) => {
+			const rss2jsonUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
+			const response = await fetchWithTimeout(rss2jsonUrl);
+			if (!response.ok) {
+				throw new Error('rss2json failed');
+			}
+			const data = await response.json();
+			if (data?.status !== 'ok') {
+				throw new Error('rss2json status not ok');
+			}
+			return parseRss2Json(data);
 		};
 
 		const fetchFeed = async () => {
@@ -647,6 +689,11 @@
 				} catch (error) {
 					// Try next URL
 				}
+			}
+			try {
+				return await fetchWithRss2Json(feedUrl);
+			} catch (error) {
+				// Ignore rss2json failure
 			}
 			return [];
 		};
@@ -717,6 +764,69 @@
 		}
 	};
 
+	const initShyHeader = () => {
+		const header = document.querySelector('body > header');
+		if (!header) {
+			return;
+		}
+
+		let lastScrollY = window.scrollY || 0;
+		let lastDirection = null;
+		let upDistance = 0;
+		const revealThreshold = 100;
+		const headerHeight = () => header.getBoundingClientRect().height;
+
+		const showHeader = () => {
+			header.style.transform = 'translateY(0)';
+			header.style.pointerEvents = 'auto';
+		};
+
+		const hideHeader = () => {
+			header.style.transform = 'translateY(-100%)';
+			header.style.pointerEvents = 'none';
+		};
+
+		const onScroll = () => {
+			const currentY = window.scrollY || 0;
+			const delta = currentY - lastScrollY;
+
+			if (currentY <= 0) {
+				showHeader();
+				upDistance = 0;
+				lastDirection = 'up';
+				lastScrollY = currentY;
+				return;
+			}
+
+			if (delta > 0) {
+				if (currentY > headerHeight()) {
+					hideHeader();
+				}
+				if (lastDirection !== 'down') {
+					lastDirection = 'down';
+					upDistance = 0;
+				}
+			} else if (delta < 0) {
+				if (lastDirection !== 'up') {
+					lastDirection = 'up';
+					upDistance = 0;
+				}
+				upDistance += Math.abs(delta);
+				if (upDistance >= revealThreshold) {
+					showHeader();
+				}
+			}
+
+			lastScrollY = currentY;
+		};
+
+		showHeader();
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', () => {
+			lastScrollY = window.scrollY || 0;
+		});
+	};
+
 	const initPage = () => {
 		updateThemeLinks(root.getAttribute('data-theme'));
 		updateThemeColor();
@@ -727,6 +837,7 @@
 		initCodeCopy();
 		initMediumFeed();
 		initDeviceMockupScrollbars();
+		initShyHeader();
 	};
 
 	if (document.readyState === 'loading') {
