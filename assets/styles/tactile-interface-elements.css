@@ -1,0 +1,434 @@
+:root {
+    --grid: 4px;
+    --neutral-000: 0 0% 100%;
+    --neutral-050: 0 0% 91.6%;
+    --neutral-100: 0 0% 83.3%;
+    --neutral-200: 0 0% 74.9%;
+    --neutral-300: 0 0% 66.5%;
+    --neutral-400: 0 0% 58.2%;
+    --neutral-500: 0 0% 49.8%;
+    --neutral-600: 0 0% 41.5%;
+    --neutral-700: 0 0% 33.1%;
+    --neutral-800: 0 0% 24.7%;
+    --neutral-900: 0 0% 16.4%;
+    --neutral-950: 0 0% 8%;
+    --tactile-surface: hsl(var(--neutral-100));
+    --tactile-width: calc(var(--grid) * 92);
+    --tactile-height: calc(var(--grid) * 37);
+    --tactile-radius-pill: calc(var(--grid) * 250);
+    --tactile-halo-size: calc(var(--grid) * 4);
+    --tactile-cast-shadow: 0 var(--grid) var(--grid) calc(var(--grid) * -1) hsl(var(--neutral-950) / 1),
+        0 var(--grid) var(--grid) calc(var(--grid) * -1) hsl(var(--neutral-950) / 0.5),
+        calc(var(--grid) * 2) calc(var(--grid) * 4) calc(var(--grid) * 2) calc(var(--grid) * -1) hsl(var(--neutral-950) / 0.25);
+    --tactile-button-shadow: calc(var(--grid) * -2) calc(var(--grid) * -2) calc(var(--grid) * 2) calc(var(--grid) * -1) hsl(var(--neutral-950) / 0.25),
+        calc(var(--grid) * 1) calc(var(--grid) * 1) calc(var(--grid) * 1) 0 hsl(var(--neutral-950) / 0.1);
+}
+
+#tactile-button-rounded,
+#tactile-button-square {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--grid) * 12);
+    background: var(--tactile-surface);
+    --width: var(--tactile-width);
+    --control-height: var(--tactile-height);
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+
+#tactile-button-rounded *,
+#tactile-button-square * {
+    font-size: inherit;
+}
+
+#tactile-button-rounded button,
+#tactile-button-square button {
+    all: unset;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    border-radius: var(--tactile-radius-pill);
+    height: var(--control-height);
+    background-color: hsl(var(--neutral-950) / 0.75);
+    box-shadow: var(--tactile-button-shadow);
+}
+
+#tactile-button-rounded button {
+    box-shadow: -0.15em -0.15em 0.15em -0.075em hsl(var(--neutral-950) / 0.25),
+        0.0375em 0.0375em 0.0675em 0 hsl(var(--neutral-950) / 0.1);
+}
+
+#tactile-button-rounded button::after,
+#tactile-button-square button::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: calc(100% + var(--tactile-halo-size));
+    height: calc(100% + var(--tactile-halo-size));
+    top: calc(var(--tactile-halo-size) / -2);
+    left: calc(var(--tactile-halo-size) / -2);
+    border-radius: inherit;
+    background: linear-gradient(-135deg,
+            hsl(var(--neutral-950) / 0.5),
+            transparent 20%,
+            transparent 100%);
+    filter: blur(0.0125em);
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+}
+
+#tactile-button-rounded button::after {
+    width: calc(100% + 0.3em);
+    height: calc(100% + 0.3em);
+    top: -0.15em;
+    left: -0.15em;
+    display: none;
+}
+
+#tactile-button-rounded button .button-outer,
+#tactile-button-square button .button-outer {
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    height: 100%;
+    transition: box-shadow 300ms ease;
+    will-change: box-shadow;
+    box-shadow: var(--tactile-cast-shadow);
+}
+
+#tactile-button-rounded button .button-outer {
+    box-shadow: 0 0.05em 0.05em -0.01em hsl(var(--neutral-950) / 1),
+        0 0.01em 0.01em -0.01em hsl(var(--neutral-950) / 0.5),
+        0 0.3em 0.1em -0.01em hsl(var(--neutral-950) / 0.25);
+}
+
+#tactile-button-rounded button:hover .button-outer,
+#tactile-button-square button:hover .button-outer {
+    box-shadow: 0 0 0 0 hsl(var(--neutral-950) / 1),
+        0 0 0 0 hsl(var(--neutral-950) / 0.5),
+        0 0 0 0 hsl(var(--neutral-950) / 0.25);
+}
+
+#tactile-button-rounded .button-inner,
+#tactile-button-square .button-inner {
+    --inset: 0.035em;
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    height: 100%;
+    padding: 0 1.5em;
+    background-image: linear-gradient(90deg,
+            hsl(var(--neutral-000)) 0%,
+            hsl(var(--neutral-100)) 50%,
+            hsl(var(--neutral-200)) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 300ms ease, clip-path 250ms ease,
+        background-image 250ms ease, transform 250ms ease;
+    will-change: box-shadow, clip-path, background-image, transform;
+    overflow: clip;
+    clip-path: inset(0 0 0 0 round 999vw);
+    box-shadow:
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.35),
+        -0.05em -0.05em 0.05em 0 inset hsl(var(--neutral-950) / 0.6),
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.35),
+        0 0 0.05em 0.2em inset hsl(var(--neutral-000) / 0.6),
+        0.025em 0.05em 0.1em 0 inset hsl(var(--neutral-000) / 1),
+        0.12em 0.12em 0.12em inset hsl(var(--neutral-000) / 0.6),
+        -0.075em -0.25em 0.25em 0.1em inset hsl(var(--neutral-950) / 0.6);
+}
+
+#tactile-button-rounded .button-inner {
+    background-image: linear-gradient(135deg,
+            hsl(var(--neutral-000)),
+            hsl(var(--neutral-200)));
+    box-shadow:
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.1),
+        -0.05em -0.05em 0.05em 0 inset hsl(var(--neutral-950) / 0.25),
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.1),
+        0 0 0.05em 0.2em inset hsl(var(--neutral-000) / 0.25),
+        0.025em 0.05em 0.1em 0 inset hsl(var(--neutral-000) / 1),
+        0.12em 0.12em 0.12em inset hsl(var(--neutral-000) / 0.25),
+        -0.075em -0.25em 0.25em 0.1em inset hsl(var(--neutral-950) / 0.25);
+}
+
+
+#tactile-button-rounded button:hover .button-inner,
+#tactile-button-square button:hover .button-inner {
+    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 999vw);
+    box-shadow:
+        0.1em 0.15em 0.05em 0 inset hsl(var(--neutral-950) / 0.85),
+        -0.025em -0.03em 0.05em 0.025em inset hsl(var(--neutral-950) / 0.6),
+        0.25em 0.25em 0.2em 0 inset hsl(var(--neutral-950) / 0.6),
+        0 0 0.05em 0.5em inset hsl(var(--neutral-000) / 0.2),
+        0 0 0 0 inset hsl(var(--neutral-000) / 1),
+        0.12em 0.12em 0.12em inset hsl(var(--neutral-000) / 0.35),
+        -0.075em -0.12em 0.2em 0.1em inset hsl(var(--neutral-950) / 0.35);
+}
+
+#tactile-button-square button:hover .button-inner {
+    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 6px);
+    box-shadow:
+        0.1em 0.15em 0.05em 0 inset hsl(var(--neutral-950) / 0.85),
+        -0.025em -0.03em 0.05em 0.025em inset hsl(var(--neutral-950) / 0.6),
+        0.25em 0.25em 0.2em 0 inset hsl(var(--neutral-950) / 0.6),
+        0 0 0.05em 0.5em inset hsl(var(--neutral-000) / 0.2),
+        0 0 0 0 inset hsl(var(--neutral-000) / 1),
+        0.12em 0.12em 0.12em inset hsl(var(--neutral-000) / 0.35),
+        -0.075em -0.12em 0.2em 0.1em inset hsl(var(--neutral-950) / 0.35);
+}
+
+
+#tactile-button-rounded button .button-inner span,
+#tactile-button-square button .button-inner span {
+    position: relative;
+    z-index: 4;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(135deg,
+            hsl(var(--neutral-900)),
+            hsl(var(--neutral-700)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 250ms ease;
+    display: block;
+    will-change: transform;
+    text-shadow: hsl(var(--neutral-950) / 0.1) 0 0 0.1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 1;
+}
+
+#tactile-button-rounded button .button-inner span {
+    font-family: var(--tc-font-sans);
+}
+
+#tactile-button-square button .button-inner span {
+    font-family: var(--tc-font-sans);
+}
+
+#tactile-button-rounded button:hover .button-inner span,
+#tactile-button-square button:hover .button-inner span {
+    transform: scale(0.975);
+}
+
+#tactile-button-rounded button:active .button-inner,
+#tactile-button-square button:active .button-inner {
+    transform: scale(0.975);
+}
+
+#tactile-button-square button {
+    width: var(--control-height);
+    height: var(--control-height);
+    border-radius: 4px;
+    background: transparent;
+    box-shadow: none;
+    outline-offset: var(--grid);
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#tactile-button-square button::after {
+    display: none;
+}
+
+#tactile-button-square .button-outer {
+    border-radius: 2px;
+    background: hsl(var(--neutral-950));
+    padding: 2px;
+    box-shadow: none;
+}
+
+#tactile-button-square .button-inner {
+    border-radius: 12px;
+    clip-path: inset(0 0 0 0 round 6px);
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg,
+            hsl(var(--neutral-000)) 0%,
+            hsl(var(--neutral-100)) 55%,
+            hsl(var(--neutral-200)) 100%);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow:
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.1),
+        -0.05em -0.05em 0.05em 0 inset hsl(var(--neutral-950) / 0.25),
+        0 0 0 0 inset hsl(var(--neutral-950) / 0.1),
+        0 0 0.05em 0.2em inset hsl(var(--neutral-000) / 0.25),
+        0.025em 0.05em 0.1em 0 inset hsl(var(--neutral-000) / 1),
+        0.12em 0.12em 0.12em inset hsl(var(--neutral-000) / 0.25),
+        -0.075em -0.25em 0.25em 0.1em inset hsl(var(--neutral-950) / 0.25);
+    transition: box-shadow 300ms ease, clip-path 250ms ease,
+        background-image 250ms ease, transform 250ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tactile-button-square .button-inner::before {
+    display: none;
+}
+
+#tactile-button-square button:hover .button-inner {
+    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 6px);
+}
+
+
+#tactile-switch {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--tactile-surface);
+    font-size: calc(var(--grid) * 12);
+    --width: var(--tactile-width);
+    --control-height: var(--tactile-height);
+    --duration: 300ms;
+    --easing: cubic-bezier(1, 0, 1, 1);
+    --hover-easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#tactile-switch input {
+    display: none;
+}
+
+#tactile-switch .switch {
+    --shadow-offset: calc(var(--grid) * 5);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: var(--width);
+    height: var(--control-height);
+    border-radius: var(--width);
+    user-select: none;
+    -webkit-user-select: none;
+    caret-color: transparent;
+    box-shadow:
+        inset calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 3) hsl(var(--neutral-400)),
+        inset calc(var(--grid) * -3) calc(var(--grid) * -3) calc(var(--grid) * 3) hsl(var(--neutral-050));
+    border: 1px solid hsl(var(--neutral-300));
+}
+
+#tactile-switch .indicator {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    transition: all var(--duration) var(--easing);
+    box-shadow:
+        inset 0 0 2px hsl(var(--neutral-900) / 60%),
+        inset 0 0 3px 2px hsl(var(--neutral-900) / 60%),
+        inset 0 0 5px 2px hsl(var(--neutral-600) / 60%);
+}
+
+#tactile-switch .indicator.left {
+    overflow: hidden;
+    left: 10%;
+    border-radius: 100px 0 0 100px;
+    background: linear-gradient(180deg, hsl(var(--neutral-700)) 10%, hsl(var(--neutral-900)) 30%, hsl(var(--neutral-950)) 60%, hsl(var(--neutral-900)) 75%, hsl(var(--neutral-950)));
+}
+
+#tactile-switch .indicator.left::after {
+    content: '';
+    position: absolute;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml;base64,PHN2ZwogIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycKICB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycKICB3aWR0aD0nNTAwJyBoZWlnaHQ9JzUwMCc+CgogICAgPGZpbHRlciBpZD0nbm9pc2UnIHg9JzAnIHk9JzAnPgogICAgICA8ZmVUdXJidWxlbmNlCiAgICAgICAgdHlwZT0nZnJhY3RhbE5vaXNlJwogICAgICAgIGJhc2VGcmVxdWVuY3k9JzAuNjUnCiAgICAgICAgbnVtT2N0YXZlcz0nMycKICAgICAgICBzdGl0Y2hUaWxlcz0nc3RpdGNoJwogICAgICAvPgogICAgICA8ZmVCbGVuZCBtb2RlPSJzY3JlZW4iLz4KICAgIDwvZmlsdGVyPgoKICAgIDxyZWN0IHdpZHRoPSc1MDAnIGhlaWdodD0nNTAwJyBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PScwLjUnLz4KPC9zdmc+");
+}
+
+#tactile-switch .indicator.right {
+    right: 10%;
+    border-radius: 0 100px 100px 0;
+    background-image: linear-gradient(180deg, hsl(var(--neutral-000)), hsl(var(--neutral-400)) 60%, hsl(var(--neutral-300)) 70%, hsl(var(--neutral-500)));
+}
+
+#tactile-switch .button {
+    position: absolute;
+    z-index: 1;
+    width: 55%;
+    height: 80%;
+    left: 5%;
+    border-radius: 100px;
+    background-image: linear-gradient(160deg, hsl(var(--neutral-000)) 35%, hsl(var(--neutral-300)) 70%);
+    transition: all var(--duration) var(--easing);
+    box-shadow: var(--tactile-button-shadow), var(--tactile-cast-shadow);
+}
+
+#tactile-switch .button::before {
+    box-shadow: inherit;
+}
+
+#tactile-switch .button::before,
+#tactile-switch .button::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    width: 41%;
+    height: 80%;
+    border-radius: 100%;
+}
+
+#tactile-switch .button::before {
+    left: 5%;
+    box-shadow: inset 1px 1px 2px hsl(var(--neutral-050));
+    background-image: linear-gradient(-50deg, hsl(var(--neutral-000)) 20%, hsl(var(--neutral-100)) 80%);
+}
+
+#tactile-switch .button::after {
+    right: 5%;
+    box-shadow: inset 1px 1px 3px hsl(var(--neutral-300));
+    background-image: linear-gradient(-50deg, hsl(var(--neutral-000)) 20%, hsl(var(--neutral-200)) 80%);
+}
+
+#tactile-switch input:checked ~ .button {
+    left: 40%;
+}
+
+#tactile-switch .switch:hover:not(.switch--locked) .button {
+    left: 13.75%;
+    transition-timing-function: var(--hover-easing);
+}
+
+#tactile-switch .switch:hover:not(.switch--locked) input:checked ~ .button {
+    left: 31.25%;
+    transition-timing-function: var(--hover-easing);
+}
+
+#tactile-switch .switch.switch--locked .button {
+    left: 5%;
+    transition-timing-function: var(--easing);
+}
+
+#tactile-switch .switch.switch--locked input:checked ~ .button {
+    left: 40%;
+    transition-timing-function: var(--easing);
+}
+
+#tactile-switch input:not(:checked) ~ .indicator.left,
+#tactile-switch input:checked ~ .indicator.right {
+    box-shadow:
+        inset 0 0 calc(var(--grid) * 2) hsl(var(--neutral-900) / 100%),
+        inset calc(var(--grid) * 5) calc(var(--grid) * 5) calc(var(--grid) * 2) hsl(var(--neutral-900) / 100%),
+        inset calc(var(--grid) * 5) calc(var(--grid) * 5) calc(var(--grid) * 4) hsl(var(--neutral-600) / 100%);
+}
