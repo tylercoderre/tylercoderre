@@ -40,6 +40,10 @@
                     <li><a href="../index.html#work">Work</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
+        <button type="button" data-sound-toggle aria-label="Mute sounds" aria-pressed="true">
+            <i class="fa-sharp fa-regular fa-volume" data-sound-icon="on" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-volume-slash" data-sound-icon="off" aria-hidden="true"></i>
+        </button>
         <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
                     <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
                     <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
@@ -68,10 +72,17 @@
                                             <span>Lines</span>
                                             <span id="lines">000</span>
                                         </div>
-                                        <div class="led led--stack">
+                                        <div class="led led--stack led--next">
                                             <span>Next</span>
                                             <canvas id="next" width="64" height="64" role="img" aria-label="Next up piece"></canvas>
                                         </div>
+                                        <fieldset data-unit-toggle data-tetris-style-toggle>
+                                            <legend>Block style</legend>
+                                            <span class="tetris-style-label" aria-hidden="true">STYLE</span>
+                                            <label>
+                                                <input type="checkbox" data-tetris-style-toggle-input aria-label="Toggle block style">
+                                            </label>
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +103,7 @@
                                         <button class="btn touch-key dpad-key dpad-key--right" type="button" data-touch-control="right" aria-label="Move right">
                                             <span class="tetris-icon tetris-icon--right" aria-hidden="true"></span>
                                         </button>
-                                        <button class="btn touch-key dpad-key dpad-key--down" type="button" data-touch-control="drop" aria-label="Drop">
+                                        <button class="btn touch-key dpad-key dpad-key--down" type="button" data-touch-control="drop" aria-label="Soft drop">
                                             <span class="tetris-icon tetris-icon--down" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -125,7 +136,8 @@
                     <li><strong>Move:</strong> Left/Right arrow keys or the on-screen arrows.</li>
                     <li><strong>Rotate clockwise:</strong> Up arrow, D key, or Rotate CW button.</li>
                     <li><strong>Rotate counter-clockwise:</strong> A key or Rotate CCW button.</li>
-                    <li><strong>Drop:</strong> Down arrow or Spacebar.</li>
+                    <li><strong>Soft drop:</strong> Hold Down arrow or the on-screen down button.</li>
+                    <li><strong>Hard drop:</strong> Spacebar.</li>
                     <li><strong>Start / Pause:</strong> Start/Pause button or P key.</li>
                     <li><strong>Reset:</strong> R key or Reset button.</li>
                 </ul>
@@ -134,7 +146,8 @@
 
         <footer>
             <p><a class="link--top" href="#Top">Back to the top</a></p>
-            <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
+            <!-- Copyright and site links -->
+        <p><small>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a> + <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" rel="noopener noreferrer">LinkedIn</a> + <a href="https://bsky.app/profile/tyco.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></small></p>
         </footer>
 
         <script src="../assets/scripts/tetris.js"></script>

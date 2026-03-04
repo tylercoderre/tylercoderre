@@ -9,16 +9,18 @@
 	const nextCtx = nextCanvas ? nextCanvas.getContext('2d') : null;
 	const root = document.documentElement;
 	const tetrisRoot = document.querySelector('[data-tetris]');
+	const tetrisScript = document.querySelector('script[src$="assets/scripts/tetris.js"]');
 
 	const cols = 16;
 	let rows = 16;
 	const dropBase = 600;
-	const softDropRate = 40;
+	const softDropMultiplier = 4;
 	const scoreEl = document.getElementById('score');
 	const linesEl = document.getElementById('lines');
 	const statusEl = document.getElementById('status');
 	const pauseBtn = document.getElementById('btnPause');
 	const resetBtn = document.getElementById('btnReset');
+	const styleToggleInput = document.querySelector('[data-tetris-style-toggle-input]');
 	const panel = document.querySelector('.tetris .panel');
 
 	let grid;
@@ -32,7 +34,54 @@
 	let dropCounter = 0;
 	let lastTime = 0;
 	let dropInterval = dropBase;
+	let softDropActive = false;
+	let pieceStyleEnabled = false;
 	let dpr = window.devicePixelRatio || 1;
+
+	const getTetrisSoundUrl = (filename) => (tetrisScript && tetrisScript.src
+		? new URL(`../media/interface/${filename}`, tetrisScript.src).toString()
+		: `/assets/media/interface/${filename}`);
+	const tetrisSounds = new Map();
+
+	const getTetrisSound = (filename) => {
+		if (typeof Audio !== 'function') {
+			return null;
+		}
+		if (!tetrisSounds.has(filename)) {
+			const audio = new Audio(getTetrisSoundUrl(filename));
+			audio.preload = 'auto';
+			tetrisSounds.set(filename, audio);
+		}
+		return tetrisSounds.get(filename);
+	};
+
+	const playTetrisSound = (filename) => {
+		if (root.getAttribute('data-sound') === 'off') {
+			return;
+		}
+		const audio = getTetrisSound(filename);
+		if (!audio) {
+			return;
+		}
+		try {
+			audio.currentTime = 0;
+			const playPromise = audio.play();
+			if (playPromise && typeof playPromise.catch === 'function') {
+				playPromise.catch(() => {
+					// Ignore playback errors for game sounds.
+				});
+			}
+		} catch (error) {
+			// Ignore playback errors for game sounds.
+		}
+	};
+
+	const playTetrisControlSound = (event) => {
+		if (event.repeat) {
+			return;
+		}
+		playTetrisSound('tap_05.wav');
+	};
 
 	const shapes = {
 		I: [
@@ -141,7 +190,8 @@
 
 	const updateSpeed = () => {
 		const steps = Math.floor(lines / 4);
-		dropInterval = dropBase * Math.pow(0.99, steps);
+		const baseInterval = dropBase * Math.pow(0.99, steps);
+		dropInterval = softDropActive ? baseInterval / softDropMultiplier : baseInterval;
 	};
 
 	const setStatus = (msg) => {
@@ -197,6 +247,7 @@
 		const type = bag[Math.floor(Math.random() * bag.length)];
 		const shape = shapes[type].map((row) => row.slice());
 		return {
+			type,
 			shape,
 			x: Math.floor(cols / 2) - Math.ceil(shape[0].length / 2),
 			y: -1,
@@ -226,10 +277,83 @@
 		current.shape.forEach((row, y) => {
 			row.forEach((value, x) => {
 				if (value && current.y + y >= 0) {
-					grid[current.y + y][current.x + x] = 1;
+					grid[current.y + y][current.x + x] = current.type;
 				}
 			});
 		});
+	};
+
+	const pieceHalftoneLevel = {
+		I: 900,
+		J: 800,
+		L: 800,
+		O: 700,
+		S: 600,
+		T: 500,
+		Z: 600,
+	};
+
+	const patternDefs = {
+		500: { size: 2, base: 'paper', dots: [[0, 0], [1, 1]], dot: 'ink' },
+		600: { size: 2, base: 'ink', dots: [[0, 0]], dot: 'paper' },
+		700: { size: 4, base: 'ink', dots: [[0, 0], [2, 2]], dot: 'paper' },
+		800: { size: 4, base: 'ink', dots: [[0, 0]], dot: 'paper' },
+	};
+
+	const patternCache = new WeakMap();
+
+	const getHalftoneFill = (context, level) => {
+		if (level === 900) {
+			return colors.block;
+		}
+
+		const def = patternDefs[level];
+		if (!def) {
+			return colors.block;
+		}
+
+		const paletteKey = `${colors.block}|${colors.canvas}|${level}`;
+		let byContext = patternCache.get(context);
+		if (!byContext) {
+			byContext = new Map();
+			patternCache.set(context, byContext);
+		}
+		if (byContext.has(paletteKey)) {
+			return byContext.get(paletteKey);
+		}
+
+		const tile = document.createElement('canvas');
+		tile.width = def.size;
+		tile.height = def.size;
+		const tileCtx = tile.getContext('2d');
+		if (!tileCtx) {
+			return colors.block;
+		}
+
+		const ink = colors.block;
+		const paper = colors.canvas;
+		const baseColor = def.base === 'ink' ? ink : paper;
+		const dotColor = def.dot === 'ink' ? ink : paper;
+
+		tileCtx.fillStyle = baseColor;
+		tileCtx.fillRect(0, 0, def.size, def.size);
+		tileCtx.fillStyle = dotColor;
+		def.dots.forEach(([x, y]) => {
+			tileCtx.fillRect(x, y, 1, 1);
+		});
+
+		const pattern = context.createPattern(tile, 'repeat');
+		const fill = pattern || colors.block;
+		byContext.set(paletteKey, fill);
+		return fill;
+	};
+
+	const getPieceFill = (context, type) => {
+		if (!pieceStyleEnabled || !type) {
+			return colors.block;
+		}
+		const level = pieceHalftoneLevel[type];
+		return getHalftoneFill(context, level);
 	};
 
 	const clearLines = () => {
@@ -246,6 +370,7 @@
 			const points = [0, 40, 100, 300, 1200];
 			score += points[cleared] || cleared * 40;
 			lines += cleared;
+			playTetrisSound(cleared === 4 ? 'celebration.wav' : 'notification.wav');
 			updateScore();
 			updateLines();
 			updateSpeed();
@@ -301,12 +426,14 @@
 		const offsetY = Math.max(0, height - boardHeight);
 		for (let y = 0; y < rows; y += 1) {
 			for (let x = 0; x < cols; x += 1) {
-				if (grid[y][x]) {
-					drawCell(ctx, x, y, cell, colors.block, offsetY);
+					const cellValue = grid[y][x];
+					if (cellValue) {
+						const cellType = typeof cellValue === 'string' ? cellValue : null;
+						drawCell(ctx, x, y, cell, getPieceFill(ctx, cellType), offsetY);
+					}
 				}
 			}
-		}
-	};
+		};
 
 	const drawPiece = () => {
 		if (!current) {
@@ -322,14 +449,14 @@
 				if (!value) {
 					return;
 				}
-				const gx = current.x + x;
-				const gy = current.y + y;
-				if (gy >= 0) {
-					drawCell(ctx, gx, gy, cell, colors.block, offsetY);
-				}
+					const gx = current.x + x;
+					const gy = current.y + y;
+					if (gy >= 0) {
+						drawCell(ctx, gx, gy, cell, getPieceFill(ctx, current.type), offsetY);
+					}
+				});
 			});
-		});
-	};
+		};
 
 	const drawNext = () => {
 		if (!nextCtx || !next) {
@@ -371,14 +498,30 @@
 				if (!value) {
 					return;
 				}
-				const px = offsetX + x * size;
-				const py = offsetY + y * size;
-				const gap = 1;
-				const blockSize = size - gap;
-				nextCtx.fillStyle = colors.block;
-				nextCtx.fillRect(px, py, blockSize, blockSize);
+					const px = offsetX + x * size;
+					const py = offsetY + y * size;
+					const gap = 1;
+					const blockSize = size - gap;
+					nextCtx.fillStyle = getPieceFill(nextCtx, next.type);
+					nextCtx.fillRect(px, py, blockSize, blockSize);
+				});
 			});
-		});
+		};
+
+	const applyPieceStyle = (enabled) => {
+		pieceStyleEnabled = Boolean(enabled);
+		if (styleToggleInput) {
+			styleToggleInput.checked = pieceStyleEnabled;
+		}
+		draw();
+		drawNext();
+	};
+
+	const lockCurrentPiece = () => {
+		mergePiece();
+		playTetrisSound('disabled.wav');
+		clearLines();
+		spawnPiece();
 	};
 
 	const drop = () => {
@@ -388,9 +531,7 @@
 		current.y += 1;
 		if (collide(current)) {
 			current.y -= 1;
-			mergePiece();
-			clearLines();
-			spawnPiece();
+			lockCurrentPiece();
 		}
 		dropCounter = 0;
 	};
@@ -403,9 +544,7 @@
 			current.y += 1;
 		}
 		current.y -= 1;
-		mergePiece();
-		clearLines();
-		spawnPiece();
+		lockCurrentPiece();
 		dropCounter = 0;
 	};
 
@@ -417,20 +556,6 @@
 		if (collide(current)) {
 			current.x -= dir;
 		}
-	};
-
-	const softDrop = () => {
-		if (!current || gameOver) {
-			return;
-		}
-		current.y += 1;
-		if (collide(current)) {
-			current.y -= 1;
-			mergePiece();
-			clearLines();
-			spawnPiece();
-		}
-		dropCounter = 0;
 	};
 
 	const togglePause = () => {
@@ -450,6 +575,7 @@
 	};
 
 	const resetGame = () => {
+		softDropActive = false;
 		resetGrid();
 		score = 0;
 		lines = 0;
@@ -487,14 +613,12 @@
 		requestAnimationFrame(update);
 	};
 
-	let softDropActive = false;
-
 	const setSoftDrop = (active) => {
 		if (softDropActive === active) {
 			return;
 		}
 		softDropActive = active;
-		dropInterval = active ? dropBase / 2 : dropBase;
+		updateSpeed();
 		if (active) {
 			dropCounter = dropInterval;
 		}
@@ -509,29 +633,37 @@
 		}
 		if (event.code === 'ArrowLeft') {
 			move(-1);
+			playTetrisControlSound(event);
 			setPressed(touchLeft, true);
 		} else if (event.code === 'ArrowRight') {
 			move(1);
+			playTetrisControlSound(event);
 			setPressed(touchRight, true);
 		} else if (event.code === 'ArrowDown') {
-			hardDrop();
+			setSoftDrop(true);
+			playTetrisControlSound(event);
 			setPressed(touchDrop, true);
 		} else if (event.code === 'ArrowUp') {
 			rotatePiece(1);
+			playTetrisControlSound(event);
 			setPressed(touchUp, true);
 		} else if (event.code === 'KeyA') {
 			rotatePiece(-1);
+			playTetrisControlSound(event);
 			setPressed(touchRotateCCW, true);
 		} else if (event.code === 'KeyD') {
 			rotatePiece(1);
+			playTetrisControlSound(event);
 			setPressed(touchRotateCW, true);
 		} else if (event.code === 'Space') {
 			hardDrop();
 			setPressed(touchDrop, true);
 		} else if (event.code === 'KeyP') {
 			togglePause();
+			playTetrisControlSound(event);
 		} else if (event.code === 'KeyR') {
 			resetGame();
+			playTetrisControlSound(event);
 		}
 	};
 
@@ -544,6 +676,7 @@
 		} else if (event.code === 'ArrowRight') {
 			setPressed(touchRight, false);
 		} else if (event.code === 'ArrowDown') {
+			setSoftDrop(false);
 			setPressed(touchDrop, false);
 		} else if (event.code === 'ArrowUp') {
 			setPressed(touchUp, false);
@@ -626,10 +759,19 @@
 	}
 
 	if (touchDrop) {
-		touchDrop.addEventListener('click', (event) => {
+		touchDrop.addEventListener('pointerdown', (event) => {
 			event.preventDefault();
-			hardDrop();
+			setSoftDrop(true);
+			setPressed(touchDrop, true);
 		});
+		const releaseSoftDrop = (event) => {
+			event.preventDefault();
+			setSoftDrop(false);
+			setPressed(touchDrop, false);
+		};
+		touchDrop.addEventListener('pointerup', releaseSoftDrop);
+		touchDrop.addEventListener('pointerleave', releaseSoftDrop);
+		touchDrop.addEventListener('pointercancel', releaseSoftDrop);
 	}
 
 	if (pauseBtn) {
@@ -641,6 +783,12 @@
 	if (resetBtn) {
 		resetBtn.addEventListener('click', () => {
 			resetGame();
+		});
+	}
+
+	if (styleToggleInput) {
+		styleToggleInput.addEventListener('change', () => {
+			applyPieceStyle(styleToggleInput.checked);
 		});
 	}
 
@@ -663,5 +811,6 @@
 	updateRowsFromCanvas();
 
 	resetGame();
+	applyPieceStyle(styleToggleInput ? styleToggleInput.checked : false);
 	update();
 })();

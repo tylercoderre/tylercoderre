@@ -7,6 +7,7 @@
 	const ctx = canvas.getContext('2d');
 	const root = document.documentElement;
 	const breakoutRoot = document.querySelector('[data-breakout]');
+	const breakoutScript = document.querySelector('script[src$="assets/scripts/breakout.js"]');
 
 	const W = canvas.width;
 	const H = canvas.height;
@@ -34,9 +35,56 @@
 	let hudHeight = 0;
 	let colors = null;
 	let themeToken = '';
+	let brickStyleEnabled = false;
+	let faSolidFontTemplate = '900 1em "Font Awesome 6 Sharp", "Font Awesome 6 Free"';
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 	const smallQuery = window.matchMedia('(max-width: 480px)');
 	let isSmall = smallQuery.matches;
+	const rowHalftoneLevel = [900, 700, 500, 900, 700, 500];
+	const halftonePatternScale = 1;
+	const halftonePatternDefs = {
+		500: { size: 2, base: 'paper', dots: [[0, 0], [1, 1]], dot: 'ink' },
+		700: { size: 4, base: 'ink', dots: [[0, 0], [2, 2]], dot: 'paper' },
+	};
+	const halftonePatternCache = new Map();
+	const breakoutSounds = new Map();
+
+	const getBreakoutSoundUrl = (filename) => (breakoutScript && breakoutScript.src
+		? new URL(`../media/interface/${filename}`, breakoutScript.src).toString()
+		: `/assets/media/interface/${filename}`);
+
+	const getBreakoutSound = (filename) => {
+		if (typeof Audio !== 'function') {
+			return null;
+		}
+		if (!breakoutSounds.has(filename)) {
+			const audio = new Audio(getBreakoutSoundUrl(filename));
+			audio.preload = 'auto';
+			breakoutSounds.set(filename, audio);
+		}
+		return breakoutSounds.get(filename);
+	};
+
+	const playBreakoutSound = (filename) => {
+		if (root.getAttribute('data-sound') === 'off') {
+			return;
+		}
+		const audio = getBreakoutSound(filename);
+		if (!audio) {
+			return;
+		}
+		try {
+			audio.currentTime = 0;
+			const playPromise = audio.play();
+			if (playPromise && typeof playPromise.catch === 'function') {
+				playPromise.catch(() => {
+					// Ignore sound playback failures.
+				});
+			}
+		} catch (error) {
+			// Ignore sound playback failures.
+		}
+	};
 
 	const fmt = (n) => n.toString().padStart(6, '0');
 
@@ -48,12 +96,14 @@
 	const updateThemeColors = () => {
 		const styles = getComputedStyle(breakoutRoot || root);
 		colors = {
+			text: readCssVar(styles, '--tc-text', '#111111'),
 			canvas: readCssVar(styles, '--breakout-canvas-bg', readCssVar(styles, '--tc-background', '#ffffff')),
 			grid: readCssVar(styles, '--breakout-grid', readCssVar(styles, '--tc-border', '#cccccc')),
 			paddle: readCssVar(styles, '--breakout-paddle', readCssVar(styles, '--tc-text', '#111111')),
 			ball: readCssVar(styles, '--breakout-ball', readCssVar(styles, '--tc-text', '#111111')),
 			brick: readCssVar(styles, '--breakout-brick', readCssVar(styles, '--tc-text', '#111111')),
 		};
+		faSolidFontTemplate = readCssVar(styles, '--fa-font-sharp-solid', '900 1em "Font Awesome 6 Sharp", "Font Awesome 6 Free"');
 	};
 
 	const getThemeToken = () => {
@@ -82,10 +132,78 @@
 					y: topOffset + r * (brickH + brickGap),
 					w: brickW,
 					h: brickH,
+					row: r,
+					isLifeBrick: false,
 					alive: true,
 				});
 			}
 		}
+		if (bricks.length) {
+			const lifeBrickIndex = Math.floor(Math.random() * bricks.length);
+			bricks[lifeBrickIndex].isLifeBrick = true;
+		}
+	};
+
+	const getFaFont = (size) => {
+		const normalized = faSolidFontTemplate || '900 1em "Font Awesome 6 Sharp", "Font Awesome 6 Free"';
+		const withLineHeight = normalized.replace(/1em\/1/g, `${size}px/${size}px`);
+		const withSize = withLineHeight.replace(/1em/g, `${size}px`);
+		if (withSize.includes('px')) {
+			return withSize;
+		}
+		return `900 ${size}px "Font Awesome 6 Sharp", "Font Awesome 6 Free"`;
+	};
+
+	const getHalftoneFill = (level) => {
+		if (level === 900) {
+			return colors.brick;
+		}
+
+		const def = halftonePatternDefs[level];
+		if (!def) {
+			return colors.brick;
+		}
+
+		const paletteKey = `${colors.brick}|${colors.canvas}|${level}`;
+		if (halftonePatternCache.has(paletteKey)) {
+			return halftonePatternCache.get(paletteKey);
+		}
+
+		const tile = document.createElement('canvas');
+		const tileSize = def.size * halftonePatternScale;
+		tile.width = tileSize;
+		tile.height = tileSize;
+		const tileCtx = tile.getContext('2d');
+		if (!tileCtx) {
+			return colors.brick;
+		}
+
+		const ink = colors.brick;
+		const paper = colors.canvas;
+		const baseColor = def.base === 'ink' ? ink : paper;
+		const dotColor = def.dot === 'ink' ? ink : paper;
+
+		tileCtx.fillStyle = baseColor;
+		tileCtx.fillRect(0, 0, tileSize, tileSize);
+		tileCtx.fillStyle = dotColor;
+		def.dots.forEach(([x, y]) => {
+			tileCtx.beginPath();
+			tileCtx.arc(x * halftonePatternScale, y * halftonePatternScale, halftonePatternScale, 0, Math.PI * 2);
+			tileCtx.fill();
+		});
+
+		const pattern = ctx.createPattern(tile, 'repeat');
+		const fill = pattern || colors.brick;
+		halftonePatternCache.set(paletteKey, fill);
+		return fill;
+	};
+
+	const getBrickFill = (brick) => {
+		if (!brickStyleEnabled) {
+			return colors.brick;
+		}
+		const level = rowHalftoneLevel[brick.row] || 900;
+		return getHalftoneFill(level);
 	};
 
 	const renderLives = () => {
@@ -233,22 +351,30 @@
 	const updateBall = () => {
 		ball.x += ball.vx;
 		ball.y += ball.vy;
+		let hitWall = false;
 
 		if (ball.x < ball.r) {
 			ball.x = ball.r;
 			ball.vx *= -1;
+			hitWall = true;
 		}
 		if (ball.x > W - ball.r) {
 			ball.x = W - ball.r;
 			ball.vx *= -1;
+			hitWall = true;
 		}
 		if (ball.y - ball.r <= hudHeight) {
 			ball.y = hudHeight + ball.r;
 			ball.vy *= -1;
+			hitWall = true;
+		}
+		if (hitWall) {
+			playBreakoutSound('type_05.wav');
 		}
 
 		if (ball.y > H + ball.r) {
 			lives -= 1;
+			playBreakoutSound('caution.wav');
 			updateHUD();
 			if (lives <= 0) {
 				gameOver();
@@ -273,6 +399,7 @@
 			const angle = hit * (Math.PI / 3);
 			ball.vx = speed * Math.sin(angle);
 			ball.vy = -Math.abs(speed * Math.cos(angle));
+			playBreakoutSound('type_03.wav');
 		}
 
 		for (const brick of bricks) {
@@ -284,10 +411,20 @@
 				ball.x - ball.r < brick.x + brick.w &&
 				ball.y + ball.r > brick.y &&
 				ball.y - ball.r < brick.y + brick.h
-			) {
-				brick.alive = false;
-				score += 10;
-				updateHUD();
+				) {
+					brick.alive = false;
+					score += 10;
+					if (brick.isLifeBrick) {
+						if (lives < maxLives) {
+							lives += 1;
+							playBreakoutSound('notification.wav');
+						} else {
+							playBreakoutSound('button.wav');
+						}
+					} else {
+						playBreakoutSound('type_01.wav');
+					}
+					updateHUD();
 				const prevX = ball.x - ball.vx;
 				const prevY = ball.y - ball.vy;
 				const hitLeft = prevX <= brick.x;
@@ -305,6 +442,7 @@
 
 		if (bricks.every((brick) => !brick.alive)) {
 			score += 100;
+			playBreakoutSound('celebration.wav');
 			updateHUD();
 			resetLevel();
 			centerBallOnPaddle(true);
@@ -325,7 +463,10 @@
 			if (!brick.alive) {
 				continue;
 			}
-			drawRect(brick.x, brick.y, brick.w, brick.h, colors.brick);
+			drawRect(brick.x, brick.y, brick.w, brick.h, getBrickFill(brick));
+			if (brick.isLifeBrick) {
+				drawLifeBrickIcon(brick);
+			}
 		}
 
 		drawRect(paddle.x, paddle.y, paddle.w, paddle.h, colors.paddle);
@@ -335,6 +476,37 @@
 	const drawRect = (x, y, w, h, color) => {
 		ctx.fillStyle = color;
 		ctx.fillRect(x, y, w, h);
+	};
+
+	const drawLifeBrickIcon = (brick) => {
+		const iconSize = Math.max(10, Math.min(brick.h - 4, brick.w - 8));
+		const x = Math.round(brick.x);
+		const y = Math.round(brick.y);
+		const w = Math.round(brick.w);
+		const h = Math.round(brick.h);
+		ctx.save();
+
+		// 1px outset border in background color.
+		ctx.fillStyle = colors.canvas;
+		ctx.fillRect(x - 1, y - 1, w + 2, 1);
+		ctx.fillRect(x - 1, y + h, w + 2, 1);
+		ctx.fillRect(x - 1, y, 1, h);
+		ctx.fillRect(x + w, y, 1, h);
+
+		// 1px inset border in text color.
+		ctx.fillStyle = colors.text;
+		ctx.fillRect(x + 1, y + 1, w - 2, 1);
+		ctx.fillRect(x + 1, y + h - 2, w - 2, 1);
+		ctx.fillRect(x + 1, y + 1, 1, h - 2);
+		ctx.fillRect(x + w - 2, y + 1, 1, h - 2);
+
+		// Heart icon always uses the background color for contrast.
+		ctx.fillStyle = colors.canvas;
+		ctx.font = getFaFont(iconSize);
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText('\uf004', x + w / 2, y + h / 2 + 0.5);
+		ctx.restore();
 	};
 
 	const drawBall = (x, y, r, color) => {
@@ -433,26 +605,32 @@
 		if (!isEditable && (isArrow || isSpace)) {
 			event.preventDefault();
 		}
-		if (key === 'arrowleft') {
-			if (!event.repeat) {
-				registerPress('left');
+			if (key === 'arrowleft') {
+				if (!event.repeat) {
+					playBreakoutSound('tap_05.wav');
+					registerPress('left');
+				}
+				setPressedState(touchLeft, true);
+			} else if (key === 'arrowright') {
+				if (!event.repeat) {
+					playBreakoutSound('tap_05.wav');
+					registerPress('right');
+				}
+				setPressedState(touchRight, true);
+			} else if (isSpace) {
+				setPressedState(touchSpace, true);
+				if (!event.repeat) {
+					playBreakoutSound('tap_05.wav');
+					registerPress('space');
+					handleSpaceAction();
+				}
+			} else if (key === 'r') {
+				if (!event.repeat) {
+					playBreakoutSound('tap_05.wav');
+				}
+				resetGame();
 			}
-			setPressedState(touchLeft, true);
-		} else if (key === 'arrowright') {
-			if (!event.repeat) {
-				registerPress('right');
-			}
-			setPressedState(touchRight, true);
-		} else if (isSpace) {
-			setPressedState(touchSpace, true);
-			if (!event.repeat) {
-				registerPress('space');
-				handleSpaceAction();
-			}
-		} else if (key === 'r') {
-			resetGame();
-		}
-	});
+		});
 
 	document.addEventListener('keyup', (event) => {
 		const key = event.key.toLowerCase();
@@ -471,16 +649,33 @@
 
 	const startBtn = document.getElementById('btnStart');
 	const pauseBtn = document.getElementById('btnPause');
+	const styleBtn = document.getElementById('btnStyle');
 	const resetBtn = document.getElementById('btnReset');
 	const touchLeft = document.querySelector('[data-touch-control="left"]');
 	const touchRight = document.querySelector('[data-touch-control="right"]');
 	const touchSpace = document.querySelector('[data-touch-control="space"]');
+
+	const setBrickStyle = (enabled) => {
+		brickStyleEnabled = Boolean(enabled);
+		if (breakoutRoot) {
+			breakoutRoot.setAttribute('data-brick-style', brickStyleEnabled ? 'halftone' : 'flat');
+		}
+		if (styleBtn) {
+			styleBtn.setAttribute('aria-pressed', brickStyleEnabled ? 'true' : 'false');
+		}
+		render();
+	};
 
 	if (startBtn) {
 		startBtn.addEventListener('click', start);
 	}
 	if (pauseBtn) {
 		pauseBtn.addEventListener('click', pause);
+	}
+	if (styleBtn) {
+		styleBtn.addEventListener('click', () => {
+			setBrickStyle(!brickStyleEnabled);
+		});
 	}
 	if (resetBtn) {
 		resetBtn.addEventListener('click', resetGame);
@@ -555,4 +750,5 @@
 	updateHudHeight();
 	syncThemeColors();
 	resetGame();
+	setBrickStyle(false);
 })();

@@ -182,6 +182,8 @@ html[data-theme="dark"] .tetris .scanlines::after {
 	padding: 0;
 	box-sizing: border-box;
 	flex: 0 0 auto;
+	height: 100%;
+	align-self: stretch;
 	justify-self: start;
 	text-align: right;
 }
@@ -207,6 +209,11 @@ html[data-theme="dark"] .tetris .scanlines::after {
 	gap: 0.5rem;
 }
 
+.tetris .led--next {
+	align-items: flex-end;
+	text-align: right;
+}
+
 .tetris #next {
 	width: 100%;
 	max-width: var(--tetris-next-size);
@@ -215,6 +222,36 @@ html[data-theme="dark"] .tetris .scanlines::after {
 	display: block;
 	border: 1px solid var(--tc-border);
 	background: transparent;
+}
+
+.tetris [data-tetris-style-toggle] {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.5rem;
+	margin-top: auto;
+	align-self: flex-end;
+}
+
+.tetris .tetris-style-label {
+	margin: 0;
+	font-family: var(--tc-font-mono);
+	letter-spacing: 0.08rem;
+	font-size: 0.875rem;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.tetris [data-tetris-style-toggle] label {
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	min-height: 0;
+	line-height: 0;
+	justify-content: flex-end;
+	gap: 0;
+	font-size: 0;
 }
 
 #status {
@@ -487,11 +524,15 @@ html[data-theme="dark"] .tetris .scanlines::after {
 
 	.tetris #hud {
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: flex-end;
 	}
 
 	.tetris .led--stack {
-		align-items: flex-start;
+		align-items: flex-end;
+	}
+
+	.tetris .led--next {
+		align-items: flex-end;
 	}
 
 	.tetris .controls--keys .touch-key {

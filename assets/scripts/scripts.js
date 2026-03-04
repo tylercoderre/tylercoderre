@@ -2,6 +2,7 @@
 	const root = document.documentElement;
 	root.classList.add('js');
 	const storageKey = 'tc-theme';
+	const soundStorageKey = 'tc-sound';
 	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 	const isFileProtocol = window.location.protocol === 'file:';
 	const canPersistStorage = (() => {
@@ -18,6 +19,14 @@
 	const getStoredTheme = () => {
 		try {
 			return localStorage.getItem(storageKey);
+		} catch (error) {
+			return null;
+		}
+	};
+
+	const getStoredSound = () => {
+		try {
+			return localStorage.getItem(soundStorageKey);
 		} catch (error) {
 			return null;
 		}
@@ -61,6 +70,14 @@
 		}
 	};
 
+	const setStoredSound = (sound) => {
+		try {
+			localStorage.setItem(soundStorageKey, sound);
+		} catch (error) {
+			// Ignore storage errors (private mode, disabled storage, etc.)
+		}
+	};
+
 	const setNameTheme = (theme) => {
 		try {
 			let data = {};
@@ -80,6 +97,42 @@
 		}
 	};
 
+	const getNameSound = () => {
+		if (!window.name) {
+			return null;
+		}
+
+		try {
+			const data = JSON.parse(window.name);
+			if (data && (data[soundStorageKey] === 'on' || data[soundStorageKey] === 'off')) {
+				return data[soundStorageKey];
+			}
+		} catch (error) {
+			return null;
+		}
+
+		return null;
+	};
+
+	const setNameSound = (sound) => {
+		try {
+			let data = {};
+
+			if (window.name && window.name !== 'dark' && window.name !== 'light') {
+				try {
+					data = JSON.parse(window.name) || {};
+				} catch (error) {
+					data = {};
+				}
+			}
+
+			data[soundStorageKey] = sound;
+			window.name = JSON.stringify(data);
+		} catch (error) {
+			window.name = sound;
+		}
+	};
+
 	const getUserTheme = () => {
 		const storedTheme = canPersistStorage ? getStoredTheme() : null;
 		if (storedTheme === 'dark' || storedTheme === 'light') {
@@ -89,6 +142,20 @@
 		const nameTheme = getNameTheme();
 		if (nameTheme === 'dark' || nameTheme === 'light') {
 			return nameTheme;
+		}
+
+		return null;
+	};
+
+	const getUserSound = () => {
+		const storedSound = canPersistStorage ? getStoredSound() : null;
+		if (storedSound === 'on' || storedSound === 'off') {
+			return storedSound;
+		}
+
+		const nameSound = getNameSound();
+		if (nameSound === 'on' || nameSound === 'off') {
+			return nameSound;
 		}
 
 		return null;
@@ -112,6 +179,57 @@
 		const nextTheme = theme === 'dark' ? 'dark' : 'light';
 		root.setAttribute('data-theme', nextTheme);
 		updateThemeColor();
+	};
+
+	const applySound = (sound) => {
+		const nextSound = sound === 'off' ? 'off' : 'on';
+		root.setAttribute('data-sound', nextSound);
+	};
+
+	const scriptRef = document.querySelector('script[src$="assets/scripts/scripts.js"]');
+	const getInterfaceSoundUrl = (filename) => {
+		if (scriptRef && scriptRef.src) {
+			return new URL(`../media/interface/${filename}`, scriptRef.src).toString();
+		}
+		return `/assets/media/interface/${filename}`;
+	};
+
+	const interfaceSounds = new Map();
+
+	const getInterfaceSound = (filename) => {
+		if (typeof Audio !== 'function') {
+			return null;
+		}
+		if (!interfaceSounds.has(filename)) {
+			const audio = new Audio(getInterfaceSoundUrl(filename));
+			audio.preload = 'auto';
+			interfaceSounds.set(filename, audio);
+		}
+		return interfaceSounds.get(filename);
+	};
+
+	const playInterfaceSound = (filename, options = {}) => {
+		const { force = false } = options;
+		if (!force && root.getAttribute('data-sound') === 'off') {
+			return;
+		}
+
+		const audio = getInterfaceSound(filename);
+		if (!audio) {
+			return;
+		}
+
+		try {
+			audio.currentTime = 0;
+			const playPromise = audio.play();
+			if (playPromise && typeof playPromise.catch === 'function') {
+				playPromise.catch(() => {
+					// Ignore playback failures (missing file, blocked autoplay, etc.)
+				});
+			}
+		} catch (error) {
+			// Ignore sound playback errors.
+		}
 	};
 
 	const updateThemeColor = () => {
@@ -162,6 +280,7 @@
 		setNameTheme(initialTheme);
 	}
 	applyTheme(initialTheme);
+	applySound(getUserSound() || 'on');
 
 	const initClock = () => {
 		const clockEl = document.querySelector('#clock');
@@ -322,13 +441,186 @@
 			});
 		}
 
-		if (toggle) {
-			toggle.addEventListener('click', () => {
-				const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-				const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-				setTheme(nextTheme, true);
+			if (toggle) {
+				toggle.addEventListener('click', () => {
+					const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+					const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+					setTheme(nextTheme, true);
+					playInterfaceSound(nextTheme === 'dark' ? 'toggle_off.wav' : 'toggle_on.wav');
+				});
+			}
+		};
+
+	const initSoundToggle = () => {
+		const soundToggle = document.querySelector('[data-sound-toggle]');
+
+		const setSound = (sound, persist = false) => {
+			const nextSound = sound === 'off' ? 'off' : 'on';
+			const isSoundOn = nextSound === 'on';
+			applySound(nextSound);
+
+			if (soundToggle) {
+				soundToggle.setAttribute('aria-pressed', isSoundOn ? 'true' : 'false');
+				soundToggle.setAttribute('aria-label', isSoundOn ? 'Mute sounds' : 'Unmute sounds');
+				soundToggle.setAttribute('title', isSoundOn ? 'Mute sounds' : 'Unmute sounds');
+			}
+
+			if (persist) {
+				if (canPersistStorage) {
+					setStoredSound(nextSound);
+				}
+				setNameSound(nextSound);
+			}
+		};
+
+		const userSound = getUserSound();
+		setSound(userSound || 'on');
+
+		if (soundToggle) {
+			soundToggle.addEventListener('click', () => {
+				const currentSound = root.getAttribute('data-sound') === 'off' ? 'off' : 'on';
+				const nextSound = currentSound === 'on' ? 'off' : 'on';
+
+				if (nextSound === 'off') {
+					playInterfaceSound('toggle_off.wav', { force: true });
+					setSound(nextSound, true);
+					return;
+				}
+
+				setSound(nextSound, true);
+				playInterfaceSound('toggle_on.wav', { force: true });
 			});
 		}
+	};
+
+	const initButtonSounds = () => {
+		const resolveButton = (target) => {
+			if (!(target instanceof Element)) {
+				return null;
+			}
+			return target.closest('button');
+		};
+
+		const resolveLink = (target) => {
+			if (!(target instanceof Element)) {
+				return null;
+			}
+			return target.closest('a[href]');
+		};
+
+		const isManagedToggle = (button) => button.matches('[data-theme-toggle], [data-sound-toggle]');
+
+		document.addEventListener('pointerdown', (event) => {
+			const button = resolveButton(event.target);
+			if (button) {
+				if (button.disabled || isManagedToggle(button)) {
+					return;
+				}
+				if (event.pointerType === 'mouse' && event.button !== 0) {
+					return;
+				}
+				playInterfaceSound('tap_05.wav');
+				return;
+			}
+
+			const link = resolveLink(event.target);
+			if (!link) {
+				return;
+			}
+			if (event.pointerType === 'mouse' && event.button !== 0) {
+				return;
+			}
+			playInterfaceSound('tap_04.wav');
+		}, true);
+
+		document.addEventListener('keydown', (event) => {
+			if (event.repeat) {
+				return;
+			}
+
+			const button = resolveButton(event.target);
+			if (button) {
+				if (button.disabled || isManagedToggle(button)) {
+					return;
+				}
+				if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') {
+					return;
+				}
+				playInterfaceSound('tap_05.wav');
+				return;
+			}
+
+			const link = resolveLink(event.target);
+			if (!link) {
+				return;
+			}
+			if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') {
+				return;
+			}
+			playInterfaceSound('tap_04.wav');
+		}, true);
+	};
+
+	const initSelectionSounds = () => {
+		const checkedRadioByGroup = new Map();
+
+		const getRadioGroupKey = (radio) => {
+			const form = radio.form;
+			let formKey = 'document';
+			if (form) {
+				if (form.id) {
+					formKey = `form#${form.id}`;
+				} else {
+					const forms = Array.from(document.forms);
+					const formIndex = forms.indexOf(form);
+					formKey = `form@${formIndex}`;
+				}
+			}
+			const groupName = radio.name || '__unnamed__';
+			return `${formKey}::${groupName}`;
+		};
+
+		document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
+			checkedRadioByGroup.set(getRadioGroupKey(radio), radio);
+		});
+
+		document.addEventListener('change', (event) => {
+			const target = event.target;
+			if (!(target instanceof HTMLInputElement) || target.disabled) {
+				return;
+			}
+
+			if (target.type === 'checkbox') {
+				playInterfaceSound('select.wav');
+				return;
+			}
+
+			if (target.type !== 'radio') {
+				return;
+			}
+
+			const groupKey = getRadioGroupKey(target);
+			const previous = checkedRadioByGroup.get(groupKey);
+			if (previous && previous !== target) {
+				// Previous option in this radio group became deselected.
+				playInterfaceSound('select.wav');
+			}
+
+			if (target.checked) {
+				playInterfaceSound('select.wav');
+				checkedRadioByGroup.set(groupKey, target);
+			}
+		}, true);
+	};
+
+	const initDetailsSounds = () => {
+		document.addEventListener('toggle', (event) => {
+			const details = event.target;
+			if (!(details instanceof HTMLDetailsElement)) {
+				return;
+			}
+			playInterfaceSound(details.open ? 'tap_01.wav' : 'tap_02.wav');
+		}, true);
 	};
 
 	const initDialogs = () => {
@@ -419,6 +711,39 @@
 
 			dialog.addEventListener('close', () => {
 				dialog.classList.remove('is-visible', 'is-closing');
+			});
+		});
+	};
+
+	const initBackToTopLinks = () => {
+		const topLinks = document.querySelectorAll('a[href="#Top"]');
+		if (!topLinks.length) {
+			return;
+		}
+
+		const scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			? 'auto'
+			: 'smooth';
+
+		topLinks.forEach((link) => {
+			link.addEventListener('click', (event) => {
+				if (
+					event.defaultPrevented
+					|| event.button !== 0
+					|| event.metaKey
+					|| event.ctrlKey
+					|| event.shiftKey
+					|| event.altKey
+				) {
+					return;
+				}
+
+				event.preventDefault();
+				window.scrollTo({
+					top: 0,
+					left: 0,
+					behavior: scrollBehavior
+				});
 			});
 		});
 	};
@@ -632,7 +957,12 @@
 		initClock();
 		initFormValidation();
 		initThemeToggle();
+		initSoundToggle();
+		initButtonSounds();
+		initSelectionSounds();
+		initDetailsSounds();
 		initDialogs();
+		initBackToTopLinks();
 		initCodeCopy();
 		initDeviceMockupScrollbars();
 		initShyHeader();

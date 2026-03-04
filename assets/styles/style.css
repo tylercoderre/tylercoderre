@@ -403,16 +403,16 @@ a:hover::after {
 	background-color: var(--tc-link);
 }
 
-a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download]),
-a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download]) {
+a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions),
+a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions) {
 	/* Keep the icon attached to the link text on wrap */
 	display: inline-flex;
 	align-items: center;
 	gap: 0.3em;
 }
 
-a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download])::before,
-a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download])::before {
+a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions)::before,
+a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions)::before {
 	content: "\e09f";
 	font: var(--fa-font-sharp-regular);
 	font-size: 0.75em;
@@ -1354,6 +1354,12 @@ footer {
 	padding-right: calc(50vw - 50%);
 }
 
+/* Hide external-link icon for social links in the main site footer */
+body > footer a[target="_blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions)::before,
+body > footer a[target="blank"]:not(:has(> img)):not(:has(> button)):not([download]):not(.link--actions)::before {
+	content: none;
+}
+
 /* Primary Navigation */
 body > header {
 	display: flex;
@@ -1828,7 +1834,7 @@ dialog header button {
 	margin-left: 0;
 }
 
-.list--catalog li {
+.list--catalog > li {
 	display: block;
 	align-items: initial;
 	gap: 0;
@@ -1839,7 +1845,7 @@ dialog header button {
 	margin-left: 0;
 }
 
-.list--catalog li::before {
+.list--catalog > li::before {
 	content: none;
 	display: none;
 }
@@ -1854,12 +1860,16 @@ dialog header button {
 	color: var(--tc-text);
 }
 
-.list--catalog li:last-child {
+.list--catalog > li:last-child {
 	margin-bottom: 0;
 }
 
-.list--catalog li > * {
+.list--catalog > li > * {
 	margin-bottom: 0;
+}
+
+.list--catalog > li > p ~ p {
+	font-size: 0.875rem;
 }
 
 dialog section {
@@ -1893,6 +1903,12 @@ dialog section {
 	100% {
 		outline-color: transparent;
 		outline-offset: 0.4rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.link--actions::before {
+		animation: none;
 	}
 }
 
@@ -2067,7 +2083,8 @@ dialog header a[data-dialog-close]:focus:not(:focus-visible) {
 
 
 /* Primary Navigation */
-body > header button[data-theme-toggle] {
+body > header button[data-theme-toggle],
+body > header button[data-sound-toggle] {
 	border: 1px solid transparent;
 	background: transparent;
 	padding: 0;
@@ -2079,29 +2096,46 @@ body > header button[data-theme-toggle] {
 	place-items: center;
 	font-size: 0.875rem;
 	border-radius: 2rem;
-	margin-left: auto;
 	overflow: visible;
 	position: relative;
 	transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-html:not([data-theme]) body > header button[data-theme-toggle] {
+/* Primary Navigation */
+body > header button[data-sound-toggle] {
+	margin-left: auto;
+}
+
+/* Primary Navigation */
+body > header button[data-theme-toggle] {
+	margin-left: 1rem;
+}
+
+html:not([data-theme]) body > header button[data-theme-toggle],
+html:not([data-theme]) body > header button[data-sound-toggle] {
+	display: none;
+}
+
+html:not(.js) body > header button[data-sound-toggle] {
 	display: none;
 }
 
 /* Primary Navigation */
-body > header button[data-theme-toggle] i {
+body > header button[data-theme-toggle] i,
+body > header button[data-sound-toggle] i {
 	font-size: 0.95rem;
 	line-height: 1;
 }
 
 /* Primary Navigation */
-body > header button[data-theme-toggle]::after {
+body > header button[data-theme-toggle]::after,
+body > header button[data-sound-toggle]::after {
 	content: none;
 }
 
 /* Primary Navigation */
-body > header button[data-theme-toggle]:hover {
+body > header button[data-theme-toggle]:hover,
+body > header button[data-sound-toggle]:hover {
 	background: transparent;
 	color: var(--tc-text);
 	border-color: transparent;
@@ -2109,14 +2143,16 @@ body > header button[data-theme-toggle]:hover {
 
 /* Primary Navigation */
 body > header button[data-theme-toggle]:focus,
-/* Primary Navigation */
-body > header button[data-theme-toggle]:focus-visible {
+body > header button[data-theme-toggle]:focus-visible,
+body > header button[data-sound-toggle]:focus,
+body > header button[data-sound-toggle]:focus-visible {
 	background: transparent;
 	color: var(--tc-text);
 	border-color: transparent;
 }
 
-nav button[data-theme-toggle] [data-theme-icon] {
+nav button[data-theme-toggle] [data-theme-icon],
+nav button[data-sound-toggle] [data-sound-icon] {
 	grid-area: 1 / 1;
 	display: inline-flex;
 	align-items: center;
@@ -2131,6 +2167,14 @@ html[data-theme="dark"] nav button[data-theme-toggle] [data-theme-icon="light"] 
 }
 
 html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="dark"] {
+	opacity: 1;
+}
+
+html:not([data-sound="off"]) nav button[data-sound-toggle] [data-sound-icon="on"] {
+	opacity: 1;
+}
+
+html[data-sound="off"] nav button[data-sound-toggle] [data-sound-icon="off"] {
 	opacity: 1;
 }
 
@@ -2173,7 +2217,24 @@ html:not([data-theme="dark"]) nav button[data-theme-toggle] [data-theme-icon="da
 		opacity: 1;
 	}
 
-	body > header button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon] {
+	html:not([data-sound="off"]) nav button[data-sound-toggle]:is(:hover, :focus-visible) [data-sound-icon="on"] {
+		opacity: 0;
+	}
+
+	html:not([data-sound="off"]) nav button[data-sound-toggle]:is(:hover, :focus-visible) [data-sound-icon="off"] {
+		opacity: 1;
+	}
+
+	html[data-sound="off"] nav button[data-sound-toggle]:is(:hover, :focus-visible) [data-sound-icon="off"] {
+		opacity: 0;
+	}
+
+	html[data-sound="off"] nav button[data-sound-toggle]:is(:hover, :focus-visible) [data-sound-icon="on"] {
+		opacity: 1;
+	}
+
+	body > header button[data-theme-toggle]:is(:hover, :focus-visible) [data-theme-icon],
+	body > header button[data-sound-toggle]:is(:hover, :focus-visible) [data-sound-icon] {
 		transform: rotate(15deg);
 	}
 }
@@ -2213,9 +2274,7 @@ pre {
 	/* The main preformatted style. This is changed slightly across different cases. */
 	background: var(--tc-background);
 	border: 1px solid var(--tc-border);
-	border-radius: 4px;
-	corner-shape: squircle;
-	padding: 3px 6px;
+	padding: 1px 4px;
 	font-size: 0.875rem;
 }
 
@@ -3392,7 +3451,7 @@ section > header + .device-pair {
 	box-sizing: border-box;
 }
 
-#projects > .media--pair, #writing > .media--pair {
+#projects > .media--pair, #writing > .media--pair, #resources > .media--pair {
 	width: 100%;
 	position: static;
 	left: auto;

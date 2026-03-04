@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Guidelines I Actually Use - Tyler Coderre</title>
+    <meta name="description" content="A concise set of interface, form, content, performance, and visual design guidelines I use across accessible product and design systems work.">
+    <meta name="keywords" content="Tyler, Coderre, Tyler Coderre, UX Design, UX Designer, Product Design, Product Designer, Accessibility, Web Design, Web Accessibility, UI/UX">
+    <meta property="og:title" content="Interface Guidelines I Actually Use - Tyler Coderre">
+    <meta property="og:url" content="https://tylercoderre.com/writing/interface-guidelines.html">
+    <meta property="og:description" content="A concise set of interface, form, content, performance, and visual design guidelines I use across accessible product and design systems work.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/og-image.jpg">
+    <link rel="canonical" href="https://tylercoderre.com/writing/interface-guidelines.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interface Guidelines I Actually Use - Tyler Coderre">
+    <meta name="twitter:description" content="A concise set of interface, form, content, performance, and visual design guidelines I use across accessible product and design systems work.">
+    <meta name="twitter:image" content="../assets/images/og-image.jpg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "name": "Interface Guidelines I Actually Use",
+            "description": "A concise set of interface, form, content, performance, and visual design guidelines I use across accessible product and design systems work.",
+            "author": {
+                "@type": "Person",
+                "name": "Tyler Coderre",
+                "url": "https://tylercoderre.com/about.html"
+            },
+            "url": "https://tylercoderre.com/writing/interface-guidelines.html",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://tylercoderre.com/writing/interface-guidelines.html"
+            },
+            "image": "https://tylercoderre.com/assets/images/og-image.jpg",
+            "headline": "Interface Guidelines I Actually Use.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Coderre Design",
+                "url": "https://tylercoderre.com/coderre-design.html"
+            }
+        }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#888888">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="theme-color" content="hsla(0, 0, 0, 0)">
+        <script src="../assets/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header id="Top">
+    <a href="../index.html" aria-label="Home">Tyler Coderre</a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" data-sound-toggle aria-label="Mute sounds" aria-pressed="true">
+            <i class="fa-sharp fa-regular fa-volume" data-sound-icon="on" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-volume-slash" data-sound-icon="off" aria-hidden="true"></i>
+        </button>
+        <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
+        </button>
+    </nav>
+</header>
+
+    <main id="content" tabindex="-1">
+
+    <section>
+        <h1>Interface Guidelines I Actually Use.</h1>
+        <p>This started as an adaptation of <a href="https://vercel.com/design/guidelines">Vercel's Web Interface Guidelines</a>, but rewritten from my point of view, re-ordered to match how I think, and tightened around the kind of product, accessibility, and design systems work I actually do. It lives somewhere between <a href="how-i-do-design.html">How I Do Design</a> and my <a href="../projects/design-systems-checklist.html">Design Systems Checklist</a>: less process than the first, less implementation inventory than the second.</p>
+        <p>I keep it short on purpose. These are defaults, not commandments. On accessibility, my target is <code>WCAG 2.2 AA</code> at minimum and <code>AAA</code> when the product, timeline, and platform let me get there without breaking the work. Where a line item maps cleanly to WCAG, I cite it inline.</p>
+    </section>
+
+    <section>
+        <h2>Interaction.</h2>
+        <ul>
+            <li><strong>Keyboard works everywhere.</strong> I treat <a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html">WCAG 2.2 SC 2.1.1</a> as the floor and aim for <a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html">SC 2.1.3</a> when the interaction allows it. If I have to build a custom widget, it should follow an established keyboard pattern instead of inventing a new one.</li>
+            <li><strong>No keyboard traps.</strong> Dialogs, drawers, menus, and custom widgets need a clear exit path and should respect <a href="https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html">WCAG 2.2 SC 2.1.2</a>.</li>
+            <li><strong>Focus has to be obvious.</strong> I prefer <code>:focus-visible</code> over <code>:focus</code>, use <code>:focus-within</code> for grouped controls, meet <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible">SC 2.4.7</a> at minimum, and push toward <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance">SC 2.4.13</a> when I can.</li>
+            <li><strong>Focused UI should stay visible.</strong> Sticky bars, drawers, and overlays should not cover the active control; that is the floor of <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">SC 2.4.11</a> and the enhanced version in <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">SC 2.4.12</a>.</li>
+            <li><strong>Manage focus on purpose.</strong> When something opens, closes, or changes mode, focus should move intentionally and return where it makes sense.</li>
+            <li><strong>Match visual and hit targets.</strong> I use <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">24 by 24 CSS pixels</a> as the WCAG 2.2 AA minimum and try to approach the stricter <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html">Target Size (Enhanced)</a> bar when space allows.</li>
+            <li><strong>If the visual target is small, the hit area should still be generous.</strong></li>
+            <li><strong>Mobile text inputs stay at <code>16px</code> or larger.</strong> I do not want iOS zoom hacks to become part of the interaction.</li>
+            <li><strong>Respect zoom and reflow.</strong> I never disable zoom and I expect the layout to hold up under <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow">WCAG 2.2 SC 1.4.10</a> and <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text">SC 1.4.4</a>.</li>
+            <li><strong>Inputs cannot lose focus or value during hydration or client-side updates.</strong></li>
+            <li><strong>Never block paste.</strong></li>
+            <li><strong>Loading buttons keep their original label.</strong> I add a progress cue, but I do not replace meaning with a spinner alone.</li>
+            <li><strong>Loading states should avoid flicker.</strong> If I use a spinner or skeleton, I give it a short delay and a minimum visible duration.</li>
+            <li><strong>State that matters belongs in the URL.</strong></li>
+            <li><strong>Deep-link filters, tabs, pagination, and expanded panels.</strong> If someone can arrive there, share it, or come back to it, I try to encode it.</li>
+            <li><strong>Optimistic updates need a rollback path.</strong> Success can appear early, but failure still needs a clear recovery route.</li>
+            <li><strong>Follow-up actions and active processing states end with <code>&hellip;</code>.</strong></li>
+            <li><strong>Destructive actions need confirmation or a forgiving <code>Undo</code> window.</strong></li>
+            <li><strong>Tap-heavy controls usually get <code>touch-action: manipulation</code>.</strong></li>
+            <li><strong>I set <code>-webkit-tap-highlight-color</code> deliberately.</strong></li>
+            <li><strong>Design forgiving interactions.</strong> That usually means larger hit areas, fewer finicky gaps, and clearer states.</li>
+            <li><strong>Delay the first tooltip, then speed up peers.</strong> If hover or focus reveals extra content, it also needs to respect <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">WCAG 2.2 SC 1.4.13</a>.</li>
+            <li><strong>Use <code>overscroll-behavior: contain</code> intentionally.</strong> Especially in modals and drawers.</li>
+            <li><strong>Back and Forward should restore useful scroll positions.</strong></li>
+            <li><strong>Autofocus only when it genuinely speeds up the primary task.</strong> Usually desktop, rarely mobile.</li>
+            <li><strong>No dead zones.</strong> If part of the control looks clickable, it should be clickable.</li>
+            <li><strong>Drag interactions need cleanup.</strong> I disable accidental selection and side interactions while something is being dragged.</li>
+            <li><strong>Links are links.</strong> Navigation gets <code>&lt;a&gt;</code>, not a fake button.</li>
+            <li><strong>Async updates should be announced.</strong> Toasts, inline validation, and important background changes should respect <a href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages">WCAG 2.2 SC 4.1.3</a>.</li>
+            <li><strong>Shortcut systems need to respect locale and speech input.</strong> If I use printable-character shortcuts, they still have to satisfy <a href="https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts">WCAG 2.2 SC 2.1.4</a>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Forms.</h2>
+        <ul>
+            <li><strong><code>Enter</code> submits when there is one obvious next step.</strong></li>
+            <li><strong>Inside a <code>textarea</code>, <code>Enter</code> adds a line and <code>Cmd/Ctrl+Enter</code> can submit.</strong></li>
+            <li><strong>Every control needs a real label.</strong> That is baseline <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions">WCAG 2.2 SC 3.3.2</a>.</li>
+            <li><strong>Clicking the label should activate the control.</strong></li>
+            <li><strong>I keep submit enabled until submission actually starts.</strong> Then I disable it, show progress, and use idempotency protection when duplicate submissions would hurt.</li>
+            <li><strong>Do not block typing just because validation is strict.</strong> Let people enter, then explain the problem in text.</li>
+            <li><strong>Do not pre-disable submit.</strong> A submitted form is often the clearest place to surface validation feedback.</li>
+            <li><strong>Checkboxes, radios, and toggles need generous shared hit areas.</strong></li>
+            <li><strong>Errors belong next to the field.</strong> On submit, I also move focus to the first relevant error and align with <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification">WCAG 2.2 SC 3.3.1</a> and <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html">SC 3.3.3</a>.</li>
+            <li><strong>Use <code>autocomplete</code> and meaningful <code>name</code> values.</strong> That supports autofill and lines up with <a href="https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose">WCAG 2.2 SC 1.3.5</a>.</li>
+            <li><strong>Disable spellcheck selectively.</strong> Emails, codes, usernames, and token fields usually should not be "helped".</li>
+            <li><strong>Use the right <code>type</code> and <code>inputmode</code>.</strong></li>
+            <li><strong>Placeholders mean empty.</strong> They usually end with <code>&hellip;</code> and show an example, not a label.</li>
+            <li><strong>Placeholder content should model the expected pattern.</strong></li>
+            <li><strong>Warn before someone loses unsaved work.</strong></li>
+            <li><strong>Password managers and one-time codes need to work.</strong> I do not fight them, and I always allow pasting authentication codes.</li>
+            <li><strong>Do not accidentally trigger password managers on unrelated fields.</strong></li>
+            <li><strong>Trim trailing whitespace before validation.</strong> Invisible junk should not generate visible confusion.</li>
+            <li><strong>On Windows, native <code>&lt;select&gt;</code> elements get explicit foreground and background colors.</strong></li>
+            <li><strong>Ask for the minimum information you actually need.</strong></li>
+            <li><strong>Read-only values should usually still be selectable and copyable.</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Motion.</h2>
+        <ul>
+            <li><strong>Honor <code>prefers-reduced-motion</code>.</strong> That is both a product rule for me and a direct path toward <a href="https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions">WCAG SC 2.3.3</a>.</li>
+            <li><strong>I start with <code>CSS</code> for animation.</strong> My preference is <code>CSS &gt; WAAPI &gt; JavaScript libraries</code>.</li>
+            <li><strong>Favor compositor-friendly properties.</strong> <code>transform</code> and <code>opacity</code> usually age better than layout-driven animation.</li>
+            <li><strong>Animation should earn its keep.</strong> If it does not clarify state, continuity, or hierarchy, I usually cut it.</li>
+            <li><strong>Easing should fit the subject.</strong> Size, weight, distance, and trigger all matter.</li>
+            <li><strong>Animations should be interruptible.</strong></li>
+            <li><strong>Motion should usually be input-driven, not autoplay spectacle.</strong></li>
+            <li><strong>Set <code>transform-origin</code> on purpose.</strong></li>
+            <li><strong>Never use <code>transition: all</code>.</strong></li>
+            <li><strong>SVG transforms still deserve cross-browser testing.</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Layout.</h2>
+        <ul>
+            <li><strong>Optical alignment beats mathematical alignment when the two disagree.</strong></li>
+            <li><strong>Everything should align with something on purpose.</strong></li>
+            <li><strong>Text and icons need balancing, not just centering.</strong></li>
+            <li><strong>Test responsive behavior across mobile, laptop, and very wide screens.</strong> I also care about how it behaves at <code>400%</code> zoom under <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow">WCAG 2.2 SC 1.4.10</a>.</li>
+            <li><strong>Respect safe areas and platform insets.</strong></li>
+            <li><strong>Only render useful scrollbars.</strong> Accidental overflow is usually a layout bug.</li>
+            <li><strong>Let the browser size things.</strong> I prefer flex, grid, and intrinsic sizing over JavaScript measurement when possible.</li>
+            <li><strong>Avoid magic numbers.</strong> Spacing and offsets should describe a relationship, not a lucky guess.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Content and semantics.</h2>
+        <ul>
+            <li><strong>Inline help comes first.</strong> Tooltips are a fallback, not the primary way to understand the interface.</li>
+            <li><strong>Skeletons should mirror the final layout.</strong></li>
+            <li><strong>Page titles should match the current context.</strong> That is basic <a href="https://www.w3.org/WAI/WCAG22/Understanding/page-titled">WCAG 2.2 SC 2.4.2</a>.</li>
+            <li><strong>No dead ends.</strong> Every screen should give people a next step or a recovery path.</li>
+            <li><strong>Design all the states.</strong> Empty, sparse, dense, loading, and error all count.</li>
+            <li><strong>I prefer typographic quotes when the context supports them.</strong></li>
+            <li><strong>Avoid widows and ugly line breaks.</strong></li>
+            <li><strong>Use tabular figures when people are comparing numbers.</strong></li>
+            <li><strong>Do not rely on color alone.</strong> Status, charts, and selection states should satisfy <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color">WCAG 2.2 SC 1.4.1</a>.</li>
+            <li><strong>Icons need text equivalents.</strong> Decorative icons get hidden, meaningful icons get names, and icon-only controls need a real accessible name.</li>
+            <li><strong>Even if the visual UI omits a visible label, the accessible name still has to exist.</strong> That is part of <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value">SC 4.1.2</a>.</li>
+            <li><strong>When there is a visible label, the accessible name should contain it.</strong> That keeps speech interaction aligned with <a href="https://www.w3.org/WAI/WCAG22/Understanding/label-in-name">WCAG 2.2 SC 2.5.3</a>.</li>
+            <li><strong>Use the ellipsis character <code>&hellip;</code>, not three full stops.</strong></li>
+            <li><strong>Anchored headings need <code>scroll-margin-top</code>.</strong></li>
+            <li><strong>Layouts should survive short, average, and extremely long user-generated content.</strong></li>
+            <li><strong>Dates, times, numbers, and currency should match locale.</strong></li>
+            <li><strong>Language should come from language settings, not guessed location.</strong></li>
+            <li><strong>Verify accessible names, hidden decoration, and region structure in the accessibility tree.</strong></li>
+            <li><strong>Semantics come before <code>ARIA</code>.</strong> I want native elements, then enhancement, not role soup.</li>
+            <li><strong>Headings should be hierarchical and pages should have a skip link.</strong> That supports <a href="https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks">WCAG 2.2 SC 2.4.1</a> and <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels">SC 2.4.6</a>.</li>
+            <li><strong>The logo should do something useful.</strong> At minimum it should get you home, and if brand resources matter, it can be the place to surface them.</li>
+            <li><strong>Use non-breaking spaces for glued terms.</strong> Units, shortcuts, and names often benefit from <code>&amp;nbsp;</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Performance.</h2>
+        <ul>
+            <li><strong>Test across a real device and browser matrix.</strong> I care about lower-power mobile states and Safari, not just my development machine.</li>
+            <li><strong>Measure in a clean environment.</strong> Extensions and debug tooling can distort the numbers.</li>
+            <li><strong>Track re-renders and make them cheap.</strong></li>
+            <li><strong>Throttle CPU and network when profiling.</strong></li>
+            <li><strong>Minimize layout work.</strong> Batch reads and writes, and avoid unnecessary reflow.</li>
+            <li><strong>Write operations should feel fast.</strong> I like <code>POST</code>, <code>PATCH</code>, and <code>DELETE</code> paths to complete in under about <code>500ms</code> when the product allows it.</li>
+            <li><strong>Keystrokes should stay cheap.</strong> Controlled inputs are fine when they are actually cheap enough.</li>
+            <li><strong>Virtualize large collections when it helps.</strong> I do not do it blindly, because accessibility and find-in-page still matter.</li>
+            <li><strong>Preload only what the first screen truly needs.</strong> Everything else should arrive later or lazy-load without getting in the way.</li>
+            <li><strong>Images should not cause layout shift.</strong> Reserve space up front.</li>
+            <li><strong>Preconnect to important origins.</strong></li>
+            <li><strong>Preload critical fonts if they matter to layout or brand.</strong></li>
+            <li><strong>Subset fonts to the scripts and ranges you actually use.</strong></li>
+            <li><strong>Move expensive work off the main thread when needed.</strong></li>
+            <li><strong>Measure before optimizing.</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Visual design.</h2>
+        <ul>
+            <li><strong>Shadows work better in layers.</strong></li>
+            <li><strong>Borders and shadows usually work better together than either one alone.</strong></li>
+            <li><strong>Nested radii step down as layers move inward.</strong></li>
+            <li><strong>Hue consistency matters.</strong> Borders, shadows, and text usually look better when they acknowledge the base surface hue.</li>
+            <li><strong>Charts need more than a pretty palette.</strong> They should use color-blind-safe choices and still satisfy <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color">SC 1.4.1</a> and <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast">SC 1.4.11</a>.</li>
+            <li><strong>My contrast floor is <code>WCAG 2.2 AA</code>.</strong> That means at least <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum">SC 1.4.3</a> for text and <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast">SC 1.4.11</a> for UI. When I can, I push toward <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced">SC 1.4.6</a> and stronger focus styling.</li>
+            <li><strong>Interactive states should increase contrast, not weaken it.</strong></li>
+            <li><strong>The browser's theme color should match the page background intentionally.</strong></li>
+            <li><strong>Set <code>color-scheme</code> correctly.</strong> Native scrollbars and form controls should not fight the theme.</li>
+            <li><strong>If scaling text creates rendering artifacts, animate a wrapper instead of the text node.</strong></li>
+            <li><strong>Watch for gradient banding, especially into dark surfaces.</strong></li>
+            <li><strong>Hierarchy should come from contrast, spacing, scale, and proportion working together.</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Copy and language.</h2>
+        <ul>
+            <li><strong>Prefer active voice.</strong></li>
+            <li><strong>Be clear and concise.</strong> Fewer words usually make the interface stronger.</li>
+            <li><strong>Buttons and labels should say what happens.</strong> I want <code>Create account</code>, not <code>Submit</code>.</li>
+            <li><strong>Keep nouns consistent.</strong> Do not rename the same thing every two screens.</li>
+            <li><strong>I write to the person using the interface as <code>you</code>.</strong> On portfolio and service pages, I still use <code>I</code> when I am talking about my own practice.</li>
+            <li><strong>I default to sentence case for headings and buttons.</strong> If a product system uses another casing model, I keep it consistent.</li>
+            <li><strong>Choose between <code>and</code> and <code>&amp;</code> deliberately.</strong> In my own body copy I usually spell it out; in tighter UI I may use <code>&amp;</code> if space is real.</li>
+            <li><strong>Use consistent placeholders and examples.</strong></li>
+            <li><strong>Use numerals where counts and scanning matter.</strong></li>
+            <li><strong>Keep currency formatting consistent within a context.</strong></li>
+            <li><strong>Separate numbers and units with a space.</strong> I usually make it a non-breaking one.</li>
+            <li><strong>Default to constructive language.</strong> Even error states should help, not just scold.</li>
+            <li><strong>Error messages need to explain the exit.</strong> If I know the fix, I should tell you.</li>
+            <li><strong>Avoid ambiguous labels.</strong> The more consequential the action, the more specific the label should be.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>How I apply this.</h2>
+        <ul>
+            <li><strong>I name my practice areas plainly.</strong> Product design, accessibility, design systems, enterprise UX, front-end, and research each set different expectations.</li>
+            <li><strong>I try to name real deliverables.</strong> Audits, inventories, prototypes, documentation, and handoff-ready patterns are more useful than vague promises.</li>
+            <li><strong>I keep portfolio and service copy short.</strong> The proof should do most of the talking.</li>
+            <li><strong>I try to be honest about constraints.</strong> Scope, timelines, engineering reality, and team maturity are part of the design problem.</li>
+            <li><strong>I prefer plain language over agency language.</strong></li>
+            <li><strong>I like connective tissue between pages.</strong> If you want the process version, read <a href="how-i-do-design.html">How I Do Design</a>. If you want the implementation-side checklist, use the <a href="../projects/design-systems-checklist.html">Design Systems Checklist</a>.</li>
+            <li><strong>I write like a designer who has to ship.</strong> That usually means less theater, more clarity, and a stronger respect for front-end reality.</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Put It to Work.</h2>
+        <h3>Read <a href="how-i-do-design.html">How I Do Design</a>, run through the <a href="../projects/design-systems-checklist.html">Design Systems Checklist</a>, browse my <a href="#all-work-dialog" data-dialog-open="all-work-dialog">Case Studies</a>, or reach out if you want help applying this to a real product.</h3>
+        <p>You can contact and connect with me through <a href="mailto:tyler@tylercoderre.com" class="link link--inline">email</a>, on <a href="https://dribbble.com/CoderreDesign" target="_blank" class="link link--inline" rel="noopener noreferrer">Dribbble</a>, or <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" class="link link--inline" rel="noopener noreferrer">LinkedIn</a> as well.</p>
+
+        <form method="post" action="https://forms.un-static.com/forms/fa71854ede5e1b4202b460f25a65d461710e7a57">
+            <label for="name" class="required-field">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" enterkeyhint="next" required aria-required="true" placeholder="Hello" aria-describedby="name-error">
+            <p id="name-error" class="field-error" role="status" aria-live="polite">Please enter your name.</p>
+            <label for="email" class="required-field">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
+            <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
+            <label for="message" enterkeyhint="send" class="required-field">Message</label>
+            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10"></textarea>
+            <div class="g-recaptcha" data-sitekey="6LcdBVEsAAAAAN6tSzyR3GIUkPqkMJQkOxoK-CbS"></div>
+            <noscript>
+                <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
+            </noscript>
+            <button>Send</button>
+        </form>
+
+    </section>
+
+    <dialog id="all-work-dialog" aria-labelledby="all-work-title">
+        <form method="dialog">
+            <header>
+                <h2 id="all-work-title">Case Studies.</h2>
+                <button type="button" data-dialog-close>Close</button>
+            </header>
+            <section>
+                <p><strong>Featured</strong><sup>6</sup></p>
+                <ul class="list--catalog">
+                    <li>
+                        <p><a href="../work/healthcare-search-platform.html">Healthcare Search Platform</a></p>
+                        <cite>Accessibility · Design Systems · Development · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/design-systems.html">Saas Experience and Enterprise Design System</a></p>
+                        <cite>Accessibility · Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/itx.html">ITX</a></p>
+                        <cite>Accessibility · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/paychex.html">Paychex</a> <sup>Limited</sup> <sup>Awarded</sup></p>
+                        <cite>Accessibility · Graphic Design · UI + UX · UX Research</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/coderredesign.html">Coderre Design</a></p>
+                        <cite>Branding · Development · Graphic Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/trocaire-college.html">Trocaire College</a><sup>Awarded</sup></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+                <p><strong>Case Study Archive</strong><sup>18</sup></p>
+                <cite>Some studies are linked; others are available on request.</cite>
+                <ul class="list--catalog">
+                    <li>
+                        <p><a href="../work/19-ideas.html">19 IDEAS</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>A Jaunt With Joy</p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>Arounja</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/buffalo-niagara-medical-campus.html">Buffalo Niagara Medical Campus</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p>DanandKat.ie</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/green-power-energy.html">Green Power Energy</a></p>
+                        <cite>Branding · Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/hodgson-russ.html">Hodgson Russ</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/independent-health.html">Independent Health</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/kore-marketing-agency.html">Kore Marketing</a></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/labatt-blue-and-zubaz.html">Labatt + Zubaz</a> <sup>Awarded</sup></p>
+                        <cite>Design · Product Design · Packaging Design</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/mike-cardus.html">Organization Development by Mike Cardus</a></p>
+                        <cite>Branding · Design · Packaging Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/person-centered-services.html">Person Centered Services</a><sup>Awarded</sup></p>
+                        <cite>Branding · Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/roar-logistics.html">ROAR Logistics</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p>SAMCO Technologies</p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/savarino-companies.html">Savarino Companies</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/storillo.html">Storillo</a></p>
+                        <cite>Design · UI + UX · Development</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/university-at-buffalo.html">University at Buffalo</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                    <li>
+                        <p><a href="../work/walsh-duffield.html">Walsh Duffield</a></p>
+                        <cite>Design · UI + UX</cite>
+                    </li>
+                </ul>
+            </section>
+        </form>
+    </dialog>
+
+    </main>
+
+<footer>
+        <p><a class="link--top" href="#Top">Back to the top</a></p>
+        <p><small>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a> + <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" rel="noopener noreferrer">LinkedIn</a> + <a href="https://bsky.app/profile/tyco.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></small></p>
+    </footer>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</body>
+</html>

@@ -16,6 +16,37 @@
     <meta name="twitter:title" content="Trocaire College Case Study - Tyler Coderre">
     <meta name="twitter:description" content="A higher educated web presence for Trocaire College with a new site and messaging.">
     <meta name="twitter:image" content="../assets/images/og-image.jpg">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Trocaire College Case Study",
+            "description": "A higher educated web presence for Trocaire College with a new site and messaging.",
+            "author": {
+                "@type": "Person",
+                "name": "Tyler Coderre",
+                "url": "https://tylercoderre.com/about.html"
+            },
+            "url": "https://tylercoderre.com/work/trocaire-college.html",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://tylercoderre.com/work/trocaire-college.html"
+            },
+            "image": "https://tylercoderre.com/assets/images/og-image.jpg",
+            "headline": "A Higher Educated Web Presence.",
+            "genre": "Case Study",
+            "creator": {
+                "@type": "Person",
+                "name": "Tyler Coderre",
+                "url": "https://tylercoderre.com/about.html"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Coderre Design",
+                "url": "https://tylercoderre.com/coderre-design.html"
+            }
+        }
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -40,6 +71,10 @@
             <li><a href="../index.html#work">Work</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
         </ul>
+        <button type="button" data-sound-toggle aria-label="Mute sounds" aria-pressed="true">
+            <i class="fa-sharp fa-regular fa-volume" data-sound-icon="on" aria-hidden="true"></i>
+            <i class="fa-sharp fa-regular fa-volume-slash" data-sound-icon="off" aria-hidden="true"></i>
+        </button>
         <button type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
             <i class="fa-sharp fa-regular fa-lightbulb-slash" data-theme-icon="light" aria-hidden="true"></i>
             <i class="fa-sharp fa-regular fa-lightbulb-on" data-theme-icon="dark" aria-hidden="true"></i>
@@ -225,22 +260,6 @@
     </figure>
 </section>
 
-    <!-- CASE STUDY NAV -->
-    <section aria-labelledby="more-work-title">
-        <article>
-            <header>
-                <figure class="dotted">
-                    <i class="fa-sharp fa-regular fa-folder-closed" aria-hidden="true" style="font-size: 2rem; margin: 1rem 0.75rem;"></i>
-                </figure>
-                <h3 id="more-work-title">Keep Exploring.</h3>
-                <p>Discover more case studies and past projects to see how each solution came together.</p>
-            </header>
-            <footer>
-                <button type="button" data-dialog-open="all-work-dialog">View All Work</button>
-            </footer>
-        </article>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact">
         <h2>Still Curious?</h2>
@@ -257,7 +276,7 @@
             <input type="email" id="email" name="email" autocomplete="email" enterkeyhint="next" inputmode="email" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="How should I reach you?" aria-describedby="email-error">
             <p id="email-error" class="field-error" role="status" aria-live="polite">Please enter a valid email address.</p>
             <label for="message" enterkeyhint="send" class="required-field">Message</label>
-            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10" required></textarea>
+            <textarea name="message" required aria-required="true" placeholder="How can I help?" cols="30" rows="10"></textarea>
             <div class="g-recaptcha" data-sitekey="6LcdBVEsAAAAAN6tSzyR3GIUkPqkMJQkOxoK-CbS"></div>
             <noscript>
                 <p>Spam protection requires JavaScript. Please email me directly if you cannot enable it.</p>
@@ -392,7 +411,8 @@
 
 <footer>
         <p><a class="link--top" href="#Top">Back to the top</a></p>
-        <cite>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a></cite>
+        <!-- Copyright and site links -->
+        <p><small>&#169; Tyler Coderre, all rights reserved <a href="../accessibility.html">Accessibility</a> + <a href="../privacy.html">Privacy</a> + <a href="https://www.linkedin.com/in/tylercoderre/" target="_blank" rel="noopener noreferrer">LinkedIn</a> + <a href="https://bsky.app/profile/tyco.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></small></p>
     </footer>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
